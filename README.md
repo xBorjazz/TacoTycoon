@@ -56,3 +56,9 @@ Character Animations:
 Characters use an AnimatedSprite or similar nodes to play specific animations (e.g., walking, buying, fading out). The PathFollow2D.gd script ensures smooth movement along predefined paths and triggers animations based on events like starting to move, reaching a target, or interacting with objects.
 
 Key moments, such as interacting with the taco stand or reaching the map's edge, initiate animations dynamically. The system ensures smooth transitions, such as pausing for a buying animation and resuming movement afterward, creating fluid and engaging character behavior.
+
+Game Design Document (GDD):
+
+[Game Design Document_CuceiTacoTycoon.pdf](https://github.com/user-attachments/files/18021307/Game.Design.Document_CuceiTacoTycoon.docx.pdf)
+
+The Game Design Document (GDD) for CuceiTacoTycoon outlines the core mechanics, systems, and design principles of the game. It details resource management, UI interactions, animations, and player progression. The document serves as a blueprint for the gameplay experience, describing how inventory, costs, and profits are calculated, alongside technical aspects like class structures, methods, and character behavior within the game.
