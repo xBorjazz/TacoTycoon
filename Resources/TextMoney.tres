@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://csp5ficb0unl2"]
+
+[ext_resource type="FontFile" uid="uid://bb8fhelth47lj" path="res://Fonts/PressStart2P.ttf" id="1_exvp0"]
+
+[resource]
+base_font = ExtResource("1_exvp0")

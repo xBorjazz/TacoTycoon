@@ -1,0 +1,2735 @@
+[gd_scene load_steps=79 format=3 uid="uid://bgeu87psdu4q7"]
+
+[ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
+[ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
+[ext_resource type="Texture2D" uid="uid://bbvyc1fu7sbfk" path="res://Assets/map.png" id="2_pfb1k"]
+[ext_resource type="Texture2D" uid="uid://crp5q8llo14w7" path="res://Assets/upgrades.png" id="3_2of2n"]
+[ext_resource type="Texture2D" uid="uid://xdjw2sewcotp" path="res://Assets/staff.png" id="4_iski0"]
+[ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
+[ext_resource type="Texture2D" uid="uid://c8aqdv4rxv2oo" path="res://Assets/dineros.png" id="5_dkrvr"]
+[ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
+[ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="8_4ymtb"]
+[ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="8_6puqj"]
+[ext_resource type="Script" path="res://TextureButtons.gd" id="8_aiqcm"]
+[ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="11_0cp5q"]
+[ext_resource type="FontVariation" uid="uid://csp5ficb0unl2" path="res://Resources/TextMoney.tres" id="11_d26f3"]
+[ext_resource type="Texture2D" uid="uid://bhkir23qx213u" path="res://Assets/SpriteSheet.png" id="13_3avee"]
+[ext_resource type="Texture2D" uid="uid://c0n2oj2u2bmeo" path="res://Assets/cebolla.png" id="13_fg7v8"]
+[ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="13_lr85u"]
+[ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="14_sf7km"]
+[ext_resource type="Texture2D" uid="uid://cay4c8ds4at1d" path="res://Assets/salsa.png" id="14_tw1se"]
+[ext_resource type="Script" path="res://Character.gd" id="15_1dlpe"]
+[ext_resource type="Texture2D" uid="uid://c0b53jeaeaqu6" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheetCharacter1.png" id="15_lsf5g"]
+[ext_resource type="Texture2D" uid="uid://cssgcoitoki84" path="res://Maps/Cucei/matute.png" id="15_rdn76"]
+[ext_resource type="PackedScene" uid="uid://cv64fr625jf3e" path="res://path_2d.tscn" id="15_ulhv7"]
+[ext_resource type="Script" path="res://Spawner.gd" id="16_tlupj"]
+[ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="16_x07cn"]
+[ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="17_h0tk3"]
+[ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="17_j852r"]
+[ext_resource type="Script" path="res://Panel5Buttons.gd" id="17_x1nb1"]
+[ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
+[ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
+[ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
+[ext_resource type="Texture2D" uid="uid://co6jqdp02lwpf" path="res://Assets/Maps/Cucei/matute.png" id="27_6he24"]
+[ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
+[ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="28_kip63"]
+[ext_resource type="Texture2D" uid="uid://cp44wnic0j3uk" path="res://Assets/Buttons/arrows/bluefadearrow.png" id="29_fw3al"]
+[ext_resource type="Texture2D" uid="uid://diyth22mvcqhx" path="res://Assets/Kenney/PNG/Extra/Double/bar_shadow_round_large.png" id="29_uk266"]
+[ext_resource type="Texture2D" uid="uid://l048vmeo6aki" path="res://Assets/Cilantro.png" id="29_v8tju"]
+[ext_resource type="Texture2D" uid="uid://bxob6vvxy74ck" path="res://Assets/onion.png" id="30_mkeok"]
+[ext_resource type="Texture2D" uid="uid://cxpet8w33y78v" path="res://Assets/Kenney/PNG/Blue/Double/bar_round_gloss_large.png" id="30_pspq3"]
+[ext_resource type="Texture2D" uid="uid://xrjubrw373t4" path="res://Assets/Kenney/Vector/Blue/bar_round_large.svg" id="31_40uyy"]
+[ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="31_p8ujh"]
+[ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="33_ktcl5"]
+[ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="37_2bink"]
+[ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="38_1cona"]
+[ext_resource type="Texture2D" uid="uid://b8847bc164qi2" path="res://Assets/LargeTortillas.png" id="39_jf5gi"]
+[ext_resource type="Texture2D" uid="uid://dv7jnttqsk8sw" path="res://Assets/trompo.png" id="40_phi51"]
+[ext_resource type="Texture2D" uid="uid://dmiphmlrmad0p" path="res://Assets/arrachera.png" id="41_7c3oh"]
+[ext_resource type="Texture2D" uid="uid://b82w0uhgrr3mw" path="res://Assets/costilla.png" id="42_fudh4"]
+[ext_resource type="Texture2D" uid="uid://dg0wv00gdcar2" path="res://Assets/cilantrosmall.png" id="42_mnyhm"]
+[ext_resource type="Texture2D" uid="uid://dtwxeqbhc5smu" path="res://Assets/cilantromedium.png" id="43_62qac"]
+[ext_resource type="Texture2D" uid="uid://cjjk5ladro4dq" path="res://Assets/Money.png" id="44_7dp3l"]
+[ext_resource type="Texture2D" uid="uid://dgrhl0gscpe7i" path="res://Assets/cilantrolarge.png" id="44_gxlrr"]
+[ext_resource type="Texture2D" uid="uid://dwtg05bmavjte" path="res://Assets/Dollars.png" id="45_6pf54"]
+[ext_resource type="Texture2D" uid="uid://dt14js4pegsat" path="res://Assets/singleonion.png" id="46_0ygb7"]
+[ext_resource type="Texture2D" uid="uid://bv1bakvcufx4m" path="res://Assets/buybutton.png" id="46_e1qdg"]
+[ext_resource type="AudioStream" uid="uid://1m4tbdxml6ev" path="res://Resources/Sounds/SoundTrack/PixelDreams.mp3" id="47_0yxof"]
+[ext_resource type="Texture2D" uid="uid://44vr5yyknfm3" path="res://Assets/onionbox.png" id="47_bcn4o"]
+[ext_resource type="Texture2D" uid="uid://vwjsvscdlaby" path="res://Assets/verdesalsita.png" id="47_tx15v"]
+[ext_resource type="AudioStream" uid="uid://comis4kj1vb72" path="res://Resources/Sounds/SoundEffects/PlustButton.wav" id="48_1cas0"]
+[ext_resource type="AudioStream" uid="uid://bx17rexjm3beg" path="res://Resources/Sounds/SoundEffects/ButtonPressSound.wav" id="48_06emn"]
+[ext_resource type="Texture2D" uid="uid://5elwqfxr11lx" path="res://Assets/sellbutton.png" id="48_i0ha3"]
+[ext_resource type="AudioStream" uid="uid://fumbw72pnbq6" path="res://Resources/Sounds/SoundEffects/PlusButtonPress.wav" id="48_m87jl"]
+[ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="48_nn8qg"]
+[ext_resource type="AudioStream" uid="uid://bcmaotq5qdnio" path="res://Resources/Sounds/SoundEffects/PlayerBuy.mp3" id="52_47arj"]
+[ext_resource type="Script" path="res://Recipe.gd" id="58_ide1j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
+bg_color = Color(0.113725, 0.176471, 0.113725, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="Animation" id="Animation_g01n0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [33]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pd5wd"]
+resource_name = "buying"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [46]
+}
+
+[sub_resource type="Animation" id="Animation_wq3di"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [71, 71, 71]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.635294), Color(1, 1, 1, 0.0235294), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d6sog"]
+resource_name = "walk_buy"
+length = 8.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.5, 4.9, 5.4, 6, 6.2, 6.4, 6.6, 6.8, 7, 7.2, 7.4, 7.6, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17, 63, 63, 65, 66, 67, 68, 69, 70, 71, 63, 63, 62, 46, 46, 46, 46, 9, 63, 64, 65, 66, 67, 68, 69, 70, 63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 7.6, 8.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1), Color(1, 0.407843, 0.407843, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5jniq"]
+resource_name = "walk_down"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [63, 65, 66, 67, 68, 69, 70, 71]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q4rsi"]
+resource_name = "walk_left_down"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [65, 66, 67, 68, 69, 70, 71, 63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2jvo5"]
+resource_name = "walk_right"
+length = 1.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d317q"]
+resource_name = "walk_right_down"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17, 63, 63, 65, 66, 67, 68, 69, 70, 71, 63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 3.5, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1), Color(1, 0.407843, 0.407843, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4pdfg"]
+resource_name = "walk_right_up"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [27, 28, 29, 33, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jqjf3"]
+_data = {
+"RESET": SubResource("Animation_g01n0"),
+"buying": SubResource("Animation_pd5wd"),
+"fade_out": SubResource("Animation_wq3di"),
+"walk_buy": SubResource("Animation_d6sog"),
+"walk_down": SubResource("Animation_5jniq"),
+"walk_left_down": SubResource("Animation_q4rsi"),
+"walk_right": SubResource("Animation_2jvo5"),
+"walk_right_down": SubResource("Animation_d317q"),
+"walk_right_up": SubResource("Animation_4pdfg")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_cets1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.3382, 6.18976, 0, 0, 0, 0, -21.9275, 5.99221, 0, 0, 0, 0, -26.0101, 9.61387)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_7shej"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -3.81921, -0.658484, 0, 0, 0, 0, -7.37502, 0.79018, 0, 0, 0, 0, -5.26787, 2.69978, 0, 0, 0, 0, -4.28014, 5.86051, 0, 0, 0, 0, -5.46542, 8.56029, 0, 0, 0, 0, -10.6016, 11.3259)
+}
+point_count = 7
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0g1u"]
+texture = ExtResource("31_40uyy")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 20.0
+offset_bottom = 64.0
+scale = Vector2(28.8, 16.12)
+color = Color(0.067, 0.952, 0.057, 0.438)
+
+[node name="Gameplay" type="Panel" parent="CanvasLayer"]
+texture_repeat = 2
+offset_left = 9.0
+offset_top = 101.0
+offset_right = 51.5
+offset_bottom = 136.0
+scale = Vector2(13.1727, 13.1727)
+pivot_offset = Vector2(0, 0.62)
+theme_override_styles/panel = SubResource("StyleBoxFlat_xew53")
+
+[node name="RainMap" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_left = 0.984566
+offset_top = 0.358033
+offset_right = 554.985
+offset_bottom = 556.358
+scale = Vector2(0.0698793, 0.0698793)
+texture = ExtResource("20_r0ncf")
+
+[node name="Chedraui" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 0.921881
+offset_top = 1.0401
+offset_right = 1024.92
+offset_bottom = 769.04
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("13_lr85u")
+
+[node name="Beta" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_left = 0.921881
+offset_top = 0.64502
+offset_right = 1024.92
+offset_bottom = 768.645
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("14_sf7km")
+
+[node name="Matute" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_left = 1.05324
+offset_top = 0.525528
+offset_right = 1025.06
+offset_bottom = 768.526
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("15_rdn76")
+
+[node name="LemonadeCarZone" type="Area2D" parent="CanvasLayer/Gameplay"]
+position = Vector2(-3.83643, -6.70302)
+
+[node name="LemonadeCar" type="TextureRect" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
+texture_filter = 2
+offset_left = 4.82333
+offset_top = 27.545
+offset_right = 506.823
+offset_bottom = 564.545
+scale = Vector2(0.0225102, 0.0202503)
+texture = ExtResource("5_2tpai")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
+visible = false
+position = Vector2(12.1111, 33.2387)
+scale = Vector2(0.0300442, 0.0403583)
+polygon = PackedVector2Array(-25.9059, 107.998, 49.2216, 117.641, 131.391, 116.622, 156.659, 43.2629, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
+
+[node name="Character" type="Sprite2D" parent="CanvasLayer/Gameplay"]
+visible = false
+texture_filter = 1
+position = Vector2(29.1094, 22.1823)
+scale = Vector2(0.0999853, 0.0999853)
+texture = ExtResource("13_3avee")
+hframes = 9
+vframes = 9
+frame = 33
+script = ExtResource("15_1dlpe")
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="CanvasLayer/Gameplay/Character"]
+libraries = {
+"": SubResource("AnimationLibrary_jqjf3")
+}
+
+[node name="Character2" type="Sprite2D" parent="CanvasLayer/Gameplay"]
+visible = false
+texture_filter = 1
+position = Vector2(33.1567, 25.0621)
+scale = Vector2(0.0999853, 0.0999853)
+texture = ExtResource("15_lsf5g")
+hframes = 9
+vframes = 3
+frame = 9
+script = ExtResource("15_1dlpe")
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="CanvasLayer/Gameplay/Character2"]
+libraries = {
+"": SubResource("AnimationLibrary_jqjf3")
+}
+
+[node name="PlayerAnimation2" type="AnimationPlayer" parent="CanvasLayer/Gameplay/Character2"]
+libraries = {
+"": SubResource("AnimationLibrary_jqjf3")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="CanvasLayer/Gameplay"]
+visible = false
+position = Vector2(15.8, 33.3901)
+rotation = -0.959931
+scale = Vector2(0.0778325, 0.0778325)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel7" type="Panel" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_top = -6.0
+offset_right = 50.0
+offset_bottom = 32.0
+scale = Vector2(0.717632, 0.14273)
+
+[node name="Inventario" type="HBoxContainer" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 0.987732
+offset_top = -5.87399
+offset_right = 2725.99
+offset_bottom = 541.126
+scale = Vector2(0.00981195, 0.00981195)
+
+[node name="Tortillas" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Tortillas"]
+layout_mode = 2
+texture = ExtResource("39_jf5gi")
+
+[node name="TortillasTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Tortillas"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 90
+text = "33"
+
+[node name="Carne" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Carne"]
+layout_mode = 2
+texture = ExtResource("40_phi51")
+
+[node name="CarneTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Carne"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 90
+text = "34"
+
+[node name="Verdura" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Verdura"]
+layout_mode = 2
+texture = ExtResource("42_mnyhm")
+
+[node name="VerduraTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Verdura"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 90
+text = "51"
+
+[node name="Cebolla" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Cebolla"]
+layout_mode = 2
+texture = ExtResource("13_fg7v8")
+
+[node name="CebollaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Cebolla"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 90
+text = "12"
+
+[node name="Salsas" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Salsas"]
+layout_mode = 2
+texture = ExtResource("14_tw1se")
+
+[node name="SalsaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Salsas"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 90
+text = "62"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 33.7476
+offset_top = -0.195068
+offset_right = 742.748
+offset_bottom = 2560.8
+scale = Vector2(0.00781874, 0.00781874)
+
+[node name="PlayerMoney" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 0.987722
+offset_top = 1.10596
+offset_right = 488.988
+offset_bottom = 512.106
+scale = Vector2(0.00773447, 0.0086907)
+texture = ExtResource("44_7dp3l")
+
+[node name="PlayerMoneyLabel" type="Label" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 5.13617
+offset_top = 2.29123
+offset_right = 330.136
+offset_bottom = 18.2912
+scale = Vector2(0.111522, 0.167519)
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("11_d26f3")
+text = "1000"
+
+[node name="Path2D" parent="CanvasLayer/Gameplay" instance=ExtResource("15_ulhv7")]
+visible = false
+
+[node name="Path2D2" parent="CanvasLayer/Gameplay" instance=ExtResource("15_ulhv7")]
+visible = false
+position = Vector2(35.6898, 23.7578)
+curve = SubResource("Curve2D_cets1")
+
+[node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" index="0"]
+position = Vector2(4.80694, 8.95538)
+
+[node name="Path2D3" parent="CanvasLayer/Gameplay" instance=ExtResource("15_ulhv7")]
+visible = false
+position = Vector2(11.8527, 16.7779)
+curve = SubResource("Curve2D_7shej")
+
+[node name="SpawnTimer" type="Timer" parent="CanvasLayer/Gameplay"]
+wait_time = 5.0
+
+[node name="EndDayTimer" type="Timer" parent="CanvasLayer/Gameplay"]
+wait_time = 60.0
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 31.6564
+offset_top = 29.1927
+offset_right = 563.656
+offset_bottom = 266.193
+scale = Vector2(0.0172732, 0.0172732)
+texture_normal = ExtResource("16_x07cn")
+texture_pressed = ExtResource("17_h0tk3")
+
+[node name="CharacterSpawner" type="Node2D" parent="CanvasLayer/Gameplay"]
+script = ExtResource("16_tlupj")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 1.0
+offset_right = 64.0
+offset_bottom = 53.0
+scale = Vector2(0.288273, 0.273356)
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 1.0
+offset_right = 64.0
+offset_bottom = 53.0
+scale = Vector2(0.288273, 0.273356)
+
+[node name="TiempoRestante" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 32.7949
+offset_top = 3.94897
+offset_right = 534.795
+offset_bottom = 607.919
+scale = Vector2(0.00678816, 0.00769489)
+pivot_offset = Vector2(0, 0.02)
+texture = ExtResource("17_j852r")
+
+[node name="TacosVendidos" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 32.7192
+offset_top = 10.1382
+offset_right = 685.719
+offset_bottom = 616.138
+scale = Vector2(0.00546927, 0.00675025)
+texture = ExtResource("20_qe7ua")
+
+[node name="DayControl" type="Node2D" parent="CanvasLayer/Gameplay"]
+position = Vector2(17.9918, 1.78757)
+scale = Vector2(0.6919, 0.78258)
+script = ExtResource("20_aq3g7")
+
+[node name="DayTimer" type="Timer" parent="CanvasLayer/Gameplay/DayControl"]
+
+[node name="DayLabel" type="Label" parent="CanvasLayer/Gameplay/DayControl"]
+offset_left = 29.1852
+offset_top = 0.485023
+offset_right = 109.185
+offset_bottom = 19.485
+scale = Vector2(0.114833, 0.129607)
+text = "1"
+
+[node name="Label" type="Label" parent="CanvasLayer/Gameplay/DayControl"]
+offset_left = 21.834
+offset_right = 69.834
+offset_bottom = 19.0
+scale = Vector2(0.115, 0.13)
+text = "Dia"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.00278, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 375.0
+offset_top = 794.0
+offset_right = 459.0
+offset_bottom = 834.0
+scale = Vector2(2.3, 2.3)
+
+[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/HBoxContainer3/PanelContainer6"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
+layout_mode = 0
+offset_left = 4.59229
+offset_right = 506.592
+offset_bottom = 569.0
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("2_mapjn")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
+layout_mode = 0
+offset_left = 5.57336
+offset_top = 31.8212
+offset_right = 101.573
+offset_bottom = 57.8212
+scale = Vector2(0.273984, 0.320065)
+text = "receta"
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="CanvasLayer/HBoxContainer3/PanelContainer5"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer3/PanelContainer5/Button5"]
+layout_mode = 0
+offset_left = 0.782471
+offset_top = -3.47803
+offset_right = 502.782
+offset_bottom = 493.522
+scale = Vector2(0.0747703, 0.0713107)
+texture = ExtResource("20_qe7ua")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer5/Button5"]
+layout_mode = 0
+offset_left = 0.782593
+offset_top = 31.7391
+offset_right = 192.783
+offset_bottom = 57.7391
+scale = Vector2(0.202371, 0.382222)
+text = "Ingredientes"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 375.0
+offset_top = 691.0
+offset_right = 459.0
+offset_bottom = 731.0
+scale = Vector2(2.3, 2.3)
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="CanvasLayer/HBoxContainer2/PanelContainer4"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer2/PanelContainer4/Button4"]
+layout_mode = 0
+offset_left = -1.4812
+offset_right = 531.519
+offset_bottom = 469.0
+scale = Vector2(0.0755837, 0.0755837)
+texture = ExtResource("5_dkrvr")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer2/PanelContainer4/Button4"]
+layout_mode = 0
+offset_left = 0.109741
+offset_top = 30.7779
+offset_right = 144.11
+offset_bottom = 56.7779
+scale = Vector2(0.275664, 0.302402)
+text = "marketing"
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/HBoxContainer2/PanelContainer3"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer2/PanelContainer3/Button3"]
+layout_mode = 0
+offset_left = 3.89893
+offset_right = 501.899
+offset_bottom = 501.0
+scale = Vector2(0.0640335, 0.0640335)
+texture = ExtResource("4_iski0")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer2/PanelContainer3/Button3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.7961
+offset_top = -7.65713
+offset_right = 139.204
+offset_bottom = 11.3429
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.259332, 0.305801)
+text = "Personajes"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 374.0
+offset_top = 590.0
+offset_right = 674.0
+offset_bottom = 630.0
+scale = Vector2(2.3, 2.3)
+theme_override_constants/separation = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.0772907, 0.0772907)
+texture = ExtResource("2_pfb1k")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer/Button"]
+layout_mode = 0
+offset_left = 6.25995
+offset_top = 30.7779
+offset_right = 86.2599
+offset_bottom = 56.7779
+scale = Vector2(0.364273, 0.364273)
+text = "Mapas"
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
+layout_mode = 0
+offset_left = -14.1207
+offset_top = -15.0945
+offset_right = 345.879
+offset_bottom = 344.906
+scale = Vector2(0.172634, 0.172634)
+texture = ExtResource("3_2of2n")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
+layout_mode = 0
+offset_left = 1.94934
+offset_top = 32.3429
+offset_right = 129.949
+offset_bottom = 58.3429
+scale = Vector2(0.28734, 0.28734)
+text = "upgrades"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 18.0
+offset_top = 562.0
+offset_right = 343.0
+offset_bottom = 952.0
+scale = Vector2(1.07436, 1.18242)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 13.031
+offset_top = 15.223
+offset_right = 333.031
+offset_bottom = 110.223
+scale = Vector2(0.905854, 0.905854)
+text = "Mapas
+
+Expande tu zona de 
+ventas desbloqueando
+nuevos escenarios
+
+Siguiente Nivel:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 77.2553
+offset_top = 298.54
+offset_right = 397.255
+offset_bottom = 393.54
+scale = Vector2(0.905854, 0.905854)
+text = "Matute Remus"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 42.8162
+offset_top = 139.544
+offset_right = 1066.82
+offset_bottom = 907.544
+scale = Vector2(0.235246, 0.196623)
+texture = ExtResource("27_6he24")
+
+[node name="RightArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 279.236
+offset_top = 345.055
+offset_right = 620.236
+offset_bottom = 678.055
+scale = Vector2(0.131315, 0.131315)
+texture_normal = ExtResource("28_kip63")
+texture_pressed = ExtResource("29_fw3al")
+
+[node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 54.9164
+offset_top = 388.187
+offset_right = 395.916
+offset_bottom = 721.187
+rotation = -3.14159
+scale = Vector2(0.131315, 0.131315)
+texture_normal = ExtResource("28_kip63")
+texture_pressed = ExtResource("29_fw3al")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 356.0
+offset_right = 274.0
+offset_bottom = 409.0
+scale = Vector2(0.816283, 0.524201)
+texture_under = ExtResource("29_uk266")
+texture_progress = ExtResource("30_pspq3")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 0
+offset_left = 78.1861
+offset_top = 326.449
+offset_right = 248.186
+offset_bottom = 346.449
+theme_override_styles/background = SubResource("StyleBoxTexture_l0g1u")
+value = 100.0
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.484756
+anchor_top = 0.462171
+anchor_right = 0.515244
+anchor_bottom = 0.537829
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+justification_flags = 162
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 34.4391
+offset_top = 265.557
+offset_right = 74.4391
+offset_bottom = 305.557
+scale = Vector2(6.46604, 2.56756)
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 5.58472
+offset_top = 107.407
+offset_right = 45.5847
+offset_bottom = 147.407
+scale = Vector2(7.88727, 3.88531)
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 6.51551
+offset_top = 39.749
+offset_right = 46.5155
+offset_bottom = 79.749
+scale = Vector2(7.85419, 1.23601)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.338
+offset_top = -85.0559
+offset_right = 195.662
+offset_bottom = -62.0559
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.823599, 0.823599)
+text = "Chihuahua Taco Dog"
+horizontal_alignment = 3
+
+[node name="Label4" type="Label" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.543076
+offset_top = -14.861
+offset_right = 351.457
+offset_bottom = 110.139
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.437503, 0.5646)
+theme_override_font_sizes/font_size = 22
+text = "Bonus:
+
+20% +ganancias
+-20% en precios
++5% más clientes
+"
+horizontal_alignment = 3
+
+[node name="Label3" type="Label" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.4
+offset_top = -180.623
+offset_right = 345.6
+offset_bottom = -104.623
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.617558, 0.899025)
+text = "Personajes
+
+Contrata Personajes que otorgan
+muchos beneficios a tu negocio
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.416
+offset_top = 77.3229
+offset_right = 1192.58
+offset_bottom = 341.323
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.312782, 0.462293)
+theme_override_font_sizes/font_size = 30
+text = "Un chihuahua vestido de 
+taco que se aparece de 
+vez en cuando dentro de la
+Universidad, atraera a los
+clientes con su ternura
+y su olor a taquito"
+horizontal_alignment = 1
+
+[node name="PlayerMoney2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 157.303
+offset_top = 123.477
+offset_right = 645.303
+offset_bottom = 634.477
+scale = Vector2(0.100963, 0.0998358)
+texture = ExtResource("44_7dp3l")
+
+[node name="Brother" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 26.9928
+offset_top = 137.007
+offset_right = 1186.99
+offset_bottom = 1161.01
+scale = Vector2(0.0989881, 0.113974)
+texture = ExtResource("33_ktcl5")
+
+[node name="PlayerMoneyLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 202.911
+offset_top = 131.087
+offset_right = 527.911
+offset_bottom = 150.087
+scale = Vector2(1.37151, 2.16647)
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("11_d26f3")
+text = "1000"
+
+[node name="RightArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 279.236
+offset_top = 345.055
+offset_right = 620.236
+offset_bottom = 678.055
+scale = Vector2(0.131315, 0.131315)
+texture_normal = ExtResource("28_kip63")
+texture_pressed = ExtResource("29_fw3al")
+
+[node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 54.9164
+offset_top = 388.187
+offset_right = 395.916
+offset_bottom = 721.187
+rotation = -3.14159
+scale = Vector2(0.131315, 0.131315)
+texture_normal = ExtResource("28_kip63")
+texture_pressed = ExtResource("29_fw3al")
+
+[node name="BuyButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel3"]
+layout_mode = 0
+offset_left = 231.766
+offset_top = 170.836
+offset_right = 737.766
+offset_bottom = 681.836
+scale = Vector2(0.162767, 0.128434)
+texture_normal = ExtResource("46_e1qdg")
+script = ExtResource("8_aiqcm")
+
+[node name="Panel4" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+
+[node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+custom_minimum_size = Vector2(325, 390)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.4
+offset_top = -178.086
+offset_right = 425.6
+offset_bottom = -28.0856
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.558442, 1.04067)
+theme_override_fonts/font = ExtResource("11_d26f3")
+text = "Ingredientes
+
+Compra los ingredientes necesarios
+para preparar tu taquiza"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 37.2315
+offset_top = 115.019
+offset_right = 2644.23
+offset_bottom = 662.019
+scale = Vector2(0.0976082, 0.0976082)
+theme_override_constants/separation = 10
+
+[node name="TortillasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("39_jf5gi")
+script = ExtResource("17_x1nb1")
+
+[node name="CarneButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("28_fu2dm")
+script = ExtResource("17_x1nb1")
+
+[node name="VerduraButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("29_v8tju")
+script = ExtResource("17_x1nb1")
+
+[node name="CebollasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("30_mkeok")
+script = ExtResource("17_x1nb1")
+
+[node name="SalsaButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture_normal = ExtResource("31_p8ujh")
+script = ExtResource("17_x1nb1")
+
+[node name="TortillasSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 172.0
+offset_right = 50.0
+offset_bottom = 212.0
+scale = Vector2(7.56653, 5.04029)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 14.8347
+offset_top = 5.00643
+offset_right = 39.8347
+offset_bottom = 45.0064
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/Panel"]
+layout_mode = 0
+offset_left = -1.725
+offset_top = 6.0
+offset_right = 229.275
+offset_bottom = 81.0
+scale = Vector2(0.191, 0.761)
+text = "10 tortillas
+ $10.00"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 15.4097
+offset_top = 17.0909
+offset_right = 40.4097
+offset_bottom = 57.0909
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/Panel2"]
+layout_mode = 0
+offset_left = -0.552963
+offset_top = 6.61072
+offset_right = 230.447
+offset_bottom = 77.4107
+scale = Vector2(0.188, 0.643)
+text = "20 tortillas
+ $20.00"
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 14.9497
+offset_top = 28.1396
+offset_right = 39.9497
+offset_bottom = 68.1396
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/Panel3"]
+layout_mode = 0
+offset_left = -1.835
+offset_top = 13.085
+offset_right = 229.165
+offset_bottom = 88.085
+scale = Vector2(0.193, 0.655)
+text = "30 tortillas
+ $30.00"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 1.42506
+offset_top = 4.58423
+offset_right = 2043.43
+offset_bottom = 275.584
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 16.8089
+offset_right = 2043.02
+offset_bottom = 287.809
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 28.7279
+offset_right = 2043.02
+offset_bottom = 299.728
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="VBoxContadores0" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 0
+offset_left = 36.8118
+offset_top = 6.06924
+offset_right = 126.812
+offset_bottom = 386.069
+scale = Vector2(0.0445423, 0.103754)
+theme_override_constants/separation = 80
+
+[node name="TortillasLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="TortillasLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="TortillasLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("11_d26f3")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 2
+offset_left = 7.81983
+offset_top = 4.83379
+offset_right = 507.82
+offset_bottom = 528.834
+scale = Vector2(0.0112424, 0.0147166)
+texture = ExtResource("37_2bink")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 2
+offset_left = 7.70484
+offset_top = 16.7457
+offset_right = 507.705
+offset_bottom = 516.746
+scale = Vector2(0.011694, 0.0162775)
+texture = ExtResource("38_1cona")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies"]
+layout_mode = 2
+offset_left = 7.90442
+offset_top = 28.4619
+offset_right = 507.905
+offset_bottom = 528.462
+scale = Vector2(0.0124996, 0.0181641)
+texture = ExtResource("39_jf5gi")
+
+[node name="CarneSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 172.0
+offset_right = 51.0
+offset_bottom = 212.0
+scale = Vector2(7.56653, 5.04029)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 14.8347
+offset_top = 5.00643
+offset_right = 39.8347
+offset_bottom = 45.0064
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/Panel"]
+layout_mode = 0
+offset_left = -1.76286
+offset_top = 5.77576
+offset_right = 229.237
+offset_bottom = 80.7758
+scale = Vector2(0.177695, 0.629709)
+text = "Pastor
+12 porciones
+$45.00
+"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 15.4097
+offset_top = 17.0909
+offset_right = 40.4097
+offset_bottom = 57.0909
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/Panel2"]
+layout_mode = 0
+offset_left = -1.39836
+offset_top = 4.0564
+offset_right = 229.602
+offset_bottom = 79.0564
+scale = Vector2(0.174047, 0.659363)
+text = "Costilla
+16 porciones
+$65.00"
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 14.9497
+offset_top = 28.1396
+offset_right = 39.9497
+offset_bottom = 68.1396
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/Panel3"]
+layout_mode = 0
+offset_left = -1.47
+offset_top = 8.44153
+offset_right = 229.53
+offset_bottom = 83.4415
+scale = Vector2(0.181067, 0.599151)
+text = "Arrachera
+20 porciones
+$120"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 0.145401
+offset_top = 4.63525
+offset_right = 2042.15
+offset_bottom = 275.635
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1250
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 0.268417
+offset_top = 16.5483
+offset_right = 2042.27
+offset_bottom = 287.548
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1250
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 0.391434
+offset_top = 28.9653
+offset_right = 2042.39
+offset_bottom = 299.965
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1250
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="VBoxContadores0" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 0
+offset_left = 36.1885
+offset_top = 5.64185
+offset_right = 126.188
+offset_bottom = 444.642
+scale = Vector2(0.0228815, 0.0694056)
+theme_override_constants/separation = 80
+
+[node name="CarneLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="CarneLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="CarneLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 1.38108
+offset_right = 789.0
+offset_bottom = 892.381
+scale = Vector2(0.013485, 0.0176523)
+texture = ExtResource("40_phi51")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 2
+offset_left = 7.28021
+offset_top = 27.2871
+offset_right = 587.28
+offset_bottom = 716.287
+scale = Vector2(0.0127231, 0.014911)
+texture = ExtResource("41_7c3oh")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies"]
+layout_mode = 2
+offset_left = 7.52618
+offset_top = 16.7158
+offset_right = 647.526
+offset_bottom = 656.716
+scale = Vector2(0.00979128, 0.01433)
+texture = ExtResource("42_fudh4")
+
+[node name="VerduraSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 172.286
+offset_right = 51.0
+offset_bottom = 212.286
+scale = Vector2(7.56653, 5.04029)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 14.8347
+offset_top = 5.00643
+offset_right = 39.8347
+offset_bottom = 45.0064
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/Panel"]
+layout_mode = 0
+offset_left = -2.03781
+offset_top = 6.0
+offset_right = 228.962
+offset_bottom = 81.0
+scale = Vector2(0.194697, 0.534441)
+text = "Clantro
+5 unidades
+ $5.00"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 15.4097
+offset_top = 17.0909
+offset_right = 40.4097
+offset_bottom = 57.0909
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/Panel2"]
+layout_mode = 0
+offset_left = -2.22318
+offset_top = 6.0
+offset_right = 228.777
+offset_bottom = 81.0
+scale = Vector2(0.189293, 0.519608)
+text = "Cilantro 500g
+30 unidades
+ $30.00"
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 14.9497
+offset_top = 28.1396
+offset_right = 39.9497
+offset_bottom = 68.1396
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/Panel3"]
+layout_mode = 0
+offset_left = -1.47
+offset_top = 12.4089
+offset_right = 229.53
+offset_bottom = 87.4089
+scale = Vector2(0.182076, 0.638387)
+text = "Cilantro
+60 unidades
+ $60.00"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 1.42506
+offset_top = 4.58423
+offset_right = 2043.43
+offset_bottom = 275.584
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 16.8089
+offset_right = 2043.02
+offset_bottom = 287.809
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 28.7279
+offset_right = 2043.02
+offset_bottom = 299.728
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="VBoxContadores0" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 0
+offset_left = 36.8118
+offset_top = 6.06924
+offset_right = 126.812
+offset_bottom = 386.069
+scale = Vector2(0.0298197, 0.06946)
+theme_override_constants/separation = 80
+
+[node name="VerduraLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="VerduraLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="VerduraLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 2
+offset_left = 7.70484
+offset_top = 2.9348
+offset_right = 790.705
+offset_bottom = 893.935
+scale = Vector2(0.00856466, 0.0130047)
+texture = ExtResource("42_mnyhm")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 2
+offset_left = 7.47484
+offset_top = 15.0193
+offset_right = 587.475
+offset_bottom = 704.019
+scale = Vector2(0.0141172, 0.016545)
+texture = ExtResource("43_62qac")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies"]
+layout_mode = 2
+offset_left = 7.93483
+offset_top = 28.6575
+offset_right = 531.935
+offset_bottom = 564.658
+scale = Vector2(0.0125725, 0.0169669)
+texture = ExtResource("44_gxlrr")
+
+[node name="CebollasSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 172.286
+offset_right = 51.0
+offset_bottom = 212.286
+scale = Vector2(7.56653, 5.04029)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 14.8347
+offset_top = 5.00643
+offset_right = 39.8347
+offset_bottom = 45.0064
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/Panel"]
+layout_mode = 0
+offset_left = -2.86259
+offset_top = 6.33899
+offset_right = 228.137
+offset_bottom = 81.339
+scale = Vector2(0.232564, 0.638387)
+text = "10 cebollas
+ $10.00"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 15.4097
+offset_top = 17.0909
+offset_right = 40.4097
+offset_bottom = 57.0909
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/Panel2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 232.0
+offset_bottom = 81.0
+scale = Vector2(0.204944, 0.56257)
+text = "30 cebollas
+ $30.00"
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 14.9497
+offset_top = 28.1396
+offset_right = 39.9497
+offset_bottom = 68.1396
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/Panel3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 232.0
+offset_bottom = 81.0
+scale = Vector2(0.205686, 0.564608)
+text = "50 cebollas
+ $50.00"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 1.42506
+offset_top = 4.58423
+offset_right = 2043.43
+offset_bottom = 275.584
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 16.8089
+offset_right = 2043.02
+offset_bottom = 287.809
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 28.7279
+offset_right = 2043.02
+offset_bottom = 299.728
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="VBoxContadores0" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 0
+offset_left = 36.8118
+offset_top = 6.06924
+offset_right = 126.812
+offset_bottom = 386.069
+scale = Vector2(0.0298197, 0.06946)
+theme_override_constants/separation = 80
+
+[node name="CebollasLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="CebollasLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="CebollasLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 2
+offset_left = 7.70484
+offset_top = 2.9348
+offset_right = 790.705
+offset_bottom = 893.935
+scale = Vector2(0.00856466, 0.0130047)
+texture = ExtResource("46_0ygb7")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 2
+offset_left = 7.47484
+offset_top = 15.0193
+offset_right = 587.475
+offset_bottom = 704.019
+scale = Vector2(0.0141172, 0.016545)
+texture = ExtResource("30_mkeok")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies"]
+layout_mode = 2
+offset_left = 7.93483
+offset_top = 28.6575
+offset_right = 531.935
+offset_bottom = 564.658
+scale = Vector2(0.0125725, 0.0169669)
+texture = ExtResource("47_bcn4o")
+
+[node name="SalsaSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 172.286
+offset_right = 50.0
+offset_bottom = 212.286
+scale = Vector2(7.56653, 5.04029)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 14.8347
+offset_top = 5.00643
+offset_right = 39.8347
+offset_bottom = 45.0064
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/Panel"]
+layout_mode = 0
+offset_left = -2.01735
+offset_top = 6.0
+offset_right = 228.983
+offset_bottom = 81.0
+scale = Vector2(0.211679, 0.581058)
+text = "Salsa verde
+ $	50/litro
+(60 cds.)"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 15.4097
+offset_top = 17.0909
+offset_right = 40.4097
+offset_bottom = 57.0909
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/Panel2"]
+layout_mode = 0
+offset_left = -1.92781
+offset_top = 6.0
+offset_right = 229.072
+offset_bottom = 81.0
+scale = Vector2(0.232564, 0.638387)
+text = "Salsa Roja
+ $35/litro
+(60cds.)"
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 14.9497
+offset_top = 28.1396
+offset_right = 39.9497
+offset_bottom = 68.1396
+scale = Vector2(0.447425, 0.197162)
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/Panel3"]
+layout_mode = 0
+offset_left = -1.44957
+offset_top = 6.0
+offset_right = 229.55
+offset_bottom = 81.0
+scale = Vector2(0.232564, 0.638387)
+text = "Guacamole
+ $75/litro
+(60cds.)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 1.42506
+offset_top = 4.58423
+offset_right = 2043.43
+offset_bottom = 275.584
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 16.8089
+offset_right = 2043.02
+offset_bottom = 287.809
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 1.0179
+offset_top = 28.7279
+offset_right = 2043.02
+offset_bottom = 299.728
+scale = Vector2(0.0185533, 0.0290492)
+theme_override_constants/separation = 1300
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="VBoxContadores0" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 0
+offset_left = 36.8118
+offset_top = 6.06924
+offset_right = 126.812
+offset_bottom = 386.069
+scale = Vector2(0.0295889, 0.0689225)
+theme_override_constants/separation = 80
+
+[node name="SalsaLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="SalsaLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="SalsaLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 2
+offset_left = 7.78149
+offset_top = 3.40332
+offset_right = 790.782
+offset_bottom = 894.404
+scale = Vector2(0.00788293, 0.0113065)
+texture = ExtResource("47_tx15v")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 2
+offset_left = 8.39484
+offset_top = 16.1553
+offset_right = 588.395
+offset_bottom = 705.155
+scale = Vector2(0.01099, 0.0130279)
+texture = ExtResource("48_nn8qg")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies"]
+layout_mode = 2
+offset_left = 8.76563
+offset_top = 27.5654
+offset_right = 532.766
+offset_bottom = 563.566
+scale = Vector2(0.00925681, 0.0138437)
+texture = ExtResource("31_p8ujh")
+
+[node name="BuyCost" type="Label" parent="CanvasLayer/PanelContainer/Panel5"]
+layout_mode = 0
+offset_left = 49.8803
+offset_top = 361.44
+offset_right = 89.8803
+offset_bottom = 377.44
+scale = Vector2(1, 1.52726)
+text = "0"
+
+[node name="Money" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel5"]
+layout_mode = 0
+offset_left = 6.90651
+offset_top = 351.464
+offset_right = 512.906
+offset_bottom = 862.464
+scale = Vector2(0.0681199, 0.0765418)
+texture = ExtResource("45_6pf54")
+
+[node name="BuyButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5"]
+layout_mode = 0
+offset_left = 177.267
+offset_top = 357.603
+offset_right = 683.267
+offset_bottom = 868.603
+scale = Vector2(0.162767, 0.128434)
+texture_normal = ExtResource("46_e1qdg")
+script = ExtResource("8_aiqcm")
+
+[node name="SellButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5"]
+layout_mode = 0
+offset_left = 247.099
+offset_top = 357.603
+offset_right = 753.099
+offset_bottom = 868.603
+scale = Vector2(0.197382, 0.155747)
+texture_normal = ExtResource("48_i0ha3")
+script = ExtResource("8_aiqcm")
+
+[node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.45721
+offset_right = 540.0
+offset_bottom = 160.457
+scale = Vector2(0.58024, 0.716277)
+text = "Receta
+
+Elige la cantidad de ingredientes
+que compone un sólo taco
+
+1: Poco
+2: Mediano
+3: Mucho"
+
+[node name="TortillasContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_left = 15.8234
+offset_top = 122.63
+offset_right = 55.8234
+offset_bottom = 165.295
+scale = Vector2(2.38527, 2.38527)
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+layout_mode = 0
+offset_left = 5.46313
+offset_top = 4.60938
+offset_right = 558.463
+offset_bottom = 573.609
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("39_jf5gi")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+layout_mode = 0
+offset_left = 1.95111
+offset_top = 2.83655
+offset_right = 145.951
+offset_bottom = 28.8365
+scale = Vector2(0.244831, 0.286009)
+text = "Tortillas"
+
+[node name="TortillaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+layout_mode = 0
+offset_left = 17.9502
+offset_top = 35.456
+offset_right = 113.95
+offset_bottom = 61.456
+scale = Vector2(0.273984, 0.320065)
+text = "1
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+layout_mode = 2
+offset_left = -8.1947
+offset_top = 34.1826
+offset_right = 1843.65
+offset_bottom = 306.673
+scale = Vector2(0.0310348, 0.0309183)
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="CarneContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_left = 118.21
+offset_top = 122.63
+offset_right = 158.21
+offset_bottom = 165.295
+scale = Vector2(2.38527, 2.38527)
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+layout_mode = 0
+offset_left = 5.46313
+offset_top = 4.60938
+offset_right = 558.463
+offset_bottom = 573.609
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("28_fu2dm")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+layout_mode = 0
+offset_left = 10.1458
+offset_top = 2.83655
+offset_right = 106.146
+offset_bottom = 28.8365
+scale = Vector2(0.273984, 0.320065)
+text = "Carne"
+
+[node name="CarneAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+layout_mode = 0
+offset_left = 17.9502
+offset_top = 35.456
+offset_right = 113.95
+offset_bottom = 61.456
+scale = Vector2(0.273984, 0.320065)
+text = "1
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+layout_mode = 2
+offset_left = -8.1947
+offset_top = 34.1826
+offset_right = 1843.65
+offset_bottom = 306.673
+scale = Vector2(0.0310348, 0.0309183)
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="VerduraContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_left = 219.666
+offset_top = 122.63
+offset_right = 259.666
+offset_bottom = 165.295
+scale = Vector2(2.38527, 2.38527)
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+layout_mode = 0
+offset_left = 5.46313
+offset_top = 4.60938
+offset_right = 558.463
+offset_bottom = 573.609
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("29_v8tju")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+layout_mode = 0
+offset_left = 5.07288
+offset_top = 2.83655
+offset_right = 117.073
+offset_bottom = 28.8365
+scale = Vector2(0.273984, 0.320065)
+text = "Verdura"
+
+[node name="VerduraAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+layout_mode = 0
+offset_left = 17.9502
+offset_top = 35.456
+offset_right = 113.95
+offset_bottom = 61.456
+scale = Vector2(0.273984, 0.320065)
+text = "0
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+layout_mode = 2
+offset_left = -8.1947
+offset_top = 34.1826
+offset_right = 1843.65
+offset_bottom = 306.673
+scale = Vector2(0.0310348, 0.0309183)
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="CebollaContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_left = 64.2243
+offset_top = 267.249
+offset_right = 104.224
+offset_bottom = 309.914
+scale = Vector2(2.38527, 2.38527)
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 0
+offset_left = 5.46313
+offset_top = 4.60938
+offset_right = 558.463
+offset_bottom = 573.609
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("30_mkeok")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 0
+offset_left = 4.29244
+offset_top = 2.83655
+offset_right = 148.292
+offset_bottom = 28.8365
+scale = Vector2(0.244831, 0.286009)
+text = "Cebollas"
+
+[node name="CebollasAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 0
+offset_left = 17.9502
+offset_top = 35.456
+offset_right = 113.95
+offset_bottom = 61.456
+scale = Vector2(0.273984, 0.320065)
+text = "0
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 2
+offset_left = -8.1947
+offset_top = 34.1826
+offset_right = 1843.65
+offset_bottom = 306.673
+scale = Vector2(0.0310348, 0.0309183)
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="SalsaContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_left = 169.403
+offset_top = 267.248
+offset_right = 209.403
+offset_bottom = 309.913
+scale = Vector2(2.38527, 2.38527)
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+layout_mode = 0
+offset_left = 5.46313
+offset_top = 4.60938
+offset_right = 558.463
+offset_bottom = 573.609
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("48_nn8qg")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+layout_mode = 0
+offset_left = 10.1458
+offset_top = 2.83655
+offset_right = 122.146
+offset_bottom = 28.8365
+scale = Vector2(0.273984, 0.320065)
+text = "Salsa"
+
+[node name="SalsaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+layout_mode = 0
+offset_left = 17.9502
+offset_top = 35.456
+offset_right = 113.95
+offset_bottom = 61.456
+scale = Vector2(0.273984, 0.320065)
+text = "0"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+layout_mode = 2
+offset_left = -8.1947
+offset_top = 34.1826
+offset_right = 1843.65
+offset_bottom = 306.673
+scale = Vector2(0.0310348, 0.0309183)
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("8_6puqj")
+texture_pressed = ExtResource("11_0cp5q")
+script = ExtResource("8_aiqcm")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("7_qknup")
+texture_pressed = ExtResource("8_4ymtb")
+script = ExtResource("8_aiqcm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+visible = false
+layout_mode = 0
+offset_left = 113.556
+offset_top = 226.654
+offset_right = 241.556
+offset_bottom = 266.654
+scale = Vector2(0.81779, 0.81779)
+
+[node name="Cat1" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6"]
+layout_mode = 0
+offset_left = 4.59229
+offset_right = 506.592
+offset_bottom = 569.0
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("40_phi51")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6"]
+layout_mode = 0
+offset_left = 5.57336
+offset_top = 31.8212
+offset_right = 101.573
+offset_bottom = 57.8212
+scale = Vector2(0.273984, 0.320065)
+text = "receta"
+
+[node name="Cat2" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6"]
+layout_mode = 0
+offset_left = 4.59229
+offset_right = 506.592
+offset_bottom = 569.0
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("42_fudh4")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6"]
+layout_mode = 0
+offset_left = 5.57336
+offset_top = 31.8212
+offset_right = 101.573
+offset_bottom = 57.8212
+scale = Vector2(0.273984, 0.320065)
+text = "receta"
+
+[node name="Cat3" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6"]
+layout_mode = 0
+offset_left = 4.59229
+offset_right = 506.592
+offset_bottom = 569.0
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("41_7c3oh")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6"]
+layout_mode = 0
+offset_left = 5.57336
+offset_top = 31.8212
+offset_right = 101.573
+offset_bottom = 57.8212
+scale = Vector2(0.273984, 0.320065)
+text = "receta"
+
+[node name="TortillasSlider" type="HSlider" parent="CanvasLayer/PanelContainer/Panel6"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+offset_left = 19.0
+offset_top = 228.0
+offset_right = 111.0
+offset_bottom = 260.15
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+script = ExtResource("58_ide1j")
+
+[node name="CarneSlider" type="HSlider" parent="CanvasLayer/PanelContainer/Panel6"]
+modulate = Color(0.882353, 0, 0.207843, 1)
+layout_mode = 2
+offset_left = 120.071
+offset_top = 228.0
+offset_right = 212.071
+offset_bottom = 261.15
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+script = ExtResource("58_ide1j")
+
+[node name="VerduraSlider" type="HSlider" parent="CanvasLayer/PanelContainer/Panel6"]
+modulate = Color(0, 0.901961, 0.301961, 1)
+layout_mode = 2
+offset_left = 221.527
+offset_top = 228.0
+offset_right = 313.527
+offset_bottom = 260.15
+max_value = 3.0
+script = ExtResource("58_ide1j")
+
+[node name="CebollasSlider" type="HSlider" parent="CanvasLayer/PanelContainer/Panel6"]
+modulate = Color(0.478431, 0.490196, 0.792157, 1)
+layout_mode = 2
+offset_left = 65.1551
+offset_top = 362.815
+offset_right = 157.155
+offset_bottom = 394.965
+max_value = 3.0
+script = ExtResource("58_ide1j")
+
+[node name="SalsaSlider" type="HSlider" parent="CanvasLayer/PanelContainer/Panel6"]
+modulate = Color(0.878431, 0.427451, 0, 1)
+layout_mode = 2
+offset_left = 170.334
+offset_top = 362.815
+offset_right = 262.334
+offset_bottom = 394.965
+max_value = 3.0
+script = ExtResource("58_ide1j")
+
+[node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("47_0yxof")
+volume_db = -9.0
+autoplay = true
+
+[node name="ButtonPress_Sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("48_06emn")
+volume_db = -6.19
+
+[node name="PlusButtonPress_Sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("48_m87jl")
+
+[node name="TextureButtonPress_Sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("48_1cas0")
+volume_db = -5.0
+
+[node name="PlayerBuy_Sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("52_47arj")
+volume_db = -10.0
+
+[connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
+[connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer6/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer4/Button4" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer3/Button3" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button3_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/Button" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button1_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer2/Button2" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button2_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyButton" to="CanvasLayer/PanelContainer/Panel3/BuyButton" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" method="_on_tortillas_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" method="_on_carne_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton" method="_on_verdura_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CebollasButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CebollasButton" method="_on_cebollas_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/SalsaButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/SalsaButton" method="_on_salsa_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer/MinusButton" to="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer/PlusButton" to="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/MinusButton" to="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/MinusButton" method="_on_RestarTortillasMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton" to="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton" method="_on_ComprarTortillasMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer3/MinusButton" to="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer3/MinusButton" method="_on_RestarTortillasLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer3/PlusButton" to="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer3/PlusButton" method="_on_ComprarTortillasLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/MinusButton" to="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/MinusButton" method="_on_RestarCarneButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/PlusButton" to="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/PlusButton" method="_on_ComprarCarneButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer2/MinusButton" to="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer2/MinusButton" method="_on_RestarCarneMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer2/PlusButton" to="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer2/PlusButton" method="_on_ComprarCarneMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer3/MinusButton" to="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer3/MinusButton" method="_on_RestarCarneLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer3/PlusButton" to="CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer3/PlusButton" method="_on_ComprarCarneLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/MinusButton" to="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/MinusButton" method="_on_RestarVerduraButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/PlusButton" to="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/PlusButton" method="_on_ComprarVerduraButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer2/MinusButton" to="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer2/MinusButton" method="_on_RestarVerduraMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer2/PlusButton" to="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer2/PlusButton" method="_on_ComprarVerduraMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer3/MinusButton" to="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer3/MinusButton" method="_on_RestarVerduraLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer3/PlusButton" to="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer3/PlusButton" method="_on_ComprarVerduraLarge_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer/MinusButton" to="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer/MinusButton" method="_on_RestarCebollasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer/PlusButton" to="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer/PlusButton" method="_on_ComprarCebollasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer2/MinusButton" to="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer2/MinusButton" method="_on_RestarCebollasMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer2/PlusButton" to="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer2/PlusButton" method="_on_ComprarCebollasMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer3/MinusButton" to="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer3/MinusButton" method="_on_RestarCebollasLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer3/PlusButton" to="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/HBoxContainer3/PlusButton" method="_on_ComprarCebollasLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/MinusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/MinusButton" method="_on_RestarSalsaButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/PlusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/PlusButton" method="_on_ComprarSalsaButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer2/MinusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer2/MinusButton" method="_on_RestarSalsaMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer2/PlusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer2/PlusButton" method="_on_ComprarSalsaMediumButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3/MinusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3/MinusButton" method="_on_RestarSalsaLargeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3/PlusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3/PlusButton" method="_on_ComprarSalsaLarge_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/BuyButton" to="CanvasLayer/PanelContainer/Panel5/BuyButton" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SellButton" to="CanvasLayer/PanelContainer/Panel5/SellButton" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+
+[editable path="CanvasLayer/Gameplay/Path2D"]
+[editable path="CanvasLayer/Gameplay/Path2D2"]
+[editable path="CanvasLayer/Gameplay/Path2D3"]
