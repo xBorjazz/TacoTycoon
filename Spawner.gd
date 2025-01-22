@@ -69,8 +69,8 @@ func _spawn_character() -> void:
 			path_follow.progress_ratio = 0.0  # Cambiado a progress_ratio
 		else:
 			# Hacer invisibles los otros PathFollow2D
-			#path_follow.visible = false
-			path_follow.visible = true
+			path_follow.visible = false
+			#path_follow.visible = true
 			PathFollow2d.speed = 0.4
 			print("Path inactivo: invisible.")
 	
