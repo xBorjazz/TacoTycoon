@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvqhfivpe4sob"]
+
+[ext_resource type="PackedScene" uid="uid://bgeu87psdu4q7" path="res://node_2d.tscn" id="1_dn31x"]
+
+[node name="Node2D" instance=ExtResource("1_dn31x")]
+
+[node name="Chedraui" parent="CanvasLayer/Gameplay" index="1"]
+visible = false
+
+[node name="Beta" parent="CanvasLayer/Gameplay" index="2"]
+visible = true
+
+[editable path="CanvasLayer/Gameplay/Path2D"]
+[editable path="CanvasLayer/Gameplay/Path2D2"]
+[editable path="CanvasLayer/Gameplay/Path2D3"]

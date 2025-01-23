@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 	pathfollow.progress_ratio += speed * delta
 
 	if pathfollow.progress_ratio >= 1.0:
-		pathfollow.progress_ratio = 1.0
+		fade_out_anim()
 
 	pathfollow.position = pathfollow.get_position()
 	var curve = path_2d.curve

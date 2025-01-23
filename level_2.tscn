@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0vvqg3xqh2kj"]
+
+[ext_resource type="PackedScene" uid="uid://bgeu87psdu4q7" path="res://node_2d.tscn" id="1_u0xnk"]
+
+[node name="Node2D" instance=ExtResource("1_u0xnk")]
+
+[node name="Chedraui" parent="CanvasLayer/Gameplay" index="1"]
+visible = false
+
+[node name="Matute" parent="CanvasLayer/Gameplay" index="3"]
+visible = true
+
+[node name="LemonadeCarZone" parent="CanvasLayer/Gameplay" index="4"]
+position = Vector2(-3.1125, -5.65206)
+
+[node name="LemonadeCar" parent="CanvasLayer/Gameplay/LemonadeCarZone" index="0"]
+offset_left = 8.23948
+offset_top = 27.4692
+offset_right = 510.239
+offset_bottom = 564.469
+
+[node name="CollisionPolygon2D" parent="CanvasLayer/Gameplay/LemonadeCarZone" index="1"]
+visible = true
+position = Vector2(14.6922, 32.4796)
+polygon = PackedVector2Array(-40.4276, 126.029, 49.2216, 117.641, 131.391, 116.622, 156.659, 43.2629, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
+
+[node name="CollisionShape2D" parent="CanvasLayer/Gameplay/Path2D/PathFollow2D/CharacterSprite" index="1"]
+visible = false
+
+[node name="Path2D3" parent="CanvasLayer/Gameplay" index="16"]
+visible = true
+
+[node name="LevelSelector" parent="CanvasLayer/PanelContainer/Panel" index="6"]
+metadata/_edit_use_anchors_ = true
+
+[editable path="CanvasLayer/Gameplay/Path2D"]
+[editable path="CanvasLayer/Gameplay/Path2D2"]
+[editable path="CanvasLayer/Gameplay/Path2D3"]

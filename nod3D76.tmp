@@ -880,7 +880,7 @@ Expande tu zona de
 ventas desbloqueando
 nuevos escenarios
 
-Selecciona el Nivel:"
+Siguiente Nivel:"
 
 [node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/Panel"]
 layout_mode = 0
@@ -926,6 +926,7 @@ scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("15_rdn76")
 
 [node name="BetasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+visible = false
 layout_mode = 0
 offset_left = 56.778
 offset_top = 141.236
@@ -933,15 +934,6 @@ offset_right = 1080.78
 offset_bottom = 909.236
 scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("14_sf7km")
-
-[node name="ChedrauiButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
-layout_mode = 0
-offset_left = 56.778
-offset_top = 141.236
-offset_right = 1080.78
-offset_bottom = 909.236
-scale = Vector2(0.229954, 0.229954)
-texture_normal = ExtResource("13_lr85u")
 
 [node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
@@ -2702,7 +2694,6 @@ volume_db = -10.0
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer2/Button2" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/BetasButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_betas_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyButton" to="CanvasLayer/PanelContainer/Panel3/BuyButton" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" method="_on_tortillas_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" method="_on_carne_button_pressed"]
