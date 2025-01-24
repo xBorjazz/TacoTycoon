@@ -130,6 +130,7 @@ func _on_buying_complete() -> void:
 		SuppliesUi.actualizar_labels_dinero() 
 		verify_sound()
 		has_bought = true
+		GlobalProgressBar.update_progress(25) #Actualiza 2.5% de avance en el juego
 		Recipe.aplicar_receta()
 		_resume_movement()
 

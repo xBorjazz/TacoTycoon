@@ -24,6 +24,7 @@ TextureButtons="*res://TextureButtons.gd"
 Spawner="*res://Spawner.gd"
 PathFollow2d="*res://PathFollow2D.gd"
 Recipe="*res://Recipe.gd"
+GlobalProgressBar="*res://ProgressBar.gd"
 
 [display]
 

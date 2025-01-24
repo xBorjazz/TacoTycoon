@@ -30,7 +30,7 @@ visible = false
 [node name="Path2D3" parent="CanvasLayer/Gameplay" index="16"]
 visible = true
 
-[node name="LevelSelector" parent="CanvasLayer/PanelContainer/Panel" index="6"]
+[node name="LevelSelector" parent="CanvasLayer/PanelContainer/Panel" index="4"]
 metadata/_edit_use_anchors_ = true
 
 [editable path="CanvasLayer/Gameplay/Path2D"]

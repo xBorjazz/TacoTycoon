@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=80 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cxpet8w33y78v" path="res://Assets/Kenney/PNG/Blue/Double/bar_round_gloss_large.png" id="30_pspq3"]
 [ext_resource type="Texture2D" uid="uid://xrjubrw373t4" path="res://Assets/Kenney/Vector/Blue/bar_round_large.svg" id="31_40uyy"]
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="31_p8ujh"]
+[ext_resource type="Script" path="res://ProgressBar.gd" id="32_kl28o"]
 [ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="33_ktcl5"]
 [ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="37_2bink"]
 [ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="38_1cona"]
@@ -908,7 +909,9 @@ offset_top = 326.449
 offset_right = 248.186
 offset_bottom = 346.449
 theme_override_styles/background = SubResource("StyleBoxTexture_l0g1u")
+step = 1.0
 value = 100.0
+script = ExtResource("32_kl28o")
 
 [node name="LevelSelector" type="Control" parent="CanvasLayer/PanelContainer/Panel"]
 anchors_preset = 0
