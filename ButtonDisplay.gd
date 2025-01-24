@@ -39,8 +39,14 @@ Siguiente Nivel:")
 		3:
 			_show_panel(message_panel3, message_label3, "Chihuahua Taco Dog")
 		4:
-			_show_panel(message_panel4, message_label4, "Se desbloquea 
-			en el nivel 3...")
+			_show_panel(message_panel4, message_label4, "
+			
+			
+			Tareas
+			
+						Completa tareas
+						 y gana recompensas
+						")
 		5:
 			_show_panel(message_panel5, message_label5, "Ingredientes
 
