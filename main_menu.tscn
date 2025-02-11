@@ -1,0 +1,176 @@
+[gd_scene load_steps=13 format=3 uid="uid://dthkpu80jkm7c"]
+
+[ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="1_3t4s4"]
+[ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_b34qg"]
+[ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="3_1lytl"]
+[ext_resource type="Texture2D" uid="uid://cssgcoitoki84" path="res://Maps/Cucei/matute.png" id="4_k5gv6"]
+[ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="5_haocw"]
+[ext_resource type="Texture2D" uid="uid://cqs1awv1kyhw2" path="res://Assets/taco-logobg.png" id="6_r6wjt"]
+[ext_resource type="Texture2D" uid="uid://dm44nn63gb5pd" path="res://Assets/tycoon-logobg.png" id="7_60gds"]
+[ext_resource type="Texture2D" uid="uid://b7p8t8870d2p4" path="res://Assets/CUCEI-logoblue.png" id="8_gt4mx"]
+[ext_resource type="Texture2D" uid="uid://b7iwt12a4aac0" path="res://Assets/start-game2.png" id="11_kltp6"]
+[ext_resource type="Texture2D" uid="uid://bpxvygafujuaf" path="res://Assets/options-btn.png" id="12_44awt"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="12_nh7ka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pfa3"]
+bg_color = Color(0.113725, 0.176471, 0.113725, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("12_nh7ka")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 20.0
+offset_bottom = 64.0
+scale = Vector2(28.8, 16.12)
+color = Color(0.067, 0.952, 0.057, 0.438)
+
+[node name="MenuScreen1" type="Panel" parent="CanvasLayer"]
+texture_repeat = 2
+offset_left = 7.0
+offset_top = 64.0
+offset_right = 49.0
+offset_bottom = 86.0
+scale = Vector2(13.2844, 16.4912)
+pivot_offset = Vector2(0, 0.62)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pfa3")
+
+[node name="RainMap" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
+visible = false
+layout_mode = 0
+offset_left = 0.984566
+offset_top = 0.358033
+offset_right = 554.985
+offset_bottom = 556.358
+scale = Vector2(0.0698793, 0.0698793)
+texture = ExtResource("1_3t4s4")
+
+[node name="Chedraui" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
+visible = false
+layout_mode = 0
+offset_left = 0.921881
+offset_top = 1.0401
+offset_right = 1024.92
+offset_bottom = 769.04
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("2_b34qg")
+
+[node name="Beta" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
+modulate = Color(1, 1, 1, 0.105882)
+layout_mode = 0
+offset_left = 0.921881
+offset_top = 0.64502
+offset_right = 1024.92
+offset_bottom = 768.645
+scale = Vector2(0.0391006, 0.0257066)
+texture = ExtResource("3_1lytl")
+
+[node name="Matute" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
+visible = false
+layout_mode = 0
+offset_left = 1.05324
+offset_top = 0.525528
+offset_right = 1025.06
+offset_bottom = 768.526
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("4_k5gv6")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
+layout_mode = 0
+offset_left = 25.5187
+offset_top = -0.145248
+offset_right = 597.519
+offset_bottom = 496.855
+scale = Vector2(0.0261525, 0.0229047)
+texture = ExtResource("5_haocw")
+
+[node name="Taco-logobg" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
+position = Vector2(19.346, 12.8314)
+scale = Vector2(0.0250741, 0.0201983)
+texture = ExtResource("6_r6wjt")
+
+[node name="Tycoon-logobg" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
+position = Vector2(23.5615, 16.8941)
+scale = Vector2(0.0291897, 0.0235136)
+texture = ExtResource("7_60gds")
+
+[node name="Cucei-logoblue" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
+position = Vector2(14.2272, 7.13138)
+scale = Vector2(0.0283095, 0.0228046)
+texture = ExtResource("8_gt4mx")
+
+[node name="MenuScreen2" type="Panel" parent="CanvasLayer"]
+texture_repeat = 2
+offset_left = 15.0
+offset_top = 461.0
+offset_right = 56.0
+offset_bottom = 495.0
+scale = Vector2(13.2844, 16.4912)
+pivot_offset = Vector2(0, 0.62)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pfa3")
+
+[node name="RainMap" type="TextureRect" parent="CanvasLayer/MenuScreen2"]
+visible = false
+layout_mode = 0
+offset_left = 0.984566
+offset_top = 0.358033
+offset_right = 554.985
+offset_bottom = 556.358
+scale = Vector2(0.0698793, 0.0698793)
+texture = ExtResource("1_3t4s4")
+
+[node name="Chedraui" type="TextureRect" parent="CanvasLayer/MenuScreen2"]
+visible = false
+layout_mode = 0
+offset_left = 0.921881
+offset_top = 1.0401
+offset_right = 1024.92
+offset_bottom = 769.04
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("2_b34qg")
+
+[node name="Beta" type="TextureRect" parent="CanvasLayer/MenuScreen2"]
+visible = false
+layout_mode = 0
+offset_left = 0.921881
+offset_top = 0.64502
+offset_right = 1024.92
+offset_bottom = 768.645
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("3_1lytl")
+
+[node name="Matute" type="TextureRect" parent="CanvasLayer/MenuScreen2"]
+modulate = Color(1, 1, 1, 0.290196)
+layout_mode = 0
+offset_left = 1.05324
+offset_top = 0.525528
+offset_right = 1025.06
+offset_bottom = 768.526
+scale = Vector2(0.0377576, 0.0420024)
+texture = ExtResource("4_k5gv6")
+
+[node name="GameStart" type="TextureButton" parent="CanvasLayer/MenuScreen2" groups=["buttons"]]
+layout_mode = 0
+offset_left = 3.98964
+offset_top = 4.8877
+offset_right = 1283.99
+offset_bottom = 702.888
+scale = Vector2(0.0253941, 0.0191432)
+texture_normal = ExtResource("11_kltp6")
+script = ExtResource("12_nh7ka")
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/MenuScreen2"]
+layout_mode = 0
+offset_left = 5.26934
+offset_top = 15.4387
+offset_right = 682.269
+offset_bottom = 384.439
+scale = Vector2(0.0446109, 0.0374913)
+texture_normal = ExtResource("12_44awt")
+
+[connection signal="pressed" from="CanvasLayer/MenuScreen2/GameStart" to="." method="_on_game_start_pressed"]
