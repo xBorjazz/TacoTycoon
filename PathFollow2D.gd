@@ -52,13 +52,20 @@ func _on_day_ended() -> void:
 	hide()
 
 func _ready() -> void:
-	# Conectar la señal day_ended para ocultar el personaje
-	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
+	# Verificar si el nodo day_manager existe antes de conectarlo
+	if day_manager:
+		day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
+		print("Conexión establecida con la señal day_ended.")
+	else:
+		print("Error: No se encontró el nodo DayControl.")
 	
+	# Conectar el nodo LemonadeCarZone si existe
 	if lemonade_car_zone:
 		lemonade_car_zone.connect("body_entered", Callable(self, "_on_lemonade_car_zone_body_entered"))
+		print("Conexión establecida con la zona de ventas.")
 	else:
-		print("El nodo LemonadeCarZone no se encontró.")
+		print("Error: El nodo LemonadeCarZone no se encontró.")
+
 
 func _process(delta: float) -> void:
 	if not game_started:

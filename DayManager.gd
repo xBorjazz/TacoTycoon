@@ -69,9 +69,10 @@ func _on_day_end() -> void:
 	current_day += 1
 
 func update_day_label() -> void:
-	day_label.text = " %s
- 	
-	%s
-	
-	
-	%s" % [str(current_day), str(int(remaining_time)), str(Inventory.tacos_vendidos)]
+	# Verificar si Inventory existe antes de acceder a tacos_vendidos
+	if has_node("/root/Inventory"):
+		var inventory = get_node("/root/Inventory")
+		day_label.text = " %s\n\n%s\n\n%s" % [str(current_day), str(int(remaining_time)), str(inventory.tacos_vendidos)]
+	else:
+		# En caso de que Inventory no exista, muestra un mensaje de advertencia
+		day_label.text = " %s\n\n%s\n\nError: Inventory no encontrado" % [str(current_day), str(int(remaining_time))]

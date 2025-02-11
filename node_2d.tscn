@@ -601,7 +601,7 @@ wait_time = 5.0
 [node name="EndDayTimer" type="Timer" parent="CanvasLayer/Gameplay"]
 wait_time = 60.0
 
-[node name="StartButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/Gameplay" groups=["GlobalNodes"]]
 layout_mode = 0
 offset_left = 31.6564
 offset_top = 29.1927
@@ -649,7 +649,7 @@ offset_bottom = 616.138
 scale = Vector2(0.00546927, 0.00675025)
 texture = ExtResource("20_qe7ua")
 
-[node name="DayControl" type="Node2D" parent="CanvasLayer/Gameplay"]
+[node name="DayControl" type="Node2D" parent="CanvasLayer/Gameplay" groups=["GlobalNodes"]]
 position = Vector2(17.9918, 1.78757)
 scale = Vector2(0.6919, 0.78258)
 script = ExtResource("20_aq3g7")
