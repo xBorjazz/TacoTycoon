@@ -147,3 +147,7 @@ func _ready() -> void:
 	actualizar_labels()
 	actualizar_labels_dinero()
 	actualizar_inventario_total() 
+	
+func restart_ready():
+	print("Reejecutando _ready() con call_deferred()")
+	call_deferred("_ready")  # Esto ejecutará _ready() en el siguiente frame

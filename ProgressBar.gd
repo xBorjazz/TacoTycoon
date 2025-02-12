@@ -8,6 +8,7 @@ var progress_target = 1000  # Meta para llenar la barra
 @onready var progress_bar = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/ProgressBar")  # Ajusta la ruta al nodo de tu ProgressBar
 
 func _ready():
+	
 	# Inicializa la ProgressBar
 	progress_bar.value = 0
 	progress_bar.max_value = progress_target
@@ -32,3 +33,7 @@ func update_progress(money_gained: int) -> void:
 func on_progress_complete() -> void:
 	print("¡Progreso completo! Has ganado $1000.")
 	# Aquí puedes realizar acciones adicionales, como desbloquear algo
+	
+func restart_ready():
+	print("Reejecutando _ready() con call_deferred()")
+	call_deferred("_ready")  # Esto ejecutará _ready() en el siguiente frame

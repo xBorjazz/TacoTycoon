@@ -2,6 +2,7 @@ extends Node
 
 # Referencia al botón de inicio (ahora de tipo TextureButton)
 var game_start_button : TextureButton = null
+var new_scene = load("res://node_2d.tscn").instantiate()
 
 # Llamado cuando el nodo entra en el árbol de escenas
 func _ready():
@@ -27,4 +28,14 @@ func _on_game_start_pressed():
 
 	# Cambiar a la nueva escena principal del juego
 	print("Cambiando a la nueva escena...")
-	get_tree().change_scene_to_file("res://node_2d.tscn")  # Cambiamos a la nueva escena
+	get_tree().root.print_tree_pretty()
+
+	get_tree().current_scene.queue_free()  # Elimina la escena actual
+	get_tree().root.add_child(new_scene)
+	SuppliesUi.restart_ready()
+	Spawner.restart_ready()
+	PathFollow2d.restart_ready()
+	GlobalProgressBar.restart_ready()
+	
+	get_tree().current_scene = new_scene  # Define la nueva escena como activa
+	
