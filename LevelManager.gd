@@ -1,8 +1,8 @@
 extends Node
 
 @onready var level_selector = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/LevelSelector")
-@onready var left_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/LevelSelector/LeftArrow")
-@onready var right_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/LevelSelector/RightArrow")
+@onready var left_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/LeftArrow")
+@onready var right_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/RightArrow")
 
 var levels = ["res://node_2d.tscn", "res://level_2.tscn", "res://betas_level.tscn"]
 var current_level = 0  # Nivel inicial
@@ -19,6 +19,24 @@ func _ready():
 	# Conectar las señales de las flechas
 	left_arrow.connect("pressed", Callable(self, "_on_left_arrow_pressed"))
 	right_arrow.connect("pressed", Callable(self, "_on_right_arrow_pressed"))
+	# Conectar la señal de cambio de valor del ProgressBar
+	GlobalProgressBar.progress_bar.connect("value_changed", Callable(self, "_on_progress_changed"))
+
+	# Verificar el estado inicial de los botones
+	_on_progress_changed(GlobalProgressBar.progress_bar.value)
+
+func _on_progress_changed(value):
+	# Si el progreso es menor a 100, deshabilitar los botones
+	if value < 1000:
+		for button in level_buttons:
+			if button is TextureButton:
+				button.disabled = true
+	else:
+		# Si el progreso es 100 o más, habilitar los botones
+		for button in level_buttons:
+			if button is TextureButton:
+				button.disabled = false
+
 
 func update_level_buttons_visibility():
 	# Asegurarse de que los botones de nivel estén en el estado correcto
@@ -65,3 +83,7 @@ func _on_matute_button_pressed():
 
 func _on_betas_button_pressed():
 	get_tree().change_scene_to_file(levels[2])  # Cambiar al tercer nivel
+	
+func restart_ready():
+	print("Reejecutando _ready() con call_deferred()")
+	call_deferred("_ready")  # Esto ejecutará _ready() en el siguiente frame

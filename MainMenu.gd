@@ -37,6 +37,7 @@ func _on_game_start_pressed():
 	PathFollow2d.restart_ready()
 	GlobalProgressBar.restart_ready()
 	Recipe.restart_ready()
+	LevelManager.restart_ready()
 	
 	get_tree().current_scene = new_scene  # Define la nueva escena como activa
 	

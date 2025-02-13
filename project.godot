@@ -26,6 +26,7 @@ PathFollow2d="*res://PathFollow2D.gd"
 Recipe="*res://Recipe.gd"
 GlobalProgressBar="*res://ProgressBar.gd"
 GameLoad="*res://GameLoad.gd"
+LevelManager="*res://LevelManager.gd"
 
 [display]
 

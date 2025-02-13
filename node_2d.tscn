@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=84 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
@@ -30,13 +30,16 @@
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
 [ext_resource type="Texture2D" uid="uid://3goryn8ws4pa" path="res://Assets/tasks.png" id="25_od6rl"]
+[ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="28_dc1ht"]
 [ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="28_kip63"]
+[ext_resource type="Texture2D" uid="uid://sw36m1vpxrlf" path="res://Maps/Cucei/betas-disabled.png" id="29_1s0eh"]
 [ext_resource type="Texture2D" uid="uid://cp44wnic0j3uk" path="res://Assets/Buttons/arrows/bluefadearrow.png" id="29_fw3al"]
 [ext_resource type="Texture2D" uid="uid://diyth22mvcqhx" path="res://Assets/Kenney/PNG/Extra/Double/bar_shadow_round_large.png" id="29_uk266"]
 [ext_resource type="Texture2D" uid="uid://l048vmeo6aki" path="res://Assets/Cilantro.png" id="29_v8tju"]
 [ext_resource type="Script" path="res://LevelManager.gd" id="29_vk40w"]
 [ext_resource type="Texture2D" uid="uid://bxob6vvxy74ck" path="res://Assets/onion.png" id="30_mkeok"]
+[ext_resource type="Texture2D" uid="uid://cm7tp7f78160p" path="res://Maps/Cucei/chedraui-disabled.png" id="30_oyp6i"]
 [ext_resource type="Texture2D" uid="uid://cxpet8w33y78v" path="res://Assets/Kenney/PNG/Blue/Double/bar_round_gloss_large.png" id="30_pspq3"]
 [ext_resource type="Texture2D" uid="uid://xrjubrw373t4" path="res://Assets/Kenney/Vector/Blue/bar_round_large.svg" id="31_40uyy"]
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="31_p8ujh"]
@@ -684,7 +687,6 @@ offset_bottom = 952.0
 scale = Vector2(1.07436, 1.18242)
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel"]
@@ -737,6 +739,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("29_vk40w")
+metadata/_edit_use_anchors_ = true
 
 [node name="MatuteButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
@@ -746,6 +749,7 @@ offset_right = 1080.78
 offset_bottom = 909.236
 scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("15_rdn76")
+texture_disabled = ExtResource("28_dc1ht")
 
 [node name="BetasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
@@ -755,6 +759,7 @@ offset_right = 1080.78
 offset_bottom = 909.236
 scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("14_sf7km")
+texture_disabled = ExtResource("29_1s0eh")
 
 [node name="ChedrauiButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
@@ -764,8 +769,9 @@ offset_right = 1080.78
 offset_bottom = 909.236
 scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("13_lr85u")
+texture_disabled = ExtResource("30_oyp6i")
 
-[node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+[node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel"]
 layout_mode = 0
 offset_left = 54.9164
 offset_top = 388.187
@@ -776,7 +782,7 @@ scale = Vector2(0.131315, 0.131315)
 texture_normal = ExtResource("28_kip63")
 texture_pressed = ExtResource("29_fw3al")
 
-[node name="RightArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+[node name="RightArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel"]
 layout_mode = 0
 offset_left = 279.236
 offset_top = 345.055
@@ -978,6 +984,7 @@ texture_normal = ExtResource("46_e1qdg")
 script = ExtResource("8_aiqcm")
 
 [node name="Panel4" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel4"]
