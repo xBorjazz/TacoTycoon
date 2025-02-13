@@ -33,13 +33,13 @@ func start_moving(path2d: Path2D, pathfollow2d: PathFollow2D) -> void:
 	speed = 0.2
 	pathfollow2d.progress_ratio = 0
 	set_process(true)
+	set_visible(true)
 
-func stop_moving() -> void:
-	print("Personaje NO se moverá.")
-	speed = Vector2.ZERO
-	set_process(false)
-	set_visible(false)
-	game_started = false
+func stop_moving() -> void: #cambiar nombre a resume_moving
+	speed = 0.3
+	#set_process(false)
+	#set_visible(false)
+	#game_started = false
 
 func end_day() -> void:
 	emit_signal("day_ended")
@@ -61,16 +61,21 @@ func _ready() -> void:
 		print("El nodo LemonadeCarZone no se encontró.")
 
 func _process(delta: float) -> void:
-	if not game_started:
+
+
+	if pathfollow == null:
 		return
 
 	pathfollow.progress_ratio += speed * delta
+
 
 	if pathfollow.progress_ratio >= 1.0:
 		fade_out_anim()
 
 	pathfollow.position = pathfollow.get_position()
 	var curve = path_2d.curve
+	
+	#print("Progress ratio:", progress_ratio, "Speed:", speed)
 
 	if curve.get_point_count() > 3:
 		var point_position = curve.get_point_position(3)
@@ -78,11 +83,11 @@ func _process(delta: float) -> void:
 
 		if distance_to_point < 10:
 			if not animated_sprite.is_playing() or animated_sprite.animation != "walk_right":
-				print("Cerca del punto 3, animación: walk_right")
+				#print("Cerca del punto 3, animación: walk_right")
 				animated_sprite.play("walk_right")
 		else:
 			if not animated_sprite.is_playing() or animated_sprite.animation != "walk_left_down":
-				print("Lejos del punto 3, animación: walk_left_down")
+				#print("Lejos del punto 3, animación: walk_left_down")
 				animated_sprite.play("walk_left_down")
 
 func fade_out_anim() -> void:
@@ -94,7 +99,7 @@ func fade_out_anim() -> void:
 	timer.start()
 
 func _on_fade_out_complete() -> void:
-	print("El personaje ha salido del mapa")
+	#print("El personaje ha salido del mapa")
 	stop_moving()
 	hide()
 
@@ -114,7 +119,7 @@ func buying_anim() -> void:
 
 	if animated_sprite:
 		animated_sprite.play("buying")
-		print("Comprando")
+		#print("Comprando")
 
 	var timer = Timer.new()
 	timer.wait_time = 2.0

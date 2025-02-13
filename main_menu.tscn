@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dthkpu80jkm7c"]
+[gd_scene load_steps=26 format=3 uid="uid://dthkpu80jkm7c"]
 
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="1_3t4s4"]
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_b34qg"]
@@ -8,9 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cqs1awv1kyhw2" path="res://Assets/taco-logobg.png" id="6_r6wjt"]
 [ext_resource type="Texture2D" uid="uid://dm44nn63gb5pd" path="res://Assets/tycoon-logobg.png" id="7_60gds"]
 [ext_resource type="Texture2D" uid="uid://b7p8t8870d2p4" path="res://Assets/CUCEI-logoblue.png" id="8_gt4mx"]
+[ext_resource type="Texture2D" uid="uid://c0b53jeaeaqu6" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheetCharacter1.png" id="10_pb6hy"]
+[ext_resource type="Script" path="res://Character.gd" id="11_7v1sp"]
 [ext_resource type="Texture2D" uid="uid://b7iwt12a4aac0" path="res://Assets/start-game2.png" id="11_kltp6"]
 [ext_resource type="Texture2D" uid="uid://bpxvygafujuaf" path="res://Assets/options-btn.png" id="12_44awt"]
 [ext_resource type="Script" path="res://MainMenu.gd" id="12_nh7ka"]
+[ext_resource type="AudioStream" uid="uid://1m4tbdxml6ev" path="res://Resources/Sounds/SoundTrack/PixelDreams.mp3" id="14_a257s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pfa3"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -18,6 +21,250 @@ corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
+
+[sub_resource type="Animation" id="Animation_g01n0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [33]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pd5wd"]
+resource_name = "buying"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [46]
+}
+
+[sub_resource type="Animation" id="Animation_wq3di"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [71, 71, 71]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.635294), Color(1, 1, 1, 0.0235294), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d6sog"]
+resource_name = "walk_buy"
+length = 8.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.5, 4.9, 5.4, 6, 6.2, 6.4, 6.6, 6.8, 7, 7.2, 7.4, 7.6, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17, 63, 63, 65, 66, 67, 68, 69, 70, 71, 63, 63, 62, 46, 46, 46, 46, 9, 63, 64, 65, 66, 67, 68, 69, 70, 63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 7.6, 8.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1), Color(1, 0.407843, 0.407843, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5jniq"]
+resource_name = "walk_down"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [63, 65, 66, 67, 68, 69, 70, 71]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q4rsi"]
+resource_name = "walk_left_down"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [65, 66, 67, 68, 69, 70, 71, 63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2jvo5"]
+resource_name = "walk_right"
+length = 1.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d317q"]
+resource_name = "walk_right_down"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17, 63, 63, 65, 66, 67, 68, 69, 70, 71, 63]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4, 3.5, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.36, 0.36, 1), Color(1, 0.360784, 0.360784, 1), Color(1, 0.406443, 0.406443, 1), Color(1, 0.407843, 0.407843, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4pdfg"]
+resource_name = "walk_right_up"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [27, 28, 29, 33, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jqjf3"]
+_data = {
+"RESET": SubResource("Animation_g01n0"),
+"buying": SubResource("Animation_pd5wd"),
+"fade_out": SubResource("Animation_wq3di"),
+"walk_buy": SubResource("Animation_d6sog"),
+"walk_down": SubResource("Animation_5jniq"),
+"walk_left_down": SubResource("Animation_q4rsi"),
+"walk_right": SubResource("Animation_2jvo5"),
+"walk_right_down": SubResource("Animation_d317q"),
+"walk_right_up": SubResource("Animation_4pdfg")
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("12_nh7ka")
@@ -104,6 +351,26 @@ position = Vector2(14.2272, 7.13138)
 scale = Vector2(0.0283095, 0.0228046)
 texture = ExtResource("8_gt4mx")
 
+[node name="Character2" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
+texture_filter = 1
+position = Vector2(36.4337, 14.8324)
+scale = Vector2(0.400662, 0.282974)
+texture = ExtResource("10_pb6hy")
+hframes = 9
+vframes = 3
+frame = 9
+script = ExtResource("11_7v1sp")
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="CanvasLayer/MenuScreen1/Character2"]
+libraries = {
+"": SubResource("AnimationLibrary_jqjf3")
+}
+
+[node name="PlayerAnimation2" type="AnimationPlayer" parent="CanvasLayer/MenuScreen1/Character2"]
+libraries = {
+"": SubResource("AnimationLibrary_jqjf3")
+}
+
 [node name="MenuScreen2" type="Panel" parent="CanvasLayer"]
 texture_repeat = 2
 offset_left = 15.0
@@ -172,5 +439,10 @@ offset_right = 682.269
 offset_bottom = 384.439
 scale = Vector2(0.0446109, 0.0374913)
 texture_normal = ExtResource("12_44awt")
+
+[node name="BackGround_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_a257s")
+volume_db = -9.0
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MenuScreen2/GameStart" to="." method="_on_game_start_pressed"]

@@ -52,7 +52,7 @@ func _spawn_character() -> void:
 
 	# Elegir un Path2D aleatorio
 	var random_path = paths[randi() % paths.size()]
-	print(paths[1])
+	print(random_path)
 
 	# Establecer visibilidad: solo el PathFollow2D seleccionado será visible
 	for path in paths:
@@ -60,19 +60,19 @@ func _spawn_character() -> void:
 		if path == random_path:
 			# Este es el Path2D seleccionado, lo hacemos visible
 			path_follow.visible = true
-			print("Path seleccionado: visible.")
+			#print("Path seleccionado: visible.")
 			
 			# Llamar a la función start_game() del personaje
 			PathFollow2d.start_game(random_path, path_follow)
 			
 			# Resetear la posición inicial en el PathFollow2D
-			path_follow.progress_ratio = 0.0  # Cambiado a progress_ratio
+			#path_follow.progress_ratio = 0.0  # Cambiado a progress_ratio
 		else:
 			# Hacer invisibles los otros PathFollow2D
 			path_follow.visible = false
 			#path_follow.visible = true
 			PathFollow2d.speed = 0.4
-			print("Path inactivo: invisible.")
+			#print("Path inactivo: invisible.")
 	
 	print("Nuevo personaje instanciado y asignado a un PathFollow2D.")
 	

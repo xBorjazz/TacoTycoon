@@ -205,7 +205,7 @@ func restar_totales(tortillas, carne, cebolla, verdura, salsa):
 	verdura_total = max(verdura_total, 0)
 	salsa_total = max(salsa_total, 0)
 	
-	print("Restación de totales")
+	#print("Restación de totales")
 
 	# Actualizar UI o realizar otras acciones si es necesario
 	SuppliesUi.actualizar_inventario_total()  # Suponiendo que tienes una función para actualizar la UI
