@@ -106,8 +106,14 @@ func _on_fade_out_complete() -> void:
 func _on_lemonade_car_zone_body_entered(body):
 	if body == character_sprite:
 		print("Personaje ha entrado en la zona de ventas")
-		if not has_bought:
-			buying_anim()
+		
+		# Verificamos si hay suficientes suministros para vender tacos
+		if Inventory.tortillas_total > 0 and Inventory.carne_total > 0:
+			if not has_bought:
+				buying_anim()
+		else:
+			print("No hay suficientes suministros para vender tacos. El cliente se va.")
+
 
 func buying_anim() -> void:
 	if not animated_sprite.visible:

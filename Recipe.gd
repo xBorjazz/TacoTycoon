@@ -3,9 +3,9 @@ extends Node
 # Variables para guardar la receta seleccionada
 var tortillas_por_taco = 1
 var carne_por_taco = 1
-var cebolla_por_taco = 0
-var verdura_por_taco = 0
-var salsa_por_taco = 0
+var cebolla_por_taco = 1
+var verdura_por_taco = 1
+var salsa_por_taco = 1
 
 # Referencias a los nodos de la interfaz para seleccionar la cantidad de cada ingrediente
 @onready var tortillas_slider = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasSlider")
@@ -91,3 +91,7 @@ func _categoria_por_valor(valor):
 			return "large"
 		_:
 			return "normal"  # Valor por defecto
+			
+func restart_ready():
+	print("Reejecutando _ready() con call_deferred()")
+	call_deferred("_ready")  # Esto ejecutará _ready() en el siguiente frame
