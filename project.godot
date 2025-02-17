@@ -27,6 +27,9 @@ Recipe="*res://Recipe.gd"
 GlobalProgressBar="*res://ProgressBar.gd"
 GameLoad="*res://GameLoad.gd"
 LevelManager="*res://LevelManager.gd"
+GradientDescent="*res://GradientDescent.gd"
+GraphPlot="*res://GraphPlot.gd"
+IngredientsManager="*res://IngredientsManager.gd"
 
 [display]
 
@@ -34,6 +37,10 @@ window/size/viewport_width=576
 window/size/viewport_height=1024
 window/stretch/mode="canvas_items"
 window/handheld/orientation=5
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-engine.easy-charts/addons/easy_charts/plugin.cfg")
 
 [gui]
 

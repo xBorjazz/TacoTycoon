@@ -35,6 +35,8 @@ func _ready():
 
 	# Inicializar con valores por defecto
 	_actualizar_labels()
+	
+	print_tree_pretty()
 
 # Funciones para manejar cambios en los sliders
 func _on_tortillas_slider_value_changed(value):

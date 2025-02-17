@@ -27,6 +27,10 @@ extends Node2D
 @onready var cebolla_total_label = get_node("/root/Node2D/CanvasLayer/Gameplay/Inventario/Cebolla/CebollaTotalLabel")
 @onready var salsa_total_label = get_node("/root/Node2D/CanvasLayer/Gameplay/Inventario/Salsas/SalsaTotalLabel")
 
+@onready var ingredients_manager = get_node("/root/IngredientsManager")
+@onready var gradient_node = get_node("/root/GradientDescent")
+@onready var graph_plot = ("/root/Node2D/CanvasLayer/PanelContainer/Panel2/IngredientsManager")
+
 # Función para actualizar todos los Labels
 func actualizar_labels() -> void:
 	actualizar_label_tortillas("normal")
@@ -146,7 +150,28 @@ func resetear_labels_recursos() -> void:
 func _ready() -> void:
 	actualizar_labels()
 	actualizar_labels_dinero()
-	actualizar_inventario_total() 
+	actualizar_inventario_total()
+
+	
+	# Datos de ejemplo (Carne, Salsa, Tortilla) y ganancias reales
+	var data = [
+		[1, 2, 1],
+		[2, 1, 2],
+		[3, 2, 1],
+		[4, 3, 2]
+	]
+	var real_ganancias = [10, 15, 20, 25]
+
+	# Entrenamos el modelo
+	GradientDescent.train(data, real_ganancias, 1000)
+
+	# Obtenemos la lista de pérdidas y la enviamos al script de la gráfica
+	GraphPlot.set_data(gradient_node.loss_values)
+
+	# Ejemplo de predicción usando los ingredientes actuales del jugador
+	var ing = ingredients_manager.get_ingredients()
+	var ganancia_predicha = gradient_node.predict(ing[0], ing[1], ing[2])
+	print("Ganancia predicha con ingredientes actuales:", ganancia_predicha) 
 	
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")

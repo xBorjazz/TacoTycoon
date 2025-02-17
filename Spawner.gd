@@ -21,6 +21,7 @@ func _ready() -> void:
 	
 	day_control.connect("day_started", Callable(self, "_on_day_started"))
 	day_control.connect("day_ended", Callable(self, "_on_day_ended"))
+	
 
 func start_spawning() -> void:
 	game_started = true
