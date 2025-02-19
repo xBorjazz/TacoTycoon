@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=85 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
@@ -45,11 +45,8 @@
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="31_p8ujh"]
 [ext_resource type="Script" path="res://ProgressBar.gd" id="32_kl28o"]
 [ext_resource type="Texture2D" uid="uid://ddktanm4xnhcx" path="res://Assets/librreet.png" id="33_4yawo"]
-[ext_resource type="Script" path="res://Addons/godot-engine.easy-charts/addons/easy_charts/control_charts/plotters/line_plotter.gd" id="33_iti77"]
+[ext_resource type="Script" path="res://GraphDrawer.gd" id="33_c48qm"]
 [ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="33_ktcl5"]
-[ext_resource type="Script" path="res://GraphPlot.gd" id="33_kywlb"]
-[ext_resource type="Script" path="res://IngredientsManager.gd" id="34_wrkyk"]
-[ext_resource type="Script" path="res://GradientDescent.gd" id="35_6fo0r"]
 [ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="37_2bink"]
 [ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="38_1cona"]
 [ext_resource type="Texture2D" uid="uid://b8847bc164qi2" path="res://Assets/LargeTortillas.png" id="39_jf5gi"]
@@ -814,68 +811,75 @@ text = "2"
 justification_flags = 162
 metadata/_edit_use_anchors_ = true
 
-[node name="x_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
+[node name="ganancias" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
+layout_direction = 2
 layout_mode = 2
-offset_left = 59.5703
-offset_top = 184.368
-offset_right = 171.57
-offset_bottom = 203.368
-scale = Vector2(0.698654, 0.747047)
-text = "x_label"
+offset_left = 9.97229
+offset_top = 168.719
+offset_right = 153.972
+offset_bottom = 222.719
+rotation = -1.5708
+scale = Vector2(0.990016, 1.3589)
+size_flags_horizontal = 4
+size_flags_vertical = 15
+text = "Ganancias
+"
 
-[node name="y_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
-layout_mode = 2
-offset_left = 3.72315
-offset_top = 12.6859
-offset_right = 115.723
-offset_bottom = 31.6859
-scale = Vector2(0.698654, 0.747047)
-text = "y_label"
-
-[node name="y_ticks_container" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel2"]
-layout_mode = 2
-offset_left = 14.2387
-offset_top = 26.2174
-offset_right = 14.2387
-offset_bottom = 26.2174
-
-[node name="x_ticks_container" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel2"]
+[node name="line_chart" type="GridContainer" parent="CanvasLayer/PanelContainer/Panel2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LinePlotter" type="Control" parent="CanvasLayer/PanelContainer/Panel2"]
-layout_mode = 2
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("33_iti77")
-
-[node name="GraphPlot" type="GridContainer" parent="CanvasLayer/PanelContainer/Panel2"]
-visible = false
-layout_mode = 0
-offset_left = 10.2387
+offset_left = 24.2005
 offset_top = 26.2174
-offset_right = 310.239
-offset_bottom = 228.217
+offset_right = 303.215
+offset_bottom = 164.217
 columns = 3
-script = ExtResource("33_kywlb")
+script = ExtResource("33_c48qm")
+line_color = Color(1, 0.194376, 0.144153, 1)
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2/GraphPlot"]
+[node name="y_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 15
+text = "y"
+
+[node name="y_ticks_container" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PanelContainer/Panel2/GraphPlot/Control"]
+[node name="line_container" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
 layout_mode = 2
-offset_right = 325.0
-offset_bottom = 390.0
-scale = Vector2(0.935186, 0.397086)
-color = Color(0.00529141, 0.129551, 0.24481, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="IngredientsManager" type="Node" parent="CanvasLayer/PanelContainer/Panel2"]
-script = ExtResource("34_wrkyk")
+[node name="background" type="ColorRect" parent="CanvasLayer/PanelContainer/Panel2/line_chart/line_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 1)
 
-[node name="GradientDescent" type="Node" parent="CanvasLayer/PanelContainer/Panel2"]
-script = ExtResource("35_6fo0r")
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="x_ticks_container" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="x_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "x
+"
+vertical_alignment = 1
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -2269,6 +2273,7 @@ texture_normal = ExtResource("48_i0ha3")
 script = ExtResource("8_aiqcm")
 
 [node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
