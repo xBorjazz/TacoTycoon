@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=85 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://ddktanm4xnhcx" path="res://Assets/librreet.png" id="33_4yawo"]
 [ext_resource type="Script" path="res://GraphDrawer.gd" id="33_c48qm"]
 [ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="33_ktcl5"]
-[ext_resource type="PackedScene" uid="uid://7v0v5lsl0kqe" path="res://addons/easy_charts/examples/multiplot/Control.tscn" id="34_y0crb"]
 [ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="37_2bink"]
 [ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="38_1cona"]
 [ext_resource type="Texture2D" uid="uid://b8847bc164qi2" path="res://Assets/LargeTortillas.png" id="39_jf5gi"]
@@ -813,7 +812,6 @@ justification_flags = 162
 metadata/_edit_use_anchors_ = true
 
 [node name="ganancias" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
-visible = false
 layout_direction = 2
 layout_mode = 2
 offset_left = 7.42438
@@ -828,7 +826,6 @@ text = "% Ganancias
 "
 
 [node name="line_chart" type="GridContainer" parent="CanvasLayer/PanelContainer/Panel2"]
-visible = false
 layout_mode = 0
 offset_left = 24.2005
 offset_top = 26.2174
@@ -836,8 +833,12 @@ offset_right = 303.215
 offset_bottom = 164.217
 columns = 3
 script = ExtResource("33_c48qm")
+line_width = null
 line_color = Color(1, 0.194376, 0.144153, 1)
+scatter_color = null
 bg_color = Color(0.054902, 0.054902, 0.054902, 1)
+x_ticks = null
+y_ticks = null
 
 [node name="y_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
 layout_direction = 2
@@ -884,22 +885,6 @@ size_flags_vertical = 1
 text = "x
 "
 vertical_alignment = 1
-
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2"]
-anchors_preset = 0
-offset_left = -14.8926
-offset_top = -32.1375
-offset_right = 25.1074
-offset_bottom = 7.86252
-scale = Vector2(1.1756, 2.0559)
-
-[node name="Control2" parent="CanvasLayer/PanelContainer/Panel2/Control" instance=ExtResource("34_y0crb")]
-layout_mode = 1
-offset_left = 15.0434
-offset_top = 18.9228
-offset_right = 620.063
-offset_bottom = 397.483
-scale = Vector2(0.419683, 0.251132)
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
