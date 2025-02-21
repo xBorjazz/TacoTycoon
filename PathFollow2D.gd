@@ -12,6 +12,7 @@ var character_sprite: CharacterBody2D
 var path_2d_scene = preload("res://path_2d.tscn")
 
 #signal day_ended
+signal sale_made
 
 @onready var lemonade_car_zone = get_node("/root/Node2D/CanvasLayer/Gameplay/LemonadeCarZone")
 @onready var sound_player = get_node("/root/Node2D/CanvasLayer/PlayerBuy_Sound")

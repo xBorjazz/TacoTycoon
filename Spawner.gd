@@ -9,6 +9,8 @@ var character_scene = preload("res://path_2d.tscn")  # La escena del personaje q
 var spawn_timer: Timer
 var game_started: bool = false
 
+signal sale_made
+
 func _ready() -> void:
 	spawn_timer = Timer.new()
 	add_child(spawn_timer)
@@ -54,6 +56,8 @@ func _spawn_character() -> void:
 	# Elegir un Path2D aleatorio
 	var random_path = paths[randi() % paths.size()]
 	print(random_path)
+	
+	emit_signal("sale_made")
 
 	# Establecer visibilidad: solo el PathFollow2D seleccionado será visible
 	for path in paths:

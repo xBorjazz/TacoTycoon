@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=88 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
+[ext_resource type="Script" path="res://PathFollow2D.gd" id="23_besq4"]
 [ext_resource type="Texture2D" uid="uid://3goryn8ws4pa" path="res://Assets/tasks.png" id="25_od6rl"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="28_dc1ht"]
 [ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
@@ -334,6 +335,8 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 11.8327, 3.07733, 0, 0, 0, 0, 20.0314, 5.96209, 0, 0, 0, 0, 13.0473, 9.37824, 0, 0, 0, 0, 6.82229, 11.352, 0, 0, 0, 0, 4.54485, 15.2996, 0, 0, 0, 0, 0.0658894, 11.2761, 0, 0, 0, 0, 0.0658894, 13.4017, 0, 0, 0, 0, 29.2171, 11.352)
 }
 point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_c5sub"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0g1u"]
 texture = ExtResource("31_40uyy")
@@ -675,6 +678,20 @@ offset_right = 69.834
 offset_bottom = 19.0
 scale = Vector2(0.115, 0.13)
 text = "Dia"
+
+[node name="BuyControl" type="Control" parent="CanvasLayer/Gameplay"]
+anchors_preset = 0
+offset_left = 41.2216
+offset_top = -7.09444
+offset_right = 81.2216
+offset_bottom = 32.9056
+scale = Vector2(0.0443338, 0.0576107)
+
+[node name="Path2D" type="Path2D" parent="CanvasLayer/Gameplay/BuyControl"]
+curve = SubResource("Curve2D_c5sub")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/BuyControl/Path2D"]
+script = ExtResource("23_besq4")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0

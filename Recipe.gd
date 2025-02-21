@@ -7,6 +7,8 @@ var cebolla_por_taco = 1
 var verdura_por_taco = 1
 var salsa_por_taco = 1
 
+signal sale_made
+
 # Referencias a los nodos de la interfaz para seleccionar la cantidad de cada ingrediente
 @onready var tortillas_slider = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasSlider")
 @onready var carne_slider = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneSlider")
@@ -79,6 +81,9 @@ func aplicar_receta():
 
 	# Actualizar los labels de suministros totales en la UI
 	SuppliesUi.actualizar_labels()
+	
+	emit_signal("sale_made")
+
 
 # Función auxiliar para determinar la categoría en función del valor del slider
 func _categoria_por_valor(valor):
