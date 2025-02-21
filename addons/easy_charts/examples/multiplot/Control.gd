@@ -2,24 +2,27 @@ extends Control
 
 @onready var chart: Chart = $VBoxContainer/Chart
 
-# Estas 3 series se mostrarán en la gráfica:
+# Estas 4 series se mostrarán en la gráfica:
 var f1: Function   # Dinero Actual
-var f2: Function   # Perdidas (Ventas perdidas)
-var f3: Function   # Ventas (Tacos vendidos)
+var f2: Function   # Pérdidas
+var f3: Function   # Ventas
+var f4: Function   # Predicción basada en la receta
 
 # Variable para controlar el tiempo (eje X)
 var tiempo_acumulado: float = 0.0
 
+# Referencia al nodo de la Receta
+@onready var recipe_node = get_node("/root/Node2D/CanvasLayer/Gameplay/RecipeControl")
+
 func _ready():
-	# Vamos a crear un conjunto de valores de ejemplo para X (no se usará directamente, ya que se irán agregando puntos en update_chart)
-	var x: Array = ArrayOperations.multiply_float(range(-10, 11, 1), 0.5)
-	
-	# Valores iniciales para Y, Y2, Y3 (solo de ejemplo; luego se actualizarán)
-	var y: Array = ArrayOperations.multiply_int(ArrayOperations.cos(x), 20)
-	var y2: Array = ArrayOperations.add_float(ArrayOperations.multiply_int(ArrayOperations.sin(x), 20), 20)
-	var y3: Array = ArrayOperations.add_float(ArrayOperations.multiply_int(ArrayOperations.cos(x), 5), -3)
-	
-	# Configuración de ChartProperties (personaliza a tu gusto)
+	# Inicializamos arrays con un valor "ficticio" para evitar que estén vacíos
+	var x_init: Array = [0.0]
+	var y1_init: Array = [0.0]   # Dinero
+	var y2_init: Array = [0.0]   # Pérdidas
+	var y3_init: Array = [0.0]   # Ventas
+	var y4_init: Array = [0.0]   # Predicción Receta
+
+	# Configuración de ChartProperties
 	var cp: ChartProperties = ChartProperties.new()
 	cp.colors.frame = Color("#161a1d")
 	cp.colors.background = Color.TRANSPARENT
@@ -34,67 +37,91 @@ func _ready():
 	cp.x_scale = 5
 	cp.y_scale = 10
 	cp.interactive = true
-	
-	# Creamos las funciones (series) iniciales:
-	f1 = Function.new(x, y, "Dinero Actual", { 
+
+	# Creamos las funciones (series) con esos valores iniciales
+	f1 = Function.new(x_init, y1_init, "Dinero Actual", { 
 		color = Color("#36a2eb"), 
 		marker = Function.Marker.NONE, 
 		type = Function.Type.AREA, 
 		interpolation = Function.Interpolation.STAIR 
 	})
-	f2 = Function.new(x, y2, "Perdidas", { 
+	f2 = Function.new(x_init, y2_init, "Pérdidas", { 
 		color = Color("#ff6384"), 
 		marker = Function.Marker.CROSS 
 	})
-	f3 = Function.new(x, y3, "Ventas", { 
+	f3 = Function.new(x_init, y3_init, "Ventas", { 
 		color = Color.GREEN, 
 		marker = Function.Marker.CIRCLE 
 	})
-	
-	chart.plot([f1, f2, f3], cp)
-	
-	# No actualizamos en cada frame
+	f4 = Function.new(x_init, y4_init, "Receta Pred.", {
+		color = Color.YELLOW,
+		marker = Function.Marker.SQUARE
+	})
+
+	# Ploteamos las 4 funciones
+	chart.plot([f1, f2, f3, f4], cp)
+
+	# Desactivamos _process() si no queremos actualizar en cada frame
 	set_process(false)
 
-	# Conectar la señal "day_started" (o "day_ended") del DayManager
-	var day_manager = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
+	# Conectar la señal "sale_made" (o "day_started", etc.)
 	var spawner_node = get_node("/root/Node2D/CanvasLayer/Gameplay/CharacterSpawner")
-	#day_manager.connect("day_started", Callable(self, "_on_SaleMade"))
-	#day_manager.connect("day_ended", Callable(self, "_on_SaleMade"))
 	spawner_node.connect("sale_made", Callable(self, "_on_SaleMade"))
-	
+
 func _on_SaleMade():
-	# Cada vez que se realice una venta (o inicie/termine un día), actualizamos la gráfica.
+	# Cada vez que se realice una venta, actualizamos la gráfica
 	update_chart()
-	
+
 func update_chart():
-	# Actualizamos el tiempo (por ejemplo, en segundos)
+	# Actualizamos el tiempo en segundos
 	tiempo_acumulado = Time.get_ticks_msec() / 1000.0
 
-	# Obtener datos globales:
+	# Datos globales
 	var dinero: float = GlobalProgressBar.total_money_earned
 	var tacos: float = Inventory.tacos_vendidos
 
-	# Calculamos la predicción (usa tu modelo real; aquí es un placeholder)
+	# Predicción (placeholder) en base al tiempo
 	var prediccion: float = predict_gain(tiempo_acumulado)
-	# Calculamos las pérdidas: si la predicción es mayor que el dinero real, la diferencia, de lo contrario 0.
+	# Pérdidas si predicción > dinero
 	var perdidas: float = (prediccion - dinero) if prediccion > dinero else 0.0
 
-	# Actualizamos las series:
+	# Nueva predicción basada en los ingredientes de la receta
+	var receta_pred: float = predict_by_ingredients()
+
+	# Añadimos un punto a cada serie
 	f1.add_point(tiempo_acumulado, dinero)
 	f2.add_point(tiempo_acumulado, perdidas)
 	f3.add_point(tiempo_acumulado, tacos)
+	f4.add_point(tiempo_acumulado, receta_pred)
 
-	# Forzamos la actualización del Chart
+	# Redibujamos la gráfica
 	chart.queue_redraw()
-	
-# Función de predicción (placeholder; reemplaza por tu modelo de IA)
+
+# Función de predicción (placeholder) basado en x
 func predict_gain(x: float) -> float:
 	return 5.0 * x + 10.0
 
+# Predicción en base a la receta (5 ingredientes)
+func predict_by_ingredients() -> float:
+	# Obtenemos los valores de la Receta
+	var tortillas = int(recipe_node.tortillas_label.text)
+	var carne     = int(recipe_node.carne_label.text)
+	var cebolla   = int(recipe_node.cebolla_label.text)
+	var verdura   = int(recipe_node.verdura_label.text)
+	var salsa     = int(recipe_node.salsa_label.text)
+
+	# Pesos de ejemplo
+	var w1 = 5.0
+	var w2 = 7.0
+	var w3 = 3.0
+	var w4 = 3.0
+	var w5 = 7.0
+	var b  = 10.0
+
+	# Fórmula: w1*tortillas + w2*carne + w3*cebolla + w4*verdura + w5*salsa + b
+	return (w1 * tortillas) + (w2 * carne) + (w3 * cebolla) + (w4 * verdura) + (w5 * salsa) + b
+
 func _process(delta: float):
-	# No usamos _process() para actualizar la gráfica en tiempo real,
-	# sino que se actualiza al emitir la señal de venta.
 	pass
 
 func _on_CheckButton_pressed():

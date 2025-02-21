@@ -1,9 +1,8 @@
-[gd_scene load_steps=88 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=86 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
 [ext_resource type="Texture2D" uid="uid://bbvyc1fu7sbfk" path="res://Assets/map.png" id="2_pfb1k"]
-[ext_resource type="Texture2D" uid="uid://crp5q8llo14w7" path="res://Assets/upgrades.png" id="3_2of2n"]
 [ext_resource type="Texture2D" uid="uid://xdjw2sewcotp" path="res://Assets/staff.png" id="4_iski0"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
@@ -29,7 +28,6 @@
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="23_besq4"]
 [ext_resource type="Texture2D" uid="uid://3goryn8ws4pa" path="res://Assets/tasks.png" id="25_od6rl"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="28_dc1ht"]
 [ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
@@ -72,6 +70,7 @@
 [ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="48_nn8qg"]
 [ext_resource type="AudioStream" uid="uid://bcmaotq5qdnio" path="res://Resources/Sounds/SoundEffects/PlayerBuy.mp3" id="52_47arj"]
 [ext_resource type="Script" path="res://Recipe.gd" id="58_ide1j"]
+[ext_resource type="Texture2D" uid="uid://cxe3bjabavbvq" path="res://Assets/economy-graph.png" id="64_rno65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -335,8 +334,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 11.8327, 3.07733, 0, 0, 0, 0, 20.0314, 5.96209, 0, 0, 0, 0, 13.0473, 9.37824, 0, 0, 0, 0, 6.82229, 11.352, 0, 0, 0, 0, 4.54485, 15.2996, 0, 0, 0, 0, 0.0658894, 11.2761, 0, 0, 0, 0, 0.0658894, 13.4017, 0, 0, 0, 0, 29.2171, 11.352)
 }
 point_count = 8
-
-[sub_resource type="Curve2D" id="Curve2D_c5sub"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0g1u"]
 texture = ExtResource("31_40uyy")
@@ -679,19 +676,14 @@ offset_bottom = 19.0
 scale = Vector2(0.115, 0.13)
 text = "Dia"
 
-[node name="BuyControl" type="Control" parent="CanvasLayer/Gameplay"]
+[node name="RecipeControl" type="Control" parent="CanvasLayer/Gameplay"]
 anchors_preset = 0
-offset_left = 41.2216
-offset_top = -7.09444
-offset_right = 81.2216
-offset_bottom = 32.9056
-scale = Vector2(0.0443338, 0.0576107)
-
-[node name="Path2D" type="Path2D" parent="CanvasLayer/Gameplay/BuyControl"]
-curve = SubResource("Curve2D_c5sub")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/BuyControl/Path2D"]
-script = ExtResource("23_besq4")
+offset_left = 43.4232
+offset_top = -6.94261
+offset_right = 83.4232
+offset_bottom = 33.0574
+scale = Vector2(0.0608979, 0.0489409)
+script = ExtResource("58_ide1j")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
@@ -2828,12 +2820,12 @@ script = ExtResource("1_01whp")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
 layout_mode = 0
-offset_left = -14.1207
-offset_top = -15.0945
-offset_right = 345.879
-offset_bottom = 344.906
-scale = Vector2(0.172634, 0.172634)
-texture = ExtResource("3_2of2n")
+offset_left = 3.26074
+offset_top = 0.434814
+offset_right = 363.26
+offset_bottom = 360.435
+scale = Vector2(0.0888141, 0.0846853)
+texture = ExtResource("64_rno65")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
 layout_mode = 0
@@ -2842,7 +2834,7 @@ offset_top = 32.3429
 offset_right = 129.949
 offset_bottom = 58.3429
 scale = Vector2(0.28734, 0.28734)
-text = "Mejoras"
+text = "Economía"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
