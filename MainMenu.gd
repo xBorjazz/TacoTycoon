@@ -38,6 +38,9 @@ func _on_game_start_pressed():
 	GlobalProgressBar.restart_ready()
 	Recipe.restart_ready()
 	LevelManager.restart_ready()
+	GradientDescent.restart_ready()
+	IngredientsManager.restart_ready()
+	GraphPlot.restart_ready()
 	
 	get_tree().current_scene = new_scene  # Define la nueva escena como activa
 	

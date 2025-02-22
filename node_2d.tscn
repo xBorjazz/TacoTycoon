@@ -1,9 +1,8 @@
-[gd_scene load_steps=84 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=88 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
 [ext_resource type="Texture2D" uid="uid://bbvyc1fu7sbfk" path="res://Assets/map.png" id="2_pfb1k"]
-[ext_resource type="Texture2D" uid="uid://crp5q8llo14w7" path="res://Assets/upgrades.png" id="3_2of2n"]
 [ext_resource type="Texture2D" uid="uid://xdjw2sewcotp" path="res://Assets/staff.png" id="4_iski0"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
@@ -23,8 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://cv64fr625jf3e" path="res://path_2d.tscn" id="15_ulhv7"]
 [ext_resource type="Script" path="res://Spawner.gd" id="16_tlupj"]
 [ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="16_x07cn"]
+[ext_resource type="Texture2D" uid="uid://bctyeri1pfh35" path="res://Assets/speedupbtn.png" id="17_df2so"]
 [ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="17_h0tk3"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="17_j852r"]
+[ext_resource type="Texture2D" uid="uid://xb6j6jee3mab" path="res://Assets/speedupbt-pressed2.png" id="17_uhdfl"]
 [ext_resource type="Script" path="res://Panel5Buttons.gd" id="17_x1nb1"]
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
@@ -45,7 +46,9 @@
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="31_p8ujh"]
 [ext_resource type="Script" path="res://ProgressBar.gd" id="32_kl28o"]
 [ext_resource type="Texture2D" uid="uid://ddktanm4xnhcx" path="res://Assets/librreet.png" id="33_4yawo"]
+[ext_resource type="Script" path="res://GraphDrawer.gd" id="33_c48qm"]
 [ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="33_ktcl5"]
+[ext_resource type="PackedScene" uid="uid://7v0v5lsl0kqe" path="res://addons/easy_charts/examples/multiplot/Control.tscn" id="34_y0crb"]
 [ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="37_2bink"]
 [ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="38_1cona"]
 [ext_resource type="Texture2D" uid="uid://b8847bc164qi2" path="res://Assets/LargeTortillas.png" id="39_jf5gi"]
@@ -69,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="48_nn8qg"]
 [ext_resource type="AudioStream" uid="uid://bcmaotq5qdnio" path="res://Resources/Sounds/SoundEffects/PlayerBuy.mp3" id="52_47arj"]
 [ext_resource type="Script" path="res://Recipe.gd" id="58_ide1j"]
+[ext_resource type="Texture2D" uid="uid://cxe3bjabavbvq" path="res://Assets/economy-graph.png" id="64_rno65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -604,6 +608,16 @@ wait_time = 5.0
 [node name="EndDayTimer" type="Timer" parent="CanvasLayer/Gameplay"]
 wait_time = 60.0
 
+[node name="SpeedButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 32.3396
+offset_top = 28.4336
+offset_right = 709.34
+offset_bottom = 397.434
+scale = Vector2(0.0188604, 0.0175105)
+texture_normal = ExtResource("17_df2so")
+texture_pressed = ExtResource("17_uhdfl")
+
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
 offset_left = 31.6564
@@ -674,6 +688,15 @@ offset_bottom = 19.0
 scale = Vector2(0.115, 0.13)
 text = "Dia"
 
+[node name="RecipeControl" type="Control" parent="CanvasLayer/Gameplay"]
+anchors_preset = 0
+offset_left = 43.4232
+offset_top = -6.94261
+offset_right = 83.4232
+offset_bottom = 33.0574
+scale = Vector2(0.0608979, 0.0489409)
+script = ExtResource("58_ide1j")
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -687,6 +710,7 @@ offset_bottom = 952.0
 scale = Vector2(1.07436, 1.18242)
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel"]
@@ -793,10 +817,10 @@ texture_normal = ExtResource("28_kip63")
 texture_pressed = ExtResource("29_fw3al")
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.484756
@@ -808,6 +832,95 @@ grow_vertical = 2
 text = "2"
 justification_flags = 162
 metadata/_edit_use_anchors_ = true
+
+[node name="ganancias" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
+visible = false
+layout_direction = 2
+layout_mode = 2
+offset_left = 7.42438
+offset_top = 190.286
+offset_right = 183.424
+offset_bottom = 244.286
+rotation = -1.5708
+scale = Vector2(0.990016, 1.3589)
+size_flags_horizontal = 4
+size_flags_vertical = 15
+text = "% Ganancias 
+"
+
+[node name="line_chart" type="GridContainer" parent="CanvasLayer/PanelContainer/Panel2"]
+visible = false
+layout_mode = 0
+offset_left = 24.2005
+offset_top = 26.2174
+offset_right = 303.215
+offset_bottom = 164.217
+columns = 3
+script = ExtResource("33_c48qm")
+line_color = Color(1, 0.194376, 0.144153, 1)
+bg_color = Color(0.054902, 0.054902, 0.054902, 1)
+
+[node name="y_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 15
+text = "y"
+
+[node name="y_ticks_container" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="line_container" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="background" type="ColorRect" parent="CanvasLayer/PanelContainer/Panel2/line_chart/line_container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="x_ticks_container" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+
+[node name="x_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "x
+"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2"]
+anchors_preset = 0
+offset_left = -14.8926
+offset_top = -32.1375
+offset_right = 25.1074
+offset_bottom = 7.86252
+scale = Vector2(1.1756, 2.0559)
+
+[node name="Control2" parent="CanvasLayer/PanelContainer/Panel2/Control" instance=ExtResource("34_y0crb")]
+layout_mode = 1
+offset_left = 15.0434
+offset_top = 18.9228
+offset_right = 620.063
+offset_bottom = 397.483
+scale = Vector2(0.419683, 0.251132)
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -2719,12 +2832,12 @@ script = ExtResource("1_01whp")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
 layout_mode = 0
-offset_left = -14.1207
-offset_top = -15.0945
-offset_right = 345.879
-offset_bottom = 344.906
-scale = Vector2(0.172634, 0.172634)
-texture = ExtResource("3_2of2n")
+offset_left = 3.26074
+offset_top = 0.434814
+offset_right = 363.26
+offset_bottom = 360.435
+scale = Vector2(0.0888141, 0.0846853)
+texture = ExtResource("64_rno65")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
 layout_mode = 0
@@ -2733,7 +2846,7 @@ offset_top = 32.3429
 offset_right = 129.949
 offset_bottom = 58.3429
 scale = Vector2(0.28734, 0.28734)
-text = "Mejoras"
+text = "Economía"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
@@ -2880,6 +2993,7 @@ volume_db = -5.0
 stream = ExtResource("52_47arj")
 volume_db = -10.0
 
+[connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
