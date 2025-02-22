@@ -5,6 +5,7 @@ var current_day: int = 1  # Día inicial
 @export var day_duration: float = 45.0  # Duración de cada día en segundos
 var remaining_time: float = 0.0  # Tiempo restante del día
 var is_game_running: bool = false  # Indica si el juego está corriendo
+var is_fast = false  # Variable para rastrear el estado de la velocidad
 
 # Señales
 signal day_started
@@ -15,6 +16,7 @@ signal stop_movement
 @onready var day_timer = $DayTimer
 @onready var day_label = $DayLabel
 @onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")  # Botón de inicio
+@onready var speed_button = get_node("/root/Node2D/CanvasLayer/Gameplay/SpeedButton")
 
 func _ready() -> void:
 	remaining_time = day_duration
@@ -29,10 +31,17 @@ func _ready() -> void:
 
 	# Conectar el botón START para iniciar el juego
 	start_button.connect("pressed", Callable(self, "_on_start_pressed"))
+	speed_button.connect("pressed", Callable(self, "_toggle_speed"))
+	
+	# Deshabilitar el botón SPEED mientras el juego corre
+	speed_button.toggle_mode = true
+	speed_button.disabled = true
+	speed_button.visible = false
 
 	# Conectar la señal "timeout" del Timer a la función que actualiza el contador
 	day_timer.connect("timeout", Callable(self, "_on_timer_tick"))
 
+	
 	# Asegurarse de que el temporizador esté detenido al inicio
 	day_timer.stop()
 
@@ -61,6 +70,10 @@ func _on_start_pressed() -> void:
 	# Deshabilitar el botón START mientras el juego corre
 	start_button.disabled = true
 	start_button.visible = false
+	
+	# Deshabilitar el botón SPEED mientras el juego corre
+	speed_button.disabled = false
+	speed_button.visible = true
 
 func _on_timer_tick() -> void:
 	remaining_time -= 1
@@ -68,6 +81,14 @@ func _on_timer_tick() -> void:
 
 	if remaining_time <= 0:
 		_on_day_end()
+		
+func _toggle_speed():
+	if is_fast:
+		Engine.time_scale = 1.0  # Regresar a la velocidad normal
+	else:
+		Engine.time_scale = 2.0  # Duplicar la velocidad
+	is_fast = !is_fast  # Alternar estado
+
 
 func _on_day_end() -> void:
 	day_timer.stop()
@@ -82,6 +103,10 @@ func _on_day_end() -> void:
 	PathFollow2d.stop_moving()
 	# Emitir señal para detener el movimiento del personaje
 	emit_signal("stop_movement")
+	
+	# Deshabilitar el botón SPEED mientras el juego corre
+	speed_button.disabled = true
+	speed_button.visible = false
 	
 	current_day += 1
 

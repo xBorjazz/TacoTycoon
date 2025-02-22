@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=88 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
@@ -22,8 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://cv64fr625jf3e" path="res://path_2d.tscn" id="15_ulhv7"]
 [ext_resource type="Script" path="res://Spawner.gd" id="16_tlupj"]
 [ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="16_x07cn"]
+[ext_resource type="Texture2D" uid="uid://bctyeri1pfh35" path="res://Assets/speedupbtn.png" id="17_df2so"]
 [ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="17_h0tk3"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="17_j852r"]
+[ext_resource type="Texture2D" uid="uid://xb6j6jee3mab" path="res://Assets/speedupbt-pressed2.png" id="17_uhdfl"]
 [ext_resource type="Script" path="res://Panel5Buttons.gd" id="17_x1nb1"]
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
@@ -605,6 +607,16 @@ wait_time = 5.0
 
 [node name="EndDayTimer" type="Timer" parent="CanvasLayer/Gameplay"]
 wait_time = 60.0
+
+[node name="SpeedButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 32.3396
+offset_top = 28.4336
+offset_right = 709.34
+offset_bottom = 397.434
+scale = Vector2(0.0188604, 0.0175105)
+texture_normal = ExtResource("17_df2so")
+texture_pressed = ExtResource("17_uhdfl")
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
@@ -2981,6 +2993,7 @@ volume_db = -5.0
 stream = ExtResource("52_47arj")
 volume_db = -10.0
 
+[connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
