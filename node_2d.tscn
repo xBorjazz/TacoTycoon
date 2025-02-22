@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=92 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
+[ext_resource type="Script" path="res://SQLController.gd" id="26_oklwc"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="28_dc1ht"]
 [ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="28_kip63"]
@@ -821,6 +822,7 @@ texture_normal = ExtResource("28_kip63")
 texture_pressed = ExtResource("29_fw3al")
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
@@ -2789,6 +2791,144 @@ offset_bottom = 394.965
 max_value = 3.0
 script = ExtResource("58_ide1j")
 
+[node name="Panel7" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 7.44629
+offset_top = 8.45721
+offset_right = 551.446
+offset_bottom = 160.457
+scale = Vector2(0.58024, 0.716277)
+text = "Mejoras
+
+Sube tu negocio al siguiente nivel
+desbloqueando nuevas herramientas
+que incrementarán tus ganancias "
+
+[node name="Panel8" type="Panel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.45721
+offset_right = 540.0
+offset_bottom = 160.457
+scale = Vector2(0.58024, 0.716277)
+text = "Rankings
+
+Observa la clasificación de los
+mejores jugadores.
+
+Ingresa tu información:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Nombre:
+
+
+  Score:
+
+
+"
+
+[node name="SQLControl" type="Control" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.37708
+offset_top = -396.261
+offset_right = 31.6229
+offset_bottom = -356.261
+script = ExtResource("26_oklwc")
+
+[node name="Crear Tabla" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 100.525
+offset_top = 122.63
+offset_right = 332.525
+offset_bottom = 146.63
+scale = Vector2(0.492474, 0.649767)
+text = "Crear TABLA
+"
+
+[node name="Insertar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 99.5942
+offset_top = 150.539
+offset_right = 331.594
+offset_bottom = 174.539
+scale = Vector2(0.492474, 0.649767)
+text = "Insertar Datos"
+
+[node name="Seleccionar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 92.1479
+offset_top = 179.293
+offset_right = 372.148
+offset_bottom = 203.293
+scale = Vector2(0.492474, 0.649767)
+text = "Seleccionar Datos"
+
+[node name="Actualizar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 92.1479
+offset_top = 206.356
+offset_right = 356.148
+offset_bottom = 230.356
+scale = Vector2(0.492474, 0.649767)
+text = "Actualizar Datos"
+
+[node name="Borrar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 97.7326
+offset_top = 232.574
+offset_right = 329.733
+offset_bottom = 256.574
+scale = Vector2(0.492474, 0.649767)
+text = "Borrar Datos"
+
+[node name="Seleccionar Persona" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 81.9092
+offset_top = 259.637
+offset_right = 393.909
+offset_bottom = 283.637
+scale = Vector2(0.492474, 0.649767)
+text = "Seleccionar Person.
+"
+
+[node name="Nombre" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 107.04
+offset_top = 301.923
+offset_right = 348.04
+offset_bottom = 335.923
+scale = Vector2(0.433986, 0.649767)
+
+[node name="Puntuacion" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 107.04
+offset_top = 339.135
+offset_right = 348.04
+offset_bottom = 373.135
+scale = Vector2(0.433986, 0.649767)
+
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("47_0yxof")
 volume_db = -9.0
@@ -2797,7 +2937,7 @@ autoplay = true
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 374.0
 offset_top = 590.0
-offset_right = 674.0
+offset_right = 464.0
 offset_bottom = 630.0
 scale = Vector2(2.3, 2.3)
 theme_override_constants/separation = 5
@@ -2996,11 +3136,11 @@ scale = Vector2(2.3, 2.3)
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="Button6" type="Button" parent="CanvasLayer/HBoxContainer4/PanelContainer6"]
+[node name="Button7" type="Button" parent="CanvasLayer/HBoxContainer4/PanelContainer6"]
 layout_mode = 2
 script = ExtResource("1_01whp")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer4/PanelContainer6/Button6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer4/PanelContainer6/Button7"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 1.0
@@ -3009,7 +3149,7 @@ offset_bottom = 541.0
 scale = Vector2(0.0463193, 0.0609239)
 texture = ExtResource("71_tmamx")
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4/PanelContainer6/Button6"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4/PanelContainer6/Button7"]
 layout_mode = 0
 offset_left = 4.78261
 offset_top = 32.6087
@@ -3022,11 +3162,11 @@ text = "Mejoras"
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="Button5" type="Button" parent="CanvasLayer/HBoxContainer4/PanelContainer5"]
+[node name="Button8" type="Button" parent="CanvasLayer/HBoxContainer4/PanelContainer5"]
 layout_mode = 2
 script = ExtResource("1_01whp")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer4/PanelContainer5/Button5"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer4/PanelContainer5/Button8"]
 layout_mode = 0
 offset_left = 1.21729
 offset_top = 1.7391
@@ -3035,7 +3175,7 @@ offset_bottom = 498.739
 scale = Vector2(0.0544625, 0.0658004)
 texture = ExtResource("72_7uhr1")
 
-[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer4/PanelContainer5/Button5"]
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer4/PanelContainer5/Button8"]
 layout_mode = 0
 offset_left = 3.82608
 offset_top = 32.6087
@@ -3121,14 +3261,20 @@ volume_db = -10.0
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Crear Tabla" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_crear_tabla_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Insertar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_insertar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Seleccionar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_seleccionar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Actualizar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_actualizar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Borrar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_borrar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Seleccionar Persona" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_seleccionar_persona_button_down"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/Button" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button1_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer2/Button2" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer4/Button4" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer3/Button3" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer6/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer6/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" to="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" method="_on_button_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" to="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" method="_on_button_8_pressed"]
 
 [editable path="CanvasLayer/Gameplay/Path2D"]
 [editable path="CanvasLayer/Gameplay/Path2D2"]
