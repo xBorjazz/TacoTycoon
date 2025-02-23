@@ -2845,10 +2845,7 @@ Ingresa tu información:
 
 
   Score:                     
-                         Online
-
-
-"
+                         Online"
 
 [node name="SQLControl" type="Control" parent="CanvasLayer/PanelContainer/Panel8"]
 layout_mode = 3
@@ -2860,6 +2857,7 @@ offset_bottom = -356.261
 script = ExtResource("26_oklwc")
 
 [node name="Crear Tabla" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 100.525
 offset_top = 122.63
@@ -2870,6 +2868,7 @@ text = "Crear TABLA
 "
 
 [node name="Insertar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 99.5942
 offset_top = 150.539
@@ -2879,6 +2878,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Insertar Datos"
 
 [node name="Seleccionar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 179.293
@@ -2888,6 +2888,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Seleccionar Datos"
 
 [node name="Actualizar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 206.356
@@ -2897,6 +2898,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Actualizar Datos"
 
 [node name="Borrar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 97.7326
 offset_top = 232.574
@@ -2906,6 +2908,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Borrar Datos"
 
 [node name="Seleccionar Persona" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 81.9092
 offset_top = 259.637
@@ -2939,6 +2942,16 @@ offset_right = 726.181
 offset_bottom = 790.929
 scale = Vector2(0.198331, 0.198331)
 texture_normal = ExtResource("65_akeax")
+
+[node name="RankingTree" type="Tree" parent="CanvasLayer/PanelContainer/Panel8"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 54.9164
+offset_top = 111.635
+offset_right = 70.9164
+offset_bottom = 128.635
+scale = Vector2(0.762225, 0.820293)
+script = ExtResource("26_oklwc")
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("47_0yxof")
