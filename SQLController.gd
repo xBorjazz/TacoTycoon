@@ -2,6 +2,7 @@ extends Node
 
 #var db = load("res://addons/godot-sqlite/gdsqlite.gd").new()
 var db : SQLite
+var http = HTTPRequest.new()
 
 @onready var nombre = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel8/Nombre")
 @onready var puntuacion = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel8/Puntuacion")
@@ -15,6 +16,13 @@ func _ready():
 	var result = db.query("SELECT * FROM users")
 	print(result)
 	#db.close_db()
+	add_child(http)
+	http.request("http://localhost/api.php")
+	
+func _on_request_completed(result, response_code, headers, body):
+	if response_code == 200:
+		var data = JSON.parse_string(body.get_string_from_utf8())
+		print(data)  # Muestra los datos de la base de datos en la consola
 
 func _on_crear_tabla_button_down() -> void:
 	var table = {
@@ -47,4 +55,9 @@ func _on_borrar_datos_button_down() -> void:
 	pass # Replace with function body.
 
 func _on_seleccionar_persona_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_web_data_base_button_pressed() -> void:
+	OS.shell_open("http://localhost/api.php")
 	pass # Replace with function body.

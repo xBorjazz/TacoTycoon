@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=93 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
@@ -69,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="48_nn8qg"]
 [ext_resource type="AudioStream" uid="uid://bcmaotq5qdnio" path="res://Resources/Sounds/SoundEffects/PlayerBuy.mp3" id="52_47arj"]
 [ext_resource type="Script" path="res://Recipe.gd" id="58_ide1j"]
+[ext_resource type="Texture2D" uid="uid://cxl6s5nm86kx" path="res://Assets/www-btn.png" id="65_j0kx1"]
 [ext_resource type="Texture2D" uid="uid://b27iaudrqabwb" path="res://Assets/map-btn.png" id="65_phi8g"]
 [ext_resource type="Texture2D" uid="uid://c8aqdv4rxv2oo" path="res://Assets/dineros.png" id="66_et46k"]
 [ext_resource type="Texture2D" uid="uid://dtjt2nut8xf17" path="res://Assets/taskts-btn.png" id="67_c5xni"]
@@ -2792,7 +2793,6 @@ max_value = 3.0
 script = ExtResource("58_ide1j")
 
 [node name="Panel7" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
@@ -2809,6 +2809,7 @@ desbloqueando nuevas herramientas
 que incrementarán tus ganancias "
 
 [node name="Panel8" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel8"]
@@ -2840,10 +2841,11 @@ Ingresa tu información:
 
 
 
-  Nombre:
+  Nombre:                Ranking  
 
 
-  Score:
+  Score:                     
+                         Online
 
 
 "
@@ -2928,6 +2930,15 @@ offset_top = 339.135
 offset_right = 348.04
 offset_bottom = 373.135
 scale = Vector2(0.433986, 0.649767)
+
+[node name="WebDataBaseButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 226.181
+offset_top = 290.929
+offset_right = 726.181
+offset_bottom = 790.929
+scale = Vector2(0.198331, 0.198331)
+texture_normal = ExtResource("65_j0kx1")
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("47_0yxof")
@@ -3267,6 +3278,7 @@ volume_db = -10.0
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Actualizar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_actualizar_datos_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Borrar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_borrar_datos_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Seleccionar Persona" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_seleccionar_persona_button_down"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel8/WebDataBaseButton" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_web_data_base_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/Button" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button1_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer2/Button2" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer4/Button4" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_4_pressed"]

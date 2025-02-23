@@ -77,7 +77,7 @@ que incrementarán tus ganancias ")
 Observa la clasificación de los
 mejores jugadores.
 
-Ingresa tu información:
+Registra Tu Score:
 
 
 
