@@ -6,6 +6,7 @@ var http = HTTPRequest.new()
 
 @onready var nombre = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel8/Nombre")
 @onready var puntuacion = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel8/Puntuacion")
+@onready var ranking_tree = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel8/RankingTree")
 
 func _ready():
 	db = SQLite.new()
@@ -16,8 +17,39 @@ func _ready():
 	var result = db.query("SELECT * FROM users")
 	print(result)
 	#db.close_db()
+	setup_ranking_tree()  # Configurar columnas de la tabla
+	cargar_datos_ranking()  # Cargar datos desde SQLite
+	ranking_tree.queue_redraw()
+	ranking_tree.propagate_call("queue_redraw")
 	add_child(http)
 	http.request("http://localhost/api.php")
+
+# Configurar las columnas del Tree (Nombre - Puntuación)
+func setup_ranking_tree():
+	ranking_tree.columns = 2  # Asegurar que tenga 2 columnas
+	ranking_tree.set_column_title(0, "Nombre")
+	ranking_tree.set_column_title(1, "Puntuación")
+	ranking_tree.set_column_expand(0, true)
+	ranking_tree.set_column_expand(1, true)
+
+	# 📌 Asegurar que `Tree` tiene tamaño
+	ranking_tree.custom_minimum_size = Vector2(300, 200)
+	ranking_tree.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	ranking_tree.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+
+# Cargar datos desde SQLite y agregarlos al `Tree`
+func cargar_datos_ranking():
+	ranking_tree.clear()  # Limpiar datos previos
+	var root = ranking_tree.create_item()  # Crear raíz de la tabla
+	var datos = db.select_rows("players", "", ["name", "score"])  # Obtener datos
+
+	print("📌 Datos en la BD:", datos)  # Depuración: Ver si hay datos en la base de datos
+
+	for jugador in datos:
+		var item = ranking_tree.create_item(root)
+		item.set_text(0, jugador["name"		])  # Columna 1: Nombre
+		item.set_text(1, str(jugador["score"]))  # Columna 2: Puntuación
 	
 func _on_request_completed(result, response_code, headers, body):
 	if response_code == 200:

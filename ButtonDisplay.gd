@@ -77,7 +77,7 @@ que incrementarán tus ganancias ")
 Observa la clasificación de los
 mejores jugadores.
 
-Registra Tu Score:
+Ingresa tu información:
 
 
 
@@ -94,12 +94,10 @@ Registra Tu Score:
 
 
 
-  Nombre:
+  Nombre:                Ranking  
 
 
-  Score:
-
-
+  Score:                     
 ")
 
 # Función para mostrar un panel, actualizar su etiqueta y ocultar los demás
