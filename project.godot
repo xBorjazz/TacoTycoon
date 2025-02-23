@@ -42,7 +42,7 @@ window/handheld/orientation=5
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/PGSGP/demo/addons/PGSGP/plugin.cfg", "res://addons/PGSGP/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
 
 [gui]
 
