@@ -1,9 +1,6 @@
-[gd_scene load_steps=88 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=93 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
-[ext_resource type="Texture2D" uid="uid://cj1ct31dk111k" path="res://Assets/cajaa-removebg-preview.png" id="2_mapjn"]
-[ext_resource type="Texture2D" uid="uid://bbvyc1fu7sbfk" path="res://Assets/map.png" id="2_pfb1k"]
-[ext_resource type="Texture2D" uid="uid://xdjw2sewcotp" path="res://Assets/staff.png" id="4_iski0"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
 [ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="8_4ymtb"]
@@ -30,7 +27,7 @@
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
-[ext_resource type="Texture2D" uid="uid://3goryn8ws4pa" path="res://Assets/tasks.png" id="25_od6rl"]
+[ext_resource type="Script" path="res://SQLController.gd" id="26_oklwc"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="28_dc1ht"]
 [ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="28_kip63"]
@@ -72,7 +69,15 @@
 [ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="48_nn8qg"]
 [ext_resource type="AudioStream" uid="uid://bcmaotq5qdnio" path="res://Resources/Sounds/SoundEffects/PlayerBuy.mp3" id="52_47arj"]
 [ext_resource type="Script" path="res://Recipe.gd" id="58_ide1j"]
-[ext_resource type="Texture2D" uid="uid://cxe3bjabavbvq" path="res://Assets/economy-graph.png" id="64_rno65"]
+[ext_resource type="Texture2D" uid="uid://ddw01nwi5fpar" path="res://Assets/www-btn.png" id="65_akeax"]
+[ext_resource type="Texture2D" uid="uid://b27iaudrqabwb" path="res://Assets/map-btn.png" id="65_phi8g"]
+[ext_resource type="Texture2D" uid="uid://c8aqdv4rxv2oo" path="res://Assets/dineros.png" id="66_et46k"]
+[ext_resource type="Texture2D" uid="uid://dtjt2nut8xf17" path="res://Assets/taskts-btn.png" id="67_c5xni"]
+[ext_resource type="Texture2D" uid="uid://bqismu6f66g31" path="res://Assets/stff-btn.png" id="68_m301n"]
+[ext_resource type="Texture2D" uid="uid://cf3h4wgg77m0l" path="res://Assets/tacosprite-btn.png" id="69_tqb32"]
+[ext_resource type="Texture2D" uid="uid://4brg0tnragy6" path="res://Assets/taco-ingredients-btn.png" id="70_bxeao"]
+[ext_resource type="Texture2D" uid="uid://e2fn2n15tcc" path="res://Assets/upgrades-btn.png" id="71_tmamx"]
+[ext_resource type="Texture2D" uid="uid://diwnhe0pxmig1" path="res://Assets/leaderboard.png" id="72_7uhr1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -341,6 +346,7 @@ point_count = 8
 texture = ExtResource("31_40uyy")
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-2, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -817,6 +823,7 @@ texture_normal = ExtResource("28_kip63")
 texture_pressed = ExtResource("29_fw3al")
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
@@ -2785,6 +2792,154 @@ offset_bottom = 394.965
 max_value = 3.0
 script = ExtResource("58_ide1j")
 
+[node name="Panel7" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 7.44629
+offset_top = 8.45721
+offset_right = 551.446
+offset_bottom = 160.457
+scale = Vector2(0.58024, 0.716277)
+text = "Mejoras
+
+Sube tu negocio al siguiente nivel
+desbloqueando nuevas herramientas
+que incrementarán tus ganancias "
+
+[node name="Panel8" type="Panel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.45721
+offset_right = 540.0
+offset_bottom = 160.457
+scale = Vector2(0.58024, 0.716277)
+text = "Rankings
+
+Observa la clasificación de los
+mejores jugadores.
+
+Ingresa tu información:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Nombre:                Ranking  
+
+
+  Score:                     
+                         Online
+
+
+"
+
+[node name="SQLControl" type="Control" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.37708
+offset_top = -396.261
+offset_right = 31.6229
+offset_bottom = -356.261
+script = ExtResource("26_oklwc")
+
+[node name="Crear Tabla" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 100.525
+offset_top = 122.63
+offset_right = 332.525
+offset_bottom = 146.63
+scale = Vector2(0.492474, 0.649767)
+text = "Crear TABLA
+"
+
+[node name="Insertar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 99.5942
+offset_top = 150.539
+offset_right = 331.594
+offset_bottom = 174.539
+scale = Vector2(0.492474, 0.649767)
+text = "Insertar Datos"
+
+[node name="Seleccionar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 92.1479
+offset_top = 179.293
+offset_right = 372.148
+offset_bottom = 203.293
+scale = Vector2(0.492474, 0.649767)
+text = "Seleccionar Datos"
+
+[node name="Actualizar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 92.1479
+offset_top = 206.356
+offset_right = 356.148
+offset_bottom = 230.356
+scale = Vector2(0.492474, 0.649767)
+text = "Actualizar Datos"
+
+[node name="Borrar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 97.7326
+offset_top = 232.574
+offset_right = 329.733
+offset_bottom = 256.574
+scale = Vector2(0.492474, 0.649767)
+text = "Borrar Datos"
+
+[node name="Seleccionar Persona" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 81.9092
+offset_top = 259.637
+offset_right = 393.909
+offset_bottom = 283.637
+scale = Vector2(0.492474, 0.649767)
+text = "Seleccionar Person.
+"
+
+[node name="Nombre" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 107.04
+offset_top = 301.923
+offset_right = 348.04
+offset_bottom = 335.923
+scale = Vector2(0.433986, 0.649767)
+
+[node name="Puntuacion" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 107.04
+offset_top = 339.135
+offset_right = 348.04
+offset_bottom = 373.135
+scale = Vector2(0.433986, 0.649767)
+
+[node name="WebDataBaseButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel8"]
+layout_mode = 0
+offset_left = 226.181
+offset_top = 290.929
+offset_right = 726.181
+offset_bottom = 790.929
+scale = Vector2(0.198331, 0.198331)
+texture_normal = ExtResource("65_akeax")
+
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("47_0yxof")
 volume_db = -9.0
@@ -2793,7 +2948,7 @@ autoplay = true
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 374.0
 offset_top = 590.0
-offset_right = 674.0
+offset_right = 464.0
 offset_bottom = 630.0
 scale = Vector2(2.3, 2.3)
 theme_override_constants/separation = 5
@@ -2808,19 +2963,20 @@ script = ExtResource("1_01whp")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer/Button"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.0772907, 0.0772907)
-texture = ExtResource("2_pfb1k")
+offset_left = -1.0
+offset_right = 676.0
+offset_bottom = 402.0
+scale = Vector2(0.0624301, 0.0811222)
+texture = ExtResource("65_phi8g")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer/Button"]
 layout_mode = 0
-offset_left = 6.25995
+offset_left = 3.91304
 offset_top = 30.7779
-offset_right = 118.26
+offset_right = 115.913
 offset_bottom = 56.7779
-scale = Vector2(0.364273, 0.364273)
-text = "Mapas"
+scale = Vector2(0.299828, 0.359474)
+text = "Niveles"
 
 [node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -2832,12 +2988,12 @@ script = ExtResource("1_01whp")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
 layout_mode = 0
-offset_left = 3.26074
-offset_top = 0.434814
-offset_right = 363.26
-offset_bottom = 360.435
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 530.0
+offset_bottom = 466.0
 scale = Vector2(0.0888141, 0.0846853)
-texture = ExtResource("64_rno65")
+texture = ExtResource("66_et46k")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/PanelContainer2/Button2"]
 layout_mode = 0
@@ -2850,64 +3006,6 @@ text = "Economía"
 
 [node name="Panel" type="Panel" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 375.0
-offset_top = 794.0
-offset_right = 459.0
-offset_bottom = 834.0
-scale = Vector2(2.3, 2.3)
-
-[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-
-[node name="Button6" type="Button" parent="CanvasLayer/HBoxContainer3/PanelContainer6"]
-layout_mode = 2
-script = ExtResource("1_01whp")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
-layout_mode = 0
-offset_left = 4.59229
-offset_right = 506.592
-offset_bottom = 569.0
-scale = Vector2(0.0574725, 0.0545739)
-texture = ExtResource("2_mapjn")
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
-layout_mode = 0
-offset_left = 5.57336
-offset_top = 31.8212
-offset_right = 101.573
-offset_bottom = 57.8212
-scale = Vector2(0.273984, 0.320065)
-text = "Receta"
-
-[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-
-[node name="Button5" type="Button" parent="CanvasLayer/HBoxContainer3/PanelContainer5"]
-layout_mode = 2
-script = ExtResource("1_01whp")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer3/PanelContainer5/Button5"]
-layout_mode = 0
-offset_left = 0.782471
-offset_top = -3.47803
-offset_right = 502.782
-offset_bottom = 493.522
-scale = Vector2(0.0747703, 0.0713107)
-texture = ExtResource("20_qe7ua")
-
-[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer5/Button5"]
-layout_mode = 0
-offset_left = 0.782593
-offset_top = 31.7391
-offset_right = 192.783
-offset_bottom = 57.7391
-scale = Vector2(0.202371, 0.382222)
-text = "Ingredientes"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 375.0
@@ -2931,7 +3029,7 @@ offset_top = 1.30469
 offset_right = 510.652
 offset_bottom = 495.305
 scale = Vector2(0.0617308, 0.0617308)
-texture = ExtResource("25_od6rl")
+texture = ExtResource("67_c5xni")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer2/PanelContainer4/Button4"]
 layout_mode = 0
@@ -2954,11 +3052,12 @@ script = ExtResource("1_01whp")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer2/PanelContainer3/Button3"]
 layout_mode = 0
-offset_left = 3.89893
-offset_right = 501.899
-offset_bottom = 501.0
-scale = Vector2(0.0640335, 0.0640335)
-texture = ExtResource("4_iski0")
+offset_left = 2.95652
+offset_top = 1.30435
+offset_right = 500.957
+offset_bottom = 502.304
+scale = Vector2(0.0666639, 0.0648676)
+texture = ExtResource("68_m301n")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer2/PanelContainer3/Button3"]
 layout_mode = 1
@@ -2977,6 +3076,124 @@ scale = Vector2(0.259332, 0.305801)
 text = "Personajes"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 375.0
+offset_top = 794.0
+offset_right = 459.0
+offset_bottom = 834.0
+scale = Vector2(2.3, 2.3)
+
+[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button6" type="Button" parent="CanvasLayer/HBoxContainer3/PanelContainer6"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
+layout_mode = 0
+offset_left = -5.21739
+offset_top = 1.30435
+offset_right = 671.783
+offset_bottom = 570.304
+scale = Vector2(0.0740536, 0.0517051)
+texture = ExtResource("69_tqb32")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
+layout_mode = 0
+offset_left = 5.57336
+offset_top = 31.8212
+offset_right = 101.573
+offset_bottom = 57.8212
+scale = Vector2(0.273984, 0.320065)
+text = "Receta"
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="CanvasLayer/HBoxContainer3/PanelContainer5"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer3/PanelContainer5/Button5"]
+layout_mode = 0
+offset_left = -0.956526
+offset_top = -0.43479
+offset_right = 676.043
+offset_bottom = 496.565
+scale = Vector2(0.0646844, 0.0687696)
+texture = ExtResource("70_bxeao")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer5/Button5"]
+layout_mode = 0
+offset_left = 0.782593
+offset_top = 31.7391
+offset_right = 192.783
+offset_bottom = 57.7391
+scale = Vector2(0.202371, 0.382222)
+text = "Ingredientes"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 375.0
+offset_top = 893.0
+offset_right = 459.0
+offset_bottom = 933.0
+scale = Vector2(2.3, 2.3)
+
+[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="CanvasLayer/HBoxContainer4/PanelContainer6"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer4/PanelContainer6/Button7"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 680.0
+offset_bottom = 541.0
+scale = Vector2(0.0463193, 0.0609239)
+texture = ExtResource("71_tmamx")
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer4/PanelContainer6/Button7"]
+layout_mode = 0
+offset_left = 4.78261
+offset_top = 32.6087
+offset_right = 116.783
+offset_bottom = 58.6087
+scale = Vector2(0.281818, 0.329217)
+text = "Mejoras"
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Button8" type="Button" parent="CanvasLayer/HBoxContainer4/PanelContainer5"]
+layout_mode = 2
+script = ExtResource("1_01whp")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer4/PanelContainer5/Button8"]
+layout_mode = 0
+offset_left = 1.21729
+offset_top = 1.7391
+offset_right = 678.217
+offset_bottom = 498.739
+scale = Vector2(0.0544625, 0.0658004)
+texture = ExtResource("72_7uhr1")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer4/PanelContainer5/Button8"]
+layout_mode = 0
+offset_left = 3.82608
+offset_top = 32.6087
+offset_right = 195.826
+offset_bottom = 58.6087
+scale = Vector2(0.257204, 0.343049)
+text = "Rankings"
 
 [node name="ButtonPress_Sound" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("48_06emn")
@@ -3055,12 +3272,21 @@ volume_db = -10.0
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Crear Tabla" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_crear_tabla_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Insertar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_insertar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Seleccionar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_seleccionar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Actualizar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_actualizar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Borrar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_borrar_datos_button_down"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Seleccionar Persona" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_seleccionar_persona_button_down"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel8/WebDataBaseButton" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_web_data_base_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer/Button" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button1_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/PanelContainer2/Button2" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button2_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer6/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer4/Button4" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer2/PanelContainer3/Button3" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button3_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer6/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" to="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" method="_on_button_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" to="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" method="_on_button_8_pressed"]
 
 [editable path="CanvasLayer/Gameplay/Path2D"]
 [editable path="CanvasLayer/Gameplay/Path2D2"]
