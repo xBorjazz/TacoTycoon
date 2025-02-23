@@ -3230,6 +3230,18 @@ volume_db = -10.0
 [node name="MultiplayerManager" type="Node" parent="CanvasLayer"]
 script = ExtResource("79_snduu")
 
+[node name="LabelMyScore" type="Label" parent="CanvasLayer"]
+offset_left = 30.0
+offset_top = 88.0
+offset_right = 70.0
+offset_bottom = 104.0
+
+[node name="LabelOpponentScore" type="Label" parent="CanvasLayer"]
+offset_left = 17.0
+offset_top = 544.0
+offset_right = 57.0
+offset_bottom = 560.0
+
 [node name="MultiplayerButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 473.0
 offset_top = 992.0
@@ -3241,20 +3253,6 @@ script = ExtResource("81_suyb2")
 
 [node name="Client" type="Node" parent="CanvasLayer"]
 script = ExtResource("82_ro7i3")
-
-[node name="LabelMyScore" type="Label" parent="CanvasLayer/Client"]
-offset_left = 30.0
-offset_top = 88.0
-offset_right = 70.0
-offset_bottom = 104.0
-scale = Vector2(1.31405, 1.425)
-
-[node name="LabelOpponentScore" type="Label" parent="CanvasLayer/Client"]
-offset_left = 17.0
-offset_top = 544.0
-offset_right = 57.0
-offset_bottom = 560.0
-scale = Vector2(1.90385, 1.20455)
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]

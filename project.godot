@@ -32,6 +32,8 @@ GraphPlot="*res://GraphPlot.gd"
 IngredientsManager="*res://IngredientsManager.gd"
 EcUtilities="*res://addons/easy_charts/utilities/scripts/ec_utilities.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+multiplayer="*res://MultiplayerManager.gd"
+client="*res://Client.gd"
 
 [display]
 
