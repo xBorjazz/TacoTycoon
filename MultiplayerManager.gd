@@ -1,54 +1,38 @@
 extends Node
 
 const PORT = 9999
-var peer = WebSocketMultiplayerPeer.new()
-var players_money = {}
+var udp_server = PacketPeerUDP.new()
+var players = {}  # 🔥 Diccionario para almacenar la IP y el dinero de cada jugador
 
 func _ready():
-	start_server()
-
-func start_server():
-	var err = peer.create_server(PORT)
+	var err = udp_server.bind(PORT)
 	if err != OK:
-		print("❌ Error al iniciar el servidor WebSocket en el puerto %d. Código: %d" % [PORT, err])
+		print("❌ Error al iniciar el servidor UDP. Código:", err)
 		return
-
-	multiplayer.multiplayer_peer = peer
-	print("🟢 Servidor WebSocket iniciado en el puerto %d" % PORT)
+	print("🟢 Servidor UDP iniciado en el puerto", PORT)
 
 func _process(delta):
-	peer.poll()  
+	while udp_server.get_available_packet_count() > 0:
+		var packet = udp_server.get_packet().get_string_from_utf8()
+		var parts = packet.split(":")
 
-@rpc("any_peer", "call_local")
-func player_ready(player_id):
-	if player_id not in players_money:
-		players_money[player_id] = 0  
-		print("✅ Cliente", player_id, "se ha conectado.")
-		print("📋 Lista de jugadores conectados:", players_money.keys())
+		if parts[0] == "JOIN":
+			var player_id = parts[1]
+			players[player_id] = {"money": 0, "ip": udp_server.get_packet_ip(), "port": udp_server.get_packet_port()}
+			print("✅ Jugador conectado:", player_id, "IP:", players[player_id]["ip"])
 
-	for existing_player_id in players_money.keys():
-		if existing_player_id != player_id:
-			print("📤 Enviando dinero de", existing_player_id, "a nuevo jugador", player_id, "->", players_money[existing_player_id])
-			rpc_id(player_id, "sync_money", existing_player_id, players_money[existing_player_id])
+		elif parts[0] == "MONEY":
+			var player_id = parts[1]
+			var money = int(parts[2])
 
-@rpc("any_peer", "call_local")
-func update_money(player_id, money):
-	if player_id in players_money:
-		players_money[player_id] = money  
-		print("💰 Cliente", player_id, "actualizó su dinero a:", money)
+			if player_id in players:
+				players[player_id]["money"] = money  # 🔥 Guardar dinero del jugador
+				print("💰 Recibido dinero del jugador", player_id, "->", money)
+				sync_money_with_clients(player_id, money)
 
-		# 🔄 **Enviar datos a `DevTools`**
-		var message = "📩 SERVIDOR: Jugador " + str(player_id) + " tiene $" + str(money)
-		send_to_devtools(message)
-
-		for peer_id in peer.get_peer_ids():
-			if peer_id != player_id:  
-				print("📤 Enviando dinero de", player_id, "a", peer_id, "->", money)
-				rpc_id(peer_id, "sync_money", player_id, money)
-	else:
-		print("⚠️ Cliente", player_id, "no está en la lista de jugadores conectados.")
-
-# 🔥 **Función para Enviar Mensajes a DevTools**
-func send_to_devtools(message):
-	for peer_id in peer.get_peer_ids():
-		peer.get_peer(peer_id).put_packet(message.to_utf8_buffer())
+func sync_money_with_clients(player_id, money):
+	for id in players.keys():
+		if id != player_id:
+			var msg = "SYNC:" + str(player_id) + ":" + str(money)
+			udp_server.set_dest_address(players[id]["ip"], players[id]["port"])
+			udp_server.put_packet(msg.to_utf8_buffer())

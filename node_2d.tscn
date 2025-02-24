@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=97 format=3 uid="uid://qo31xtxkrfpv"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
@@ -348,8 +348,6 @@ point_count = 8
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0g1u"]
 texture = ExtResource("31_40uyy")
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_npccs"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-2, 0)
@@ -3232,6 +3230,20 @@ volume_db = -10.0
 [node name="MultiplayerManager" type="Node" parent="CanvasLayer"]
 script = ExtResource("79_snduu")
 
+[node name="HostButton" type="Button" parent="CanvasLayer/MultiplayerManager"]
+offset_left = 385.0
+offset_top = 558.0
+offset_right = 457.0
+offset_bottom = 582.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MultiplayerManager"]
+offset_left = 484.0
+offset_top = 558.0
+offset_right = 556.0
+offset_bottom = 582.0
+text = "Join"
+
 [node name="MultiplayerButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 473.0
 offset_top = 992.0
@@ -3257,9 +3269,6 @@ offset_top = 544.0
 offset_right = 57.0
 offset_bottom = 560.0
 scale = Vector2(1.90385, 1.20455)
-
-[node name="Sync" type="MultiplayerSynchronizer" parent="CanvasLayer/Client"]
-replication_config = SubResource("SceneReplicationConfig_npccs")
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
@@ -3338,6 +3347,8 @@ replication_config = SubResource("SceneReplicationConfig_npccs")
 [connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" to="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" method="_on_button_7_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" to="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" method="_on_button_8_pressed"]
+[connection signal="pressed" from="CanvasLayer/MultiplayerManager/HostButton" to="CanvasLayer/MultiplayerManager" method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MultiplayerManager/JoinButton" to="CanvasLayer/MultiplayerManager" method="_on_join_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MultiplayerButton" to="CanvasLayer/MultiplayerButton" method="_on_multiplayer_button_pressed"]
 
 [editable path="CanvasLayer/Gameplay/Path2D"]

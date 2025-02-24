@@ -1,62 +1,39 @@
 extends Node
 
-@onready var label_my_score = get_node_or_null("/root/Node2D/CanvasLayer/Client/LabelMyScore")
-@onready var label_opponent_score = get_node_or_null("/root/Node2D/CanvasLayer/Client/LabelOpponentScore")
-@onready var sync = get_node_or_null("/root/Node2D/CanvasLayer/Client/Sync")
+@onready var label_my_score = get_node("/root/Node2D/CanvasLayer/Client/LabelMyScore")
+@onready var label_opponent_score = get_node("/root/Node2D/CanvasLayer/Client/LabelOpponentScore")
 
-@export var player_money: int = 0 : set = set_money  # 🔥 Sincronizar con MultiplayerSynchronizer
-
-var peer = ENetMultiplayerPeer.new()  # 🔥 Se agregó la declaración de `peer`
-var connected = false  
+const SERVER_IP = "192.168.1.4"  # ⚠️ Reemplaza con la IP real del host en la LAN
+const PORT = 9999
+var udp_client = PacketPeerUDP.new()
+var player_id = str(randi() % 10000)  # Generar ID único para cada jugador
+var opponent_money = 0  
 
 func _ready():
-	label_my_score.visible = false
-	label_opponent_score.visible = false
+	udp_client.set_dest_address(SERVER_IP, PORT)  # 🔥 Enviar paquetes al servidor
+	print("🔵 Conectado al servidor UDP en", SERVER_IP, ":", PORT)
 
-	# 🔄 Iniciar la sincronización del dinero con el inventario
-	player_money = Inventory.player_money
-
-func connect_to_server():
-	if connected:
-		print("⚠️ Ya estás conectado al servidor.")
-		return  
-
-	var error = peer.create_client("127.0.0.1", 9999)
-	if error != OK:
-		print("❌ Error al conectar al servidor ENet. Código:", error)
-		return
-
-	multiplayer.multiplayer_peer = peer
-	connected = true  
-	print("🔵 Conectado al servidor ENet.")
-
-	await get_tree().create_timer(1.0).timeout
-
-	if multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
-		print("✅ Conexión establecida con el servidor.")
-	else:
-		print("❌ No se pudo conectar al servidor.")
-		connected = false
-
-func update_score():
-	if not connected:
-		return  
-
-	# 🔄 Actualizar `player_money` con el valor del inventario
-	player_money = Inventory.player_money  
-
-	if label_my_score != null:
-		label_my_score.text = "Mi Dinero: $" + str(player_money)
-		label_my_score.visible = true
-
-	if label_opponent_score != null:
-		label_opponent_score.text = "Dinero Rival: $" + str(player_money)  # 🔄 Se actualizará automáticamente con MultiplayerSynchronizer
-		label_opponent_score.visible = true
-
-func set_money(value):
-	player_money = value
-	Inventory.player_money = value  # 🔄 Asegurar que el dinero también se refleje en el inventario
+	# 🔄 Notificar al servidor que este jugador está en línea
+	udp_client.put_packet(("JOIN:" + player_id).to_utf8_buffer())
 
 func _process(delta):
-	if connected:
-		update_score()
+	# 🔄 Recibir datos del servidor
+	while udp_client.get_available_packet_count() > 0:
+		var packet = udp_client.get_packet().get_string_from_utf8()
+		var parts = packet.split(":")
+
+		if parts[0] == "SYNC":
+			var sender_id = parts[1]
+			var money = int(parts[2])
+
+			if sender_id != player_id:
+				opponent_money = money  # 🔄 Guardar dinero del oponente correctamente
+				label_opponent_score.text = "Dinero Rival: $" + str(opponent_money)
+				print("🏆 Dinero del rival actualizado:", opponent_money)  # 🔥 Debug
+
+	# 🔄 Mostrar dinero del jugador actual
+	var my_money = Inventory.player_money
+	label_my_score.text = "Mi Dinero: $" + str(my_money)
+
+	# 🔄 Enviar dinero al servidor UDP
+	udp_client.put_packet(("MONEY:" + player_id + ":" + str(my_money)).to_utf8_buffer())

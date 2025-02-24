@@ -11,6 +11,7 @@ var tacos_vendidos = -1
 var costo_taco = 10
 var buy_cost = 0.0  # Costo acumulado de las compras
 var player_money = 150
+var opponent_money = 150
 
 # Contadores individuales
 var tortillas_normal = 0
