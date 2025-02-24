@@ -2,69 +2,61 @@ extends Node
 
 @onready var label_my_score = get_node_or_null("/root/Node2D/CanvasLayer/Client/LabelMyScore")
 @onready var label_opponent_score = get_node_or_null("/root/Node2D/CanvasLayer/Client/LabelOpponentScore")
+@onready var sync = get_node_or_null("/root/Node2D/CanvasLayer/Client/Sync")
 
-var peer = WebSocketMultiplayerPeer.new()
-var last_money = -1  
-var opponent_money = 0  
+@export var player_money: int = 0 : set = set_money  # 🔥 Sincronizar con MultiplayerSynchronizer
+
+var peer = ENetMultiplayerPeer.new()  # 🔥 Se agregó la declaración de `peer`
 var connected = false  
 
 func _ready():
 	label_my_score.visible = false
 	label_opponent_score.visible = false
 
+	# 🔄 Iniciar la sincronización del dinero con el inventario
+	player_money = Inventory.player_money
+
 func connect_to_server():
 	if connected:
 		print("⚠️ Ya estás conectado al servidor.")
 		return  
 
-	var error = peer.create_client("ws://127.0.0.1:9999")
+	var error = peer.create_client("127.0.0.1", 9999)
 	if error != OK:
-		print("❌ Error al conectar al servidor WebSocket. Código:", error)
+		print("❌ Error al conectar al servidor ENet. Código:", error)
 		return
 
 	multiplayer.multiplayer_peer = peer
 	connected = true  
-	print("🔵 Conectado al servidor WebSocket.")
+	print("🔵 Conectado al servidor ENet.")
 
-	rpc_id(1, "player_ready", multiplayer.get_unique_id())
+	await get_tree().create_timer(1.0).timeout
+
+	if multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+		print("✅ Conexión establecida con el servidor.")
+	else:
+		print("❌ No se pudo conectar al servidor.")
+		connected = false
 
 func update_score():
 	if not connected:
 		return  
 
-	var my_money = Inventory.player_money  
-	if my_money != last_money:  
-		last_money = my_money
+	# 🔄 Actualizar `player_money` con el valor del inventario
+	player_money = Inventory.player_money  
 
-		if label_my_score != null:
-			label_my_score.text = "Mi Dinero: $" + str(my_money)
-			label_my_score.visible = true
-		else:
-			print("❌ Error: No se encontró LabelMyScore en Client.")
+	if label_my_score != null:
+		label_my_score.text = "Mi Dinero: $" + str(player_money)
+		label_my_score.visible = true
 
-		print("📤 Enviando dinero al servidor:", my_money)
-		rpc_id(1, "update_money", multiplayer.get_unique_id(), my_money)
-		
 	if label_opponent_score != null:
-		label_opponent_score.text = "Dinero Rival: $" + str(opponent_money)
+		label_opponent_score.text = "Dinero Rival: $" + str(player_money)  # 🔄 Se actualizará automáticamente con MultiplayerSynchronizer
 		label_opponent_score.visible = true
-	else:
-		print("❌ No se encontró LabelOpponentScore en Client.")
+
+func set_money(value):
+	player_money = value
+	Inventory.player_money = value  # 🔄 Asegurar que el dinero también se refleje en el inventario
 
 func _process(delta):
 	if connected:
-		peer.poll()  
 		update_score()
-
-@rpc("any_peer", "call_local")
-func sync_money(player_id, money):
-	print("📥 Recibido dinero del jugador", player_id, "->", money)  
-
-	if player_id != multiplayer.get_unique_id():  
-		opponent_money = money  
-		if label_opponent_score != null:
-			label_opponent_score.text = "Dinero Rival: $" + str(opponent_money)
-			label_opponent_score.visible = true
-			print("🏆 Dinero del rival actualizado:", opponent_money)
-		else:
-			print("❌ No se puede actualizar LabelOpponentScore: No existe en la escena.")

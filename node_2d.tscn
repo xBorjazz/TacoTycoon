@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://bgeu87psdu4q7"]
+[gd_scene load_steps=98 format=3 uid="uid://bgeu87psdu4q7"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
@@ -348,6 +348,8 @@ point_count = 8
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0g1u"]
 texture = ExtResource("31_40uyy")
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_npccs"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-2, 0)
@@ -3255,6 +3257,9 @@ offset_top = 544.0
 offset_right = 57.0
 offset_bottom = 560.0
 scale = Vector2(1.90385, 1.20455)
+
+[node name="Sync" type="MultiplayerSynchronizer" parent="CanvasLayer/Client"]
+replication_config = SubResource("SceneReplicationConfig_npccs")
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
