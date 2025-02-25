@@ -3,6 +3,7 @@ extends Node
 @onready var level_selector = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/LevelSelector")
 @onready var left_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/LeftArrow")
 @onready var right_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/RightArrow")
+@onready var progress_bar = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/ProgressBar")
 
 var levels = ["res://node_2d.tscn", "res://level_2.tscn", "res://betas_level.tscn"]
 var current_level = 0  # Nivel inicial
@@ -20,10 +21,10 @@ func _ready():
 	left_arrow.connect("pressed", Callable(self, "_on_left_arrow_pressed"))
 	right_arrow.connect("pressed", Callable(self, "_on_right_arrow_pressed"))
 	# Conectar la señal de cambio de valor del ProgressBar
-	GlobalProgressBar.progress_bar.connect("value_changed", Callable(self, "_on_progress_changed"))
+	progress_bar.connect("value_changed", Callable(self, "_on_progress_changed"))
 
 	# Verificar el estado inicial de los botones
-	_on_progress_changed(GlobalProgressBar.progress_bar.value)
+	_on_progress_changed(progress_bar.value)
 
 func _on_progress_changed(value):
 	# Si el progreso es menor a 100, deshabilitar los botones
