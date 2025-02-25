@@ -29,7 +29,7 @@ func _process(delta):
 			if sender_id != player_id:
 				opponent_money = money  # 🔄 Guardar dinero del oponente correctamente
 				label_opponent_score.text = "Dinero Rival: $" + str(opponent_money)
-				print("🏆 Dinero del rival actualizado:", opponent_money)  # 🔥 Debug
+				#print("🏆 Dinero del rival actualizado:", opponent_money)  # 🔥 Debug
 
 	# 🔄 Mostrar dinero del jugador actual
 	var my_money = Inventory.player_money

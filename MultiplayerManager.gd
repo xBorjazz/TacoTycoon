@@ -27,7 +27,7 @@ func _process(delta):
 
 			if player_id in players:
 				players[player_id]["money"] = money  # 🔥 Guardar dinero del jugador
-				print("💰 Recibido dinero del jugador", player_id, "->", money)
+				#print("💰 Recibido dinero del jugador", player_id, "->", money)
 				sync_money_with_clients(player_id, money)
 
 func sync_money_with_clients(player_id, money):

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_b34qg"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="3_1lytl"]
 [ext_resource type="Texture2D" uid="uid://cssgcoitoki84" path="res://Maps/Cucei/matute.png" id="4_k5gv6"]
-[ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="5_haocw"]
 [ext_resource type="Texture2D" uid="uid://cqs1awv1kyhw2" path="res://Assets/taco-logobg.png" id="6_r6wjt"]
+[ext_resource type="Texture2D" uid="uid://cf3h4wgg77m0l" path="res://Assets/tacosprite-btn.png" id="6_xah3f"]
 [ext_resource type="Texture2D" uid="uid://dm44nn63gb5pd" path="res://Assets/tycoon-logobg.png" id="7_60gds"]
 [ext_resource type="Texture2D" uid="uid://b7p8t8870d2p4" path="res://Assets/CUCEI-logoblue.png" id="8_gt4mx"]
 [ext_resource type="Texture2D" uid="uid://c0b53jeaeaqu6" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheetCharacter1.png" id="10_pb6hy"]
@@ -329,12 +329,12 @@ texture = ExtResource("4_k5gv6")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
 layout_mode = 0
-offset_left = 25.5187
-offset_top = -0.145248
-offset_right = 597.519
-offset_bottom = 496.855
+offset_left = 21.3032
+offset_top = 0.703681
+offset_right = 920.303
+offset_bottom = 497.704
 scale = Vector2(0.0261525, 0.0229047)
-texture = ExtResource("5_haocw")
+texture = ExtResource("6_xah3f")
 
 [node name="Taco-logobg" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
 position = Vector2(19.346, 12.8314)

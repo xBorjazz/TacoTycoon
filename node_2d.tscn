@@ -1,7 +1,7 @@
 [gd_scene load_steps=97 format=3 uid="uid://qo31xtxkrfpv"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
-[ext_resource type="Texture2D" uid="uid://2wh6mlhn3dbl" path="res://Assets/taco-stand.png" id="5_2tpai"]
+[ext_resource type="Texture2D" uid="uid://dpqb07pgaewon" path="res://Assets/taco_stand5.png" id="5_od333"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
 [ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="8_4ymtb"]
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="8_6puqj"]
@@ -414,12 +414,12 @@ position = Vector2(-3.83643, -6.70302)
 
 [node name="LemonadeCar" type="TextureRect" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
 texture_filter = 2
-offset_left = 4.82333
-offset_top = 27.545
-offset_right = 506.823
-offset_bottom = 564.545
-scale = Vector2(0.0225102, 0.0202503)
-texture = ExtResource("5_2tpai")
+offset_left = 1.1035
+offset_top = 29.9744
+offset_right = 1058.1
+offset_bottom = 566.974
+scale = Vector2(0.0190269, 0.0171167)
+texture = ExtResource("5_od333")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
 visible = false
@@ -1299,7 +1299,6 @@ offset_right = 229.0
 offset_bottom = 274.0
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -2814,6 +2813,7 @@ desbloqueando nuevas herramientas
 que incrementarán tus ganancias "
 
 [node name="Panel8" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel8"]
@@ -2861,7 +2861,6 @@ offset_bottom = -356.261
 script = ExtResource("26_oklwc")
 
 [node name="Crear Tabla" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 layout_mode = 0
 offset_left = 100.525
 offset_top = 122.63
@@ -2872,7 +2871,6 @@ text = "Crear TABLA
 "
 
 [node name="Insertar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 layout_mode = 0
 offset_left = 99.5942
 offset_top = 150.539
@@ -2882,7 +2880,6 @@ scale = Vector2(0.492474, 0.649767)
 text = "Insertar Datos"
 
 [node name="Seleccionar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 179.293
@@ -2892,7 +2889,6 @@ scale = Vector2(0.492474, 0.649767)
 text = "Seleccionar Datos"
 
 [node name="Actualizar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 206.356
@@ -2902,7 +2898,6 @@ scale = Vector2(0.492474, 0.649767)
 text = "Actualizar Datos"
 
 [node name="Borrar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 layout_mode = 0
 offset_left = 97.7326
 offset_top = 232.574
@@ -2912,7 +2907,6 @@ scale = Vector2(0.492474, 0.649767)
 text = "Borrar Datos"
 
 [node name="Seleccionar Persona" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 layout_mode = 0
 offset_left = 81.9092
 offset_top = 259.637
@@ -2948,6 +2942,7 @@ scale = Vector2(0.198331, 0.198331)
 texture_normal = ExtResource("65_akeax")
 
 [node name="RankingTree" type="Tree" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
 offset_left = 54.9164
@@ -3231,6 +3226,7 @@ volume_db = -10.0
 script = ExtResource("79_snduu")
 
 [node name="HostButton" type="Button" parent="CanvasLayer/MultiplayerManager"]
+visible = false
 offset_left = 385.0
 offset_top = 558.0
 offset_right = 457.0
@@ -3238,6 +3234,7 @@ offset_bottom = 582.0
 text = "Host"
 
 [node name="JoinButton" type="Button" parent="CanvasLayer/MultiplayerManager"]
+visible = false
 offset_left = 484.0
 offset_top = 558.0
 offset_right = 556.0
@@ -3257,6 +3254,7 @@ script = ExtResource("81_suyb2")
 script = ExtResource("82_ro7i3")
 
 [node name="LabelMyScore" type="Label" parent="CanvasLayer/Client"]
+visible = false
 offset_left = 30.0
 offset_top = 88.0
 offset_right = 70.0
@@ -3264,6 +3262,7 @@ offset_bottom = 104.0
 scale = Vector2(1.31405, 1.425)
 
 [node name="LabelOpponentScore" type="Label" parent="CanvasLayer/Client"]
+visible = false
 offset_left = 17.0
 offset_top = 544.0
 offset_right = 57.0
