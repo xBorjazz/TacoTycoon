@@ -3256,10 +3256,12 @@ offset_bottom = 560.0
 scale = Vector2(1.90385, 1.20455)
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 600.0
-offset_bottom = 16.0
-text = "MULTPLAYER SCENE
-"
+offset_left = 383.0
+offset_top = 991.0
+offset_right = 559.0
+offset_bottom = 1026.0
+text = "Multiplayer
+  Enabled"
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
