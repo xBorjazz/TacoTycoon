@@ -1,6 +1,8 @@
-[gd_scene load_steps=93 format=3 uid="uid://qo31xtxkrfpv"]
+[gd_scene load_steps=94 format=3 uid="uid://qo31xtxkrfpv"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
+[ext_resource type="Texture2D" uid="uid://b8jyd5fjcu7c4" path="res://Maps/Cucei/globo.png" id="4_2dv7t"]
+[ext_resource type="Texture2D" uid="uid://d0pdqumw7ybpx" path="res://Maps/Cucei/edificio-x2.png" id="5_lq1sy"]
 [ext_resource type="Texture2D" uid="uid://dpqb07pgaewon" path="res://Assets/taco_stand5.png" id="5_od333"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
 [ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="8_4ymtb"]
@@ -26,7 +28,6 @@
 [ext_resource type="Script" path="res://Panel5Buttons.gd" id="17_x1nb1"]
 [ext_resource type="Script" path="res://DayManager.gd" id="20_aq3g7"]
 [ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="20_qe7ua"]
-[ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="20_r0ncf"]
 [ext_resource type="Script" path="res://SQLController.gd" id="26_oklwc"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="28_dc1ht"]
 [ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="28_fu2dm"]
@@ -366,16 +367,6 @@ scale = Vector2(13.1727, 13.1727)
 pivot_offset = Vector2(0, 0.62)
 theme_override_styles/panel = SubResource("StyleBoxFlat_xew53")
 
-[node name="RainMap" type="TextureRect" parent="CanvasLayer/Gameplay"]
-visible = false
-layout_mode = 0
-offset_left = 0.984566
-offset_top = 0.358033
-offset_right = 554.985
-offset_bottom = 556.358
-scale = Vector2(0.0698793, 0.0698793)
-texture = ExtResource("20_r0ncf")
-
 [node name="Chedraui" type="TextureRect" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
 offset_left = 0.921881
@@ -404,6 +395,25 @@ offset_right = 1025.06
 offset_bottom = 768.526
 scale = Vector2(0.0394618, 0.0425751)
 texture = ExtResource("15_rdn76")
+
+[node name="Globo" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_left = 1.05324
+offset_top = 0.525528
+offset_right = 1025.06
+offset_bottom = 768.526
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("4_2dv7t")
+
+[node name="Globo2" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = 1.05324
+offset_top = 0.525528
+offset_right = 1025.06
+offset_bottom = 768.526
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("5_lq1sy")
 
 [node name="LemonadeCarZone" type="Area2D" parent="CanvasLayer/Gameplay"]
 position = Vector2(-3.83643, -6.70302)

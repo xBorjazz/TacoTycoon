@@ -1,6 +1,5 @@
-[gd_scene load_steps=95 format=3 uid="uid://7eejpjfxe3cf"]
+[gd_scene load_steps=94 format=3 uid="uid://7eejpjfxe3cf"]
 
-[ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="1_8p2j7"]
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_hng5q"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="3_kfq1a"]
 [ext_resource type="Texture2D" uid="uid://cssgcoitoki84" path="res://Maps/Cucei/matute.png" id="4_2q2xc"]
@@ -366,16 +365,6 @@ offset_bottom = 136.0
 scale = Vector2(13.1727, 13.1727)
 pivot_offset = Vector2(0, 0.62)
 theme_override_styles/panel = SubResource("StyleBoxFlat_bgdmr")
-
-[node name="RainMap" type="TextureRect" parent="CanvasLayer/Gameplay"]
-visible = false
-layout_mode = 0
-offset_left = 0.984566
-offset_top = 0.358033
-offset_right = 554.985
-offset_bottom = 556.358
-scale = Vector2(0.0698793, 0.0698793)
-texture = ExtResource("1_8p2j7")
 
 [node name="Chedraui" type="TextureRect" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
