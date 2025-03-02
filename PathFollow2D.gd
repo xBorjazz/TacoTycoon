@@ -14,7 +14,7 @@ var path_2d_scene = preload("res://path_2d.tscn")
 #signal day_ended
 signal sale_made
 
-@onready var lemonade_car_zone = get_node("/root/Node2D/CanvasLayer/Gameplay/LemonadeCarZone")
+@onready var taco_stand_zone = get_node("/root/Node2D/CanvasLayer/Gameplay/TacoStandZone")
 @onready var sound_player = get_node("/root/Node2D/CanvasLayer/PlayerBuy_Sound")
 @onready var day_manager = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 
@@ -56,8 +56,8 @@ func _ready() -> void:
 	# Conectar la señal day_ended para ocultar el personaje
 	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
 	
-	if lemonade_car_zone:
-		lemonade_car_zone.connect("body_entered", Callable(self, "_on_lemonade_car_zone_body_entered"))
+	if taco_stand_zone:
+		taco_stand_zone.connect("body_entered", Callable(self, "_on_taco_stand_zone_body_entered"))
 	else:
 		print("El nodo LemonadeCarZone no se encontró.")
 
@@ -104,7 +104,7 @@ func _on_fade_out_complete() -> void:
 	stop_moving()
 	hide()
 
-func _on_lemonade_car_zone_body_entered(body):
+func _on_taco_stand_zone_body_entered(body):
 	if body == character_sprite:
 		print("Personaje ha entrado en la zona de ventas")
 		
