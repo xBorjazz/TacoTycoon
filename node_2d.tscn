@@ -1,10 +1,11 @@
-[gd_scene load_steps=247 format=3 uid="uid://qo31xtxkrfpv"]
+[gd_scene load_steps=248 format=3 uid="uid://qo31xtxkrfpv"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://b8jyd5fjcu7c4" path="res://Maps/Cucei/globo.png" id="4_2dv7t"]
 [ext_resource type="Texture2D" uid="uid://d0pdqumw7ybpx" path="res://Maps/Cucei/edificio-x2.png" id="5_lq1sy"]
 [ext_resource type="Texture2D" uid="uid://dpqb07pgaewon" path="res://Assets/taco_stand5.png" id="5_od333"]
 [ext_resource type="Texture2D" uid="uid://dar3rb8igmo4w" path="res://Maps/Cucei/biblioteca.png" id="6_237y5"]
+[ext_resource type="Texture2D" uid="uid://br42tnh8f62y6" path="res://Assets/Maps/Cucei/jardin.png" id="7_oed5l"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
 [ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="8_4ymtb"]
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="8_6puqj"]
@@ -1484,6 +1485,16 @@ offset_right = 1025.06
 offset_bottom = 768.526
 scale = Vector2(0.0394618, 0.0425751)
 texture = ExtResource("6_237y5")
+
+[node name="MóduloK" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_left = 1.05324
+offset_top = 0.525528
+offset_right = 1025.06
+offset_bottom = 768.526
+scale = Vector2(0.0394618, 0.0425751)
+texture = ExtResource("7_oed5l")
 
 [node name="LemonadeCarZone" type="Area2D" parent="CanvasLayer/Gameplay"]
 position = Vector2(-3.83643, -6.70302)
