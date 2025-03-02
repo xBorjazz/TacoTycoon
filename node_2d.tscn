@@ -1,4 +1,4 @@
-[gd_scene load_steps=248 format=3 uid="uid://qo31xtxkrfpv"]
+[gd_scene load_steps=249 format=3 uid="uid://qo31xtxkrfpv"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://b8jyd5fjcu7c4" path="res://Maps/Cucei/globo.png" id="4_2dv7t"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://dv7jnttqsk8sw" path="res://Assets/trompo.png" id="40_phi51"]
 [ext_resource type="Texture2D" uid="uid://dmiphmlrmad0p" path="res://Assets/arrachera.png" id="41_7c3oh"]
 [ext_resource type="Texture2D" uid="uid://b82w0uhgrr3mw" path="res://Assets/costilla.png" id="42_fudh4"]
+[ext_resource type="Script" path="res://CharacterShop.gd" id="42_jo6m3"]
 [ext_resource type="Texture2D" uid="uid://dg0wv00gdcar2" path="res://Assets/cilantrosmall.png" id="42_mnyhm"]
 [ext_resource type="Texture2D" uid="uid://dtwxeqbhc5smu" path="res://Assets/cilantromedium.png" id="43_62qac"]
 [ext_resource type="Texture2D" uid="uid://cjjk5ladro4dq" path="res://Assets/Money.png" id="44_7dp3l"]
@@ -1497,10 +1498,10 @@ offset_bottom = 768.526
 scale = Vector2(0.0394618, 0.0425751)
 texture = ExtResource("7_oed5l")
 
-[node name="LemonadeCarZone" type="Area2D" parent="CanvasLayer/Gameplay"]
+[node name="TacoStandZone" type="Area2D" parent="CanvasLayer/Gameplay"]
 position = Vector2(-3.83643, -6.70302)
 
-[node name="LemonadeCar" type="TextureRect" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
+[node name="TacoStand" type="TextureRect" parent="CanvasLayer/Gameplay/TacoStandZone"]
 texture_filter = 2
 offset_left = 1.1035
 offset_top = 29.9744
@@ -1509,22 +1510,19 @@ offset_bottom = 566.974
 scale = Vector2(0.0190269, 0.0171167)
 texture = ExtResource("5_od333")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
 visible = false
 position = Vector2(12.1111, 33.2387)
 scale = Vector2(0.0300442, 0.0403583)
 polygon = PackedVector2Array(-25.9059, 107.998, 49.2216, 117.641, 131.391, 116.622, 156.659, 43.2629, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
+[node name="Taco-Dog" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
+visible = false
 position = Vector2(17.6529, 32.5555)
 scale = Vector2(0.0138908, 0.0138908)
 sprite_frames = SubResource("SpriteFrames_5ehqd")
 animation = &"idle"
 autoplay = "idle"
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
-visible = false
-position = Vector2(17.2733, 34.2256)
 
 [node name="Character" type="Sprite2D" parent="CanvasLayer/Gameplay"]
 visible = false
@@ -2033,8 +2031,8 @@ offset_bottom = 397.483
 scale = Vector2(0.419683, 0.251132)
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
+script = ExtResource("42_jo6m3")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel3"]
 layout_mode = 0
@@ -2173,7 +2171,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("11_d26f3")
-text = "1000"
+text = "500"
 
 [node name="RightArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel3"]
 layout_mode = 0
@@ -2196,7 +2194,7 @@ scale = Vector2(0.131315, 0.131315)
 texture_normal = ExtResource("28_kip63")
 texture_pressed = ExtResource("29_fw3al")
 
-[node name="BuyButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel3"]
+[node name="BuyTacoDogButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel3"]
 layout_mode = 0
 offset_left = 231.766
 offset_top = 170.836
@@ -2204,7 +2202,6 @@ offset_right = 737.766
 offset_bottom = 681.836
 scale = Vector2(0.162767, 0.128434)
 texture_normal = ExtResource("46_e1qdg")
-script = ExtResource("8_aiqcm")
 
 [node name="Panel4" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -2398,6 +2395,7 @@ offset_right = 229.0
 offset_bottom = 274.0
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -4327,7 +4325,7 @@ volume_db = -10.0
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/BetasButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_betas_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyButton" to="CanvasLayer/PanelContainer/Panel3/BuyButton" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyTacoDogButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_taco_dog_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" method="_on_tortillas_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" method="_on_carne_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton" method="_on_verdura_button_pressed"]
