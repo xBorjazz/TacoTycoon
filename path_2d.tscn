@@ -207,6 +207,7 @@ scale = Vector2(0.0794631, 0.0794631)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
 texture_filter = 1
+scale = Vector2(1.11182, 1.11182)
 sprite_frames = SubResource("SpriteFrames_23xq5")
 animation = &"walk_left_down"
 

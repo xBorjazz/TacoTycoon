@@ -1,4 +1,4 @@
-[gd_scene load_steps=249 format=3 uid="uid://qo31xtxkrfpv"]
+[gd_scene load_steps=251 format=3 uid="uid://qo31xtxkrfpv"]
 
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://b8jyd5fjcu7c4" path="res://Maps/Cucei/globo.png" id="4_2dv7t"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="8_6puqj"]
 [ext_resource type="Script" path="res://TextureButtons.gd" id="8_aiqcm"]
 [ext_resource type="Texture2D" uid="uid://lqauclhtgtnv" path="res://Character/taco-dog-spritesheet.png" id="8_gye6a"]
+[ext_resource type="Texture2D" uid="uid://b11exspyam450" path="res://Assets/Upgrades/soda-machine2.png" id="10_cnrnq"]
 [ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="11_0cp5q"]
 [ext_resource type="FontVariation" uid="uid://csp5ficb0unl2" path="res://Resources/TextMoney.tres" id="11_d26f3"]
 [ext_resource type="Texture2D" uid="uid://bhkir23qx213u" path="res://Assets/SpriteSheet.png" id="13_3avee"]
@@ -81,6 +82,7 @@
 [ext_resource type="Texture2D" uid="uid://bqismu6f66g31" path="res://Assets/stff-btn.png" id="68_m301n"]
 [ext_resource type="Texture2D" uid="uid://cf3h4wgg77m0l" path="res://Assets/tacosprite-btn.png" id="69_tqb32"]
 [ext_resource type="Texture2D" uid="uid://4brg0tnragy6" path="res://Assets/taco-ingredients-btn.png" id="70_bxeao"]
+[ext_resource type="Texture2D" uid="uid://c3n0mhs6cuyls" path="res://Assets/Upgrades/soda-machine3.png" id="70_qfjm6"]
 [ext_resource type="Texture2D" uid="uid://e2fn2n15tcc" path="res://Assets/upgrades-btn.png" id="71_tmamx"]
 [ext_resource type="Texture2D" uid="uid://diwnhe0pxmig1" path="res://Assets/leaderboard.png" id="72_7uhr1"]
 
@@ -1501,28 +1503,38 @@ texture = ExtResource("7_oed5l")
 [node name="TacoStandZone" type="Area2D" parent="CanvasLayer/Gameplay"]
 position = Vector2(-3.83643, -6.70302)
 
+[node name="Taco-Dog" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
+visible = false
+position = Vector2(17.5011, 34.9848)
+scale = Vector2(0.0106606, 0.0106606)
+sprite_frames = SubResource("SpriteFrames_5ehqd")
+animation = &"idle"
+autoplay = "idle"
+
 [node name="TacoStand" type="TextureRect" parent="CanvasLayer/Gameplay/TacoStandZone"]
 texture_filter = 2
-offset_left = 1.1035
+offset_left = 1.78674
 offset_top = 29.9744
-offset_right = 1058.1
+offset_right = 1058.78
 offset_bottom = 566.974
 scale = Vector2(0.0190269, 0.0171167)
 texture = ExtResource("5_od333")
+
+[node name="Soda-Machine" type="TextureRect" parent="CanvasLayer/Gameplay/TacoStandZone"]
+visible = false
+texture_filter = 2
+offset_left = 1.25533
+offset_top = 34.3775
+offset_right = 1058.25
+offset_bottom = 571.377
+scale = Vector2(0.0115671, 0.0135619)
+texture = ExtResource("10_cnrnq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
 visible = false
 position = Vector2(12.1111, 33.2387)
 scale = Vector2(0.0300442, 0.0403583)
 polygon = PackedVector2Array(-25.9059, 107.998, 49.2216, 117.641, 131.391, 116.622, 156.659, 43.2629, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
-
-[node name="Taco-Dog" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
-visible = false
-position = Vector2(17.6529, 32.5555)
-scale = Vector2(0.0138908, 0.0138908)
-sprite_frames = SubResource("SpriteFrames_5ehqd")
-animation = &"idle"
-autoplay = "idle"
 
 [node name="Character" type="Sprite2D" parent="CanvasLayer/Gameplay"]
 visible = false
@@ -2031,6 +2043,7 @@ offset_bottom = 397.483
 scale = Vector2(0.419683, 0.251132)
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("42_jo6m3")
 
@@ -3893,8 +3906,31 @@ max_value = 3.0
 script = ExtResource("58_ide1j")
 
 [node name="Panel7" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 34.4391
+offset_top = 265.557
+offset_right = 74.4391
+offset_bottom = 305.557
+scale = Vector2(6.46604, 2.56756)
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 5.58472
+offset_top = 107.407
+offset_right = 45.5847
+offset_bottom = 147.407
+scale = Vector2(7.88727, 3.88531)
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 6.51551
+offset_top = 39.749
+offset_right = 46.5155
+offset_bottom = 79.749
+scale = Vector2(7.85419, 1.23601)
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
 layout_mode = 0
@@ -3905,9 +3941,135 @@ offset_bottom = 160.457
 scale = Vector2(0.58024, 0.716277)
 text = "Mejoras
 
+
 Sube tu negocio al siguiente nivel
 desbloqueando nuevas herramientas
 que incrementarán tus ganancias "
+
+[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.407
+offset_top = -81.6731
+offset_right = 196.593
+offset_bottom = -58.6731
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.823599, 0.823599)
+text = "Máquina de Refrescos"
+horizontal_alignment = 3
+
+[node name="Refrescos" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = -16.7542
+offset_top = 136.161
+offset_right = 1143.24
+offset_bottom = 1160.16
+scale = Vector2(0.198072, 0.122272)
+texture = ExtResource("70_qfjm6")
+
+[node name="PlayerMoney2" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 157.303
+offset_top = 123.477
+offset_right = 645.303
+offset_bottom = 634.477
+scale = Vector2(0.100963, 0.0998358)
+texture = ExtResource("44_7dp3l")
+
+[node name="PlayerMoneyLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 202.911
+offset_top = 131.087
+offset_right = 527.911
+offset_bottom = 150.087
+scale = Vector2(1.37151, 2.16647)
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("11_d26f3")
+text = "350"
+
+[node name="Label4" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.543076
+offset_top = -14.861
+offset_right = 351.457
+offset_bottom = 110.139
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.437503, 0.5646)
+theme_override_font_sizes/font_size = 22
+text = "Bonus:
+
+25% +propinas
+30% más clientes
+
+"
+horizontal_alignment = 3
+
+[node name="Label3" type="Label" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.416
+offset_top = 77.3229
+offset_right = 1192.58
+offset_bottom = 341.323
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.312782, 0.462293)
+theme_override_font_sizes/font_size = 30
+text = "La máquina de refrescos
+le añadirá a tu puesto
+un toque más de calidad
+y atraerá a más clientes
+que te podrán proporcionar
+más ganancias"
+horizontal_alignment = 1
+
+[node name="RightArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 279.236
+offset_top = 345.055
+offset_right = 620.236
+offset_bottom = 678.055
+scale = Vector2(0.131315, 0.131315)
+texture_normal = ExtResource("28_kip63")
+texture_pressed = ExtResource("29_fw3al")
+
+[node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 54.9164
+offset_top = 388.187
+offset_right = 395.916
+offset_bottom = 721.187
+rotation = -3.14159
+scale = Vector2(0.131315, 0.131315)
+texture_normal = ExtResource("28_kip63")
+texture_pressed = ExtResource("29_fw3al")
+
+[node name="BuySodaMachineButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel7"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 171.0
+offset_right = 738.0
+offset_bottom = 434.0
+scale = Vector2(0.162767, 0.128434)
+texture_normal = ExtResource("46_e1qdg")
 
 [node name="Panel8" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -4381,6 +4543,7 @@ volume_db = -10.0
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel7/BuySodaMachineButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_soda_machine_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Crear Tabla" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_crear_tabla_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Insertar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_insertar_datos_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Seleccionar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_seleccionar_datos_button_down"]
