@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_hng5q"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="3_kfq1a"]
 [ext_resource type="Texture2D" uid="uid://cssgcoitoki84" path="res://Maps/Cucei/matute.png" id="4_2q2xc"]
-[ext_resource type="Texture2D" uid="uid://dpqb07pgaewon" path="res://Assets/taco_stand5.png" id="5_qesue"]
+[ext_resource type="Texture2D" uid="uid://i670y26rkh0h" path="res://Assets/taco_stand1-left.png" id="4_i6dj4"]
 [ext_resource type="Texture2D" uid="uid://bhkir23qx213u" path="res://Assets/SpriteSheet.png" id="6_kt8rf"]
 [ext_resource type="Script" path="res://Character.gd" id="7_kf4mq"]
 [ext_resource type="Texture2D" uid="uid://c0b53jeaeaqu6" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheetCharacter1.png" id="8_ovrad"]
@@ -405,7 +405,7 @@ offset_top = 29.9744
 offset_right = 1058.1
 offset_bottom = 566.974
 scale = Vector2(0.0190269, 0.0171167)
-texture = ExtResource("5_qesue")
+texture = ExtResource("4_i6dj4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/LemonadeCarZone"]
 visible = false

@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://ButtonDisplay.gd" id="1_01whp"]
 [ext_resource type="Texture2D" uid="uid://b8jyd5fjcu7c4" path="res://Maps/Cucei/globo.png" id="4_2dv7t"]
 [ext_resource type="Texture2D" uid="uid://d0pdqumw7ybpx" path="res://Maps/Cucei/edificio-x2.png" id="5_lq1sy"]
-[ext_resource type="Texture2D" uid="uid://dpqb07pgaewon" path="res://Assets/taco_stand5.png" id="5_od333"]
 [ext_resource type="Texture2D" uid="uid://dar3rb8igmo4w" path="res://Maps/Cucei/biblioteca.png" id="6_237y5"]
 [ext_resource type="Texture2D" uid="uid://br42tnh8f62y6" path="res://Assets/Maps/Cucei/jardin.png" id="7_oed5l"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="7_qknup"]
@@ -11,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="8_6puqj"]
 [ext_resource type="Script" path="res://TextureButtons.gd" id="8_aiqcm"]
 [ext_resource type="Texture2D" uid="uid://lqauclhtgtnv" path="res://Character/taco-dog-spritesheet.png" id="8_gye6a"]
+[ext_resource type="Texture2D" uid="uid://i670y26rkh0h" path="res://Assets/taco_stand1-left.png" id="9_bac43"]
 [ext_resource type="Texture2D" uid="uid://b11exspyam450" path="res://Assets/Upgrades/soda-machine2.png" id="10_cnrnq"]
 [ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="11_0cp5q"]
 [ext_resource type="FontVariation" uid="uid://csp5ficb0unl2" path="res://Resources/TextMoney.tres" id="11_d26f3"]
@@ -1513,12 +1513,12 @@ autoplay = "idle"
 
 [node name="TacoStand" type="TextureRect" parent="CanvasLayer/Gameplay/TacoStandZone"]
 texture_filter = 2
-offset_left = 1.78674
-offset_top = 29.9744
-offset_right = 1058.78
-offset_bottom = 566.974
-scale = Vector2(0.0190269, 0.0171167)
-texture = ExtResource("5_od333")
+offset_left = 1.17942
+offset_top = 29.3671
+offset_right = 1058.18
+offset_bottom = 566.367
+scale = Vector2(0.019825, 0.0193729)
+texture = ExtResource("9_bac43")
 
 [node name="Soda-Machine" type="TextureRect" parent="CanvasLayer/Gameplay/TacoStandZone"]
 visible = false
