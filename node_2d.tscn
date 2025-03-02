@@ -1438,6 +1438,7 @@ scale = Vector2(0.0394618, 0.0425751)
 texture = ExtResource("13_lr85u")
 
 [node name="Beta" type="TextureRect" parent="CanvasLayer/Gameplay"]
+visible = false
 layout_mode = 0
 offset_left = 0.921881
 offset_top = 0.64502
