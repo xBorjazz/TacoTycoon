@@ -1,6 +1,7 @@
-[gd_scene load_steps=353 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=357 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_l52e7"]
+[ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_rqxl8"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_1igep"]
 [ext_resource type="Texture2D" uid="uid://cssgcoitoki84" path="res://Maps/Cucei/matute.png" id="3_030wo"]
 [ext_resource type="Texture2D" uid="uid://b8jyd5fjcu7c4" path="res://Maps/Cucei/globo.png" id="4_5chmp"]
@@ -86,6 +87,9 @@
 [ext_resource type="AudioStream" uid="uid://fumbw72pnbq6" path="res://Resources/Sounds/SoundEffects/PlusButtonPress.wav" id="84_hodwd"]
 [ext_resource type="AudioStream" uid="uid://comis4kj1vb72" path="res://Resources/Sounds/SoundEffects/PlustButton.wav" id="85_odm32"]
 [ext_resource type="AudioStream" uid="uid://bcmaotq5qdnio" path="res://Resources/Sounds/SoundEffects/PlayerBuy.mp3" id="86_3yn0n"]
+[ext_resource type="Texture2D" uid="uid://dlxu1o2lh61ci" path="res://Character/taco-tutorial-bg.png" id="87_il4mg"]
+[ext_resource type="Texture2D" uid="uid://bsikyg2ykx0xk" path="res://Assets/Buttons/continue-btn.png" id="87_rlq5q"]
+[ext_resource type="Texture2D" uid="uid://cslotwa6nj7i3" path="res://Character/globe-text.png" id="88_os572"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -2221,6 +2225,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Taco-Tube-Man" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
+visible = false
 position = Vector2(15.2236, 29.1394)
 scale = Vector2(0.0177071, 0.0177071)
 sprite_frames = SubResource("SpriteFrames_i0f01")
@@ -5206,6 +5211,41 @@ volume_db = -5.0
 stream = ExtResource("86_3yn0n")
 volume_db = -10.0
 
+[node name="Taco-tutorial-bg" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(112, 458)
+scale = Vector2(0.462148, 0.480926)
+texture = ExtResource("87_il4mg")
+
+[node name="TutorialNode" type="Node2D" parent="CanvasLayer"]
+position = Vector2(390, 454)
+scale = Vector2(0.276463, 0.276463)
+script = ExtResource("1_rqxl8")
+
+[node name="ContinueButton" type="TextureButton" parent="CanvasLayer" groups=["TutorialNodes"]]
+offset_left = 390.0
+offset_top = 454.0
+offset_right = 1067.0
+offset_bottom = 823.0
+scale = Vector2(0.276463, 0.276463)
+texture_normal = ExtResource("87_rlq5q")
+
+[node name="SpeechBubble" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+position = Vector2(264, 328)
+scale = Vector2(0.579025, 0.401084)
+texture = ExtResource("88_os572")
+
+[node name="Label" type="Label" parent="CanvasLayer/SpeechBubble" groups=["TutorialNodes"]]
+offset_left = -223.0
+offset_top = -117.0
+offset_right = 300.0
+offset_bottom = 45.0
+scale = Vector2(0.940266, 1.37411)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Hola! Te Doy la Bienvenida 
+a Cucei Taco Tycoon"
+autowrap_mode = 3
+
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
@@ -5284,6 +5324,7 @@ volume_db = -10.0
 [connection signal="pressed" from="CanvasLayer/HBoxContainer3/PanelContainer5/Button5" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_5_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" to="CanvasLayer/HBoxContainer4/PanelContainer6/Button7" method="_on_button_7_pressed"]
 [connection signal="pressed" from="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" to="CanvasLayer/HBoxContainer4/PanelContainer5/Button8" method="_on_button_8_pressed"]
+[connection signal="pressed" from="CanvasLayer/ContinueButton" to="CanvasLayer/TutorialNode" method="_on_ContinueButton_pressed"]
 
 [editable path="CanvasLayer/Gameplay/Path2D"]
 [editable path="CanvasLayer/Gameplay/Path2D2"]

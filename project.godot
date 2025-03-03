@@ -35,6 +35,7 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 multiplayer="*res://MultiplayerManager.gd"
 client="*res://Client.gd"
 MultiplayerButton="*res://MultiplayerButton.gd"
+Tutorial="*res://Scripts/Tutorial.gd"
 
 [display]
 
@@ -46,6 +47,10 @@ window/handheld/orientation=5
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
+
+[global_group]
+
+TutorialNodes=""
 
 [gui]
 

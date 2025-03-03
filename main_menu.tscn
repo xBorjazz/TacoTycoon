@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dthkpu80jkm7c"]
+[gd_scene load_steps=29 format=3 uid="uid://dthkpu80jkm7c"]
 
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="1_3t4s4"]
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_b34qg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b7iwt12a4aac0" path="res://Assets/start-game2.png" id="11_kltp6"]
 [ext_resource type="Texture2D" uid="uid://bpxvygafujuaf" path="res://Assets/options-btn.png" id="12_44awt"]
 [ext_resource type="Script" path="res://MainMenu.gd" id="12_nh7ka"]
+[ext_resource type="Texture2D" uid="uid://l3sdq4tc2dhg" path="res://Assets/Buttons/tutorial-btn.png" id="13_ns56d"]
 [ext_resource type="Texture2D" uid="uid://i6na68o0rx0t" path="res://Assets/multiplayer-btn.png" id="14_60tpk"]
 [ext_resource type="AudioStream" uid="uid://1m4tbdxml6ev" path="res://Resources/Sounds/SoundTrack/PixelDreams.mp3" id="14_a257s"]
 [ext_resource type="Script" path="res://MultiplayerButton.gd" id="15_omcny"]
@@ -433,6 +434,16 @@ scale = Vector2(0.0253941, 0.0191432)
 texture_normal = ExtResource("11_kltp6")
 script = ExtResource("12_nh7ka")
 
+[node name="TutorialButton" type="TextureButton" parent="CanvasLayer/MenuScreen2"]
+layout_mode = 0
+offset_left = 6.92542
+offset_top = 22.4729
+offset_right = 1286.93
+offset_bottom = 720.473
+scale = Vector2(0.0397408, 0.0299584)
+texture_normal = ExtResource("13_ns56d")
+script = ExtResource("12_nh7ka")
+
 [node name="TextureButton2" type="TextureButton" parent="CanvasLayer/MenuScreen2"]
 layout_mode = 0
 offset_left = 31.2397
@@ -457,4 +468,5 @@ volume_db = -9.0
 autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MenuScreen2/GameStart" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuScreen2/TutorialButton" to="CanvasLayer/MenuScreen2/TutorialButton" method="_on_tutorial_pressed"]
 [connection signal="pressed" from="CanvasLayer/MultiplayerButton" to="CanvasLayer/MultiplayerButton" method="_on_multiplayer_button_pressed"]

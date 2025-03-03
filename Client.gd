@@ -12,7 +12,7 @@ var opponent_money = 0
 func _ready():
 	# Verificar si los labels existen
 	if label_my_score == null or label_opponent_score == null:
-		print("❌ [Client] No se encontraron los labels en multiplayer.tscn, reintentando en 0.5s...")
+		#print("❌ [Client] No se encontraron los labels en multiplayer.tscn, reintentando en 0.5s...")
 		await get_tree().create_timer(0.5).timeout
 		restart_ready()
 		return
@@ -50,5 +50,5 @@ func _process(delta):
 	udp_client.put_packet(("MONEY:" + player_id + ":" + str(my_money)).to_utf8_buffer())
 
 func restart_ready():
-	print("🔄 [Client] Reejecutando _ready() con call_deferred()")
+	#print("🔄 [Client] Reejecutando _ready() con call_deferred()")
 	call_deferred("_ready")
