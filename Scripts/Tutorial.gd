@@ -13,6 +13,10 @@ var arrow2_ref
 var arrow3_ref
 var arrow4_ref
 var arrow5_ref
+var arrow6_ref  # Arrow de Receta (paso 5)
+var arrow7_ref  # Arrow de Mejoras (paso 8)
+var arrow8_ref  # NUEVO Arrow de Tareas (paso 9)
+var arrow9_ref  # NUEVO Arrow de Niveles (paso 10)
 var taco_tutorial_ref
 
 var dialogues = [
@@ -53,6 +57,10 @@ func assign_tutorial_nodes():
 			"Arrow3": arrow3_ref = weakref(node)
 			"Arrow4": arrow4_ref = weakref(node)
 			"Arrow5": arrow5_ref = weakref(node)
+			"Arrow6": arrow6_ref = weakref(node)  
+			"Arrow7": arrow7_ref = weakref(node)
+			"Arrow8": arrow8_ref = weakref(node)  # NUEVO
+			"Arrow9": arrow9_ref = weakref(node)  # NUEVO
 			"TacoTutorial": taco_tutorial_ref = weakref(node)
 
 	# Asegurar que todas las flechas están ocultas al inicio
@@ -61,6 +69,10 @@ func assign_tutorial_nodes():
 	if arrow3_ref: arrow3_ref.get_ref().visible = false
 	if arrow4_ref: arrow4_ref.get_ref().visible = false
 	if arrow5_ref: arrow5_ref.get_ref().visible = false
+	if arrow6_ref: arrow6_ref.get_ref().visible = false
+	if arrow7_ref: arrow7_ref.get_ref().visible = false
+	if arrow8_ref: arrow8_ref.get_ref().visible = false  # Ocultar Arrow8
+	if arrow9_ref: arrow9_ref.get_ref().visible = false  # Ocultar Arrow9
 
 func show_dialogue(index):
 	var tutorial_text = tutorial_text_ref.get_ref()
@@ -82,14 +94,24 @@ func show_dialogue(index):
 		if arrow_ref:
 			arrow_ref.get_ref().visible = true  
 
-		# Conectar evento al botón de ingredientes
 		var ingredientes_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
 		if ingredientes_button and not ingredientes_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
 			ingredientes_button.connect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
+
 	else:
-		waiting_for_action = false  
-		if continue_button:
-			continue_button.disabled = false  
+		# Pasos especiales para flechas: 5, 8, 9, 10
+		if step == 5:
+			start_step_5()  # Arrow6
+		elif step == 8:
+			start_step_8()  # Arrow7
+		elif step == 9:
+			start_step_9()  # NUEVO -> Arrow8
+		elif step == 10:
+			start_step_10() # NUEVO -> Arrow9
+		else:
+			waiting_for_action = false  
+			if continue_button:
+				continue_button.disabled = false  
 
 func _on_ContinueButton_pressed():
 	if waiting_for_action:
@@ -105,6 +127,7 @@ func _on_ContinueButton_pressed():
 	else:
 		end_tutorial()
 
+# ------ LÓGICA ORIGINAL: Flechas 1 → 5 ------
 func _on_IngredientesButton_pressed():
 	if step != 3 or action_completed:
 		return
@@ -115,7 +138,6 @@ func _on_IngredientesButton_pressed():
 	if arrow2_ref:
 		arrow2_ref.get_ref().visible = true
 
-	# Conectar siguiente evento
 	var suma1_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton")
 	if suma1_button:
 		suma1_button.connect("pressed", Callable(self, "_on_Suma1_pressed"), CONNECT_ONE_SHOT)
@@ -161,6 +183,104 @@ func _on_BuyButton_pressed():
 		step += 1
 		show_dialogue(step)
 
+# ------ Paso 5: Manejo Arrow6 (Receta) ------
+func start_step_5():
+	waiting_for_action = true
+	action_completed = false
+	if arrow6_ref:
+		arrow6_ref.get_ref().visible = true  
+
+	var receta_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer6/Button6")
+	if receta_button and not receta_button.is_connected("pressed", Callable(self, "_on_RecetaButton_pressed")):
+		receta_button.connect("pressed", Callable(self, "_on_RecetaButton_pressed"))
+
+func _on_RecetaButton_pressed():
+	if action_completed:
+		return
+	
+	action_completed = true
+	waiting_for_action = false
+
+	if arrow6_ref:
+		arrow6_ref.get_ref().visible = false  
+
+	step += 1
+	show_dialogue(step)
+
+# ------ Paso 8: Manejo Arrow7 (Mejoras) ------
+func start_step_8():
+	waiting_for_action = true
+	action_completed = false
+	if arrow7_ref:
+		arrow7_ref.get_ref().visible = true  
+
+	var mejoras_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer2/PanelContainer3/Button3")
+	if mejoras_button and not mejoras_button.is_connected("pressed", Callable(self, "_on_MejorasButton_pressed")):
+		mejoras_button.connect("pressed", Callable(self, "_on_MejorasButton_pressed"))
+
+func _on_MejorasButton_pressed():
+	if action_completed:
+		return
+	
+	action_completed = true
+	waiting_for_action = false
+
+	if arrow7_ref:
+		arrow7_ref.get_ref().visible = false  
+
+	step += 1
+	show_dialogue(step)
+
+# ------ Paso 9: Manejo Arrow8 (Tareas) ------
+func start_step_9():
+	waiting_for_action = true
+	action_completed = false
+	if arrow8_ref:
+		arrow8_ref.get_ref().visible = true  # Mostrar flecha 8
+
+	# Conectar el botón Tareas
+	var tareas_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer2/PanelContainer4/Button4")
+	if tareas_button and not tareas_button.is_connected("pressed", Callable(self, "_on_TareasButton_pressed")):
+		tareas_button.connect("pressed", Callable(self, "_on_TareasButton_pressed"))
+
+func _on_TareasButton_pressed():
+	if action_completed:
+		return
+	action_completed = true
+	waiting_for_action = false
+
+	if arrow8_ref:
+		arrow8_ref.get_ref().visible = false
+
+	# Avanzar al siguiente diálogo
+	step += 1
+	show_dialogue(step)
+
+# ------ Paso 10: Manejo Arrow9 (Niveles) ------
+func start_step_10():
+	waiting_for_action = true
+	action_completed = false
+	if arrow9_ref:
+		arrow9_ref.get_ref().visible = true
+
+	# Conectar el botón Niveles
+	var niveles_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer/PanelContainer/Button")
+	if niveles_button and not niveles_button.is_connected("pressed", Callable(self, "_on_NivelesButton_pressed")):
+		niveles_button.connect("pressed", Callable(self, "_on_NivelesButton_pressed"))
+
+func _on_NivelesButton_pressed():
+	if action_completed:
+		return
+	action_completed = true
+	waiting_for_action = false
+
+	if arrow9_ref:
+		arrow9_ref.get_ref().visible = false
+
+	step += 1
+	show_dialogue(step)
+
+
 func type_text(text):
 	var tutorial_text = tutorial_text_ref.get_ref()
 	if not tutorial_text:
@@ -183,6 +303,7 @@ func end_tutorial():
 
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://node_2d.tscn")
+
 
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")

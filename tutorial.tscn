@@ -5683,6 +5683,38 @@ scale = Vector2(0.677791, 0.705331)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
+[node name="Arrow6" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(307, 837)
+rotation = 0.261791
+scale = Vector2(0.677791, 0.705331)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow7" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(401, 739)
+rotation = 0.261791
+scale = Vector2(0.904877, 0.941643)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow8" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(293, 742)
+rotation = 0.261791
+scale = Vector2(0.904877, 0.941643)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow9" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(297, 620)
+rotation = 0.261791
+scale = Vector2(0.904877, 0.941643)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
 [node name="TutorialNode" type="Node2D" parent="CanvasLayer"]
 position = Vector2(390, 454)
 scale = Vector2(0.276463, 0.276463)
