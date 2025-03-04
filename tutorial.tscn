@@ -5730,18 +5730,18 @@ texture_normal = ExtResource("87_rlq5q")
 texture_disabled = ExtResource("91_52yuk")
 
 [node name="SpeechBubble" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
-position = Vector2(264, 328)
-scale = Vector2(0.579025, 0.401084)
+position = Vector2(277, 316)
+scale = Vector2(0.735045, 0.560281)
 texture = ExtResource("88_os572")
 
 [node name="Label" type="Label" parent="CanvasLayer/SpeechBubble" groups=["TutorialNodes"]]
-offset_left = -223.0
-offset_top = -117.0
-offset_right = 300.0
-offset_bottom = 45.0
+offset_left = -231.279
+offset_top = -117.798
+offset_right = 291.721
+offset_bottom = 44.2019
 scale = Vector2(0.940266, 1.37411)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 23
 text = "Hola! Te Doy la Bienvenida 
 a Cucei Taco Tycoon"
 autowrap_mode = 3

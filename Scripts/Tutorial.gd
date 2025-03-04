@@ -1,7 +1,7 @@
 extends Node2D
 
 var step = 0
-var typing_speed = 0.05
+var typing_speed = 0.04
 var waiting_for_action = false
 var action_completed = false
 
@@ -23,12 +23,12 @@ var dialogues = [
 	"¡Hola! Bienvenido a Cucei Taco Tycoon.",
 	"Aquí aprenderás a administrar tu negocio de tacos.",
 	"Primero, veamos cuánto dinero tienes.",
-	"Ahora compra ingredientes para preparar tacos.\nLo esencial es tortilla y carne.",
+	"Ahora compra ingredientes para preparar tacos. Lo escencial es tortilla y carne.",
 	"¡Listo! Ya estás preparado para vender tacos.",
 	"Si quieres, puedes ajustar la receta de tus tacos.",
-	"Mientras más ingredientes uses, gastarás más suministros, pero también conseguirás más ganancias.",
-	"A medida que avances en tu negocio, irás descubriendo las mejores combinaciones para tu receta según las circunstancias.",
-	"Puedes invertir tus ganancias en distintas mejoras para tu establecimiento,\ncomo incrementar los clientes que llegan o conseguir que dejen propina.",
+	"A mayor cantidad de suministros empleados, más ganancias obtendrás.",
+	"A medida que avances en tu negocio, irás descubriendo las mejores combinaciones.",
+	"Puedes invertir tus ganancias en distintas mejoras para tu establecimiento.",
 	"Además de completar tareas que aumentarán la puntuación de tu taquería.",
 	"Una vez hayas avanzado lo suficiente, podrás expandir tu negocio a nuevas zonas.",
 	"Mientras más zonas desbloquees, mejor será tu reputación y serás más exitoso."
