@@ -3242,7 +3242,7 @@ offset_left = 17.0
 offset_top = 544.0
 offset_right = 57.0
 offset_bottom = 560.0
-scale = Vector2(1.90385, 1.20455)
+scale = Vector2(1.41616, 0.895995)
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 383.0
