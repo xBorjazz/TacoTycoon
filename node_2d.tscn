@@ -2221,6 +2221,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Taco-Tube-Man" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
+visible = false
 position = Vector2(15.2236, 29.1394)
 scale = Vector2(0.0177071, 0.0177071)
 sprite_frames = SubResource("SpriteFrames_i0f01")
