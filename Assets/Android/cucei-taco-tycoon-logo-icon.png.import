@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmi2pt0pesnhl"
-path="res://.godot/imported/cucei-taco-tycoon-logo-big.png-be66cbb66969b89f0853c5e7363bd0bb.ctex"
+uid="uid://bkxryvp6x03p0"
+path="res://.godot/imported/cucei-taco-tycoon-logo-icon.png-d4add2c685bb18839205f9e6926f139e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cucei-taco-tycoon-logo-big.png"
-dest_files=["res://.godot/imported/cucei-taco-tycoon-logo-big.png-be66cbb66969b89f0853c5e7363bd0bb.ctex"]
+source_file="res://Assets/Android/cucei-taco-tycoon-logo-icon.png"
+dest_files=["res://.godot/imported/cucei-taco-tycoon-logo-icon.png-d4add2c685bb18839205f9e6926f139e.ctex"]
 
 [params]
 
