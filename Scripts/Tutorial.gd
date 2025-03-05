@@ -13,11 +13,14 @@ var arrow2_ref
 var arrow3_ref
 var arrow4_ref
 var arrow5_ref
-var arrow6_ref  # Arrow de Receta (paso 5)
-var arrow7_ref  # Arrow de Mejoras (paso 8)
-var arrow8_ref  # NUEVO Arrow de Tareas (paso 9)
-var arrow9_ref  # NUEVO Arrow de Niveles (paso 10)
+var arrow6_ref
+var arrow7_ref
+var arrow8_ref
+var arrow9_ref
+var arrow_money_ref  # NUEVO: flecha para el dinero
 var taco_tutorial_ref
+@onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")
+@onready var speed_button = get_node("/root/Node2D/CanvasLayer/Gameplay/SpeedButton")
 
 var dialogues = [
 	"¡Hola! Bienvenido a Cucei Taco Tycoon.",
@@ -59,8 +62,9 @@ func assign_tutorial_nodes():
 			"Arrow5": arrow5_ref = weakref(node)
 			"Arrow6": arrow6_ref = weakref(node)  
 			"Arrow7": arrow7_ref = weakref(node)
-			"Arrow8": arrow8_ref = weakref(node)  # NUEVO
-			"Arrow9": arrow9_ref = weakref(node)  # NUEVO
+			"Arrow8": arrow8_ref = weakref(node)
+			"Arrow9": arrow9_ref = weakref(node)
+			"ArrowMoney": arrow_money_ref = weakref(node)  # NUEVO
 			"TacoTutorial": taco_tutorial_ref = weakref(node)
 
 	# Asegurar que todas las flechas están ocultas al inicio
@@ -71,8 +75,9 @@ func assign_tutorial_nodes():
 	if arrow5_ref: arrow5_ref.get_ref().visible = false
 	if arrow6_ref: arrow6_ref.get_ref().visible = false
 	if arrow7_ref: arrow7_ref.get_ref().visible = false
-	if arrow8_ref: arrow8_ref.get_ref().visible = false  # Ocultar Arrow8
-	if arrow9_ref: arrow9_ref.get_ref().visible = false  # Ocultar Arrow9
+	if arrow8_ref: arrow8_ref.get_ref().visible = false
+	if arrow9_ref: arrow9_ref.get_ref().visible = false
+	if arrow_money_ref: arrow_money_ref.get_ref().visible = false
 
 func show_dialogue(index):
 	var tutorial_text = tutorial_text_ref.get_ref()
@@ -86,7 +91,24 @@ func show_dialogue(index):
 
 	var continue_button = continue_button_ref.get_ref()
 
+	# EJEMPLO: en el paso == 2 se muestra la flecha de dinero y se oculta TacoTutorial
+	if step == 2:
+		waiting_for_action = false
+		action_completed = false
+		if arrow_money_ref:
+			arrow_money_ref.get_ref().visible = true
+		if taco_tutorial_ref:
+			taco_tutorial_ref.get_ref().visible = false
+		# Habilitar el botón de continuar si deseas avanzar con un clic normal
+		if continue_button:
+			continue_button.disabled = false
+		return  # Regresamos para evitar que entre a la lógica de "else" de abajo
+
 	if step == 3:
+		# Antes de la lógica de "compra ingredientes", ocultamos la flecha de dinero
+		if arrow_money_ref:
+			arrow_money_ref.get_ref().visible = false
+
 		waiting_for_action = true
 		action_completed = false
 		if taco_tutorial_ref:
@@ -97,7 +119,6 @@ func show_dialogue(index):
 		var ingredientes_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
 		if ingredientes_button and not ingredientes_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
 			ingredientes_button.connect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
-
 	else:
 		# Pasos especiales para flechas: 5, 8, 9, 10
 		if step == 5:
@@ -105,9 +126,9 @@ func show_dialogue(index):
 		elif step == 8:
 			start_step_8()  # Arrow7
 		elif step == 9:
-			start_step_9()  # NUEVO -> Arrow8
+			start_step_9()  # Arrow8
 		elif step == 10:
-			start_step_10() # NUEVO -> Arrow9
+			start_step_10() # Arrow9
 		else:
 			waiting_for_action = false  
 			if continue_button:
@@ -126,6 +147,7 @@ func _on_ContinueButton_pressed():
 		show_dialogue(step)
 	else:
 		end_tutorial()
+
 
 # ------ LÓGICA ORIGINAL: Flechas 1 → 5 ------
 func _on_IngredientesButton_pressed():
@@ -297,12 +319,31 @@ func end_tutorial():
 	if tutorial_text:
 		tutorial_text.text = "¡Felicidades! Ahora estás listo para jugar."
 
+	# Esperar un poco para que el jugador vea el mensaje final (opcional)
+	await get_tree().create_timer(2).timeout
+
+	# Ocultar el botón "Continuar" y el globo de diálogo
 	var continue_button = continue_button_ref.get_ref()
 	if continue_button:
 		continue_button.disabled = true
+		continue_button.visible = false
 
-	await get_tree().create_timer(2).timeout
-	get_tree().change_scene_to_file("res://node_2d.tscn")
+	var speech_bubble = speech_bubble_ref.get_ref()
+	if speech_bubble:
+		speech_bubble.visible = false
+
+	# Ocultar el TacoTutorial
+	var taco_tutorial_node = get_node("/root/Node2D/CanvasLayer/TacoTutorial")
+	if taco_tutorial_node:
+		taco_tutorial_node.visible = false
+
+	# Hacer visibles los botones Start y Speed
+	if start_button:
+		#start_button.visible = true
+		pass
+	if speed_button:
+		#speed_button.visible = true
+		pass
 
 
 func restart_ready():

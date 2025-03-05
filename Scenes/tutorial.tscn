@@ -5715,6 +5715,14 @@ scale = Vector2(0.904877, 0.941643)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
+[node name="ArrowMoney" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(251, 144)
+scale = Vector2(0.856224, 0.891013)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
 [node name="TutorialNode" type="Node2D" parent="CanvasLayer"]
 position = Vector2(390, 454)
 scale = Vector2(0.276463, 0.276463)
