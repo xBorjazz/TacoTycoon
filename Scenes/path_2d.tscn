@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://cv64fr625jf3e"]
 
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="1_6gdot"]
+[ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="1_6gdot"]
 [ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="2_dwksi"]
 
 [sub_resource type="Curve2D" id="Curve2D_jjrfh"]

@@ -9,14 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dm44nn63gb5pd" path="res://Assets/tycoon-logobg.png" id="7_60gds"]
 [ext_resource type="Texture2D" uid="uid://b7p8t8870d2p4" path="res://Assets/CUCEI-logoblue.png" id="8_gt4mx"]
 [ext_resource type="Texture2D" uid="uid://c0b53jeaeaqu6" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheetCharacter1.png" id="10_pb6hy"]
-[ext_resource type="Script" path="res://Character.gd" id="11_7v1sp"]
+[ext_resource type="Script" path="res://Scripts/Character.gd" id="11_7v1sp"]
 [ext_resource type="Texture2D" uid="uid://b7iwt12a4aac0" path="res://Assets/start-game2.png" id="11_kltp6"]
 [ext_resource type="Texture2D" uid="uid://bpxvygafujuaf" path="res://Assets/options-btn.png" id="12_44awt"]
-[ext_resource type="Script" path="res://MainMenu.gd" id="12_nh7ka"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="12_nh7ka"]
 [ext_resource type="Texture2D" uid="uid://l3sdq4tc2dhg" path="res://Assets/Buttons/tutorial-btn.png" id="13_ns56d"]
 [ext_resource type="Texture2D" uid="uid://i6na68o0rx0t" path="res://Assets/multiplayer-btn.png" id="14_60tpk"]
 [ext_resource type="AudioStream" uid="uid://1m4tbdxml6ev" path="res://Resources/Sounds/SoundTrack/PixelDreams.mp3" id="14_a257s"]
-[ext_resource type="Script" path="res://MultiplayerButton.gd" id="15_omcny"]
+[ext_resource type="Script" path="res://Scripts/MultiplayerButton.gd" id="15_omcny"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pfa3"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)

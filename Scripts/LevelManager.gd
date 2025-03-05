@@ -5,7 +5,7 @@ extends Node
 @onready var right_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/RightArrow")
 @onready var progress_bar = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/ProgressBar")
 
-var levels = ["res://node_2d.tscn", "res://level_2.tscn", "res://betas_level.tscn"]
+var levels = ["res://Scenes/node_2d.tscn", "res://Scenes/level_2.tscn", "res://Scenes/betas_level.tscn"]
 var current_level = 0  # Nivel inicial
 
 var level_buttons = []

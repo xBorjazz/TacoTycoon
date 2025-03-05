@@ -1,7 +1,7 @@
 extends TextureButton
 
 #@onready var client = get_node("/root/Node2D/CanvasLayer/Client")
-var new_scene = load("res://multiplayer.tscn").instantiate()
+var new_scene = load("res://Scenes/multiplayer.tscn").instantiate()
 
 func _ready():
 	self.pressed.connect(_on_multiplayer_button_pressed)
