@@ -2,8 +2,8 @@ extends Node
 
 # Referencia al botón de inicio (ahora de tipo TextureButton)
 var game_start_button : TextureButton = null
-var new_scene = load("res://node_2d.tscn").instantiate()
-var tutorial_scene = load("res://tutorial.tscn").instantiate()
+var new_scene = load("res://Scenes/node_2d.tscn").instantiate()
+var tutorial_scene = load("res://Scenes/tutorial.tscn").instantiate()
 
 # Llamado cuando el nodo entra en el árbol de escenas
 func _ready():

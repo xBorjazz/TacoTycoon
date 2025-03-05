@@ -5,7 +5,7 @@ extends Node2D
 @onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")
 @onready var day_control = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 
-var character_scene = preload("res://path_2d.tscn")  # La escena del personaje que quieres instanciar
+var character_scene = preload("res://Scenes/path_2d.tscn")  # La escena del personaje que quieres instanciar
 var spawn_timer: Timer
 var game_started: bool = false
 

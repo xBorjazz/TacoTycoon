@@ -9,7 +9,7 @@ var path_2d: Path2D
 var animated_sprite: AnimatedSprite2D
 var collision_shape: CollisionShape2D
 var character_sprite: CharacterBody2D
-var path_2d_scene = preload("res://path_2d.tscn")
+var path_2d_scene = preload("res://Scenes/path_2d.tscn")
 
 #signal day_ended
 signal sale_made
