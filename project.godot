@@ -53,6 +53,7 @@ enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://add
 
 TutorialNodes=""
 IngredientsContainer=""
+GrillLabels=""
 
 [gui]
 

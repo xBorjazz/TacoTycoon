@@ -4649,14 +4649,14 @@ offset_bottom = 28.8365
 scale = Vector2(0.244831, 0.286009)
 text = "Tortillas"
 
-[node name="TortillaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
+[node name="TortillaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton" groups=["GrillLabels"]]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
 offset_right = 113.95
 offset_bottom = 61.456
 scale = Vector2(0.273984, 0.320065)
-text = "1
+text = "0
 "
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
@@ -4713,14 +4713,14 @@ offset_bottom = 28.8365
 scale = Vector2(0.273984, 0.320065)
 text = "Carne"
 
-[node name="CarneAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
+[node name="CarneAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton" groups=["GrillLabels"]]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
 offset_right = 113.95
 offset_bottom = 61.456
 scale = Vector2(0.273984, 0.320065)
-text = "1
+text = "0
 "
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
@@ -4777,7 +4777,7 @@ offset_bottom = 28.8365
 scale = Vector2(0.273984, 0.320065)
 text = "Verdura"
 
-[node name="VerduraAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
+[node name="VerduraAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton" groups=["GrillLabels"]]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
@@ -4841,7 +4841,7 @@ offset_bottom = 28.8365
 scale = Vector2(0.273984, 0.320065)
 text = "Salsa"
 
-[node name="SalsaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton"]
+[node name="SalsaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton" groups=["GrillLabels"]]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
@@ -5105,8 +5105,7 @@ offset_top = 345.055
 offset_right = 246.787
 offset_bottom = 371.055
 scale = Vector2(0.921994, 1.07706)
-text = "1
-"
+text = "0"
 
 [node name="Taco-Grill" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
 position = Vector2(158.234, 235.111)
@@ -5699,12 +5698,12 @@ texture = ExtResource("79_gpfk3")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer3/PanelContainer6/Button6"]
 layout_mode = 0
-offset_left = 5.57336
-offset_top = 31.8212
-offset_right = 101.573
-offset_bottom = 57.8212
-scale = Vector2(0.273984, 0.320065)
-text = "Receta"
+offset_left = 0.869567
+offset_top = 31.7391
+offset_right = 176.87
+offset_bottom = 57.7391
+scale = Vector2(0.216335, 0.297784)
+text = "Preparación"
 
 [node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
 custom_minimum_size = Vector2(40, 0)
@@ -5729,7 +5728,7 @@ offset_left = 0.782593
 offset_top = 31.7391
 offset_right = 192.783
 offset_bottom = 57.7391
-scale = Vector2(0.202371, 0.382222)
+scale = Vector2(0.205012, 0.333394)
 text = "Ingredientes"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer"]
