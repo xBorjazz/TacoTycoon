@@ -1,4 +1,4 @@
-[gd_scene load_steps=430 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=431 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -71,6 +71,7 @@
 [ext_resource type="Texture2D" uid="uid://5elwqfxr11lx" path="res://Assets/sellbutton.png" id="69_e02ne"]
 [ext_resource type="Script" path="res://Scripts/ButtonDisplay.gd" id="70_qgehr"]
 [ext_resource type="Texture2D" uid="uid://bq387h60bs5l0" path="res://Assets/preparation-grill.png" id="71_fy81s"]
+[ext_resource type="Script" path="res://Scripts/GrillManager.gd" id="71_ngaqr"]
 [ext_resource type="Texture2D" uid="uid://c3n0mhs6cuyls" path="res://Assets/Upgrades/soda-machine3.png" id="71_ua33g"]
 [ext_resource type="Script" path="res://Scripts/SQLController.gd" id="72_c21ot"]
 [ext_resource type="Texture2D" uid="uid://caydxmg24roeu" path="res://Assets/tortilla-sprite.png" id="72_m4g5g"]
@@ -5111,6 +5112,7 @@ text = "0"
 position = Vector2(158.234, 235.111)
 scale = Vector2(0.631337, 0.631337)
 texture = ExtResource("71_fy81s")
+script = ExtResource("71_ngaqr")
 
 [node name="Tortilla-Container" type="Node2D" parent="CanvasLayer/PanelContainer/Panel6"]
 position = Vector2(158.234, 235.111)

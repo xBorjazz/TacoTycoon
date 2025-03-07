@@ -153,6 +153,48 @@ func _on_remove_ingredient():
 
 	update_label()
 
+# ✅ Agregar ingrediente desde la función de arrastre
+func agregar_ingrediente(tipo, index):
+	if tipo == "tortilla" and count_tortilla < 4:
+		ingredientes["tortilla"][index].visible = true
+		ingredientes["tortilla"][index].z_index = 0  # La tortilla siempre es la base
+		count_tortilla += 1
+	elif tipo == "carne" and count_carne < count_tortilla:
+		if ingredientes["tortilla"][index].visible:
+			ingredientes["carne"][index].visible = true
+			ingredientes["carne"][index].z_index = 1
+			count_carne += 1
+	elif tipo == "verdura" and count_verdura < count_carne:
+		if ingredientes["tortilla"][index].visible:
+			ingredientes["verdura"][index].visible = true
+			ingredientes["verdura"][index].z_index = 2
+			count_verdura += 1
+	elif tipo == "salsa" and count_salsa < count_verdura:
+		if ingredientes["tortilla"][index].visible:
+			ingredientes["salsa"][index].visible = true
+			ingredientes["salsa"][index].z_index = 3
+			count_salsa += 1
+
+	update_label()
+
+# ✅ Detecta en qué cuadrante se soltó el ingrediente y lo coloca ahí si es válido
+func soltar_ingrediente(tipo, posicion):
+	var index = obtener_cuadrante_desde_posicion(posicion)
+	
+	if index != -1:  # Si es un cuadrante válido
+		agregar_ingrediente(tipo, index)
+	else:
+		print("⚠ No se soltó sobre un cuadrante válido.")
+
+# ✅ Detecta en qué cuadrante cayó el ingrediente basado en su posición
+func obtener_cuadrante_desde_posicion(posicion):
+	for i in range(4):
+		var cuadrante = get_node("Quadrant" + str(i + 1))  # Asume que los cuadrantes se llaman Quadrant1, Quadrant2...
+		if cuadrante.get_global_rect().has_point(posicion):
+			return i  # Retorna el índice del cuadrante
+	return -1  # No se encontró un cuadrante válido
+
+
 
 # ✅ Actualiza los labels de cantidad en la parrilla y los botones
 func update_label():
