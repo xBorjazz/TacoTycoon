@@ -36,6 +36,7 @@ multiplayer="*res://Scripts/MultiplayerManager.gd"
 client="*res://Scripts/Client.gd"
 MultiplayerButton="*res://Scripts/MultiplayerButton.gd"
 Tutorial="*res://Scripts/Tutorial.gd"
+GrillManager="*res://Scripts/GrillManager.gd"
 
 [display]
 
@@ -51,6 +52,7 @@ enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://add
 [global_group]
 
 TutorialNodes=""
+IngredientsContainer=""
 
 [gui]
 

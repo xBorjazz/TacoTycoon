@@ -4627,11 +4627,11 @@ offset_right = 54.8926
 offset_bottom = 116.243
 scale = Vector2(1.65713, 1.65713)
 
-[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer"]
+[node name="TortillaButton" type="Button" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer"]
 layout_mode = 2
-script = ExtResource("70_qgehr")
+toggle_mode = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
 layout_mode = 0
 offset_left = 5.46313
 offset_top = 4.60938
@@ -4640,7 +4640,7 @@ offset_bottom = 573.609
 scale = Vector2(0.0574725, 0.0545739)
 texture = ExtResource("15_pwgla")
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
 layout_mode = 0
 offset_left = 1.95111
 offset_top = 2.83655
@@ -4649,7 +4649,7 @@ offset_bottom = 28.8365
 scale = Vector2(0.244831, 0.286009)
 text = "Tortillas"
 
-[node name="TortillaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+[node name="TortillaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
@@ -4659,7 +4659,7 @@ scale = Vector2(0.273984, 0.320065)
 text = "1
 "
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
 layout_mode = 2
 offset_left = -8.1947
 offset_top = 34.1826
@@ -4669,14 +4669,14 @@ scale = Vector2(0.0310348, 0.0309183)
 theme_override_constants/separation = 600
 alignment = 1
 
-[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5"]
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("53_sxxkg")
 texture_pressed = ExtResource("54_4keov")
 script = ExtResource("55_mxn3s")
 
-[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5"]
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("56_f7m53")
@@ -4692,11 +4692,10 @@ offset_right = 131.217
 offset_bottom = 116.243
 scale = Vector2(1.6356, 1.6356)
 
-[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer"]
+[node name="MeatButton" type="Button" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer"]
 layout_mode = 2
-script = ExtResource("70_qgehr")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
 layout_mode = 0
 offset_left = 5.46313
 offset_top = 4.60938
@@ -4705,7 +4704,7 @@ offset_bottom = 573.609
 scale = Vector2(0.0574725, 0.0545739)
 texture = ExtResource("49_0a4bf")
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
 layout_mode = 0
 offset_left = 10.1458
 offset_top = 2.83655
@@ -4714,7 +4713,7 @@ offset_bottom = 28.8365
 scale = Vector2(0.273984, 0.320065)
 text = "Carne"
 
-[node name="CarneAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+[node name="CarneAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
@@ -4724,7 +4723,7 @@ scale = Vector2(0.273984, 0.320065)
 text = "1
 "
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
 layout_mode = 2
 offset_left = -8.1947
 offset_top = 34.1826
@@ -4734,14 +4733,14 @@ scale = Vector2(0.0310348, 0.0309183)
 theme_override_constants/separation = 600
 alignment = 1
 
-[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5"]
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("53_sxxkg")
 texture_pressed = ExtResource("54_4keov")
 script = ExtResource("55_mxn3s")
 
-[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5"]
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("56_f7m53")
@@ -4757,11 +4756,10 @@ offset_right = 211.265
 offset_bottom = 118.78
 scale = Vector2(1.62745, 1.62745)
 
-[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer"]
+[node name="VerduraButton" type="Button" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer"]
 layout_mode = 2
-script = ExtResource("70_qgehr")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
 layout_mode = 0
 offset_left = 5.46313
 offset_top = 4.60938
@@ -4770,7 +4768,7 @@ offset_bottom = 573.609
 scale = Vector2(0.0574725, 0.0545739)
 texture = ExtResource("50_3e6um")
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
 layout_mode = 0
 offset_left = 5.07288
 offset_top = 2.83655
@@ -4779,7 +4777,7 @@ offset_bottom = 28.8365
 scale = Vector2(0.273984, 0.320065)
 text = "Verdura"
 
-[node name="VerduraAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+[node name="VerduraAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
@@ -4789,7 +4787,7 @@ scale = Vector2(0.273984, 0.320065)
 text = "0
 "
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
 layout_mode = 2
 offset_left = -8.1947
 offset_top = 34.1826
@@ -4799,79 +4797,15 @@ scale = Vector2(0.0310348, 0.0309183)
 theme_override_constants/separation = 600
 alignment = 1
 
-[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5"]
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("53_sxxkg")
 texture_pressed = ExtResource("54_4keov")
 script = ExtResource("55_mxn3s")
 
-[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5"]
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton/HBoxContainer5"]
 visible = false
-layout_mode = 2
-texture_normal = ExtResource("56_f7m53")
-texture_pressed = ExtResource("57_ko53r")
-script = ExtResource("55_mxn3s")
-
-[node name="CebollaContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
-visible = false
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 0
-offset_left = 16.7542
-offset_top = 231.728
-offset_right = 56.7542
-offset_bottom = 274.393
-scale = Vector2(2.38527, 2.38527)
-
-[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer"]
-layout_mode = 2
-script = ExtResource("70_qgehr")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
-layout_mode = 0
-offset_left = 5.46313
-offset_top = 4.60938
-offset_right = 558.463
-offset_bottom = 573.609
-scale = Vector2(0.0574725, 0.0545739)
-texture = ExtResource("51_1viyi")
-
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
-layout_mode = 0
-offset_left = 4.29244
-offset_top = 2.83655
-offset_right = 148.292
-offset_bottom = 28.8365
-scale = Vector2(0.244831, 0.286009)
-text = "Cebollas"
-
-[node name="CebollasAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
-layout_mode = 0
-offset_left = 17.9502
-offset_top = 35.456
-offset_right = 113.95
-offset_bottom = 61.456
-scale = Vector2(0.273984, 0.320065)
-text = "0
-"
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
-layout_mode = 2
-offset_left = -8.1947
-offset_top = 34.1826
-offset_right = 1843.65
-offset_bottom = 306.673
-scale = Vector2(0.0310348, 0.0309183)
-theme_override_constants/separation = 600
-alignment = 1
-
-[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5"]
-layout_mode = 2
-texture_normal = ExtResource("53_sxxkg")
-texture_pressed = ExtResource("54_4keov")
-script = ExtResource("55_mxn3s")
-
-[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5"]
 layout_mode = 2
 texture_normal = ExtResource("56_f7m53")
 texture_pressed = ExtResource("57_ko53r")
@@ -4884,13 +4818,12 @@ offset_left = 245.728
 offset_top = 76.1151
 offset_right = 285.728
 offset_bottom = 118.78
-scale = Vector2(1.728, 1.728)
+scale = Vector2(1.63955, 1.63955)
 
-[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer"]
+[node name="SalsaButton" type="Button" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer"]
 layout_mode = 2
-script = ExtResource("70_qgehr")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton"]
 layout_mode = 0
 offset_left = 5.46313
 offset_top = 4.60938
@@ -4899,7 +4832,7 @@ offset_bottom = 573.609
 scale = Vector2(0.0574725, 0.0545739)
 texture = ExtResource("67_6l18i")
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton"]
 layout_mode = 0
 offset_left = 10.1458
 offset_top = 2.83655
@@ -4908,7 +4841,7 @@ offset_bottom = 28.8365
 scale = Vector2(0.273984, 0.320065)
 text = "Salsa"
 
-[node name="SalsaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+[node name="SalsaAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton"]
 layout_mode = 0
 offset_left = 17.9502
 offset_top = 35.456
@@ -4917,7 +4850,7 @@ offset_bottom = 61.456
 scale = Vector2(0.273984, 0.320065)
 text = "0"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton"]
 layout_mode = 2
 offset_left = -8.1947
 offset_top = 34.1826
@@ -4927,14 +4860,14 @@ scale = Vector2(0.0310348, 0.0309183)
 theme_override_constants/separation = 600
 alignment = 1
 
-[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5"]
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("53_sxxkg")
 texture_pressed = ExtResource("54_4keov")
 script = ExtResource("55_mxn3s")
 
-[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5"]
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton/HBoxContainer5"]
 visible = false
 layout_mode = 2
 texture_normal = ExtResource("56_f7m53")
@@ -5025,6 +4958,70 @@ offset_bottom = 57.8212
 scale = Vector2(0.273984, 0.320065)
 text = "receta"
 
+[node name="CebollaContainer" type="PanelContainer" parent="CanvasLayer/PanelContainer/Panel6"]
+visible = false
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 0
+offset_left = 16.7542
+offset_top = 231.728
+offset_right = 56.7542
+offset_bottom = 274.393
+scale = Vector2(2.38527, 2.38527)
+
+[node name="Button6" type="Button" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer"]
+layout_mode = 2
+script = ExtResource("70_qgehr")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 0
+offset_left = 5.46313
+offset_top = 4.60938
+offset_right = 558.463
+offset_bottom = 573.609
+scale = Vector2(0.0574725, 0.0545739)
+texture = ExtResource("51_1viyi")
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 0
+offset_left = 4.29244
+offset_top = 2.83655
+offset_right = 148.292
+offset_bottom = 28.8365
+scale = Vector2(0.244831, 0.286009)
+text = "Cebollas"
+
+[node name="CebollasAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 0
+offset_left = 17.9502
+offset_top = 35.456
+offset_right = 113.95
+offset_bottom = 61.456
+scale = Vector2(0.273984, 0.320065)
+text = "0
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6"]
+layout_mode = 2
+offset_left = -8.1947
+offset_top = 34.1826
+offset_right = 1843.65
+offset_bottom = 306.673
+scale = Vector2(0.0310348, 0.0309183)
+theme_override_constants/separation = 600
+alignment = 1
+
+[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("53_sxxkg")
+texture_pressed = ExtResource("54_4keov")
+script = ExtResource("55_mxn3s")
+
+[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5"]
+layout_mode = 2
+texture_normal = ExtResource("56_f7m53")
+texture_pressed = ExtResource("57_ko53r")
+script = ExtResource("55_mxn3s")
+
 [node name="TortillasSlider" type="HSlider" parent="CanvasLayer/PanelContainer/Panel6"]
 visible = false
 modulate = Color(1, 1, 0, 1)
@@ -5084,7 +5081,7 @@ offset_bottom = 394.965
 max_value = 3.0
 script = ExtResource("31_pp8yx")
 
-[node name="PlusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="AddButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
 offset_left = 225.25
 offset_top = 327.295
 offset_right = 510.25
@@ -5092,9 +5089,8 @@ offset_bottom = 598.295
 scale = Vector2(0.207401, 0.207401)
 texture_normal = ExtResource("56_f7m53")
 texture_pressed = ExtResource("57_ko53r")
-script = ExtResource("55_mxn3s")
 
-[node name="MinusButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="RemoveButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
 offset_left = 33.5083
 offset_top = 328.141
 offset_right = 300.508
@@ -5102,9 +5098,8 @@ offset_bottom = 583.141
 scale = Vector2(0.197877, 0.197877)
 texture_normal = ExtResource("53_sxxkg")
 texture_pressed = ExtResource("54_4keov")
-script = ExtResource("55_mxn3s")
 
-[node name="CarneAmount" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="IngredientCountLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
 offset_left = 150.787
 offset_top = 345.055
 offset_right = 246.787
@@ -5118,88 +5113,120 @@ position = Vector2(158.234, 235.111)
 scale = Vector2(0.631337, 0.631337)
 texture = ExtResource("71_fy81s")
 
-[node name="Tortilla-Pile" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(110.764, 207.202)
-scale = Vector2(0.191606, 0.191606)
+[node name="Tortilla-Container" type="Node2D" parent="CanvasLayer/PanelContainer/Panel6"]
+position = Vector2(158.234, 235.111)
+scale = Vector2(0.631337, 0.631337)
+
+[node name="Tortilla-1" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Tortilla-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(-75.1899, -44.2059)
+scale = Vector2(0.303493, 0.303493)
 texture = ExtResource("72_m4g5g")
 
-[node name="Tortilla-Pile2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(216.873, 207.202)
-scale = Vector2(0.191606, 0.191606)
+[node name="Tortilla-2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Tortilla-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(92.8816, -44.2059)
+scale = Vector2(0.303493, 0.303493)
 texture = ExtResource("72_m4g5g")
 
-[node name="Tortilla-Pile3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(110.764, 271.477)
-scale = Vector2(0.191606, 0.191606)
+[node name="Tortilla-3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Tortilla-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(-75.1899, 57.6018)
+scale = Vector2(0.303493, 0.303493)
 texture = ExtResource("72_m4g5g")
 
-[node name="Tortilla-Pile4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(217.804, 267.249)
-scale = Vector2(0.191606, 0.191606)
+[node name="Tortilla-4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Tortilla-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(94.3559, 50.9039)
+scale = Vector2(0.303493, 0.303493)
 texture = ExtResource("72_m4g5g")
 
-[node name="Taco-Meat" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(110.764, 202.974)
-scale = Vector2(0.151358, 0.151358)
+[node name="Meat-Container" type="Node2D" parent="CanvasLayer/PanelContainer/Panel6"]
+position = Vector2(158.234, 235.111)
+scale = Vector2(0.631337, 0.631337)
+
+[node name="Carne-1" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Meat-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(-75.1899, -50.9038)
+scale = Vector2(0.239743, 0.239743)
 texture = ExtResource("73_lniib")
 
-[node name="Taco-Meat2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(215.943, 201.282)
-scale = Vector2(0.133584, 0.133584)
+[node name="Carne-2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Meat-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(91.4073, -53.583)
+scale = Vector2(0.211589, 0.211589)
 texture = ExtResource("74_dpb65")
 
-[node name="Taco-Meat3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(111.694, 265.557)
-scale = Vector2(0.133584, 0.133584)
+[node name="Carne-3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Meat-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(-73.7155, 48.2247)
+scale = Vector2(0.211589, 0.211589)
 texture = ExtResource("75_rg7ti")
 
-[node name="Taco-Meat4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(217.804, 264.711)
-scale = Vector2(0.165073, 0.165073)
+[node name="Carne-4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Meat-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(94.3559, 46.8851)
+scale = Vector2(0.261465, 0.261465)
 texture = ExtResource("73_lniib")
 
-[node name="Taco-Verdura" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(110.764, 202.974)
-scale = Vector2(0.130083, 0.130083)
+[node name="Verdura-Container" type="Node2D" parent="CanvasLayer/PanelContainer/Panel6"]
+position = Vector2(158.234, 235.111)
+scale = Vector2(0.631337, 0.631337)
+
+[node name="Verdura-1" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Verdura-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(-75.1899, -50.9038)
+scale = Vector2(0.206044, 0.206044)
 texture = ExtResource("74_qg2hb")
 
-[node name="Taco-Verdura2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(217.804, 202.974)
-scale = Vector2(0.130083, 0.130083)
+[node name="Verdura-2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Verdura-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(94.3559, -50.9038)
+scale = Vector2(0.206044, 0.206044)
 texture = ExtResource("77_835x6")
 
-[node name="Taco-Verdura3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(110.764, 269.786)
-scale = Vector2(0.130083, 0.130083)
+[node name="Verdura-3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Verdura-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(-75.1899, 54.9226)
+scale = Vector2(0.206044, 0.206044)
 texture = ExtResource("77_p2hru")
 
-[node name="Taco-Verdura4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
-position = Vector2(215.012, 265.557)
-scale = Vector2(0.121992, 0.121992)
+[node name="Verdura-4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Verdura-Container" groups=["IngredientsContainer"]]
+visible = false
+position = Vector2(89.933, 48.2247)
+scale = Vector2(0.193229, 0.193229)
 texture = ExtResource("77_p2hru")
 
-[node name="Taco-Sauce" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="Sauce-Container" type="Node2D" parent="CanvasLayer/PanelContainer/Panel6"]
+position = Vector2(158.234, 235.111)
+scale = Vector2(0.631337, 0.631337)
+
+[node name="Salsa-1" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Sauce-Container" groups=["IngredientsContainer"]]
+visible = false
 modulate = Color(1, 1, 1, 0.866667)
-position = Vector2(115.418, 203.819)
-scale = Vector2(0.124218, 0.120527)
+position = Vector2(-67.8183, -49.5643)
+scale = Vector2(0.196754, 0.190908)
 texture = ExtResource("79_0e3wf")
 
-[node name="Taco-Sauce2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="Salsa-2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Sauce-Container" groups=["IngredientsContainer"]]
+visible = false
 modulate = Color(1, 1, 1, 0.866667)
-position = Vector2(221.527, 203.819)
-scale = Vector2(0.124218, 0.120527)
+position = Vector2(100.253, -49.5643)
+scale = Vector2(0.196754, 0.190908)
 texture = ExtResource("79_0e3wf")
 
-[node name="Taco-Sauce3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="Salsa-3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Sauce-Container" groups=["IngredientsContainer"]]
+visible = false
 modulate = Color(1, 1, 1, 0.866667)
-position = Vector2(113.556, 269.786)
-scale = Vector2(0.124218, 0.120527)
+position = Vector2(-70.7669, 54.9226)
+scale = Vector2(0.196754, 0.190908)
 texture = ExtResource("80_i6g70")
 
-[node name="Taco-Sauce4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6"]
+[node name="Salsa-4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel6/Sauce-Container" groups=["IngredientsContainer"]]
+visible = false
 modulate = Color(1, 1, 1, 0.866667)
-position = Vector2(221.527, 266.403)
-scale = Vector2(0.124218, 0.120527)
+position = Vector2(100.253, 49.5643)
+scale = Vector2(0.196754, 0.190908)
 texture = ExtResource("79_0e3wf")
 
 [node name="Panel7" type="Panel" parent="CanvasLayer/PanelContainer"]
@@ -5935,26 +5962,22 @@ autowrap_mode = 3
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3/PlusButton" to="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer3/PlusButton" method="_on_ComprarSalsaLarge_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/BuyButton" to="CanvasLayer/PanelContainer/Panel5/BuyButton" method="_on_buy_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/SellButton" to="CanvasLayer/PanelContainer/Panel5/SellButton" method="_on_sell_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/TortillasContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CarneContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/VerduraContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/SalsaContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat1/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat2/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/HBoxContainer/Cat3/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/PlusButton" to="CanvasLayer/PanelContainer/Panel6/PlusButton" method="_on_ComprarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/MinusButton" to="CanvasLayer/PanelContainer/Panel6/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/AddButton" to="CanvasLayer/PanelContainer/Panel6/AddButton" method="_on_add_ingredient"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/RemoveButton" to="CanvasLayer/PanelContainer/Panel6/RemoveButton" method="_on_remove_ingredient"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel7/BuySodaMachineButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_soda_machine_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Crear Tabla" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_crear_tabla_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Insertar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_insertar_datos_button_down"]

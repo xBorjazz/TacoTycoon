@@ -69,6 +69,7 @@ func _on_tutorial_pressed() -> void:
 	#MultiplayerButton.restart_ready()
 	LevelManager.restart_ready()
 	GlobalProgressBar.restart_ready()
+	GrillManager.restart_ready()
 	#Tutorial.restart_ready()
 
 	
