@@ -11,10 +11,10 @@ var game_started: bool = false
 
 signal sale_made
 
-func _ready() -> void:
+func _ready():
 	spawn_timer = Timer.new()
 	add_child(spawn_timer)
-	spawn_timer.set_wait_time(spawn_interval)
+	spawn_timer.wait_time = spawn_interval
 	spawn_timer.one_shot = false
 	spawn_timer.connect("timeout", Callable(self, "_spawn_character"))
 
@@ -42,7 +42,7 @@ func _spawn_character():
 		return
 
 	var paths = get_tree().get_nodes_in_group("Paths")
-	if paths.size() == 0:
+	if paths.is_empty():
 		print("No se encontraron Path2D en el grupo 'Paths'.")
 		return
 
@@ -53,7 +53,6 @@ func _spawn_character():
 		print("❌ Nodo PathFollow2D inválido.")
 		return
 
-	# ✅ Elegir una orden aleatoria para el cliente
 	var pedido_cliente = ["Taco-1", "Taco-2", "Taco-3"].pick_random()
 	print("🍽 Pedido del Cliente:", pedido_cliente)
 
@@ -62,10 +61,8 @@ func _spawn_character():
 	character.set_process(true)
 	character.pedido_cliente = pedido_cliente
 
-	# ✅ Llamar a la función start_game con los 3 parámetros correctos
-	character.start_game(character.get_parent(), character, pedido_cliente)
+	character.start_game(random_path, character, pedido_cliente)
 
-	# ✅ Conectar señal de venta solo si no está conectada
 	if not character.sale_made.is_connected(_on_sale_made):
 		character.sale_made.connect(_on_sale_made.bind(character))
 

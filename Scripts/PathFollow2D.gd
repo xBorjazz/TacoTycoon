@@ -5,7 +5,7 @@ var speed = 0.1
 var is_buying = false
 var has_bought = false
 var game_started = false
-var pedido_cliente = ""  # Pedido individual
+var pedido_cliente = ""
 
 # ✅ Referencias importantes
 var pathfollow: PathFollow2D
@@ -16,30 +16,24 @@ var character_sprite: CharacterBody2D
 var taco_order: AnimatedSprite2D
 var bubble: AnimatedSprite2D
 
-# ✅ Señal para venta
 signal sale_made
 
 @onready var taco_stand_zone = get_node("/root/Node2D/CanvasLayer/Gameplay/TacoStandZone")
 @onready var sound_player = get_node("/root/Node2D/CanvasLayer/PlayerBuy_Sound")
 @onready var day_manager = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 
-func _ready() -> void:
-	# Conectar zona de ventas y día terminado
+func _ready():
 	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
-
 	if taco_stand_zone:
 		taco_stand_zone.connect("body_entered", Callable(self, "_on_taco_stand_zone_body_entered"))
-	else:
-		print("⚠️ No se encontró la zona de ventas.")
 
-func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String) -> void:
+func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String):
 	game_started = true
 	path2d.visible = true
 
 	path_2d = path2d
 	pathfollow = pathfollow2d
 
-	# ✅ Acceder correctamente a los nodos internos
 	character_sprite = pathfollow.get_child(0)
 	animated_sprite = character_sprite.get_node("AnimatedSprite2D")
 	collision_shape = character_sprite.get_node("CollisionShape2D")
@@ -51,10 +45,8 @@ func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String) -> v
 	progress_ratio = 0.0
 	set_process(true)
 
-	# ✅ Asignar el pedido al personaje
 	pedido_cliente = pedido
 
-	# ✅ Mostrar animación de taco basado en el pedido
 	elegir_taco()
 	start_moving()
 
@@ -76,23 +68,20 @@ func start_moving():
 	speed = 0.2
 	set_process(true)
 	visible = true
-
 	if animated_sprite:
 		animated_sprite.play("walk_right")
 
 func stop_moving():
 	speed = 0
 	set_process(false)
-
 	if animated_sprite:
 		animated_sprite.play("idle")
 
 func _process(delta):
 	if pathfollow == null or not game_started:
 		return
-	
 	pathfollow.progress_ratio += speed * delta
-	
+
 	if pathfollow.progress_ratio >= 1.0:
 		fade_out_anim()
 
@@ -104,7 +93,6 @@ func _on_taco_stand_zone_body_entered(body):
 func buying_anim():
 	if is_buying or has_bought:
 		return
-
 	is_buying = true
 	speed = 0
 
@@ -113,19 +101,27 @@ func buying_anim():
 
 	await get_tree().create_timer(2.0).timeout
 
-	# ✅ Verificamos solo una vez el taco para evitar doble entrega
 	if not has_bought:
 		if GrillManager.verificar_taco(pedido_cliente):
+			print("✅ Taco entregado correctamente")
 			GrillManager.limpiar_taco(pedido_cliente)
+
+			if sale_made.is_connected(_on_sale_made):
+				sale_made.disconnect(_on_sale_made)
+
 			sale_made.emit()
-			has_bought = true  # ✅ Se bloquea para evitar doble compra
+			has_bought = true
 			_resume_movement()
 
+func _on_sale_made(character):
+	if not has_bought:
+		print("✅ Venta confirmada.")
+		has_bought = true
+		_resume_movement()
 
 func _resume_movement():
 	speed = 0.2
 	is_buying = false
-
 	if animated_sprite:
 		animated_sprite.play("walk_right")
 
@@ -133,7 +129,6 @@ func fade_out_anim():
 	speed = 0
 	if animated_sprite:
 		animated_sprite.play("fade_out")
-
 	await get_tree().create_timer(1.0).timeout
 	visible = false
 	set_process(false)

@@ -1,15 +1,16 @@
 extends Node2D
 
 var ingrediente_actual = "tortilla"
-var cuadrantes = [[], [], [], []] 
-var ingredientes = {} 
-var parrilla = [] 
+var cuadrantes = [[], [], [], []]
+var ingredientes = {}
 
+# Contadores de ingredientes
 var count_tortilla = 0
 var count_carne = 0
 var count_verdura = 0
 var count_salsa = 0
 
+# Labels
 var label_tortilla = null
 var label_carne = null
 var label_verdura = null
@@ -36,52 +37,69 @@ func _ready():
 	button_add.pressed.connect(_on_add_ingredient)
 	button_remove.pressed.connect(_on_remove_ingredient)
 
-# ✅ Obtener etiquetas de la parrilla
-func obtener_labels():
-	for node in get_tree().get_nodes_in_group("GrillLabels"):
-		match node.name:
-			"TortillaAmount": label_tortilla = node
-			"CarneAmount": label_carne = node
-			"VerduraAmount": label_verdura = node
-			"SalsaAmount": label_salsa = node
+#
+# -----------------------  FUNCIONES PRINCIPALES  -------------------------
+#
 
-# ✅ Obtener ingredientes desde el grupo
-func obtener_ingredientes():
-	for node in get_tree().get_nodes_in_group("IngredientsContainer"):
-		var nombre = String(node.name).to_lower()
-		var partes = nombre.split("-")
+func verificar_taco(pedido_cliente: String) -> bool:
+	# ✅ Devuelve true si al menos un cuadrante coincide,
+	# pero NO lo limpia todavía.
+	var idx = obtener_cuadrante_valido(pedido_cliente)
+	return (idx != -1)
 
-		if partes.size() == 2:
-			var tipo = partes[0]
-			var indice = int(partes[1]) - 1
+func limpiar_taco(pedido_cliente: String):
+	# ✅ Limpia solo el primer cuadrante que coincide con la receta,
+	# y no toca los demás.
+	var idx = obtener_cuadrante_valido(pedido_cliente)
+	if idx != -1:
+		print("🔥 Limpiando cuadrante después de venta:", idx)
+		for ingrediente in cuadrantes[idx]:
+			if ingredientes.has(ingrediente) and ingredientes[ingrediente][idx] != null:
+				ingredientes[ingrediente][idx].visible = false
+		cuadrantes[idx].clear()
+		update_label()
 
-			if not ingredientes.has(tipo):
-				ingredientes[tipo] = [null, null, null, null]
+#
+# -----------------------  FUNCIONES DE SOPORTE  -------------------------
+#
 
-			ingredientes[tipo][indice] = node
+func obtener_cuadrante_valido(pedido_cliente: String) -> int:
+	# ✅ Retorna el índice (0..3) del primer cuadrante válido, o -1 si no hay coincidencia.
+	for i in range(4):
+		if _es_taco_valido(i, pedido_cliente):
+			return i
+	return -1
 
-# ✅ Reiniciar parrilla
-func reset_parrilla():
-	for tipo in ingredientes:
-		for i in range(4):
-			if ingredientes[tipo][i] != null:
-				ingredientes[tipo][i].visible = false
+func _es_taco_valido(index: int, pedido_cliente: String) -> bool:
+	if cuadrantes[index].size() == 0:
+		return false
 
-	cuadrantes = [[], [], [], []]
-	count_tortilla = 0
-	count_carne = 0
-	count_verdura = 0
-	count_salsa = 0
-	update_label()
+	var contenido = cuadrantes[index].duplicate()
+	contenido.sort()
 
-# ✅ Seleccionar ingrediente
+	var contenido_pedido = []
+	match pedido_cliente:
+		"Taco-1":
+			contenido_pedido = ["carne", "tortilla"]
+		"Taco-2":
+			contenido_pedido = ["carne", "salsa", "tortilla", "verdura"]
+		"Taco-3":
+			contenido_pedido = ["tortilla"]
+
+	contenido_pedido.sort()
+
+	return contenido == contenido_pedido
+
+#
+# -----------------------  FUNCIONES UI E INGREDIENTES -------------------
+#
+
 func _on_select_ingredient(ingrediente):
 	ingrediente_actual = ingrediente
 
-# ✅ Añadir ingrediente a la parrilla
 func _on_add_ingredient():
 	for i in range(4):
-		if len(cuadrantes[i]) == 0 or cuadrantes[i][-1] != ingrediente_actual:
+		if cuadrantes[i].size() == 0 or cuadrantes[i][-1] != ingrediente_actual:
 			if ingrediente_actual == "tortilla" and count_tortilla < 4:
 				ingredientes["tortilla"][i].visible = true
 				cuadrantes[i].append("tortilla")
@@ -102,10 +120,8 @@ func _on_add_ingredient():
 				cuadrantes[i].append("salsa")
 				count_salsa += 1
 				break
-
 	update_label()
 
-# ✅ Quitar ingrediente de la parrilla
 func _on_remove_ingredient():
 	for i in range(4):
 		if cuadrantes[i].size() > 0:
@@ -114,71 +130,65 @@ func _on_remove_ingredient():
 				ingredientes[ingrediente_a_quitar][i].visible = false
 
 			match ingrediente_a_quitar:
-				"tortilla": count_tortilla -= 1
-				"carne": count_carne -= 1
-				"verdura": count_verdura -= 1
-				"salsa": count_salsa -= 1
+				"tortilla":
+					count_tortilla -= 1
+				"carne":
+					count_carne -= 1
+				"verdura":
+					count_verdura -= 1
+				"salsa":
+					count_salsa -= 1
 			break
-
 	update_label()
 
-# ✅ Actualizar las etiquetas
 func update_label():
 	label_count.text = str(count_tortilla)
-	if label_tortilla: label_tortilla.text = str(count_tortilla)
-	if label_carne: label_carne.text = str(count_carne)
-	if label_verdura: label_verdura.text = str(count_verdura)
-	if label_salsa: label_salsa.text = str(count_salsa)
+	if label_tortilla:
+		label_tortilla.text = str(count_tortilla)
+	if label_carne:
+		label_carne.text = str(count_carne)
+	if label_verdura:
+		label_verdura.text = str(count_verdura)
+	if label_salsa:
+		label_salsa.text = str(count_salsa)
 
-# ✅ Verificar si el taco coincide con el pedido
-func verificar_taco(pedido_cliente):
-	print("🍽 Pedido del cliente:", pedido_cliente)
-	print("👉 Estado actual de cuadrantes:", cuadrantes)
+#
+# ----------------------  FUNCIONES INICIALES  ---------------------------
+#
 
-	for i in range(4):
-		if _es_taco_valido(i, pedido_cliente):
-			print("✅ Taco entregado correctamente")
-			limpiar_taco(pedido_cliente)
-			return true
+func reset_parrilla():
+	for tipo in ingredientes:
+		for i in range(4):
+			if ingredientes[tipo][i] != null:
+				ingredientes[tipo][i].visible = false
 
-	print("❌ El taco no coincide con el pedido.")
-	return false
+	cuadrantes = [[], [], [], []]
+	count_tortilla = 0
+	count_carne = 0
+	count_verdura = 0
+	count_salsa = 0
+	update_label()
 
-# ✅ Limpiar taco después de venta
-func limpiar_taco(pedido_cliente):
-	for i in range(4):
-		if _es_taco_valido(i, pedido_cliente):
-			print("🔥 Limpiando cuadrante después de venta:", i)
-			for ingrediente in cuadrantes[i]:
-				if ingredientes[ingrediente][i] != null:
-					ingredientes[ingrediente][i].visible = false
+func obtener_labels():
+	for node in get_tree().get_nodes_in_group("GrillLabels"):
+		match node.name:
+			"TortillaAmount": label_tortilla = node
+			"CarneAmount": label_carne = node
+			"VerduraAmount": label_verdura = node
+			"SalsaAmount": label_salsa = node
 
-			cuadrantes[i].clear()
-			update_label()
-			break
+func obtener_ingredientes():
+	for node in get_tree().get_nodes_in_group("IngredientsContainer"):
+		var nombre = String(node.name).to_lower()
+		var partes = nombre.split("-")
+		if partes.size() == 2:
+			var tipo = partes[0]
+			var indice = int(partes[1]) - 1
+			if not ingredientes.has(tipo):
+				ingredientes[tipo] = [null, null, null, null]
+			ingredientes[tipo][indice] = node
 
-# ✅ Verificar si el taco es válido
-func _es_taco_valido(index, pedido_cliente):
-	if cuadrantes[index].size() == 0:
-		return false
 
-	var contenido = cuadrantes[index].duplicate()
-	contenido.sort()
-
-	var contenido_pedido = []
-	match pedido_cliente:
-		"Taco-1":
-			contenido_pedido = ["carne", "tortilla"]
-		"Taco-2":
-			contenido_pedido = ["carne", "salsa", "tortilla", "verdura"]
-		"Taco-3":
-			contenido_pedido = ["tortilla"]
-
-	contenido_pedido.sort()
-
-	return contenido == contenido_pedido
-
-# ✅ Reiniciar parrilla
 func restart_ready():
 	print("🔁 Reiniciando parrilla...")
 	reset_parrilla()
