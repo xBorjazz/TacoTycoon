@@ -2769,7 +2769,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("15_pwgla")
 
-[node name="TortillasTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Tortillas"]
+[node name="TortillasTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Tortillas" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -2784,7 +2784,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("17_0wurc")
 
-[node name="CarneTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Carne"]
+[node name="CarneTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Carne" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
@@ -2798,7 +2798,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("18_kip41")
 
-[node name="VerduraTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Verdura"]
+[node name="VerduraTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Verdura" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
@@ -2812,7 +2812,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("19_tv5cw")
 
-[node name="CebollaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Cebolla"]
+[node name="CebollaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Cebolla" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
@@ -2826,7 +2826,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("20_a2q5j")
 
-[node name="SalsaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Salsas"]
+[node name="SalsaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Salsas" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
@@ -2850,7 +2850,7 @@ offset_bottom = 512.106
 scale = Vector2(0.00773447, 0.0086907)
 texture = ExtResource("21_5h3av")
 
-[node name="PlayerMoneyLabel" type="Label" parent="CanvasLayer/Gameplay"]
+[node name="PlayerMoneyLabel" type="Label" parent="CanvasLayer/Gameplay" groups=["SuppliesNodes"]]
 layout_mode = 0
 offset_left = 5.13617
 offset_top = 2.29123
@@ -2864,19 +2864,16 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("16_conpe")
 text = "1000"
 
-[node name="Path2D" parent="CanvasLayer/Gameplay" instance=ExtResource("22_mf7wt")]
-visible = false
+[node name="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
 
-[node name="Path2D2" parent="CanvasLayer/Gameplay" instance=ExtResource("22_mf7wt")]
-visible = false
+[node name="Path2D2" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
 position = Vector2(35.6898, 23.7578)
 curve = SubResource("Curve2D_cets1")
 
 [node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" index="0"]
 position = Vector2(4.80694, 8.95538)
 
-[node name="Path2D3" parent="CanvasLayer/Gameplay" instance=ExtResource("22_mf7wt")]
-visible = false
+[node name="Path2D3" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
 position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
@@ -3776,21 +3773,21 @@ offset_bottom = 386.069
 scale = Vector2(0.0445423, 0.103754)
 theme_override_constants/separation = 80
 
-[node name="TortillasLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0"]
+[node name="TortillasLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="TortillasLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0"]
+[node name="TortillasLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="TortillasLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0"]
+[node name="TortillasLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("16_conpe")
@@ -3966,19 +3963,19 @@ offset_bottom = 444.642
 scale = Vector2(0.0228815, 0.0694056)
 theme_override_constants/separation = 80
 
-[node name="CarneLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0"]
+[node name="CarneLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="CarneLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0"]
+[node name="CarneLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="CarneLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0"]
+[node name="CarneLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CarneSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
@@ -4152,19 +4149,19 @@ offset_bottom = 386.069
 scale = Vector2(0.0298197, 0.06946)
 theme_override_constants/separation = 80
 
-[node name="VerduraLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0"]
+[node name="VerduraLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="VerduraLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0"]
+[node name="VerduraLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="VerduraLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0"]
+[node name="VerduraLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/VerduraSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
@@ -4335,19 +4332,19 @@ offset_bottom = 386.069
 scale = Vector2(0.0298197, 0.06946)
 theme_override_constants/separation = 80
 
-[node name="CebollasLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0"]
+[node name="CebollasLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="CebollasLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0"]
+[node name="CebollasLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="CebollasLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0"]
+[node name="CebollasLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/CebollasSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
@@ -4521,19 +4518,19 @@ offset_bottom = 386.069
 scale = Vector2(0.0295889, 0.0689225)
 theme_override_constants/separation = 80
 
-[node name="SalsaLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0"]
+[node name="SalsaLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="SalsaLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0"]
+[node name="SalsaLabel2" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
 text = "0"
 
-[node name="SalsaLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0"]
+[node name="SalsaLabel3" type="Label" parent="CanvasLayer/PanelContainer/Panel5/SalsaSupplies/VBoxContadores0" groups=["SuppliesNodes"]]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 90
@@ -4566,7 +4563,7 @@ offset_bottom = 563.566
 scale = Vector2(0.00925681, 0.0138437)
 texture = ExtResource("52_5boi0")
 
-[node name="BuyCost" type="Label" parent="CanvasLayer/PanelContainer/Panel5"]
+[node name="BuyCost" type="Label" parent="CanvasLayer/PanelContainer/Panel5" groups=["SuppliesNodes"]]
 layout_mode = 0
 offset_left = 49.8803
 offset_top = 361.44
@@ -4584,7 +4581,7 @@ offset_bottom = 862.464
 scale = Vector2(0.0681199, 0.0765418)
 texture = ExtResource("68_wdfwd")
 
-[node name="BuyButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5"]
+[node name="BuyButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5" groups=["SuppliesNodes"]]
 layout_mode = 0
 offset_left = 177.267
 offset_top = 357.603
@@ -5083,6 +5080,7 @@ max_value = 3.0
 script = ExtResource("31_pp8yx")
 
 [node name="AddButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
+layout_mode = 0
 offset_left = 225.25
 offset_top = 327.295
 offset_right = 510.25
@@ -5092,6 +5090,7 @@ texture_normal = ExtResource("56_f7m53")
 texture_pressed = ExtResource("57_ko53r")
 
 [node name="RemoveButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
+layout_mode = 0
 offset_left = 33.5083
 offset_top = 328.141
 offset_right = 300.508
@@ -5101,6 +5100,7 @@ texture_normal = ExtResource("53_sxxkg")
 texture_pressed = ExtResource("54_4keov")
 
 [node name="IngredientCountLabel" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
+layout_mode = 0
 offset_left = 150.787
 offset_top = 345.055
 offset_right = 246.787
@@ -5808,6 +5808,7 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)
 texture = ExtResource("87_ej7dq")
@@ -5903,6 +5904,7 @@ texture_normal = ExtResource("90_vl137")
 texture_disabled = ExtResource("91_yxpb8")
 
 [node name="SpeechBubble" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
 position = Vector2(277, 316)
 scale = Vector2(0.735045, 0.560281)
 texture = ExtResource("92_43w22")

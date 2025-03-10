@@ -104,11 +104,11 @@ func predict_gain(x: float) -> float:
 # Predicción en base a la receta (5 ingredientes)
 func predict_by_ingredients() -> float:
 	# Obtenemos los valores de la Receta
-	var tortillas = int(recipe_node.tortillas_label.text)
-	var carne     = int(recipe_node.carne_label.text)
-	var cebolla   = int(recipe_node.cebolla_label.text)
-	var verdura   = int(recipe_node.verdura_label.text)
-	var salsa     = int(recipe_node.salsa_label.text)
+	var tortillas = 1#int(recipe_node.tortillas_label.text)
+	var carne     = 1#int(recipe_node.carne_label.text)
+	var cebolla   = 1#int(recipe_node.cebolla_label.text)
+	var verdura   = 1#int(recipe_node.verdura_label.text)
+	var salsa     = 1#int(recipe_node.salsa_label.text)
 
 	# Pesos de ejemplo
 	var w1 = 5.0
