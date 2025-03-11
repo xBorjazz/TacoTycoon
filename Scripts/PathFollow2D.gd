@@ -1,13 +1,11 @@
 extends PathFollow2D
 
-# ✅ Variables de control
 var speed = 0.1
 var is_buying = false
 var has_bought = false
 var game_started = false
 var pedido_cliente = ""
 
-# ✅ Referencias importantes
 var pathfollow: PathFollow2D
 var path_2d: Path2D
 var animated_sprite: AnimatedSprite2D
@@ -59,7 +57,6 @@ func elegir_taco():
 				taco_order.play("full-order")
 			"Taco-3":
 				taco_order.play("vegan-order")
-
 	if bubble:
 		bubble.visible = true
 		bubble.play("default")

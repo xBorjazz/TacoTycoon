@@ -4,7 +4,7 @@ var ingrediente_actual = "tortilla"
 var cuadrantes = [[], [], [], []]
 var ingredientes = {}
 
-# Contadores de ingredientes
+# Contadores de ingredientes totales (en toda la parrilla)
 var count_tortilla = 0
 var count_carne = 0
 var count_verdura = 0
@@ -20,6 +20,7 @@ var label_salsa = null
 @onready var button_meat = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton")
 @onready var button_verdura = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
 @onready var button_salsa = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton")
+
 @onready var button_add = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
 @onready var button_remove = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/RemoveButton")
 @onready var label_count = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/IngredientCountLabel")
@@ -29,6 +30,7 @@ func _ready():
 	obtener_labels()
 	reset_parrilla()
 
+	# Conexión de botones
 	button_tortilla.pressed.connect(_on_select_ingredient.bind("tortilla"))
 	button_meat.pressed.connect(_on_select_ingredient.bind("carne"))
 	button_verdura.pressed.connect(_on_select_ingredient.bind("verdura"))
@@ -38,38 +40,36 @@ func _ready():
 	button_remove.pressed.connect(_on_remove_ingredient)
 
 #
-# -----------------------  FUNCIONES PRINCIPALES  -------------------------
+# ------------------ FUNCIONES PRINCIPALES ------------------
 #
 
 func verificar_taco(pedido_cliente: String) -> bool:
-	# ✅ Devuelve true si al menos un cuadrante coincide,
-	# pero NO lo limpia todavía.
-	var idx = obtener_cuadrante_valido(pedido_cliente)
+	var idx = _obtener_cuadrante_valido(pedido_cliente)
 	return (idx != -1)
 
 func limpiar_taco(pedido_cliente: String):
-	# ✅ Limpia solo el primer cuadrante que coincide con la receta,
-	# y no toca los demás.
-	var idx = obtener_cuadrante_valido(pedido_cliente)
+	var idx = _obtener_cuadrante_valido(pedido_cliente)
 	if idx != -1:
-		print("🔥 Limpiando cuadrante después de venta:", idx)
+		print("🔥 Limpiando cuadrante", idx, "después de venta.")
 		for ingrediente in cuadrantes[idx]:
 			if ingredientes.has(ingrediente) and ingredientes[ingrediente][idx] != null:
 				ingredientes[ingrediente][idx].visible = false
 		cuadrantes[idx].clear()
 		update_label()
+		_print_cuadrantes_state()  # Opcional: imprimir luego de limpiar
 
 #
-# -----------------------  FUNCIONES DE SOPORTE  -------------------------
+# ------------------ FUNCIONES DE SOPORTE -------------------
 #
 
-func obtener_cuadrante_valido(pedido_cliente: String) -> int:
-	# ✅ Retorna el índice (0..3) del primer cuadrante válido, o -1 si no hay coincidencia.
+# ✅ Devuelve el índice del primer cuadrante que coincida con la receta, o -1 si ninguno coincide
+func _obtener_cuadrante_valido(pedido_cliente: String) -> int:
 	for i in range(4):
 		if _es_taco_valido(i, pedido_cliente):
 			return i
 	return -1
 
+# ✅ Devuelve si el cuadrante "index" coincide con la receta "pedido_cliente"
 func _es_taco_valido(index: int, pedido_cliente: String) -> bool:
 	if cuadrantes[index].size() == 0:
 		return false
@@ -90,59 +90,51 @@ func _es_taco_valido(index: int, pedido_cliente: String) -> bool:
 
 	return contenido == contenido_pedido
 
+# ✅ Imprime el contenido de cada cuadrante (para debug)
+func _print_cuadrantes_state():
+	print("----- Estado actual de 'cuadrantes' -----")
+	for i in range(4):
+		print("  Cuadrante", i+1, ":", cuadrantes[i])
+
 #
-# -----------------------  FUNCIONES UI E INGREDIENTES -------------------
+# ------------------ FUNCIONES DE UI / INGREDIENTES --------------
 #
 
 func _on_select_ingredient(ingrediente):
 	ingrediente_actual = ingrediente
-
-func _on_add_ingredient():
+	
+# ---------------------------------------
+# Función para recalcular los contadores globales
+# ---------------------------------------
+func recalc_counts():
+	count_tortilla = 0
+	count_carne = 0
+	count_verdura = 0
+	count_salsa = 0
 	for i in range(4):
-		if cuadrantes[i].size() == 0 or cuadrantes[i][-1] != ingrediente_actual:
-			if ingrediente_actual == "tortilla" and count_tortilla < 4:
-				ingredientes["tortilla"][i].visible = true
-				cuadrantes[i].append("tortilla")
-				count_tortilla += 1
-				break
-			elif ingrediente_actual == "carne" and count_carne < count_tortilla:
-				ingredientes["carne"][i].visible = true
-				cuadrantes[i].append("carne")
-				count_carne += 1
-				break
-			elif ingrediente_actual == "verdura" and count_verdura < count_carne:
-				ingredientes["verdura"][i].visible = true
-				cuadrantes[i].append("verdura")
-				count_verdura += 1
-				break
-			elif ingrediente_actual == "salsa" and count_salsa < count_verdura:
-				ingredientes["salsa"][i].visible = true
-				cuadrantes[i].append("salsa")
-				count_salsa += 1
-				break
-	update_label()
+		for ing in cuadrantes[i]:
+			match ing:
+				"tortilla":
+					count_tortilla += 1
+				"carne":
+					count_carne += 1
+				"verdura":
+					count_verdura += 1
+				"salsa":
+					count_salsa += 1
 
-func _on_remove_ingredient():
+# ---------------------------------------
+# Actualizar el label inferior y los contadores
+# ---------------------------------------
+func update_label():
+	recalc_counts()
+	# Label de tacos en parrilla: se cuenta el número de cuadrantes que tienen al menos un ingrediente.
+	var tacos_en_parrilla = 0
 	for i in range(4):
 		if cuadrantes[i].size() > 0:
-			var ingrediente_a_quitar = cuadrantes[i].pop_back()
-			if ingredientes[ingrediente_a_quitar][i] != null:
-				ingredientes[ingrediente_a_quitar][i].visible = false
-
-			match ingrediente_a_quitar:
-				"tortilla":
-					count_tortilla -= 1
-				"carne":
-					count_carne -= 1
-				"verdura":
-					count_verdura -= 1
-				"salsa":
-					count_salsa -= 1
-			break
-	update_label()
-
-func update_label():
-	label_count.text = str(count_tortilla)
+			tacos_en_parrilla += 1
+	label_count.text = str(tacos_en_parrilla)
+	
 	if label_tortilla:
 		label_tortilla.text = str(count_tortilla)
 	if label_carne:
@@ -152,8 +144,115 @@ func update_label():
 	if label_salsa:
 		label_salsa.text = str(count_salsa)
 
+# ---------------------------------------
+# Agregar ingrediente: se recorre de 0 a 3 y se agrega en el primer cuadrante apto.
+# Para "tortilla" solo se agrega si aún no hay tortilla en ese cuadrante.
+# Para "carne", "verdura" y "salsa" se requiere que ya exista una tortilla en ese cuadrante.
+# Se respeta el límite global de 4 unidades para cada ingrediente.
+# ---------------------------------------
 #
-# ----------------------  FUNCIONES INICIALES  ---------------------------
+# ==================== _on_add_ingredient() ====================
+#
+func _on_add_ingredient():
+	print("➕ Agregando ingrediente:", ingrediente_actual)
+	
+	# 1) Verificamos límite global de 4 para cada ingrediente
+	match ingrediente_actual:
+		"tortilla":
+			if count_tortilla >= 4:
+				print("⚠️ Ya hay 4 tortillas en total. No se puede agregar más.")
+				return
+		"carne":
+			if count_carne >= 4:
+				print("⚠️ Ya hay 4 carnes en total. No se puede agregar más.")
+				return
+		"verdura":
+			if count_verdura >= 4:
+				print("⚠️ Ya hay 4 verduras en total. No se puede agregar más.")
+				return
+		"salsa":
+			if count_salsa >= 4:
+				print("⚠️ Ya hay 4 salsas en total. No se puede agregar más.")
+				return
+
+	# 2) Recorremos cuadrantes 1..4 (índices 0..3) en orden
+	for i in range(4):
+		if ingrediente_actual == "tortilla":
+			# No duplicar tortilla en el mismo cuadrante
+			if "tortilla" not in cuadrantes[i]:
+				if ingredientes["tortilla"][i] != null:
+					ingredientes["tortilla"][i].visible = true
+					cuadrantes[i].append("tortilla")
+					count_tortilla += 1
+					break
+
+		else:
+			# carne/verdura/salsa => se requiere que exista "tortilla" en ese cuadrante
+			if "tortilla" in cuadrantes[i]:
+				# Evitamos poner el mismo ingrediente en el mismo cuadrante si ya existe
+				if ingrediente_actual not in cuadrantes[i]:
+					if ingredientes[ingrediente_actual][i] != null:
+						ingredientes[ingrediente_actual][i].visible = true
+						cuadrantes[i].append(ingrediente_actual)
+						match ingrediente_actual:
+							"carne":   count_carne += 1
+							"verdura": count_verdura += 1
+							"salsa":   count_salsa += 1
+					break
+
+	update_label()
+	# _print_cuadrantes_state() # Opcional para debug
+
+
+#
+# ==================== _on_remove_ingredient() ====================
+#
+func _on_remove_ingredient():
+	print("➖ Removiendo ingrediente:", ingrediente_actual)
+
+	# Caso A: quitar "tortilla" => quita la pila entera en el último cuadrante 4..1
+	if ingrediente_actual == "tortilla":
+		for i in range(3, -1, -1):
+			if "tortilla" in cuadrantes[i]:
+				# Apagar la visibilidad de todo lo que haya en ese cuadrante
+				for ing in cuadrantes[i]:
+					if ingredientes[ing][i] != null:
+						ingredientes[ing][i].visible = false
+					match ing:
+						"tortilla": count_tortilla -= 1
+						"carne":    count_carne -= 1
+						"verdura":  count_verdura -= 1
+						"salsa":    count_salsa -= 1
+				cuadrantes[i].clear()
+				break
+
+	# Caso B: quitar "carne", "verdura" o "salsa" => solo 1 instancia en el último cuadrante 4..1
+	else:
+		for i in range(3, -1, -1):
+			if ingrediente_actual in cuadrantes[i]:
+				# Buscar manualmente el último índice (no existe find_last en Godot 3.x)
+				var idx = -1
+				for j in range(cuadrantes[i].size() - 1, -1, -1):
+					if cuadrantes[i][j] == ingrediente_actual:
+						idx = j
+						break
+
+				if idx != -1:
+					cuadrantes[i].remove_at(idx)
+					if ingredientes[ingrediente_actual][i] != null:
+						ingredientes[ingrediente_actual][i].visible = false
+
+					match ingrediente_actual:
+						"carne":   count_carne -= 1
+						"verdura": count_verdura -= 1
+						"salsa":   count_salsa -= 1
+				break
+
+	update_label()
+	# _print_cuadrantes_state() # Opcional para debug
+
+#
+# ------------------ FUNCIONES INICIALES -------------------
 #
 
 func reset_parrilla():
@@ -187,7 +286,6 @@ func obtener_ingredientes():
 			if not ingredientes.has(tipo):
 				ingredientes[tipo] = [null, null, null, null]
 			ingredientes[tipo][indice] = node
-
 
 func restart_ready():
 	print("🔁 Reiniciando parrilla...")
