@@ -2,7 +2,7 @@ extends Node
 
 # Referencia al botón de inicio (ahora de tipo TextureButton)
 var game_start_button : TextureButton = null
-var new_scene = load("res://Scenes/node_2d.tscn").instantiate()
+var new_scene = load("res://Scenes/tutorial.tscn").instantiate()
 var tutorial_scene = load("res://Scenes/tutorial.tscn").instantiate()
 
 # Llamado cuando el nodo entra en el árbol de escenas
@@ -18,6 +18,7 @@ func _ready():
 		# Conectar la señal "pressed" del botón GameStart al método _on_game_start_pressed
 		game_start_button.connect("pressed", Callable(self, "_on_game_start_pressed"))
 		print("Conexión de la señal realizada con éxito.")
+	SuppliesUi.restart_ready()
 
 # Llamado cuando el botón GameStart es presionado
 func _on_game_start_pressed():
@@ -41,11 +42,11 @@ func _on_game_start_pressed():
 	IngredientsManager.restart_ready()
 	GraphPlot.restart_ready()
 	client.restart_ready()
-	#mmultiplayer.restart_ready()
+	multiplayer.restart_ready()
 	#MultiplayerButton.restart_ready()
 	LevelManager.restart_ready()
 	GlobalProgressBar.restart_ready()
-	#Tutorial.restart_ready()
+	Tutorial.restart_ready()
 	
 	get_tree().current_scene = new_scene  # Define la nueva escena como activa
 	

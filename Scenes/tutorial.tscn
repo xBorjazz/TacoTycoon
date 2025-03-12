@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="26_d8f2p"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="27_wqgqt"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="28_b0sec"]
-[ext_resource type="Texture2D" uid="uid://c1rmxoepeqt5h" path="res://Assets/Taco.png" id="29_ifa7n"]
 [ext_resource type="Script" path="res://Scripts/DayManager.gd" id="30_6by1d"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="31_pp8yx"]
 [ext_resource type="Texture2D" uid="uid://diyth22mvcqhx" path="res://Assets/Kenney/PNG/Extra/Double/bar_shadow_round_large.png" id="32_j76n5"]
@@ -40,7 +39,8 @@
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="36_amq58"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="37_c6l4h"]
 [ext_resource type="Texture2D" uid="uid://sw36m1vpxrlf" path="res://Maps/Cucei/betas-disabled.png" id="38_p35ul"]
-[ext_resource type="Texture2D" uid="uid://cm7tp7f78160p" path="res://Maps/Cucei/chedraui-disabled.png" id="39_utyad"]
+[ext_resource type="Texture2D" uid="uid://nji50i71v7tu" path="res://Assets/Maps/Cucei/globo.png" id="39_0b5e1"]
+[ext_resource type="Texture2D" uid="uid://b01ipyik0h40p" path="res://Assets/Maps/Cucei/globo-disabled.png" id="40_3k4hm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="40_h3q5p"]
 [ext_resource type="Texture2D" uid="uid://cp44wnic0j3uk" path="res://Assets/Buttons/arrows/bluefadearrow.png" id="41_g08oj"]
 [ext_resource type="Script" path="res://Scripts/GraphDrawer.gd" id="42_obi1v"]
@@ -2870,6 +2870,7 @@ theme_override_fonts/font = ExtResource("16_conpe")
 text = "1000"
 
 [node name="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
+visible = false
 
 [node name="Path2D2" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
 visible = false
@@ -2944,12 +2945,12 @@ texture = ExtResource("28_b0sec")
 
 [node name="TacosVendidos" type="TextureRect" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
-offset_left = 32.7192
-offset_top = 10.1382
-offset_right = 685.719
-offset_bottom = 616.138
+offset_left = 31.0
+offset_top = 10.0
+offset_right = 1336.0
+offset_bottom = 616.0
 scale = Vector2(0.00546927, 0.00675025)
-texture = ExtResource("29_ifa7n")
+texture = ExtResource("79_gpfk3")
 
 [node name="DayControl" type="Node2D" parent="CanvasLayer/Gameplay"]
 position = Vector2(17.9918, 1.78757)
@@ -3086,8 +3087,8 @@ offset_top = 141.236
 offset_right = 1080.78
 offset_bottom = 909.236
 scale = Vector2(0.229954, 0.229954)
-texture_normal = ExtResource("1_qnmk2")
-texture_disabled = ExtResource("39_utyad")
+texture_normal = ExtResource("39_0b5e1")
+texture_disabled = ExtResource("40_3k4hm")
 
 [node name="LeftArrow" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel"]
 layout_mode = 0

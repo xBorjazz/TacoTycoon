@@ -1,5 +1,7 @@
 extends Node2D
 
+
+signal sale_made
 var ingrediente_actual = "tortilla"
 var cuadrantes = [[], [], [], []]
 var ingredientes = {}
@@ -59,6 +61,8 @@ func limpiar_taco(pedido_cliente: String):
 		Inventory.tacos_vendidos += 1
 		print("🌮 Taco vendido! Total tacos vendidos:", Inventory.tacos_vendidos)
 		update_label()
+		# ✅ Emitir la señal para actualizar la gráfica
+		sale_made.emit()
 		_print_cuadrantes_state()  # Opcional: imprimir luego de limpiar
 
 #
