@@ -144,6 +144,8 @@ func update_label():
 	if label_salsa:
 		label_salsa.text = str(count_salsa)
 
+	#SuppliesUi.update_labels()
+
 # ---------------------------------------
 # Agregar ingrediente: se recorre de 0 a 3 y se agrega en el primer cuadrante apto.
 # Para "tortilla" solo se agrega si aún no hay tortilla en ese cuadrante.
@@ -152,58 +154,61 @@ func update_label():
 # ---------------------------------------
 #
 # ==================== _on_add_ingredient() ====================
-#
+# ✅ Verificar si hay suficientes ingredientes en el inventario antes de agregar
 func _on_add_ingredient():
-	print(">>> _on_add_ingredient REAL CALL")
-	print(">>> _on_add_ingredient llamado en instancia ID:", get_instance_id())
 	print("➕ Agregando ingrediente:", ingrediente_actual)
 	
-	# 1) Verificamos límite global de 4 para cada ingrediente
+	# 1) Verificamos que haya ingredientes disponibles en el inventario
 	match ingrediente_actual:
 		"tortilla":
-			if count_tortilla >= 4:
-				print("⚠️ Ya hay 4 tortillas en total. No se puede agregar más.")
+			if count_tortilla >= 4 or Inventory.tortillas_total <= 0:
+				print("⚠️ No hay suficientes tortillas en el inventario.")
 				return
 		"carne":
-			if count_carne >= 4:
-				print("⚠️ Ya hay 4 carnes en total. No se puede agregar más.")
+			if count_carne >= 4 or Inventory.carne_total <= 0:
+				print("⚠️ No hay suficiente carne en el inventario.")
 				return
 		"verdura":
-			if count_verdura >= 4:
-				print("⚠️ Ya hay 4 verduras en total. No se puede agregar más.")
+			if count_verdura >= 4 or Inventory.verdura_total <= 0:
+				print("⚠️ No hay suficiente verdura en el inventario.")
 				return
 		"salsa":
-			if count_salsa >= 4:
-				print("⚠️ Ya hay 4 salsas en total. No se puede agregar más.")
+			if count_salsa >= 4 or Inventory.salsa_total <= 0:
+				print("⚠️ No hay suficiente salsa en el inventario.")
 				return
 
 	# 2) Recorremos cuadrantes 1..4 (índices 0..3) en orden
 	for i in range(4):
 		if ingrediente_actual == "tortilla":
-			# No duplicar tortilla en el mismo cuadrante
 			if "tortilla" not in cuadrantes[i]:
 				if ingredientes["tortilla"][i] != null:
 					ingredientes["tortilla"][i].visible = true
 					cuadrantes[i].append("tortilla")
 					count_tortilla += 1
+					Inventory.tortillas_total -= 1
 					break
 
 		else:
-			# carne/verdura/salsa => se requiere que exista "tortilla" en ese cuadrante
+			# carne/verdura/salsa => requiere que haya tortilla en ese cuadrante
 			if "tortilla" in cuadrantes[i]:
-				# Evitamos poner el mismo ingrediente en el mismo cuadrante si ya existe
 				if ingrediente_actual not in cuadrantes[i]:
 					if ingredientes[ingrediente_actual][i] != null:
 						ingredientes[ingrediente_actual][i].visible = true
 						cuadrantes[i].append(ingrediente_actual)
 						match ingrediente_actual:
-							"carne":   count_carne += 1
-							"verdura": count_verdura += 1
-							"salsa":   count_salsa += 1
-					break
+							"carne":
+								count_carne += 1
+								Inventory.carne_total -= 1
+							"verdura":
+								count_verdura += 1
+								Inventory.verdura_total -= 1
+							"salsa":
+								count_salsa += 1
+								Inventory.salsa_total -= 1
+						break
 
 	update_label()
-	_print_cuadrantes_state() # Opcional para debug
+	SuppliesUi.update_labels()  # ✅ Actualizar el inventario global
 
 
 #
@@ -212,27 +217,39 @@ func _on_add_ingredient():
 func _on_remove_ingredient():
 	print("➖ Removiendo ingrediente:", ingrediente_actual)
 
-	# Caso A: quitar "tortilla" => quita la pila entera en el último cuadrante 4..1
+	# ✅ Caso A: quitar "tortilla" => quita toda la pila de ingredientes del último cuadrante (4..1)
 	if ingrediente_actual == "tortilla":
 		for i in range(3, -1, -1):
 			if "tortilla" in cuadrantes[i]:
-				# Apagar la visibilidad de todo lo que haya en ese cuadrante
+				# Apagar la visibilidad de todos los ingredientes en el cuadrante
 				for ing in cuadrantes[i]:
 					if ingredientes[ing][i] != null:
 						ingredientes[ing][i].visible = false
+
+					# ✅ Devolver el ingrediente al inventario
 					match ing:
-						"tortilla": count_tortilla -= 1
-						"carne":    count_carne -= 1
-						"verdura":  count_verdura -= 1
-						"salsa":    count_salsa -= 1
+						"tortilla":
+							count_tortilla -= 1
+							Inventory.tortillas_total += 1
+						"carne":
+							count_carne -= 1
+							Inventory.carne_total += 1
+						"verdura":
+							count_verdura -= 1
+							Inventory.verdura_total += 1
+						"salsa":
+							count_salsa -= 1
+							Inventory.salsa_total += 1
+
+				# ✅ Vaciar el cuadrante después de quitar todo
 				cuadrantes[i].clear()
 				break
 
-	# Caso B: quitar "carne", "verdura" o "salsa" => solo 1 instancia en el último cuadrante 4..1
+	# ✅ Caso B: quitar "carne", "verdura" o "salsa" => solo quita el último ingrediente en el último cuadrante (4..1)
 	else:
 		for i in range(3, -1, -1):
 			if ingrediente_actual in cuadrantes[i]:
-				# Buscar manualmente el último índice (no existe find_last en Godot 3.x)
+				# Buscar el último índice donde está el ingrediente
 				var idx = -1
 				for j in range(cuadrantes[i].size() - 1, -1, -1):
 					if cuadrantes[i][j] == ingrediente_actual:
@@ -240,18 +257,28 @@ func _on_remove_ingredient():
 						break
 
 				if idx != -1:
+					# ✅ Eliminar ingrediente del cuadrante
 					cuadrantes[i].remove_at(idx)
 					if ingredientes[ingrediente_actual][i] != null:
 						ingredientes[ingrediente_actual][i].visible = false
 
+					# ✅ Sumar el ingrediente al inventario
 					match ingrediente_actual:
-						"carne":   count_carne -= 1
-						"verdura": count_verdura -= 1
-						"salsa":   count_salsa -= 1
-				break
+						"carne":
+							count_carne -= 1
+							Inventory.carne_total += 1
+						"verdura":
+							count_verdura -= 1
+							Inventory.verdura_total += 1
+						"salsa":
+							count_salsa -= 1
+							Inventory.salsa_total += 1
+					break
 
+	# ✅ Actualizar los contadores y la UI
 	update_label()
-	# _print_cuadrantes_state() # Opcional para debug
+	SuppliesUi.update_labels()
+
 
 #
 # ------------------ FUNCIONES INICIALES -------------------

@@ -89,6 +89,22 @@ func restar_suministro(categoria: String, tipo: String, cantidad: float) -> void
 	buy_cost -= PRECIOS.get(key, 0)  # Reduce el costo acumulado
 	SuppliesUi.actualizar_buy_cost()
 
+# ✅ Método para restar ingredientes globalmente
+func restar_ingrediente(tipo):
+	match tipo:
+		"tortilla":
+			if tortillas_total > 0:
+				tortillas_total -= 1
+		"carne":
+			if carne_total > 0:
+				carne_total -= 1
+		"verdura":
+			if verdura_total > 0:
+				verdura_total -= 1
+		"salsa":
+			if salsa_total > 0:
+				salsa_total -= 1
+
 # Funciones para SUMAR suministros
 func add_tortillas(categoria: String, cantidad: int) -> void:
 	tortillas_total+= 0
