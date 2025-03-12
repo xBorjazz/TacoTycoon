@@ -119,7 +119,7 @@ func actualizar_inventario_total() -> void:
 	cebolla_total_label.text = str(Inventory.cebolla_total)
 	salsa_total_label.text = str(Inventory.salsa_total)
 	
-	Inventory.tacos_vendidos+= 1
+	#Inventory.tacos_vendidos+= 1
 
 # Función para actualizar el costo acumulado de las compras
 func actualizar_buy_cost() -> void:

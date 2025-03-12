@@ -1,4 +1,4 @@
-[gd_scene load_steps=430 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=435 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -17,9 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://b8847bc164qi2" path="res://Assets/LargeTortillas.png" id="15_pwgla"]
 [ext_resource type="FontVariation" uid="uid://csp5ficb0unl2" path="res://Resources/TextMoney.tres" id="16_conpe"]
 [ext_resource type="Texture2D" uid="uid://dv7jnttqsk8sw" path="res://Assets/trompo.png" id="17_0wurc"]
+[ext_resource type="Texture2D" uid="uid://fc7sbmgwf3s0" path="res://Assets/meat-sprite-definitive.png" id="17_48aa1"]
 [ext_resource type="Texture2D" uid="uid://dg0wv00gdcar2" path="res://Assets/cilantrosmall.png" id="18_kip41"]
+[ext_resource type="Texture2D" uid="uid://sksf3aq45otq" path="res://Assets/verdura-sprite-new__5-removebg-preview.png" id="18_s3qro"]
 [ext_resource type="Texture2D" uid="uid://c0n2oj2u2bmeo" path="res://Assets/cebolla.png" id="19_tv5cw"]
-[ext_resource type="Texture2D" uid="uid://cay4c8ds4at1d" path="res://Assets/salsa.png" id="20_a2q5j"]
+[ext_resource type="Texture2D" uid="uid://ckpxwgvs6h35u" path="res://Assets/salsita-niu.png" id="20_m2c32"]
 [ext_resource type="Texture2D" uid="uid://cjjk5ladro4dq" path="res://Assets/Money.png" id="21_5h3av"]
 [ext_resource type="PackedScene" uid="uid://cv64fr625jf3e" path="res://Scenes/path_2d.tscn" id="22_mf7wt"]
 [ext_resource type="Texture2D" uid="uid://bctyeri1pfh35" path="res://Assets/speedupbtn.png" id="23_cwcbn"]
@@ -47,10 +49,11 @@
 [ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="45_hgn1x"]
 [ext_resource type="Texture2D" uid="uid://bv1bakvcufx4m" path="res://Assets/buybutton.png" id="46_e1r2r"]
 [ext_resource type="Texture2D" uid="uid://ddktanm4xnhcx" path="res://Assets/librreet.png" id="47_bc2ls"]
+[ext_resource type="Texture2D" uid="uid://353yfwyrmkno" path="res://Assets/tortilla-pile-sprite-definitve.png" id="48_68yrn"]
 [ext_resource type="Script" path="res://Scripts/Panel5Buttons.gd" id="48_e3scy"]
-[ext_resource type="Texture2D" uid="uid://7djfw7oxecuf" path="res://Assets/crn.png" id="49_0a4bf"]
-[ext_resource type="Texture2D" uid="uid://l048vmeo6aki" path="res://Assets/Cilantro.png" id="50_3e6um"]
+[ext_resource type="Texture2D" uid="uid://bqg0tvpkemnd5" path="res://Assets/meat-sprite-definitive-big3.png" id="50_rlj2f"]
 [ext_resource type="Texture2D" uid="uid://bxob6vvxy74ck" path="res://Assets/onion.png" id="51_1viyi"]
+[ext_resource type="Texture2D" uid="uid://b34wutfkcuwfq" path="res://Assets/verdura-sprite-new__1.png" id="51_6f7ub"]
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="52_5boi0"]
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="53_sxxkg"]
 [ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="54_4keov"]
@@ -78,6 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://ddw01nwi5fpar" path="res://Assets/www-btn.png" id="73_nrsre"]
 [ext_resource type="AudioStream" uid="uid://1m4tbdxml6ev" path="res://Resources/Sounds/SoundTrack/PixelDreams.mp3" id="74_8yq50"]
 [ext_resource type="Texture2D" uid="uid://dtjinymcmhsk7" path="res://Assets/taco-meat5.png" id="74_dpb65"]
+[ext_resource type="Texture2D" uid="uid://b3mqarnb1v303" path="res://Assets/bisteck-sprite.png" id="74_hgmb6"]
 [ext_resource type="Texture2D" uid="uid://ddy24y23mhffm" path="res://Assets/verdura-taco.png" id="74_qg2hb"]
 [ext_resource type="Texture2D" uid="uid://cc6qveu1x8j0v" path="res://Assets/taco-meat6.png" id="75_rg7ti"]
 [ext_resource type="Texture2D" uid="uid://b27iaudrqabwb" path="res://Assets/map-btn.png" id="75_v8tqf"]
@@ -102,6 +106,7 @@
 [ext_resource type="Texture2D" uid="uid://bsikyg2ykx0xk" path="res://Assets/Buttons/continue-btn.png" id="90_vl137"]
 [ext_resource type="Texture2D" uid="uid://cxntm58gbvkah" path="res://Assets/Buttons/continue-btn-disabled.png" id="91_yxpb8"]
 [ext_resource type="Texture2D" uid="uid://cslotwa6nj7i3" path="res://Character/globe-text.png" id="92_43w22"]
+[ext_resource type="Texture2D" uid="uid://cpqqyoatjnx15" path="res://Assets/taco-coins.png" id="107_gqn40"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -2748,7 +2753,7 @@ offset_bottom = 40.0
 [node name="Panel7" type="Panel" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
 offset_top = -6.0
-offset_right = 50.0
+offset_right = 48.0
 offset_bottom = 32.0
 scale = Vector2(0.717632, 0.14273)
 
@@ -2759,13 +2764,14 @@ offset_top = -5.87399
 offset_right = 2725.99
 offset_bottom = 541.126
 scale = Vector2(0.00981195, 0.00981195)
+theme_override_constants/separation = 70
 
 [node name="Tortillas" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Tortillas"]
 layout_mode = 2
-texture = ExtResource("15_pwgla")
+texture = ExtResource("72_m4g5g")
 
 [node name="TortillasTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Tortillas" groups=["SuppliesNodes"]]
 layout_mode = 2
@@ -2780,7 +2786,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Carne"]
 layout_mode = 2
-texture = ExtResource("17_0wurc")
+texture = ExtResource("17_48aa1")
 
 [node name="CarneTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Carne" groups=["SuppliesNodes"]]
 layout_mode = 2
@@ -2794,7 +2800,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Verdura"]
 layout_mode = 2
-texture = ExtResource("18_kip41")
+texture = ExtResource("18_s3qro")
 
 [node name="VerduraTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Verdura" groups=["SuppliesNodes"]]
 layout_mode = 2
@@ -2804,6 +2810,7 @@ theme_override_font_sizes/font_size = 90
 text = "51"
 
 [node name="Cebolla" type="HBoxContainer" parent="CanvasLayer/Gameplay/Inventario"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Cebolla"]
@@ -2822,7 +2829,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameplay/Inventario/Salsas"]
 layout_mode = 2
-texture = ExtResource("20_a2q5j")
+texture = ExtResource("20_m2c32")
 
 [node name="SalsaTotalLabel" type="Label" parent="CanvasLayer/Gameplay/Inventario/Salsas" groups=["SuppliesNodes"]]
 layout_mode = 2
@@ -3575,8 +3582,23 @@ offset_top = 254.0
 offset_right = 229.0
 offset_bottom = 274.0
 
+[node name="Taco-coins" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(167.542, 139.544)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "+5"
+
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -3605,27 +3627,28 @@ custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_left = 37.2315
 offset_top = 115.019
-offset_right = 2644.23
+offset_right = 2750.23
 offset_bottom = 662.019
 scale = Vector2(0.0976082, 0.0976082)
-theme_override_constants/separation = 10
+theme_override_constants/separation = 140
 
 [node name="TortillasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("15_pwgla")
+texture_normal = ExtResource("48_68yrn")
 script = ExtResource("48_e3scy")
 
 [node name="CarneButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("49_0a4bf")
+texture_normal = ExtResource("50_rlj2f")
 script = ExtResource("48_e3scy")
 
 [node name="VerduraButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("50_3e6um")
+texture_normal = ExtResource("51_6f7ub")
 script = ExtResource("48_e3scy")
 
 [node name="CebollasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("51_1viyi")
 script = ExtResource("48_e3scy")
@@ -4602,6 +4625,7 @@ texture_normal = ExtResource("69_e02ne")
 script = ExtResource("55_mxn3s")
 
 [node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
@@ -4631,12 +4655,11 @@ toggle_mode = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
 layout_mode = 0
-offset_left = 5.46313
-offset_top = 4.60938
-offset_right = 558.463
-offset_bottom = 573.609
+offset_top = 6.12424
+offset_right = 677.0
+offset_bottom = 575.124
 scale = Vector2(0.0574725, 0.0545739)
-texture = ExtResource("15_pwgla")
+texture = ExtResource("72_m4g5g")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton"]
 layout_mode = 0
@@ -4695,12 +4718,12 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
 layout_mode = 0
-offset_left = 5.46313
-offset_top = 4.60938
-offset_right = 558.463
-offset_bottom = 573.609
+offset_left = -1.13816
+offset_top = 6.72195
+offset_right = 675.862
+offset_bottom = 530.722
 scale = Vector2(0.0574725, 0.0545739)
-texture = ExtResource("49_0a4bf")
+texture = ExtResource("74_hgmb6")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton"]
 layout_mode = 0
@@ -4759,12 +4782,12 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
 layout_mode = 0
-offset_left = 5.46313
-offset_top = 4.60938
-offset_right = 558.463
-offset_bottom = 573.609
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 581.0
+offset_bottom = 404.0
 scale = Vector2(0.0574725, 0.0545739)
-texture = ExtResource("50_3e6um")
+texture = ExtResource("51_6f7ub")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton"]
 layout_mode = 0
@@ -4828,7 +4851,7 @@ offset_top = 4.60938
 offset_right = 558.463
 offset_bottom = 573.609
 scale = Vector2(0.0574725, 0.0545739)
-texture = ExtResource("67_6l18i")
+texture = ExtResource("20_m2c32")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton"]
 layout_mode = 0
@@ -5919,6 +5942,23 @@ theme_override_font_sizes/font_size = 23
 text = "Hola! Te Doy la Bienvenida 
 a Cucei Taco Tycoon"
 autowrap_mode = 3
+
+[node name="Taco-coins" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(512, 45)
+scale = Vector2(0.178114, 0.178114)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/Taco-coins"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "0
+"
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]

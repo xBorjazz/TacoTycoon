@@ -55,6 +55,9 @@ func limpiar_taco(pedido_cliente: String):
 			if ingredientes.has(ingrediente) and ingredientes[ingrediente][idx] != null:
 				ingredientes[ingrediente][idx].visible = false
 		cuadrantes[idx].clear()
+		# ✅ Incrementar el contador de tacos vendidos en Inventory
+		Inventory.tacos_vendidos += 1
+		print("🌮 Taco vendido! Total tacos vendidos:", Inventory.tacos_vendidos)
 		update_label()
 		_print_cuadrantes_state()  # Opcional: imprimir luego de limpiar
 

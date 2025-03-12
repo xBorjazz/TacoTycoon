@@ -6,7 +6,7 @@ var carne_total = 0
 var verdura_total = 0
 var cebolla_total = 0
 var salsa_total = 0
-var tacos_vendidos = -1
+var tacos_vendidos = 0
 
 var costo_taco = 10
 var buy_cost = 0.0  # Costo acumulado de las compras
@@ -46,9 +46,9 @@ const PRECIOS = {
 	"cebollas_normal": 10.00,
 	"cebollas_medium": 30.00,
 	"cebollas_large": 50.00,
-	"salsa_normal": 50.00,
-	"salsa_medium": 35.00,
-	"salsa_large": 75.00,
+	"salsa_normal": 15.00,
+	"salsa_medium": 20.00,
+	"salsa_large": 25.00,
 	"verdura_normal": 5.00,
 	"verdura_medium": 30.00,
 	"verdura_large": 60.00
