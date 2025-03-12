@@ -154,6 +154,8 @@ func update_label():
 # ==================== _on_add_ingredient() ====================
 #
 func _on_add_ingredient():
+	print(">>> _on_add_ingredient REAL CALL")
+	print(">>> _on_add_ingredient llamado en instancia ID:", get_instance_id())
 	print("➕ Agregando ingrediente:", ingrediente_actual)
 	
 	# 1) Verificamos límite global de 4 para cada ingrediente
@@ -201,7 +203,7 @@ func _on_add_ingredient():
 					break
 
 	update_label()
-	# _print_cuadrantes_state() # Opcional para debug
+	_print_cuadrantes_state() # Opcional para debug
 
 
 #
@@ -287,6 +289,6 @@ func obtener_ingredientes():
 				ingredientes[tipo] = [null, null, null, null]
 			ingredientes[tipo][indice] = node
 
-func restart_ready():
-	print("🔁 Reiniciando parrilla...")
-	reset_parrilla()
+#func restart_ready():
+	#print("🔁 Reiniciando parrilla...")
+	#reset_parrilla()

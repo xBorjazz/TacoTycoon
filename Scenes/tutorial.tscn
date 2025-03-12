@@ -1,4 +1,4 @@
-[gd_scene load_steps=431 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=430 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -71,7 +71,6 @@
 [ext_resource type="Texture2D" uid="uid://5elwqfxr11lx" path="res://Assets/sellbutton.png" id="69_e02ne"]
 [ext_resource type="Script" path="res://Scripts/ButtonDisplay.gd" id="70_qgehr"]
 [ext_resource type="Texture2D" uid="uid://bq387h60bs5l0" path="res://Assets/preparation-grill.png" id="71_fy81s"]
-[ext_resource type="Script" path="res://Scripts/GrillManager.gd" id="71_ngaqr"]
 [ext_resource type="Texture2D" uid="uid://c3n0mhs6cuyls" path="res://Assets/Upgrades/soda-machine3.png" id="71_ua33g"]
 [ext_resource type="Script" path="res://Scripts/SQLController.gd" id="72_c21ot"]
 [ext_resource type="Texture2D" uid="uid://caydxmg24roeu" path="res://Assets/tortilla-sprite.png" id="72_m4g5g"]
@@ -2693,7 +2692,6 @@ scale = Vector2(0.0115671, 0.0135619)
 texture = ExtResource("11_0vjkf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
-visible = false
 position = Vector2(12.1111, 33.2387)
 scale = Vector2(0.0300442, 0.0403583)
 polygon = PackedVector2Array(-25.9059, 107.998, 49.2216, 117.641, 131.391, 116.622, 156.659, 43.2629, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
@@ -2867,6 +2865,7 @@ text = "1000"
 [node name="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
 
 [node name="Path2D2" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
+visible = false
 position = Vector2(35.6898, 23.7578)
 curve = SubResource("Curve2D_cets1")
 
@@ -2874,6 +2873,7 @@ curve = SubResource("Curve2D_cets1")
 position = Vector2(4.80694, 8.95538)
 
 [node name="Path2D3" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
+visible = false
 position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
@@ -5112,7 +5112,6 @@ text = "0"
 position = Vector2(158.234, 235.111)
 scale = Vector2(0.631337, 0.631337)
 texture = ExtResource("71_fy81s")
-script = ExtResource("71_ngaqr")
 
 [node name="Tortilla-Container" type="Node2D" parent="CanvasLayer/PanelContainer/Panel6"]
 position = Vector2(158.234, 235.111)
@@ -5979,8 +5978,6 @@ autowrap_mode = 3
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6" to="CanvasLayer/HBoxContainer/PanelContainer/Button" method="_on_button_6_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/MinusButton" method="_on_RestarTortillasButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" to="CanvasLayer/PanelContainer/Panel6/CebollaContainer/Button6/HBoxContainer5/PlusButton" method="_on_ComprarTortillasButton_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/AddButton" to="CanvasLayer/PanelContainer/Panel6/AddButton" method="_on_add_ingredient"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel6/RemoveButton" to="CanvasLayer/PanelContainer/Panel6/RemoveButton" method="_on_remove_ingredient"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel7/BuySodaMachineButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_soda_machine_button_pressed"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Crear Tabla" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_crear_tabla_button_down"]
 [connection signal="button_down" from="CanvasLayer/PanelContainer/Panel8/Insertar Datos" to="CanvasLayer/PanelContainer/Panel8/SQLControl" method="_on_insertar_datos_button_down"]

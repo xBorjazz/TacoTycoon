@@ -66,7 +66,7 @@ func start_moving():
 	set_process(true)
 	visible = true
 	if animated_sprite:
-		animated_sprite.play("walk_right")
+		animated_sprite.play("walk_left_down")
 
 func stop_moving():
 	speed = 0
@@ -109,12 +109,34 @@ func buying_anim():
 			sale_made.emit()
 			has_bought = true
 			_resume_movement()
+	
+	#var timer = Timer.new()
+	#timer.wait_time = 2.0
+	#timer.one_shot = true
+	#timer.connect("timeout", Callable(self, "_on_buying_complete"))
+	#add_child(timer)
+	#timer.start()
+	_on_buying_complete()
+			
+func _on_buying_complete() -> void:
+	Inventory.player_money += Inventory.costo_taco
+	print("Dinero del jugador ahora es: ", Inventory.player_money)
+	SuppliesUi.actualizar_labels_dinero() 
+	verify_sound()
+	has_bought = true
+	GlobalProgressBar.update_progress(25) #Actualiza 2.5% de avance en el juego
+	#Recipe.aplicar_receta()
+	_resume_movement()
 
 func _on_sale_made(character):
 	if not has_bought:
 		print("✅ Venta confirmada.")
 		has_bought = true
 		_resume_movement()
+
+func verify_sound() -> void:
+	if sound_player:
+		sound_player.play()
 
 func _resume_movement():
 	speed = 0.2

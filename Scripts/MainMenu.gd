@@ -34,7 +34,7 @@ func _on_game_start_pressed():
 	get_tree().current_scene.queue_free()  # Elimina la escena actual
 	get_tree().root.add_child(new_scene)
 	SuppliesUi.restart_ready()
-	Spawner.restart_ready()
+	#Spawner.restart_ready()
 	PathFollow2d.restart_ready()
 	Recipe.restart_ready()
 	GradientDescent.restart_ready()
@@ -58,7 +58,7 @@ func _on_tutorial_pressed() -> void:
 	get_tree().current_scene.queue_free()  # Elimina la escena actual
 	get_tree().root.add_child(tutorial_scene)
 	SuppliesUi.restart_ready()
-	Spawner.restart_ready()
+	#Spawner.restart_ready()
 	PathFollow2d.restart_ready()
 	Recipe.restart_ready()
 	GradientDescent.restart_ready()
@@ -69,7 +69,7 @@ func _on_tutorial_pressed() -> void:
 	#MultiplayerButton.restart_ready()
 	LevelManager.restart_ready()
 	GlobalProgressBar.restart_ready()
-	GrillManager.restart_ready()
+	#GrillManager.restart_ready()
 	#Tutorial.restart_ready()
 
 	

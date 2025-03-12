@@ -71,6 +71,6 @@ func _on_sale_made(character):
 		print("✅ Venta completada. Taco eliminado, continuando movimiento.")
 		character.fade_out_anim()
 
-func restart_ready():
-	print("Reejecutando _ready() con call_deferred()")
-	call_deferred("_ready")
+#func restart_ready():
+	#print("Reejecutando _ready() con call_deferred()")
+	#call_deferred("_ready")
