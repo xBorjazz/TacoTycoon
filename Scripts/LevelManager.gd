@@ -5,7 +5,15 @@ extends Node
 @onready var right_arrow = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/RightArrow")
 @onready var progress_bar = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel/ProgressBar")
 
-var levels = ["res://Scenes/node_2d.tscn", "res://Scenes/level_2.tscn", "res://Scenes/betas_level.tscn"]
+@onready var chedraui_sprite = get_node("/root/Node2D/CanvasLayer/Gameplay/Chedraui")
+@onready var matute_sprite = get_node("/root/Node2D/CanvasLayer/Gameplay/Matute")
+@onready var beta_sprite = get_node("/root/Node2D/CanvasLayer/Gameplay/Beta")
+@onready var globo_sprite = get_node("/root/Node2D/CanvasLayer/Gameplay/Globo")
+
+var progress = 0  # Progreso independiente del dinero
+
+var levels = ["res://Scenes/node_2d.tscn", "res://Scenes/nivel2.tscn", "res://Scenes/betas_level.tscn"]
+#var active_level = ["res://Scenes/node_2d.tscn", "res://Scenes/nivel2.tscn", "res://Scenes/betas_level.tscn"]
 var current_level = 0  # Nivel inicial
 
 var level_buttons = []
@@ -77,13 +85,32 @@ func _on_right_arrow_pressed():
 	update_level_buttons_visibility()
 
 func _on_chedraui_button_pressed():
-	get_tree().change_scene_to_file(levels[0])
+	#get_tree().change_scene_to_file(levels[0])
+	chedraui_sprite.visible = false
+	globo_sprite.visible = true
+	current_level += 1
+	reset_progress()
+	GlobalProgressBar.total_money_earned = 0
 
 func _on_matute_button_pressed():
-	get_tree().change_scene_to_file(levels[1])
+	#get_tree().change_scene_to_file(levels[1])
+	chedraui_sprite.visible = false
+	matute_sprite.visible = true
+	current_level += 1
+	reset_progress()
+	GlobalProgressBar.total_money_earned = 0
 
 func _on_betas_button_pressed():
-	get_tree().change_scene_to_file(levels[2])  # Cambiar al tercer nivel
+	#get_tree().change_scene_to_file(levels[2])  # Cambiar al tercer nivel
+	chedraui_sprite.visible = false
+	beta_sprite.visible = true
+	current_level += 1
+	reset_progress()
+	GlobalProgressBar.total_money_earned = 0
+	
+func reset_progress():
+	progress = 0
+	progress_bar.value = 0
 	
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")

@@ -17,6 +17,7 @@ func _ready():
 	search_timer.one_shot = false
 	search_timer.connect("timeout", Callable(self, "initialize_progress_bar"))
 	search_timer.start()
+	#update_progress(999) #DEBUG quitaaaar
 	print("🔄 Iniciando búsqueda de ProgressBar...")
 
 func initialize_progress_bar():
@@ -35,6 +36,7 @@ func initialize_progress_bar():
 		#print("❌ ProgressBar no encontrada, reintentando...")
 
 func update_progress(money_gained: int) -> void:
+	#total_money_earned = 999 #DEBUG: Quitar para volver a la normalidad
 	total_money_earned += money_gained
 	Inventory.player_money += money_gained  # Actualiza el dinero del jugador
 

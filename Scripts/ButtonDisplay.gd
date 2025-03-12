@@ -57,14 +57,10 @@ Siguiente Nivel:")
 Compra los ingredientes necesarios
 para preparar tu taquiza")
 		6:
-			_show_panel(message_panel6, message_label6, "Receta
+			_show_panel(message_panel6, message_label6, "Parrilla
 
-Elige la cantidad de ingredientes
-que compone un sólo taco
-
-1: Poco
-2: Mediano
-3: Mucho")
+Realiza la preparación de tus
+tacos con estos ingredientes")
 		7:
 			_show_panel(message_panel7, message_label7, "Mejoras
 

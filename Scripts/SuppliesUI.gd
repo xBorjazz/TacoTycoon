@@ -31,6 +31,13 @@ extends Node2D
 @onready var gradient_node = get_node("/root/GradientDescent")
 @onready var graph_plot = ("/root/Node2D/CanvasLayer/PanelContainer/Panel2/IngredientsManager")
 
+# ✅ Método para actualizar las etiquetas del inventario
+func update_labels():
+	tortillas_total_label.text = str(Inventory.tortillas_total)
+	carne_total_label.text = str(Inventory.carne_total)
+	verdura_total_label.text = str(Inventory.verdura_total)
+	salsa_total_label.text = str(Inventory.salsa_total)
+
 # Función para actualizar todos los Labels
 func actualizar_labels() -> void:
 	actualizar_label_tortillas("normal")
@@ -112,7 +119,7 @@ func actualizar_inventario_total() -> void:
 	cebolla_total_label.text = str(Inventory.cebolla_total)
 	salsa_total_label.text = str(Inventory.salsa_total)
 	
-	Inventory.tacos_vendidos+= 1
+	#Inventory.tacos_vendidos+= 1
 
 # Función para actualizar el costo acumulado de las compras
 func actualizar_buy_cost() -> void:

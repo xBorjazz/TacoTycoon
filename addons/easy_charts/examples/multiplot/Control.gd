@@ -11,16 +11,13 @@ var f4: Function   # Predicción basada en la receta
 # Variable para controlar el tiempo (eje X)
 var tiempo_acumulado: float = 0.0
 
-# Referencia al nodo de la Receta
-@onready var recipe_node = get_node("/root/Node2D/CanvasLayer/Gameplay/RecipeControl")
-
 func _ready():
 	# Inicializamos arrays con un valor "ficticio" para evitar que estén vacíos
-	var x_init: Array = [0.0]
-	var y1_init: Array = [0.0]   # Dinero
-	var y2_init: Array = [0.0]   # Pérdidas
-	var y3_init: Array = [0.0]   # Ventas
-	var y4_init: Array = [0.0]   # Predicción Receta
+	var x_init: Array = [0.0, 1.0]
+	var y1_init: Array = [0.0, 0.0]   # Dinero
+	var y2_init: Array = [0.0, 0.0]   # Pérdidas
+	var y3_init: Array = [0.0, 0.0]   # Ventas
+	var y4_init: Array = [0.0, 0.0]   # Predicción Receta
 
 	# Configuración de ChartProperties
 	var cp: ChartProperties = ChartProperties.new()
@@ -61,68 +58,78 @@ func _ready():
 	# Ploteamos las 4 funciones
 	chart.plot([f1, f2, f3, f4], cp)
 
-	# Desactivamos _process() si no queremos actualizar en cada frame
+	# ✅ Desactivamos _process para evitar que se ejecute en cada frame
 	set_process(false)
 
-	# Conectar la señal "sale_made" (o "day_started", etc.)
-	var spawner_node = get_node("/root/Node2D/CanvasLayer/Gameplay/CharacterSpawner")
-	spawner_node.connect("sale_made", Callable(self, "_on_SaleMade"))
+	# ✅ Conectar señales con GrillManager (ya que es Autoload)
+	if GrillManager:
+		if not GrillManager.sale_made.is_connected(_on_SaleMade):
+			GrillManager.sale_made.connect(_on_SaleMade)
 
+	# ✅ Conectar también Spawner (si lo necesitas para la lógica de ventas)
+	if Spawner:
+		if not Spawner.sale_made.is_connected(_on_SaleMade):
+			Spawner.sale_made.connect(_on_SaleMade)
+
+# ✅ Cada vez que se realiza una venta, actualizamos la gráfica
 func _on_SaleMade():
-	# Cada vez que se realice una venta, actualizamos la gráfica
 	update_chart()
 
+# ✅ Actualiza la gráfica después de cada venta
 func update_chart():
-	# Actualizamos el tiempo en segundos
 	tiempo_acumulado = Time.get_ticks_msec() / 1000.0
 
 	# Datos globales
 	var dinero: float = GlobalProgressBar.total_money_earned
 	var tacos: float = Inventory.tacos_vendidos
 
-	# Predicción (placeholder) en base al tiempo
+	# Predicción en base al tiempo
 	var prediccion: float = predict_gain(tiempo_acumulado)
+
 	# Pérdidas si predicción > dinero
 	var perdidas: float = (prediccion - dinero) if prediccion > dinero else 0.0
 
-	# Nueva predicción basada en los ingredientes de la receta
+	# Nueva predicción basada en los ingredientes de la parrilla
 	var receta_pred: float = predict_by_ingredients()
 
-	# Añadimos un punto a cada serie
+	# ✅ Añadimos un punto a cada serie
 	f1.add_point(tiempo_acumulado, dinero)
 	f2.add_point(tiempo_acumulado, perdidas)
 	f3.add_point(tiempo_acumulado, tacos)
 	f4.add_point(tiempo_acumulado, receta_pred)
 
-	# Redibujamos la gráfica
+	# ✅ Limitar a 100 puntos para evitar saturación
+	if f1.__x.size() > 100:
+		f1.remove_point(0)
+		f2.remove_point(0)
+		f3.remove_point(0)
+		f4.remove_point(0)
+
+	# ✅ Redibujamos la gráfica
 	chart.queue_redraw()
 
-# Función de predicción (placeholder) basado en x
+# ✅ Predicción basada en el tiempo transcurrido
 func predict_gain(x: float) -> float:
 	return 5.0 * x + 10.0
 
-# Predicción en base a la receta (5 ingredientes)
+# ✅ Predicción basada en los ingredientes de la parrilla
 func predict_by_ingredients() -> float:
-	# Obtenemos los valores de la Receta
-	var tortillas = int(recipe_node.tortillas_label.text)
-	var carne     = int(recipe_node.carne_label.text)
-	var cebolla   = int(recipe_node.cebolla_label.text)
-	var verdura   = int(recipe_node.verdura_label.text)
-	var salsa     = int(recipe_node.salsa_label.text)
+	# Obtenemos los valores desde el GrillManager (autoload)
+	var tortillas = GrillManager.count_tortilla
+	var carne     = GrillManager.count_carne
+	var verdura   = GrillManager.count_verdura
+	var salsa     = GrillManager.count_salsa
 
 	# Pesos de ejemplo
-	var w1 = 5.0
-	var w2 = 7.0
-	var w3 = 3.0
-	var w4 = 3.0
-	var w5 = 7.0
-	var b  = 10.0
+	var w1 = 5.0   # Peso para tortillas
+	var w2 = 7.0   # Peso para carne
+	var w4 = 3.0   # Peso para verdura
+	var w5 = 7.0   # Peso para salsa
+	var b  = 10.0  # Sesgo
 
-	# Fórmula: w1*tortillas + w2*carne + w3*cebolla + w4*verdura + w5*salsa + b
-	return (w1 * tortillas) + (w2 * carne) + (w3 * cebolla) + (w4 * verdura) + (w5 * salsa) + b
+	# Fórmula: w1*tortillas + w2*carne + w4*verdura + w5*salsa + b
+	return (w1 * tortillas) + (w2 * carne) + (w4 * verdura) + (w5 * salsa) + b
 
-func _process(delta: float):
-	pass
-
+# ✅ Activa o desactiva la gráfica con el botón
 func _on_CheckButton_pressed():
 	set_process(not is_processing())

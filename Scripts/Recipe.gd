@@ -28,17 +28,7 @@ const CATEGORIAS = {0: "nada", 1: "normal", 2: "medium", 3: "large"}
 
 # Actualiza los valores de la receta con base en los sliders
 func _ready():
-	# Conectamos los sliders a las funciones para actualizar las cantidades
-	tortillas_slider.connect("value_changed", Callable(self, "_on_tortillas_slider_value_changed"))
-	carne_slider.connect("value_changed", Callable(self, "_on_carne_slider_value_changed"))
-	cebolla_slider.connect("value_changed", Callable(self, "_on_cebolla_slider_value_changed"))
-	verdura_slider.connect("value_changed", Callable(self, "_on_verdura_slider_value_changed"))
-	salsa_slider.connect("value_changed", Callable(self, "_on_salsa_slider_value_changed"))
-
-	# Inicializar con valores por defecto
-	_actualizar_labels()
-	
-	print_tree_pretty()
+	pass
 
 # Funciones para manejar cambios en los sliders
 func _on_tortillas_slider_value_changed(value):

@@ -6,7 +6,7 @@ var carne_total = 0
 var verdura_total = 0
 var cebolla_total = 0
 var salsa_total = 0
-var tacos_vendidos = -1
+var tacos_vendidos = 0
 
 var costo_taco = 10
 var buy_cost = 0.0  # Costo acumulado de las compras
@@ -46,9 +46,9 @@ const PRECIOS = {
 	"cebollas_normal": 10.00,
 	"cebollas_medium": 30.00,
 	"cebollas_large": 50.00,
-	"salsa_normal": 50.00,
-	"salsa_medium": 35.00,
-	"salsa_large": 75.00,
+	"salsa_normal": 15.00,
+	"salsa_medium": 20.00,
+	"salsa_large": 25.00,
 	"verdura_normal": 5.00,
 	"verdura_medium": 30.00,
 	"verdura_large": 60.00
@@ -88,6 +88,22 @@ func restar_suministro(categoria: String, tipo: String, cantidad: float) -> void
 	var key = tipo + "_" + categoria
 	buy_cost -= PRECIOS.get(key, 0)  # Reduce el costo acumulado
 	SuppliesUi.actualizar_buy_cost()
+
+# ✅ Método para restar ingredientes globalmente
+func restar_ingrediente(tipo):
+	match tipo:
+		"tortilla":
+			if tortillas_total > 0:
+				tortillas_total -= 1
+		"carne":
+			if carne_total > 0:
+				carne_total -= 1
+		"verdura":
+			if verdura_total > 0:
+				verdura_total -= 1
+		"salsa":
+			if salsa_total > 0:
+				salsa_total -= 1
 
 # Funciones para SUMAR suministros
 func add_tortillas(categoria: String, cantidad: int) -> void:
