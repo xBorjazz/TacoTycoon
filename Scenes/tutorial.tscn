@@ -3600,6 +3600,7 @@ theme_override_font_sizes/font_size = 90
 text = "+5"
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -4626,7 +4627,6 @@ texture_normal = ExtResource("69_e02ne")
 script = ExtResource("55_mxn3s")
 
 [node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
@@ -5831,40 +5831,39 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
-visible = false
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)
 texture = ExtResource("87_ej7dq")
 
-[node name="Arrow" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow1Ingredients" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(357, 857)
 scale = Vector2(1.38935, 1.4458)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow2" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow2TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(218, 931)
 scale = Vector2(0.79562, 0.827947)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow3" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow3Carne" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(54, 755)
 scale = Vector2(0.702322, 0.730858)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow4" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow4CarneAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(215, 862)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow5" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow5Buy" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(152, 994)
 rotation = 0.261791
@@ -5872,7 +5871,7 @@ scale = Vector2(0.677791, 0.705331)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow6" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow6Grill" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(307, 837)
 rotation = 0.261791
@@ -5880,23 +5879,25 @@ scale = Vector2(0.677791, 0.705331)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow7" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow7TortillaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
-position = Vector2(401, 739)
-rotation = 0.261791
-scale = Vector2(0.904877, 0.941643)
+position = Vector2(158, 726)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
+flip_h = true
 
-[node name="Arrow8" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow8TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
-position = Vector2(293, 742)
-rotation = 0.261791
-scale = Vector2(0.904877, 0.941643)
+position = Vector2(379, 986)
+rotation = -0.0221885
+scale = Vector2(0.539274, 0.561185)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
+flip_h = true
 
-[node name="Arrow9" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="ArrowLevels" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(297, 620)
 rotation = 0.261791
@@ -5908,6 +5909,14 @@ autoplay = "default"
 visible = false
 position = Vector2(251, 144)
 scale = Vector2(0.856224, 0.891013)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="ArrowGrillTortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(379, 987)
+scale = Vector2(0.549186, 0.5715)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
