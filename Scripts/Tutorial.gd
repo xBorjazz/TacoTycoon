@@ -1,7 +1,7 @@
 extends Node2D
 
 var step = 0
-var typing_speed = 0.04
+var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false
 
@@ -23,6 +23,7 @@ var arrow8_tortilla_add_ref
 var arrow_levels_ref
 var arrow_money_ref
 var arrow_grill_tortilla_add_ref
+var arrow_start_ref
 
 var add_press_count = 0
 
@@ -42,7 +43,7 @@ var dialogues = [
 	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",                      #Step 7
 	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",  #Step 8
 	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.		 ",  #Step 9
-	"Es hora de iniciar!",  																 #Step 10
+	"Es hora de iniciar la venta de tacos!",  																 #Step 10
 	"Puedes invertir tus ganancias en distintas mejoras para tu establecimiento.",           #Step 11
 	"Además de completar tareas que aumentarán la puntuación de tu taquería.",               #Step 12
 	"Una vez hayas avanzado lo suficiente, podrás expandir tu negocio a nuevas zonas.",      #Step 13
@@ -86,6 +87,7 @@ func assign_tutorial_nodes():
 			"ArrowLevels":            arrow_levels_ref = weakref(node)
 			"ArrowMoney":             arrow_money_ref = weakref(node)
 			"ArrowGrillTortillaAdd":  arrow_grill_tortilla_add_ref = weakref(node)
+			"ArrowSTART":  			  arrow_start_ref = weakref(node)
 
 	# Ocultar todas las flechas
 	if arrow1_ingredients_ref:      arrow1_ingredients_ref.get_ref().visible = false
@@ -99,6 +101,7 @@ func assign_tutorial_nodes():
 	if arrow_levels_ref:            arrow_levels_ref.get_ref().visible = false
 	if arrow_money_ref:             arrow_money_ref.get_ref().visible = false
 	if arrow_grill_tortilla_add_ref: arrow_grill_tortilla_add_ref.get_ref().visible = false
+	if arrow_start_ref: 			arrow_start_ref.get_ref().visible = false
 
 func show_dialogue(index):
 	var tutorial_text = tutorial_text_ref.get_ref()
@@ -143,18 +146,25 @@ func show_dialogue(index):
 		# Pasos especiales
 		if step == 5:
 			start_step_5()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 6:
 			start_step_6()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 7:
 			start_step_7()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 8:
 			start_step_8()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 9:
 			start_step_9()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 10:
 			start_step_10()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 11:
 			start_step_11()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		else:
 			waiting_for_action = false
 			if continue_button:
@@ -167,6 +177,8 @@ func _on_ContinueButton_pressed():
 	var continue_button = continue_button_ref.get_ref()
 	if continue_button:
 		continue_button.disabled = true
+		
+
 
 	step += 1
 	if step < dialogues.size():
@@ -328,7 +340,7 @@ func _on_TortillaButton_pressed():
 
 	# Inicializamos el contador de tortillas presionadas
 	add_press_count = 0
-		# AÑADIR estas líneas para avanzar el tutorial
+	# AÑADIR estas líneas para avanzar el tutorial
 	waiting_for_action = false
 	action_completed = true
 	step += 1
@@ -344,13 +356,13 @@ func _on_add_button_pressed():
 		if arrow8_tortilla_add_ref:
 			arrow8_tortilla_add_ref.get_ref().visible = false
 
-		# Liberamos la espera de acción
+		# AÑADIR estas líneas para avanzar el tutorial
 		waiting_for_action = false
 		action_completed = true
-
-		# Avanzamos al siguiente step y mostramos el siguiente diálogo
 		step += 1
 		show_dialogue(step)
+
+
 
 # -------------------------------------------------------------------
 # start_step_7 -> Ejemplo: flecha7
@@ -359,6 +371,10 @@ func start_step_7():
 	print(" Aquí terminamos con grill creo ?")
 	waiting_for_action = true
 	action_completed = false
+	
+	print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
+	
+	
 	# EJEMPLO: Muestra arrow7TortillaButton
 	#if arrow7_tortilla_button_ref:
 		#arrow7_tortilla_button_ref.get_ref().visible = true
@@ -371,13 +387,14 @@ func start_step_7():
 func start_step_8():
 	waiting_for_action = true
 	action_completed = false
-	if arrow_levels_ref:
-		arrow_levels_ref.get_ref().visible = true
+	#if arrow_levels_ref:
+		#arrow_levels_ref.get_ref().visible = true
 
-	# Conectar un botón "Levels" si procede
-	var levels_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer/PanelContainer/LevelsButton")
-	if levels_button and not levels_button.is_connected("pressed", Callable(self, "_on_LevelsButton_pressed")):
-		levels_button.connect("pressed", Callable(self, "_on_LevelsButton_pressed"))
+	# AÑADIR estas líneas para avanzar el tutorial
+	waiting_for_action = false
+	action_completed = true
+	step += 1
+	show_dialogue(step)
 
 func _on_LevelsButton_pressed():
 	if arrow_levels_ref:
@@ -392,13 +409,14 @@ func _on_LevelsButton_pressed():
 # start_step_9
 # -------------------------------------------------------------------
 func start_step_9():
-	waiting_for_action = true
+	print("DEBUG: start_step_9 => step=", step)
+	waiting_for_action = false  # <-- Permitir que ContinueButton funcione
 	action_completed = false
-	# Ejemplo
-	if arrow8_tortilla_add_ref:
-		arrow8_tortilla_add_ref.get_ref().visible = true
 
-	# Conectar algo...
+	var continue_button = continue_button_ref.get_ref()
+	if continue_button:
+		continue_button.disabled = false
+
 
 # -------------------------------------------------------------------
 # start_step_10
@@ -406,9 +424,18 @@ func start_step_9():
 func start_step_10():
 	waiting_for_action = true
 	action_completed = false
-	# Ejemplo
-	if arrow_grill_tortilla_add_ref:
-		arrow_grill_tortilla_add_ref.get_ref().visible = true
+	
+	var continue_button = continue_button_ref.get_ref()
+	if continue_button:
+		continue_button.visible = false
+		
+	if arrow_start_ref:
+		arrow_start_ref.get_ref().visible = true
+		
+	start_button.visible = true
+	speech_bubble_ref.get_ref().visible = false
+	
+	
 
 # -------------------------------------------------------------------
 # start_step_11 (si lo deseas)
