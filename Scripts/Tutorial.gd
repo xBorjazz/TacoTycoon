@@ -43,11 +43,7 @@ var dialogues = [
 	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",                      #Step 7
 	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",  #Step 8
 	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.		 ",  #Step 9
-	"Es hora de iniciar la venta de tacos!",  																 #Step 10
-	"Puedes invertir tus ganancias en distintas mejoras para tu establecimiento.",           #Step 11
-	"Además de completar tareas que aumentarán la puntuación de tu taquería.",               #Step 12
-	"Una vez hayas avanzado lo suficiente, podrás expandir tu negocio a nuevas zonas.",      #Step 13
-	"Mientras más zonas desbloquees, mejor será tu reputación y serás más exitoso."          #Step 14
+	"Es hora de iniciar la venta de tacos!",  											#Step 10
 ]
 
 func _ready():
@@ -162,9 +158,6 @@ func show_dialogue(index):
 		elif step == 10:
 			start_step_10()
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
-		elif step == 11:
-			start_step_11()
-			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		else:
 			waiting_for_action = false
 			if continue_button:
@@ -178,8 +171,6 @@ func _on_ContinueButton_pressed():
 	if continue_button:
 		continue_button.disabled = true
 		
-
-
 	step += 1
 	if step < dialogues.size():
 		show_dialogue(step)
@@ -418,62 +409,117 @@ func start_step_9():
 		continue_button.disabled = false
 
 
-# -------------------------------------------------------------------
-# start_step_10
-# -------------------------------------------------------------------
 func start_step_10():
 	waiting_for_action = true
 	action_completed = false
-	
+
+	# Ocultar el botón de "Continuar"
 	var continue_button = continue_button_ref.get_ref()
 	if continue_button:
 		continue_button.visible = false
-		
+
+	# Mostrar la flecha que apunta al botón Start (si la usas)
 	if arrow_start_ref:
 		arrow_start_ref.get_ref().visible = true
-		
-	start_button.visible = true
-	speech_bubble_ref.get_ref().visible = false
-	
-	
 
-# -------------------------------------------------------------------
-# start_step_11 (si lo deseas)
-# -------------------------------------------------------------------
-func start_step_11():
-	waiting_for_action = false
-	action_completed = false
-	# Ejemplo final
+	# Ocultar el globo de diálogo
+	if speech_bubble_ref:
+		speech_bubble_ref.get_ref().visible = false
 
+	# Hacer visible el botón Start, y conectar su señal "pressed"
+	if start_button:
+		start_button.visible = true
+		# Conecta la señal solo si no está ya conectada
+		if not start_button.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
+			start_button.connect("pressed", Callable(self, "_on_StartButton_pressed"))
+
+func _on_StartButton_pressed():
+	# Cuando se presiona Start, finalizamos la parte 1 del tutorial
+	end_tutorial()
+	
 # -------------------------------------------------------------------
 # end_tutorial: No se cambia de escena, se oculta HUD
 # -------------------------------------------------------------------
 func end_tutorial():
+	print("TUTORIAL TERMINADO: Fin de la Parte 1")
+
+	# Ocultar flecha de Start, si la había
+	if arrow_start_ref:
+		arrow_start_ref.get_ref().visible = false
+
+	# Mensaje final (opcional)
 	var tutorial_text = tutorial_text_ref.get_ref()
 	if tutorial_text:
-		tutorial_text.text = "¡Felicidades! Ahora estás listo para jugar."
+		tutorial_text.text = "¡Felicidades! Parte 1 del tutorial completada."
 
+	# Esperar 2 segundos
 	await get_tree().create_timer(2).timeout
 
+	# Deshabilitar/ocultar el botón de continuar
 	var continue_button = continue_button_ref.get_ref()
 	if continue_button:
 		continue_button.disabled = true
 		continue_button.visible = false
 
-	var speech_bubble = speech_bubble_ref.get_ref()
-	if speech_bubble:
-		speech_bubble.visible = false
+	# Ocultar el globo de diálogo
+	if speech_bubble_ref:
+		speech_bubble_ref.get_ref().visible = false
 
+	# Ocultar el sprite del taco (si lo usabas)
 	var taco_tutorial_node = get_node("/root/Node2D/CanvasLayer/TacoTutorial")
 	if taco_tutorial_node:
 		taco_tutorial_node.visible = false
 
+	# También ocultar el botón Start
 	if start_button:
-		#start_button.visible = true
-		pass
-	if speed_button:
-		#speed_button.visible = true
-		pass
+		start_button.visible = false
+
+	# Llamar a la función que desconecta todas las señales
+	disconnect_tutorial_signals()
+
+	print("Parte 1 del tutorial finalizada. ¡Listo para la parte 2!")
+
+func disconnect_tutorial_signals():
+	# Desconecta todas las señales que se conectaron manualmente en este tutorial
+	print("Desconectando todas las señales del tutorial...")
+
+	var ing_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
+	if ing_button and ing_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
+		ing_button.disconnect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
+
+	var tortilla_add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton")
+	if tortilla_add_button and tortilla_add_button.is_connected("pressed", Callable(self, "_on_TortillaAddButton_pressed")):
+		tortilla_add_button.disconnect("pressed", Callable(self, "_on_TortillaAddButton_pressed"))
+
+	var carne_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton")
+	if carne_button and carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed")):
+		carne_button.disconnect("pressed", Callable(self, "_on_CarneButton_pressed"))
+
+	var plus_carne = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/PlusButton")
+	if plus_carne and plus_carne.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed")):
+		plus_carne.disconnect("pressed", Callable(self, "_on_CarneAddButton_pressed"))
+
+	var buy_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
+	if buy_button and buy_button.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
+		buy_button.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
+
+	var grill_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer6/Button6")
+	if grill_button and grill_button.is_connected("pressed", Callable(self, "_on_GrillButton_pressed")):
+		grill_button.disconnect("pressed", Callable(self, "_on_GrillButton_pressed"))
+
+	var tortilla_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
+	if tortilla_button and tortilla_button.is_connected("pressed", Callable(self, "_on_TortillaButton_pressed")):
+		tortilla_button.disconnect("pressed", Callable(self, "_on_TortillaButton_pressed"))
+
+	var add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and add_button.is_connected("pressed", Callable(self, "_on_add_button_pressed")):
+		add_button.disconnect("pressed", Callable(self, "_on_add_button_pressed"))
+
+	# Desconecta el botón Start
+	if start_button and start_button.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
+		start_button.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
+
+	print("Todas las señales del tutorial han sido desconectadas.")
 
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")
