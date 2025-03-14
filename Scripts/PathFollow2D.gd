@@ -24,6 +24,32 @@ func _ready():
 	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
 	if taco_stand_zone:
 		taco_stand_zone.connect("body_entered", Callable(self, "_on_taco_stand_zone_body_entered"))
+		
+	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
+
+	# NUEVO: escuchar pause_toggled
+	day_manager.connect("pause_toggled", Callable(self, "_on_pause_toggled"))
+
+	if taco_stand_zone:
+		taco_stand_zone.connect("body_entered", Callable(self, "_on_taco_stand_zone_body_entered"))
+
+func _on_pause_toggled(is_paused: bool):
+	if is_paused:
+		# 1. Detener la velocidad y el _process
+		stop_moving()
+		
+		# 2. Detener la animación completamente,
+		if animated_sprite:
+
+			animated_sprite.stop()
+	else:
+		# Reanudar
+		if game_started and not has_bought:
+			speed = 0.2
+			set_process(true)
+			if animated_sprite:
+				# Reproducir la animación de caminar
+				animated_sprite.play("walk_left_down")
 
 func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String):
 	game_started = true
