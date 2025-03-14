@@ -2907,6 +2907,7 @@ texture_normal = ExtResource("23_cwcbn")
 texture_pressed = ExtResource("24_7dt7l")
 
 [node name="PauseButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
+visible = false
 layout_mode = 0
 offset_left = 26.646
 offset_top = 28.4336
