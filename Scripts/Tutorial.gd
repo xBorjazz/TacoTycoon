@@ -1,6 +1,6 @@
 extends Node2D
 
-var step = 9
+var step = 0
 var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false
@@ -45,9 +45,9 @@ var dialogues = [
 	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",  #Step 8
 	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.		 ",  #Step 9
 	"Es hora de iniciar la venta de tacos!",  												#Step 10
-	"¡Bienvenido a la parte 2 del tutorial!\nSe pausará el juego automáticamente en 1 segundo.",
-	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮 + 🥩 + 🥦 + 🌶\n• Taco-3: 🌮 + 🥦\nNo podrás continuar hasta que estén listos.",
-	"¡Perfecto! Has completado estos tacos.\nPresiona Continuar para reanudar el juego."
+	"¡Bienvenido a la parte 2 del tutorial!\nSe pausará el juego automáticamente en 1 segundo.", #Step 11
+	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮 + 🥩 + 🥦 + 🌶\n• Taco-3: 🌮 + 🥦\n", #Step 12
+	"¡Perfecto! Has completado estos tacos.\nPresiona Continuar para reanudar el juego." 	#Step 13
 ]
 
 func _ready():
@@ -442,28 +442,59 @@ func start_step_10():
 
 func _on_StartButton_pressed():
 	# Cuando se presiona Start, finalizamos la parte 1 del tutorial
-		# Mostrar la flecha que apunta al botón Start (si la usas)
 	if arrow_start_ref:
 		arrow_start_ref.get_ref().visible = false
+	disconnect_tutorial_signals()
 	start_step_11()
 
 func start_step_11():
 	print("DEBUG: Entrando a step_11 => Pausa automática tras 1s")
 
-	# Esperamos 1 segundo
-	var t = get_tree().create_timer(2.0)
+	# Esperamos 1 segundo para que el jugador vea las órdenes
+	var t = get_tree().create_timer(1.0)
 	await t.timeout
 
-	# Llamar a day_manager para pausar (simulando pulsar el botón de pausa)
+	# Llamar a day_manager para pausar el juego
 	if day_control and day_control.has_method("_on_pause_pressed"):
 		day_control._on_pause_pressed()
 	else:
 		print("No se encontró DayManager._on_pause_pressed()")
+		
+	
 
-	# Podrías mostrar flechas, etc. o re-habilitar "Continuar"
-	var continue_button = continue_button_ref.get_ref()
-	if continue_button:
-		continue_button.disabled = false
+	# ✅ Mostrar mensaje de instrucciones para step_11
+	show_dialogue(11)
+
+	# ✅ Comenzar la verificación constante
+	_check_3_tacos()
+
+# ✅ Verificación constante de tacos completos
+func _check_3_tacos():
+	print("✅ Verificando si los tacos están completos...")
+
+	# Si hay 3 tacos completos, avanzamos al siguiente paso
+	if GrillManager.has_3_distinct_tacos():
+		print("🔥 Tacos completos detectados. Avanzando al siguiente paso...")
+
+		# ✅ Habilitar el botón de continuar
+		var continue_button = continue_button_ref.get_ref()
+		if continue_button:
+			continue_button.disabled = false
+
+		# ✅ Desactivar la verificación constante para evitar loops
+		waiting_for_action = false
+		action_completed = true
+
+		# ✅ Avanzar al siguiente paso
+		step += 1
+		show_dialogue(step)
+	else:
+		# ✅ Si aún no están completos, esperar y volver a verificar
+		var t = get_tree().create_timer(0.5)  # Verificamos cada 0.5 segundos
+		await t.timeout
+		_check_3_tacos()
+
+
 	
 # -------------------------------------------------------------------
 # end_tutorial: No se cambia de escena, se oculta HUD

@@ -322,6 +322,44 @@ func obtener_ingredientes():
 			if not ingredientes.has(tipo):
 				ingredientes[tipo] = [null, null, null, null]
 			ingredientes[tipo][indice] = node
+			
+# ✅ Función para verificar si hay 3 tacos completos en la parrilla
+func has_3_distinct_tacos() -> bool:
+	var tacos_completos = 0
+	var recetas_verificadas = []  # Guardará las recetas ya verificadas para evitar duplicados
+
+	# Recetas de tacos (ya definidas en tu código)
+	var recetas = {
+		"Taco-1": ["tortilla", "carne"],
+		"Taco-2": ["tortilla", "carne", "verdura", "salsa"],
+		"Taco-3": ["tortilla"]
+	}
+
+	# Revisar cada cuadrante para ver si hay tacos completos
+	for i in range(4):
+		if cuadrantes[i].size() > 0:
+			var contenido = cuadrantes[i].duplicate()
+			contenido.sort()
+
+			for receta in recetas.keys():
+				var receta_ordenada = recetas[receta].duplicate()
+				receta_ordenada.sort()
+
+				# Si el cuadrante coincide con una receta Y aún no ha sido verificada
+				if contenido == receta_ordenada and receta not in recetas_verificadas:
+					tacos_completos += 1
+					recetas_verificadas.append(receta)  # Registrar receta como verificada
+					break
+
+	# ✅ Si hay al menos 3 tacos completos (únicos), regresamos `true`
+	if tacos_completos >= 3:
+		print("✅ ¡Tres tacos distintos están completos!")
+		return true
+	
+	print("❌ Aún no hay tres tacos completos...")
+	return false
+
+
 
 #func restart_ready():
 	#print("🔁 Reiniciando parrilla...")
