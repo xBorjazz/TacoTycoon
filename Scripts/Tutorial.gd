@@ -16,6 +16,10 @@ var arrow1_ingredients_ref
 var arrow2_tortilla_add_ref
 var arrow3_carne_ref
 var arrow4_carne_add_ref
+var arrow4_verdura_ref
+var arrow4_verdura_add_ref
+var arrow4_salsa_ref
+var arrow4_salsa_add_ref
 var arrow5_buy_ref
 var arrow6_grill_ref
 var arrow7_tortilla_button_ref
@@ -84,8 +88,12 @@ func assign_tutorial_nodes():
 
 			"Arrow1Ingredients":      arrow1_ingredients_ref = weakref(node)
 			"Arrow2TortillaAdd":      arrow2_tortilla_add_ref = weakref(node)
-			"Arrow3Carne":            arrow3_carne_ref = weakref(node)
+			"Arrow3Carne":            arrow3_carne_ref = weakref(node)			
 			"Arrow4CarneAdd":         arrow4_carne_add_ref = weakref(node)
+			"Arrow4Verdura":          arrow4_verdura_ref = weakref(node)
+			"Arrow4VerduraAdd":       arrow4_verdura_add_ref = weakref(node)			
+			"Arrow4Salsa":            arrow4_salsa_ref = weakref(node)
+			"Arrow4SalsaAdd":         arrow4_salsa_add_ref = weakref(node)
 			"Arrow5Buy":              arrow5_buy_ref = weakref(node)
 			"Arrow6Grill":            arrow6_grill_ref = weakref(node)
 			"Arrow7TortillaButton":   arrow7_tortilla_button_ref = weakref(node)
@@ -100,6 +108,10 @@ func assign_tutorial_nodes():
 	if arrow2_tortilla_add_ref:     arrow2_tortilla_add_ref.get_ref().visible = false
 	if arrow3_carne_ref:            arrow3_carne_ref.get_ref().visible = false
 	if arrow4_carne_add_ref:        arrow4_carne_add_ref.get_ref().visible = false
+	if arrow4_verdura_ref:          arrow4_verdura_ref.get_ref().visible = false
+	if arrow4_verdura_add_ref:      arrow4_verdura_add_ref.get_ref().visible = false
+	if arrow4_salsa_ref:            arrow4_salsa_ref.get_ref().visible = false
+	if arrow4_salsa_add_ref:        arrow4_salsa_add_ref.get_ref().visible = false
 	if arrow5_buy_ref:              arrow5_buy_ref.get_ref().visible = false
 	if arrow6_grill_ref:            arrow6_grill_ref.get_ref().visible = false
 	if arrow7_tortilla_button_ref:  arrow7_tortilla_button_ref.get_ref().visible = false
@@ -284,16 +296,67 @@ func _on_CarneButton_pressed():
 func _on_CarneAddButton_pressed():
 	if arrow4_carne_add_ref:
 		arrow4_carne_add_ref.get_ref().visible = false
-
+		
+# Aqui vamos a poner la parte de arrow4verdura.
+	if arrow4_verdura_ref:
+		arrow4_verdura_ref.get_ref().visible = true
+		
+	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton")
+	if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed")):
+		verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed"))
+		
+# Desplazar esta parte de abajo, para despues de cuando se presione el boton Add Salsa
 	# Mostrar Arrow5Buy
+	#if arrow5_buy_ref:
+		#arrow5_buy_ref.get_ref().visible = true
+#
+	## Conectar botón Buy
+	#var buy_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
+	#if buy_button and not buy_button.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
+		#buy_button.connect("pressed", Callable(self, "_on_BuyButton_pressed"))
+
+func _on_VerduraButton_pressed():
+	if arrow4_verdura_add_ref:
+		arrow4_verdura_add_ref.get_ref().visible = true
+	if arrow4_verdura_ref:
+		arrow4_verdura_ref.get_ref().visible = false
+		
+	var verdura_add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/PlusButton")
+	if verdura_add_button and not verdura_add_button.is_connected("pressed", Callable(self, "_on_VerduraButtonAdd_pressed")):
+		verdura_add_button.connect("pressed", Callable(self, "_on_VerduraButtonAdd_pressed"))
+	
+func _on_VerduraButtonAdd_pressed():
+	if arrow4_verdura_add_ref:
+		arrow4_verdura_add_ref.get_ref().visible = false
+	if arrow4_salsa_ref:
+		arrow4_salsa_ref.get_ref().visible = true
+		
+	var salsa_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/SalsaButton")
+	if salsa_button and not salsa_button.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed")):
+		salsa_button.connect("pressed", Callable(self, "_on_SalsaButton_pressed"))
+	
+func _on_SalsaButton_pressed():
+	if arrow4_salsa_ref:
+		arrow4_salsa_ref.get_ref().visible = false	
+	if arrow4_salsa_add_ref:
+		arrow4_salsa_add_ref.get_ref().visible = true
+		
+	var salsa_button_add = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/PlusButton")
+	if salsa_button_add and not salsa_button_add.is_connected("pressed", Callable(self, "_on_SalsaButtonAdd_pressed")):
+		salsa_button_add.connect("pressed", Callable(self, "_on_SalsaButtonAdd_pressed"))
+			
+func _on_SalsaButtonAdd_pressed():
+	if arrow4_salsa_add_ref:
+		arrow4_salsa_add_ref.get_ref().visible = false
 	if arrow5_buy_ref:
 		arrow5_buy_ref.get_ref().visible = true
 
 	# Conectar botón Buy
 	var buy_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
 	if buy_button and not buy_button.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
-		buy_button.connect("pressed", Callable(self, "_on_BuyButton_pressed"))
-
+		buy_button.connect("pressed", Callable(self, "_on_BuyButton_pressed"))	
+	
+			
 # 5) Al presionar Botón Buy
 func _on_BuyButton_pressed():
 	if arrow5_buy_ref:
