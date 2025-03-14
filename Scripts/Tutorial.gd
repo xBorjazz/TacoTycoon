@@ -251,6 +251,9 @@ func type_text(text):
 
 # 1) Al presionar Botón Ingredientes
 func _on_IngredientesButton_pressed():
+	var ing_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
+	if ing_button and ing_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
+		ing_button.disconnect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
 	# Ocultar Arrow1
 	if arrow1_ingredients_ref:
 		arrow1_ingredients_ref.get_ref().visible = false
@@ -266,6 +269,9 @@ func _on_IngredientesButton_pressed():
 
 # 2) Al presionar Botón TortillaAdd
 func _on_TortillaAddButton_pressed():
+	var tortilla_add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton")
+	if tortilla_add_button and tortilla_add_button.is_connected("pressed", Callable(self, "_on_TortillaAddButton_pressed")):
+		tortilla_add_button.disconnect("pressed", Callable(self, "_on_TortillaAddButton_pressed"))
 	if arrow2_tortilla_add_ref:
 		arrow2_tortilla_add_ref.get_ref().visible = false
 
@@ -280,6 +286,9 @@ func _on_TortillaAddButton_pressed():
 
 # 3) Al presionar Botón Carne
 func _on_CarneButton_pressed():
+	var carne_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton")
+	if carne_button and carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed")):
+		carne_button.disconnect("pressed", Callable(self, "_on_CarneButton_pressed"))
 	if arrow3_carne_ref:
 		arrow3_carne_ref.get_ref().visible = false
 
@@ -294,6 +303,9 @@ func _on_CarneButton_pressed():
 
 # 4) Al presionar Botón CarneAdd
 func _on_CarneAddButton_pressed():
+	var plus_carne = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/PlusButton")
+	if plus_carne and plus_carne.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed")):
+		plus_carne.disconnect("pressed", Callable(self, "_on_CarneAddButton_pressed"))
 	if arrow4_carne_add_ref:
 		arrow4_carne_add_ref.get_ref().visible = false
 		
@@ -359,6 +371,9 @@ func _on_SalsaButtonAdd_pressed():
 			
 # 5) Al presionar Botón Buy
 func _on_BuyButton_pressed():
+	var buy_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
+	if buy_button and buy_button.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
+		buy_button.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
 	if arrow5_buy_ref:
 		arrow5_buy_ref.get_ref().visible = false
 
@@ -384,23 +399,27 @@ func start_step_5():
 		grill_button.connect("pressed", Callable(self, "_on_GrillButton_pressed"))
 
 func _on_GrillButton_pressed():
+	var grill_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer6/Button6")
+	if grill_button and grill_button.is_connected("pressed", Callable(self, "_on_GrillButton_pressed")):
+		grill_button.disconnect("pressed", Callable(self, "_on_GrillButton_pressed"))
 	if arrow6_grill_ref:
 		arrow6_grill_ref.get_ref().visible = false
-
-	# Mostrar la flecha 7 (p.ej. Arrow7TortillaButton)
-	if arrow7_tortilla_button_ref:
-		arrow7_tortilla_button_ref.get_ref().visible = true
-
-	# Conectar el TortillaButton
-	var tortilla_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
-	if tortilla_button and not tortilla_button.is_connected("pressed", Callable(self, "_on_TortillaButton_pressed")):
-		tortilla_button.connect("pressed", Callable(self, "_on_TortillaButton_pressed"))
+		
 
 	# AÑADIR estas líneas para avanzar el tutorial
 	waiting_for_action = false
 	action_completed = true
 	step += 1
 	show_dialogue(step)
+	var t = get_tree().create_timer(2.5)
+	await t.timeout
+	# Conectar el TortillaButton
+	var tortilla_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
+	if tortilla_button and not tortilla_button.is_connected("pressed", Callable(self, "_on_TortillaButton_pressed")):
+		tortilla_button.connect("pressed", Callable(self, "_on_TortillaButton_pressed"))
+	# Mostrar la flecha 7 (p.ej. Arrow7TortillaButton)
+	if arrow7_tortilla_button_ref:
+		arrow7_tortilla_button_ref.get_ref().visible = true
 
 
 # -------------------------------------------------------------------
@@ -421,13 +440,11 @@ func start_step_6():
 
 # Al presionar TortillaButton
 func _on_TortillaButton_pressed():
+	var tortilla_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
+	tortilla_button.disconnect("pressed", Callable(self, "_on_TortillaButton_pressed"))
 	# Ocultar flecha 7
 	if arrow7_tortilla_button_ref:
 		arrow7_tortilla_button_ref.get_ref().visible = false
-
-	# Mostrar flecha 8
-	if arrow8_tortilla_add_ref:
-		arrow8_tortilla_add_ref.get_ref().visible = true
 
 	# Conectar el botón Add
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
@@ -441,6 +458,11 @@ func _on_TortillaButton_pressed():
 	action_completed = true
 	step += 1
 	show_dialogue(step)
+	var t = get_tree().create_timer(2.5)
+	await t.timeout
+	# Mostrar flecha 8
+	if arrow8_tortilla_add_ref:
+		arrow8_tortilla_add_ref.get_ref().visible = true
 
 func _on_add_button_pressed():
 	# Cada vez que el jugador presiona "AddButton", incrementamos
@@ -451,6 +473,9 @@ func _on_add_button_pressed():
 		# Si llegó a 4, ocultamos flecha 8
 		if arrow8_tortilla_add_ref:
 			arrow8_tortilla_add_ref.get_ref().visible = false
+		var add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+		if add_button and add_button.is_connected("pressed", Callable(self, "_on_add_button_pressed")):
+			add_button.disconnect("pressed", Callable(self, "_on_add_button_pressed"))
 
 		# AÑADIR estas líneas para avanzar el tutorial
 		waiting_for_action = false
@@ -541,6 +566,9 @@ func start_step_10():
 			start_button.visible = false
 
 func _on_StartButton_pressed():
+	# Desconecta el botón Start
+	if start_button and start_button.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
+		start_button.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
 	# Al presionar Start, se ocultan arrow_start y el botón Start para no volver a mostrarse
 	if arrow_start_ref:
 		arrow_start_ref.get_ref().visible = false
