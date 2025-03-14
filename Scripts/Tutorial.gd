@@ -1,6 +1,6 @@
 extends Node2D
 
-var step = 0
+var step = 9
 var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false
@@ -30,6 +30,7 @@ var add_press_count = 0
 # Opcional: Botones Start/Speed
 @onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")
 @onready var speed_button = get_node("/root/Node2D/CanvasLayer/Gameplay/SpeedButton")
+@onready var day_control = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 
 # Diálogos 0..11, sin acortar
 var dialogues = [
@@ -43,7 +44,10 @@ var dialogues = [
 	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",                      #Step 7
 	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",  #Step 8
 	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.		 ",  #Step 9
-	"Es hora de iniciar la venta de tacos!",  											#Step 10
+	"Es hora de iniciar la venta de tacos!",  												#Step 10
+	"¡Bienvenido a la parte 2 del tutorial!\nSe pausará el juego automáticamente en 1 segundo.",
+	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮 + 🥩 + 🥦 + 🌶\n• Taco-3: 🌮 + 🥦\nNo podrás continuar hasta que estén listos.",
+	"¡Perfecto! Has completado estos tacos.\nPresiona Continuar para reanudar el juego."
 ]
 
 func _ready():
@@ -157,6 +161,9 @@ func show_dialogue(index):
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 10:
 			start_step_10()
+			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
+		elif step == 11:
+			start_step_11()
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		else:
 			waiting_for_action = false
@@ -435,7 +442,28 @@ func start_step_10():
 
 func _on_StartButton_pressed():
 	# Cuando se presiona Start, finalizamos la parte 1 del tutorial
-	end_tutorial()
+		# Mostrar la flecha que apunta al botón Start (si la usas)
+	if arrow_start_ref:
+		arrow_start_ref.get_ref().visible = false
+	start_step_11()
+
+func start_step_11():
+	print("DEBUG: Entrando a step_11 => Pausa automática tras 1s")
+
+	# Esperamos 1 segundo
+	var t = get_tree().create_timer(2.0)
+	await t.timeout
+
+	# Llamar a day_manager para pausar (simulando pulsar el botón de pausa)
+	if day_control and day_control.has_method("_on_pause_pressed"):
+		day_control._on_pause_pressed()
+	else:
+		print("No se encontró DayManager._on_pause_pressed()")
+
+	# Podrías mostrar flechas, etc. o re-habilitar "Continuar"
+	var continue_button = continue_button_ref.get_ref()
+	if continue_button:
+		continue_button.disabled = false
 	
 # -------------------------------------------------------------------
 # end_tutorial: No se cambia de escena, se oculta HUD
