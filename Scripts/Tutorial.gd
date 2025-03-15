@@ -1,6 +1,6 @@
 extends Node2D
 
-var step = 0
+var step = 9
 var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false
@@ -580,7 +580,7 @@ func _on_StartButton_pressed():
 func start_step_11():
 	print("DEBUG: Entrando a step_11 => Pausa automática tras 1s")
 	# Esperar 1 segundo para que el jugador vea las órdenes
-	var t = get_tree().create_timer(1.0)
+	var t = get_tree().create_timer(2.0)
 	await t.timeout
 	# Llamar a DayControl para pausar el juego (simula pulsar el botón de pausa)
 	if day_control and day_control.has_method("_on_pause_pressed"):

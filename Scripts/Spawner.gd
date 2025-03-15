@@ -2,14 +2,14 @@ extends Node2D
 
 @export var spawn_interval: float = 7.0
 @export var move_probability: float = 1
+
 @onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")
 @onready var day_control = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 
-var character_scene = preload("res://Scenes/path_2d.tscn")
 var spawn_timer: Timer
 var game_started: bool = false
 
-# NUEVO: Para saber si ya hicimos el spawn “especial” del primer día
+# Para saber si ya hicimos el spawn “especial” del primer día
 var first_day_spawn_done: bool = false
 
 signal sale_made
@@ -40,9 +40,9 @@ func _on_pause_toggled(is_paused: bool):
 func start_spawning():
 	game_started = true
 
-	# SOLO LA PRIMERA VEZ: generamos 3 clientes con Taco-1, Taco-2, Taco-3
+	# SOLO LA PRIMERA VEZ: generamos 3 clientes con Taco-1, Taco-2 y Taco-3
 	if not first_day_spawn_done:
-		spawn_specific_tacos(["Taco-1","Taco-2","Taco-3"])
+		await _spawn_first_day_customers()
 		first_day_spawn_done = true
 	else:
 		# Llamamos al spawn normal
@@ -59,7 +59,8 @@ func _on_day_ended():
 	game_started = false
 	spawn_timer.stop()
 	print("Día terminado. Deteniendo el spawneo de personajes.")
-	# OPCIONAL: Resetear first_day_spawn_done = false si quieres que cada día se repita
+
+	# Si quieres que cada día repita la mecánica, podrías:
 	# first_day_spawn_done = false
 
 func _spawn_character():
@@ -67,30 +68,8 @@ func _spawn_character():
 		print("El juego no ha comenzado. No se puede spawnear personajes.")
 		return
 
-	var paths = get_tree().get_nodes_in_group("Paths")
-	if paths.is_empty():
-		print("No se encontraron Path2D en el grupo 'Paths'.")
-		return
-
-	var random_path = paths[randi() % paths.size()]
-	var character = random_path.get_node_or_null("PathFollow2D")
-
-	if character == null or not is_instance_valid(character):
-		print("❌ Nodo PathFollow2D inválido.")
-		return
-
-	var pedido_cliente = ["Taco-1", "Taco-2", "Taco-3"].pick_random()
-	print("🍽 Pedido del Cliente (random):", pedido_cliente)
-
-	character.visible = true
-	character.progress_ratio = 0.0
-	character.set_process(true)
-	character.pedido_cliente = pedido_cliente
-
-	character.start_game(random_path, character, pedido_cliente)
-
-	if not character.sale_made.is_connected(_on_sale_made):
-		character.sale_made.connect(_on_sale_made.bind(character))
+	var random_taco = ["Taco-1", "Taco-2", "Taco-3"].pick_random()
+	_spawn_single_customer(random_taco)
 
 func _on_sale_made(character):
 	if is_instance_valid(character):
@@ -98,41 +77,73 @@ func _on_sale_made(character):
 		character.fade_out_anim()
 
 # -----------------------------------------------------------------------
-# spawn_specific_tacos(taco_types) = Genera clientes con pedidos forzados
+# spawn de UN cliente cualquiera
 # -----------------------------------------------------------------------
-func spawn_specific_tacos(taco_types: Array) -> void:
-	if not game_started:
-		print("Spawner: El juego no está iniciado, se forzará 'start_spawning'")
-		start_spawning()
-
-	for pedido_forzado in taco_types:
-		_spawn_character_forced(pedido_forzado)
-
-func _spawn_character_forced(taco_type: String) -> void:
-	if not game_started:
-		print("El juego no ha comenzado. No se puede spawnear personajes forzados.")
-		return
-
+func _spawn_single_customer(taco_type: String):
 	var paths = get_tree().get_nodes_in_group("Paths")
 	if paths.is_empty():
 		print("No se encontraron Path2D en el grupo 'Paths'.")
 		return
 
-	var random_path = paths[randi() % paths.size()]
-	var character = random_path.get_node_or_null("PathFollow2D")
+	# Elegimos un path aleatorio
+	paths.shuffle()  # barajamos
+	var chosen_path = paths[0]  # tomamos el primero
+	_spawn_character_forced(taco_type, chosen_path)
 
-	if character == null or not is_instance_valid(character):
-		print("❌ Nodo PathFollow2D inválido en spawn_forced.")
+# -----------------------------------------------------------------------
+# NUEVA FUNCIÓN: genera EXACTAMENTE un cliente en un path forzado
+# -----------------------------------------------------------------------
+func _spawn_character_forced(taco_type: String, chosen_path: Node):
+	if not game_started:
+		print("El juego no ha comenzado. No se puede spawnear personajes forzados.")
 		return
 
-	print("🍽 Spawner: Generando cliente con pedido forzado:", taco_type)
+	if not chosen_path or not chosen_path is Path2D:
+		print("❌ El 'chosen_path' no es válido o no es Path2D.")
+		return
+
+	var character = chosen_path.get_node_or_null("PathFollow2D")
+	if character == null or not is_instance_valid(character):
+		print("❌ No se encontró PathFollow2D en:", chosen_path.name)
+		return
+
+	print("🍽 Generando cliente con pedido:", taco_type, "en path:", chosen_path.name)
 
 	character.visible = true
 	character.progress_ratio = 0.0
 	character.set_process(true)
 	character.pedido_cliente = taco_type
 
-	character.start_game(random_path, character, taco_type)
+	character.start_game(chosen_path, character, taco_type)
 
 	if not character.sale_made.is_connected(_on_sale_made):
 		character.sale_made.connect(_on_sale_made.bind(character))
+
+# -----------------------------------------------------------------------
+# _spawn_first_day_customers() => genera Taco-1, Taco-2, Taco-3
+# cada uno en un path distinto con retardo
+# -----------------------------------------------------------------------
+func _spawn_first_day_customers():
+	var forced_tacos = ["Taco-1","Taco-2","Taco-3"]
+	var available_paths = get_tree().get_nodes_in_group("Paths").duplicate(true)
+
+	if available_paths.size() < forced_tacos.size():
+		print("⚠️ No hay paths suficientes para 3 clientes distintos. Se reusarán algunos.")
+
+	# Barajamos los paths
+	available_paths.shuffle()
+
+	# Recorremos los 3 tacos obligatorios
+	for i in range(forced_tacos.size()):
+		var taco_type = forced_tacos[i]
+
+		if available_paths.size() > 0:
+			# Sacamos un path de la lista (así no se repite)
+			var chosen_path = available_paths.pop_back()
+			_spawn_character_forced(taco_type, chosen_path)
+		else:
+			# Si no hay paths suficientes, reusamos uno aleatorio
+			_spawn_single_customer(taco_type)
+
+		# Retardo de 0.2s entre cada spawn
+		#await get_tree().create_timer(0.2).timeout
