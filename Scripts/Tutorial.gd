@@ -1,6 +1,6 @@
 extends Node2D
 
-var step = 9
+var step = 0
 var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false
@@ -60,7 +60,18 @@ var dialogues2 = [
 	"¡Perfecto! Has completado estos tacos.\nPresiona Continuar para reanudar el juego. DIALOGUES2"
 ]
 
+# Bandera estática para controlar la ejecución única
+static var already_initialized = false
+
 func _ready():
+	if already_initialized:
+		print("🚫 _ready() ya fue ejecutado antes. Ignorando...")
+		assign_tutorial_nodes()
+		return
+	
+	already_initialized = true
+	print("✅ _ready() ejecutado correctamente")
+
 	assign_tutorial_nodes()
 
 	# (Opcional) Ocultar Start/Speed al inicio
@@ -75,6 +86,7 @@ func _ready():
 		show_dialogue(0)
 	else:
 		print("ERROR: No se asignaron correctamente los nodos del tutorial")
+
 
 func assign_tutorial_nodes():
 	var nodes = get_tree().get_nodes_in_group("TutorialNodes")
@@ -188,6 +200,7 @@ func show_dialogue(index):
 			show_dialogue(13)  # mostramos el índice 0 de dialogues2
 			print("Ahora se ejecutará hide speech bubble para TERMINAARRR TTUTORIAL")
 			hide_speech_bubble_after_delay()
+			disconnect_tutorial_signals()
 			end_tutorial()
 			print("DEBUG: Avanzando a step 12 => Diálogo final")
 		else:
@@ -328,6 +341,8 @@ func _on_CarneAddButton_pressed():
 		#buy_button.connect("pressed", Callable(self, "_on_BuyButton_pressed"))
 
 func _on_VerduraButton_pressed():
+	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton")
+	verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed"))
 	if arrow4_verdura_add_ref:
 		arrow4_verdura_add_ref.get_ref().visible = true
 	if arrow4_verdura_ref:
@@ -338,6 +353,9 @@ func _on_VerduraButton_pressed():
 		verdura_add_button.connect("pressed", Callable(self, "_on_VerduraButtonAdd_pressed"))
 	
 func _on_VerduraButtonAdd_pressed():
+	var verdura_add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/PlusButton")
+	verdura_add_button.disconnect("pressed", Callable(self, "_on_VerduraButtonAdd_pressed"))
+
 	if arrow4_verdura_add_ref:
 		arrow4_verdura_add_ref.get_ref().visible = false
 	if arrow4_salsa_ref:
@@ -348,6 +366,9 @@ func _on_VerduraButtonAdd_pressed():
 		salsa_button.connect("pressed", Callable(self, "_on_SalsaButton_pressed"))
 	
 func _on_SalsaButton_pressed():
+	var salsa_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/SalsaButton")
+	salsa_button.disconnect("pressed", Callable(self, "_on_SalsaButton_pressed"))
+
 	if arrow4_salsa_ref:
 		arrow4_salsa_ref.get_ref().visible = false	
 	if arrow4_salsa_add_ref:
@@ -358,6 +379,9 @@ func _on_SalsaButton_pressed():
 		salsa_button_add.connect("pressed", Callable(self, "_on_SalsaButtonAdd_pressed"))
 			
 func _on_SalsaButtonAdd_pressed():
+	var salsa_button_add = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/PlusButton")
+	salsa_button_add.disconnect("pressed", Callable(self, "_on_SalsaButtonAdd_pressed"))
+
 	if arrow4_salsa_add_ref:
 		arrow4_salsa_add_ref.get_ref().visible = false
 	if arrow5_buy_ref:
@@ -371,9 +395,9 @@ func _on_SalsaButtonAdd_pressed():
 			
 # 5) Al presionar Botón Buy
 func _on_BuyButton_pressed():
-	var buy_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
-	if buy_button and buy_button.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
-		buy_button.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
+	var buy_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
+	buy_button.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
+	
 	if arrow5_buy_ref:
 		arrow5_buy_ref.get_ref().visible = false
 
