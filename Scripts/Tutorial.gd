@@ -1,6 +1,6 @@
 extends Node2D
 
-var step = 0
+var step = 8
 var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false

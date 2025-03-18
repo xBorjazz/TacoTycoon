@@ -3614,6 +3614,7 @@ theme_override_font_sizes/font_size = 90
 text = "+5"
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -4640,7 +4641,6 @@ texture_normal = ExtResource("69_e02ne")
 script = ExtResource("55_mxn3s")
 
 [node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
@@ -5931,11 +5931,38 @@ sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
 
+[node name="Arrow7CarneButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(239, 715)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7VerduraButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(334, 704)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
 [node name="Arrow8TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(379, 986)
 rotation = -0.0221885
 scale = Vector2(0.539274, 0.561185)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7SalsaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(407, 712)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
