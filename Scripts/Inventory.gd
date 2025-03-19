@@ -7,11 +7,13 @@ var verdura_total = 0
 var cebolla_total = 0
 var salsa_total = 0
 var tacos_vendidos = 0
+var ventas_fallidas = 0
 
-var costo_taco = 10
+var costo_taco = 35
 var buy_cost = 0.0  # Costo acumulado de las compras
 var player_money = 150
 var opponent_money = 150
+var invested_money = 0
 
 # Contadores individuales
 var tortillas_normal = 0

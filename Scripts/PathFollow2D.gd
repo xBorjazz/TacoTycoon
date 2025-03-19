@@ -124,35 +124,53 @@ func buying_anim():
 
 	await get_tree().create_timer(2.0).timeout
 
+	# ✅ Verificamos solo si no ha comprado antes
 	if not has_bought:
 		if GrillManager.verificar_taco(pedido_cliente):
 			print("✅ Taco entregado correctamente")
 			GrillManager.limpiar_taco(pedido_cliente)
 
+			# ✅ Emitimos la señal solo si NO ha sido emitida antes
+			if not sale_made.is_connected(_on_sale_made):
+				sale_made.connect(_on_sale_made)
+
+			# ✅ Emitimos señal solo una vez
+			sale_made.emit()
+
+			# ✅ Incrementamos ventas correctas
+			#Inventory.tacos_vendidos += 1
+
+			# ✅ Sumamos el dinero al inventario del jugador
+			Inventory.player_money += Inventory.costo_taco
+			SuppliesUi.actualizar_labels_dinero()
+
+			has_bought = true
+
+			# ✅ Desconectar después de emitir para evitar duplicación
 			if sale_made.is_connected(_on_sale_made):
 				sale_made.disconnect(_on_sale_made)
 
-			sale_made.emit()
-			has_bought = true
 			_resume_movement()
-	
-	#var timer = Timer.new()
-	#timer.wait_time = 2.0
-	#timer.one_shot = true
-	#timer.connect("timeout", Callable(self, "_on_buying_complete"))
-	#add_child(timer)
-	#timer.start()
-	_on_buying_complete()
-			
-func _on_buying_complete() -> void:
-	Inventory.player_money += Inventory.costo_taco
-	print("Dinero del jugador ahora es: ", Inventory.player_money)
-	SuppliesUi.actualizar_labels_dinero() 
-	verify_sound()
-	has_bought = true
-	GlobalProgressBar.update_progress(25) #Actualiza 2.5% de avance en el juego
-	#Recipe.aplicar_receta()
-	_resume_movement()
+		else:
+			# ❌ Si no coincide la receta:
+			print("❌ Taco INCORRECTO. Venta fallida")
+			Inventory.ventas_fallidas += 1
+
+			# ✅ NO sumar dinero si la venta falló
+			SuppliesUi.actualizar_labels_dinero()
+
+			_resume_movement()
+
+# ✅ Eliminar duplicación en esta función porque ya se ejecuta en `buying_anim`
+func _on_buying_complete():
+	if not has_bought:
+		# ✅ Solo sumar el dinero si no ha sido comprado antes
+		Inventory.player_money += Inventory.costo_taco
+		SuppliesUi.actualizar_labels_dinero() 
+		verify_sound()
+		has_bought = true
+		GlobalProgressBar.update_progress(25)
+		_resume_movement()
 
 func _on_sale_made(character):
 	if not has_bought:
@@ -160,15 +178,11 @@ func _on_sale_made(character):
 		has_bought = true
 		_resume_movement()
 
-func verify_sound() -> void:
-	if sound_player:
-		sound_player.play()
-
 func _resume_movement():
 	speed = 0.2
 	is_buying = false
 	if animated_sprite:
-		animated_sprite.play("walk_right")
+		animated_sprite.play("walk_left_down")
 
 func fade_out_anim():
 	speed = 0
@@ -181,3 +195,8 @@ func fade_out_anim():
 func _on_day_ended():
 	stop_moving()
 	visible = false
+
+	
+func verify_sound() -> void:
+	if sound_player:
+		sound_player.play()
