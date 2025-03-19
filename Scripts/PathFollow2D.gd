@@ -130,13 +130,13 @@ func buying_anim():
 			print("✅ Taco entregado correctamente")
 			GrillManager.limpiar_taco(pedido_cliente)
 
-			# ✅ Emitimos la señal solo si NO ha sido emitida antes
-			if not sale_made.is_connected(_on_sale_made):
-				sale_made.connect(_on_sale_made)
+			# ✅ Desconectar la señal para evitar que se repita
+			if sale_made.is_connected(_on_sale_made):
+				sale_made.disconnect(_on_sale_made)
 
 			# ✅ Emitimos señal solo una vez
 			sale_made.emit()
-
+			
 			# ✅ Incrementamos ventas correctas
 			#Inventory.tacos_vendidos += 1
 
@@ -145,11 +145,6 @@ func buying_anim():
 			SuppliesUi.actualizar_labels_dinero()
 
 			has_bought = true
-
-			# ✅ Desconectar después de emitir para evitar duplicación
-			if sale_made.is_connected(_on_sale_made):
-				sale_made.disconnect(_on_sale_made)
-
 			_resume_movement()
 		else:
 			# ❌ Si no coincide la receta:
@@ -161,22 +156,22 @@ func buying_anim():
 
 			_resume_movement()
 
-# ✅ Eliminar duplicación en esta función porque ya se ejecuta en `buying_anim`
-func _on_buying_complete():
-	if not has_bought:
-		# ✅ Solo sumar el dinero si no ha sido comprado antes
-		Inventory.player_money += Inventory.costo_taco
-		SuppliesUi.actualizar_labels_dinero() 
-		verify_sound()
-		has_bought = true
-		GlobalProgressBar.update_progress(25)
-		_resume_movement()
+func _on_buying_complete() -> void:
+	Inventory.player_money += Inventory.costo_taco
+	print("Dinero del jugador ahora es: ", Inventory.player_money)
+	SuppliesUi.actualizar_labels_dinero() 
+	verify_sound()
+	has_bought = true
+	GlobalProgressBar.update_progress(25) #Actualiza 2.5% de avance en el juego
+	#Recipe.aplicar_receta()
+	_resume_movement()
 
 func _on_sale_made(character):
 	if not has_bought:
 		print("✅ Venta confirmada.")
 		has_bought = true
 		_resume_movement()
+
 
 func _resume_movement():
 	speed = 0.2
@@ -195,7 +190,6 @@ func fade_out_anim():
 func _on_day_ended():
 	stop_moving()
 	visible = false
-
 	
 func verify_sound() -> void:
 	if sound_player:
