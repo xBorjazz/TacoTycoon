@@ -1,6 +1,6 @@
 extends Node2D
 
-var step = 8
+var step = 0
 var typing_speed = 0.02
 var waiting_for_action = false
 var action_completed = false
@@ -28,6 +28,12 @@ var arrow_levels_ref
 var arrow_money_ref
 var arrow_grill_tortilla_add_ref
 var arrow_start_ref
+var arrow7_carne_button_ref
+var arrow7_salsa_button_ref
+var arrow7_verdura_button_ref
+var arrow7_carne_button_add_ref
+var arrow7_verdura_button_add_ref
+var arrow7_salsa_button_add_ref
 
 var add_press_count = 0
 
@@ -36,21 +42,22 @@ var add_press_count = 0
 @onready var speed_button = get_node("/root/Node2D/CanvasLayer/Gameplay/SpeedButton")
 @onready var day_control = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 
-# Diálogos 0..11, sin acortar
+# Añadir step 12 al arreglo de diálogos
 var dialogues = [
-	"¡Hola! Bienvenido a Cucei Taco Tycoon.",                                                 #Step 0
-	"Aquí aprenderás a administrar tu negocio de tacos.",                                    #Step 1
-	"Primero, veamos cuánto dinero tienes.",                                                 #Step 2
-	"Ahora compra ingredientes para preparar tacos. Lo escencial es tortilla y carne.",      #Step 3
-	"¡Listo! Ya tienes ingredientes para vender tacos.",                                     #Step 4
-	"Lo siguiente es preparar nuestros tacos con esos ingredientes.",                        #Step 5
-	"En este menú, vamos a realizar la preparación de nuestros tacos.",                      #Step 6
-	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",                      #Step 7
-	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",  #Step 8
-	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.		 ",  #Step 9
-	"Es hora de iniciar la venta de tacos!",  												#Step 10
-	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮 + 🥩 + 🥦 + 🌶\n• Taco-3: 🌮 + 🥦\n", #Step 12
-	"¡Perfecto! \n Has aprendido todo lo necesario! \n Aquí termina el tutorial! " 	#Step 13
+	"¡Hola! Bienvenido a Cucei Taco Tycoon.",
+	"Aquí aprenderás a administrar tu negocio de tacos.",
+	"Primero, veamos cuánto dinero tienes.",
+	"Ahora compra ingredientes para preparar tacos. Lo escencial es tortilla y carne.",
+	"¡Listo! Ya tienes ingredientes para vender tacos.",
+	"Lo siguiente es preparar nuestros tacos con esos ingredientes.",
+	"En este menú, vamos a realizar la preparación de nuestros tacos.",
+	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",
+	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",
+	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.",
+	"Es hora de iniciar la venta de tacos!",
+	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮+🥩+🥦+🌶\n• Taco-3: 🌮 + 🥦\n",  
+	" ¡Excelente trabajo! Has completado el tutorial. ¡Estás listo para vender tacos como un profesional!", # Step 12 ✅
+	"¡Perfecto! Has aprendido todo lo necesario! Aquí termina el tutorial." # Step 13
 ]
 
 # --------------------------------------------------------
@@ -109,6 +116,12 @@ func assign_tutorial_nodes():
 			"Arrow5Buy":              arrow5_buy_ref = weakref(node)
 			"Arrow6Grill":            arrow6_grill_ref = weakref(node)
 			"Arrow7TortillaButton":   arrow7_tortilla_button_ref = weakref(node)
+			"Arrow7CarneButton":      arrow7_carne_button_ref = weakref(node)
+			"Arrow7VerduraButton":    arrow7_verdura_button_ref = weakref(node)
+			"Arrow7SalsaButton":      arrow7_salsa_button_ref = weakref(node)
+			"Arrow7CarneButtonAdd":   arrow7_carne_button_add_ref = weakref(node)
+			"Arrow7VerduraButtonAdd": arrow7_verdura_button_add_ref = weakref(node)
+			"Arrow7SalsaButtonAdd":   arrow7_salsa_button_add_ref = weakref(node)
 			"Arrow8TortillaAdd":      arrow8_tortilla_add_ref = weakref(node)
 			"ArrowLevels":            arrow_levels_ref = weakref(node)
 			"ArrowMoney":             arrow_money_ref = weakref(node)
@@ -146,6 +159,14 @@ func show_dialogue(index):
 	await type_text(text_to_display)
 
 	var continue_button = continue_button_ref.get_ref()
+	
+	#if continue_button:
+		#continue_button.disabled = false
+
+	# ✅ FINALIZAR TUTORIAL SI step = 13
+	if step == 13:
+		await get_tree().create_timer(1.5).timeout
+		end_tutorial()
 
 	if step == 2:
 		# Ejemplo: flecha dinero
@@ -196,39 +217,26 @@ func show_dialogue(index):
 			start_step_11()
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		# ---- En el STEP 12, usaremos dialogues2 en lugar de dialogues
+		elif step == 12:
+			print("✅ Step 12: Finalizando tutorial...")
+			# Mostrar mensaje de cierre
+			show_dialogue(12)
+			# Desconectar señales y limpiar
+			disconnect_tutorial_signals()
+			end_tutorial()
+			return
 		elif step == 13:
-			show_dialogue(13)  # mostramos el índice 0 de dialogues2
+			#show_dialogue(13)  # mostramos el índice 0 de dialogues2
 			print("Ahora se ejecutará hide speech bubble para TERMINAARRR TTUTORIAL")
 			hide_speech_bubble_after_delay()
 			disconnect_tutorial_signals()
-			end_tutorial()
+			#end_tutorial()
 			print("DEBUG: Avanzando a step 12 => Diálogo final")
 		else:
 			# Si no hay más casos especiales, habilita el botón de continuar normal
 			waiting_for_action = false
 			if continue_button:
 				continue_button.disabled = false
-
-# --------------------------------------------------------
-#   NUEVA FUNCIÓN: show_dialogue2
-# --------------------------------------------------------
-func show_dialogue2(index):
-	var txt_ref = tutorial_text_ref.get_ref()
-	if not txt_ref:
-		print("ERROR: tutorial_text fue liberado antes de usarse (show_dialogue2)")
-		return
-	
-	# Limpiar texto previo para evitar encimado
-	txt_ref.text = ""
-
-	# Escribir el texto de dialogues2[index]
-	var text_to_display = dialogues2[index]
-	await type_text(text_to_display)
-
-	# Si quieres, aquí puedes habilitar el continue_button para que el jugador salga de la pausa
-	var continue_button = continue_button_ref.get_ref()
-	if continue_button:
-		continue_button.disabled = false
 
 func _on_ContinueButton_pressed():
 	if waiting_for_action:
@@ -243,20 +251,6 @@ func _on_ContinueButton_pressed():
 		show_dialogue(step)
 	else:
 		end_tutorial()
-
-# ------------------------------------
-# type_text: animación letra por letra
-# ------------------------------------
-func type_text(text):
-	var tutorial_text = tutorial_text_ref.get_ref()
-	if not tutorial_text:
-		print("ERROR: tutorial_text fue liberado antes de escribir texto")
-		return
-
-	tutorial_text.text = ""
-	for letter in text:
-		tutorial_text.text += letter
-		await get_tree().create_timer(typing_speed).timeout
 
 # -------------------------------------------------------------------
 # FUNCIONES QUE MANEJAN LAS FLECHAS Y BOTONES
@@ -501,6 +495,8 @@ func _on_add_button_pressed():
 		if add_button and add_button.is_connected("pressed", Callable(self, "_on_add_button_pressed")):
 			add_button.disconnect("pressed", Callable(self, "_on_add_button_pressed"))
 
+
+####################### Posponer el avance para el final cuando presionamos salsa/ carne Add #####################################
 		# AÑADIR estas líneas para avanzar el tutorial
 		waiting_for_action = false
 		action_completed = true
@@ -601,47 +597,337 @@ func _on_StartButton_pressed():
 	disconnect_tutorial_signals()
 	start_step_11()
 
-func start_step_11():
-	print("DEBUG: Entrando a step_11 => Pausa automática tras 1s")
-	# Esperar 1 segundo para que el jugador vea las órdenes
-	var t = get_tree().create_timer(2.0)
-	await t.timeout
-	# Llamar a DayControl para pausar el juego (simula pulsar el botón de pausa)
-	if day_control and day_control.has_method("_on_pause_pressed"):
-		day_control._on_pause_pressed()
-	else:
-		print("No se encontró DayControl._on_pause_pressed()")
-	# Mostrar el mensaje de instrucciones para el step 11
-	show_dialogue(11)
-	# Comenzar la verificación constante
+var carne_press_count = 0
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR VERDURA BUTTON (INICIO)
+# -------------------------------------------------------------------
+func _on_VerduraButton_pressed2():
+	print("✅ Verdura Button presionado")
+
+	# 🔥 Ocultar flecha anterior (Arrow7VerduraButton)
+	if arrow7_verdura_button_ref:
+		arrow7_verdura_button_ref.get_ref().visible = false
+	
+	# 🔥 Mostrar la siguiente flecha (Arrow7VerduraButtonAdd)
+	if arrow7_verdura_button_add_ref:
+		arrow7_verdura_button_add_ref.get_ref().visible = true
+
+	# ✅ Desconectar el botón anterior
+	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+	if verdura_button and verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed2")):
+		verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed2"))
+
+	# ✅ Conectar botón de suma (AddButton)
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed2")):
+		add_button.connect("pressed", Callable(self, "_on_VerduraAddButton_pressed2"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR VERDURA ADD BUTTON
+# -------------------------------------------------------------------
+func _on_VerduraAddButton_pressed2():
+	print("✅ Verdura Add Button presionado")
+
+	# 🔥 Ocultar flecha anterior (Arrow7VerduraButtonAdd)
+	if arrow7_verdura_button_add_ref:
+		arrow7_verdura_button_add_ref.get_ref().visible = false
+	
+	# 🔥 Mostrar la siguiente flecha (Arrow7CarneButton)
+	if arrow7_carne_button_ref:
+		arrow7_carne_button_ref.get_ref().visible = true
+
+	# ✅ Desconectar botón anterior
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed2")):
+		add_button.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed2"))
+
+	# ✅ Conectar botón de CarneButton
+	var carne_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton")
+	if carne_button and not carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed2")):
+		carne_button.connect("pressed", Callable(self, "_on_CarneButton_pressed2"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR CARNE BUTTON
+# -------------------------------------------------------------------
+func _on_CarneButton_pressed2():
+	print("✅ Carne Button presionado")
+
+	# 🔥 Ocultar flecha anterior (Arrow7CarneButton)
+	if arrow7_carne_button_ref:
+		arrow7_carne_button_ref.get_ref().visible = false
+	
+	# 🔥 Mostrar la siguiente flecha (Arrow7CarneButtonAdd)
+	if arrow7_carne_button_add_ref:
+		arrow7_carne_button_add_ref.get_ref().visible = true
+
+	# ✅ Desconectar botón anterior
+	var carne_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton")
+	if carne_button and carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed2")):
+		carne_button.disconnect("pressed", Callable(self, "_on_CarneButton_pressed2"))
+
+	# ✅ Conectar botón de AddButton para carne
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed2")):
+		add_button.connect("pressed", Callable(self, "_on_CarneAddButton_pressed2"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR CARNE ADD BUTTON
+# -------------------------------------------------------------------
+func _on_CarneAddButton_pressed2():
+	carne_press_count += 1
+	print("✅ Carne Add Button presionado. Conteo:", carne_press_count)
+
+	# Si ha sido presionado 4 veces, avanzamos al siguiente paso
+	if carne_press_count >= 3:
+		carne_press_count = 0
+
+		# 🔥 Ocultar flecha anterior (Arrow7CarneButtonAdd)
+		if arrow7_carne_button_add_ref:
+			arrow7_carne_button_add_ref.get_ref().visible = false
+		
+		# ✅ Desconectar señal de carne para evitar que reaparezca
+		var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+		if add_button and add_button.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed2")):
+			add_button.disconnect("pressed", Callable(self, "_on_CarneAddButton_pressed2"))
+
+		# ✅ Mostrar Verdura Button otra vez (SOLO SI SE COMPLETÓ EL CICLO DE CARNE)
+		if arrow7_verdura_button_ref:
+			arrow7_verdura_button_ref.get_ref().visible = true
+
+		# ✅ Conectar botón Verdura otra vez → pero en segunda fase con `verdura3`
+		var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+		if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
+			verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR VERDURA BUTTON (SEGUNDO PASO)
+# -------------------------------------------------------------------
+func _on_VerduraButton_pressed3():
+	print("✅ Verdura Button (2da fase) presionado")
+
+	# 🔥 Ocultar flecha anterior
+	if arrow7_verdura_button_ref:
+		arrow7_verdura_button_ref.get_ref().visible = false
+	
+	# ✅ Mostrar la siguiente flecha (Arrow7VerduraButtonAdd)
+	if arrow7_verdura_button_add_ref:
+		arrow7_verdura_button_add_ref.get_ref().visible = true
+
+	# ✅ Conectar botón Add para verdura
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed3")):
+		add_button.connect("pressed", Callable(self, "_on_VerduraAddButton_pressed3"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR VERDURA ADD BUTTON (SEGUNDO PASO)
+# -------------------------------------------------------------------
+func _on_VerduraAddButton_pressed3():
+	print("✅ Verdura Add Button (2da fase) presionado")
+
+	# 🔥 Ocultar flecha anterior (Arrow7VerduraButtonAdd)
+	if arrow7_verdura_button_add_ref:
+		arrow7_verdura_button_add_ref.get_ref().visible = false
+
+	# ✅ Desconectar señal anterior para evitar que reaparezca
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed3")):
+		add_button.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed3"))
+
+	# ✅ Ahora mostramos el botón de salsa
+	_show_salsa_button()
+
+# -------------------------------------------------------------------
+# ✅ Mostrar Salsa Button
+# -------------------------------------------------------------------
+func _show_salsa_button():
+	print("✅ Mostrando Salsa Button")
+
+	# ✅ Mostrar flecha para salsa
+	if arrow7_salsa_button_ref:
+		arrow7_salsa_button_ref.get_ref().visible = true
+	
+	# ✅ Conectar botón SalsaButton
+	var salsa_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton")
+	if salsa_button and not salsa_button.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed2")):
+		salsa_button.connect("pressed", Callable(self, "_on_SalsaButton_pressed2"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR SALSA BUTTON
+# -------------------------------------------------------------------
+func _on_SalsaButton_pressed2():
+	print("✅ Salsa Button presionado")
+
+	if arrow7_salsa_button_ref:
+		arrow7_salsa_button_ref.get_ref().visible = false
+	
+	# ✅ Mostrar flecha para salsa Add
+	if arrow7_salsa_button_add_ref:
+		arrow7_salsa_button_add_ref.get_ref().visible = true
+
+	# ✅ Conectar botón AddButton para salsa
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed2")):
+		add_button.connect("pressed", Callable(self, "_on_SalsaAddButton_pressed2"))
+
+# -------------------------------------------------------------------
+# ✅ FUNCIÓN AL PRESIONAR SALSA ADD BUTTON (FINALIZA EL CICLO)
+# -------------------------------------------------------------------
+func _on_SalsaAddButton_pressed2():
+	print("✅ Salsa Add Button presionado")
+
+	if arrow7_salsa_button_add_ref:
+		arrow7_salsa_button_add_ref.get_ref().visible = false
+
+	# ✅ Desconectar el botón Add para evitar problemas de señales
+	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if add_button and add_button.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed2")):
+		add_button.disconnect("pressed", Callable(self, "_on_SalsaAddButton_pressed2"))
+
+	# ✅ Avanzamos al siguiente paso cuando se detecten los tacos
 	_check_3_tacos()
 
+# Nueva bandera para controlar la pausa
+var game_paused = false
+var tacos_checked = false
 
+# ✅ FUNCIÓN PARA VERIFICAR TACOS COMPLETOS
 func _check_3_tacos():
+	if tacos_checked:
+		return
+	
 	print("✅ Verificando si los tacos están completos...")
-	# Si hay 3 tacos completos, avanzamos al siguiente paso y se reanuda el juego
+
 	if GrillManager.has_3_distinct_tacos():
+		tacos_checked = true
 		print("🔥 Tacos completos detectados. Avanzando al siguiente paso...")
-		# Habilitar el botón de continuar
+
+		# ✅ Desactivar la verificación para evitar loops infinitos
+		waiting_for_action = false
+		action_completed = true
+
+		# ✅ Habilitar botón de continuar
 		var cont_btn = continue_button_ref.get_ref()
 		if cont_btn:
 			cont_btn.disabled = false
-		# Desactivar la verificación para evitar loops
-		waiting_for_action = false
-		action_completed = true
-		# *Reanudar el juego* quitando la pausa
-		if day_control and day_control.has_method("_on_pause_pressed"):
-			day_control._on_pause_pressed()  # Esto reactivará el timer y reanudará el movimiento
-		# Avanzamos al siguiente diálogo (aquí paso 12, pues step 11 ya se mostró)
+
+		# ✅ Reanudar el juego si está pausado
+		if game_paused and day_control and day_control.has_method("_on_pause_pressed"):
+			game_paused = false
+			day_control._on_pause_pressed()
+
+		# ✅ Mostrar el mensaje de tacos completos usando dialogues2
 		step = 12
+		show_dialogue2(0)   # ✅ Mostrar diálogo de tacos completos
+		await get_tree().create_timer(2.0).timeout
+
+		# ✅ Después de mostrar dialogues2, avanzamos a step 13 para mostrar el mensaje final
+		step = 13
 		show_dialogue(step)
-		hide_speech_bubble_after_delay()
-		#end_tutorial()
+
 	else:
-		# Si aún no están completos, esperar 0.5 s y volver a verificar
+		# Si aún no están completos, volver a verificar en 0.5 s
 		var t = get_tree().create_timer(0.5)
 		await t.timeout
 		_check_3_tacos()
+
+# ✅ FUNCIÓN PARA MOSTRAR DIÁLOGO DE TACOS COMPLETOS
+func show_dialogue2(index):
+	if tacos_checked:
+		return
+	
+	tacos_checked = true
+
+	var txt_ref = tutorial_text_ref.get_ref()
+	if not txt_ref:
+		print("ERROR: tutorial_text fue liberado antes de usarse (show_dialogue2)")
+		return
+	
+	txt_ref.text = ""
+
+	# ✅ Escribir el texto de dialogues2[index]
+	var text_to_display = dialogues2[index]
+	await type_text(text_to_display)
+
+	# ✅ Habilitar botón de continuar al terminar el texto
+	var continue_button = continue_button_ref.get_ref()
+	if continue_button:
+		continue_button.disabled = false
+
+# ✅ FUNCIÓN PARA FINALIZAR EL TUTORIAL
+func end_tutorial():
+	print("✅ TUTORIAL TERMINADO: Fin de la Parte 1")
+	if arrow_start_ref:
+		arrow_start_ref.get_ref().visible = false
+	var tut_text = tutorial_text_ref.get_ref()
+	#var timer = get_tree().create_timer(1.0)
+	#await timer.timeout
+	var cont_btn = continue_button_ref.get_ref()
+	if cont_btn:
+		cont_btn.disabled = true
+		cont_btn.visible = false
+	# ✅ Ocultar el tutorial después de un tiempo
+	hide_speech_bubble_after_delay()
+	var taco_tutorial_node = get_node("/root/Node2D/CanvasLayer/TacoTutorial")
+	if taco_tutorial_node:
+		taco_tutorial_node.visible = false
+	if start_button:
+		start_button.visible = false
+	disconnect_tutorial_signals()
+	print("✅ Parte 1 del tutorial finalizada. ¡Listo para la parte 2!")
+
+
+# ✅ Evitar que el texto se sobrescriba
+func type_text(text):
+	var local_tutorial_text = tutorial_text_ref.get_ref()
+	if not local_tutorial_text:
+		print("ERROR: tutorial_text fue liberado antes de escribir texto")
+		return
+
+	local_tutorial_text.text = ""
+	for letter in text:
+		local_tutorial_text.text += letter
+		await get_tree().create_timer(typing_speed).timeout
+
+# ✅ FUNCIÓN PARA PAUSAR EL JUEGO
+func pause_game():
+	if not game_paused and day_control and day_control.has_method("_on_pause_pressed"):
+		print("⏸️ Pausando el juego...")
+		game_paused = true
+		day_control._on_pause_pressed()
+
+# ✅ FUNCIÓN PARA DESPAUSAR EL JUEGO
+func resume_game():
+	if game_paused and day_control and day_control.has_method("_on_pause_pressed"):
+		print("▶️ Despausando el juego...")
+		game_paused = false
+		day_control._on_pause_pressed()
+
+# ✅ FUNCION PARA EMPEZAR EL CICLO DE VERIFICACIÓN DE TACOS
+func start_step_11():
+	print("DEBUG: Entrando a step_11 => Pausa automática tras 1s")
+
+	# ✅ Esperar 2.5 segundos antes de pausar (para simular aparición de órdenes)
+	var t = get_tree().create_timer(2.0)
+	await t.timeout
+
+	# ✅ Pausar el juego para que el jugador vea las órdenes
+	pause_game()
+
+	# ✅ Mostrar el mensaje de instrucciones para el step 11
+	show_dialogue(11)
+
+	# ✅ Mostrar la primera flecha (Arrow7VerduraButton)
+	if arrow7_verdura_button_ref:
+		arrow7_verdura_button_ref.get_ref().visible = true
+	
+	# ✅ Conectar botón de VerduraButton
+	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+	if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed2")):
+		verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed2"))
+
+	# ✅ Iniciar la verificación de tacos
+	_check_3_tacos()
 
 func hide_speech_bubble_after_delay():
 	print("EjEcUtAnDoOO hide_speech_bubble_after_delay hide_speech_bubble_after_delay hide_speech_bubble_after_delay ")
@@ -650,32 +936,29 @@ func hide_speech_bubble_after_delay():
 	if speech_bubble_ref:
 		speech_bubble_ref.get_ref().visible = false
 
-
-func end_tutorial():
-	print("TUTORIAL TERMINADO: Fin de la Parte 1")
-	if arrow_start_ref:
-		arrow_start_ref.get_ref().visible = false
-	var tut_text = tutorial_text_ref.get_ref()
-	if tut_text:
-		tut_text.text = "¡Felicidades! Parte 1 del tutorial completada."
-	var timer = get_tree().create_timer(2.0)
-	await timer.timeout
-	var cont_btn = continue_button_ref.get_ref()
-	if cont_btn:
-		cont_btn.disabled = true
-		cont_btn.visible = false
-	# Llamamos a la función para ocultar el speech bubble después de 3 segundos
-	hide_speech_bubble_after_delay()
-	var taco_tutorial_node = get_node("/root/Node2D/CanvasLayer/TacoTutorial")
-	if taco_tutorial_node:
-		taco_tutorial_node.visible = false
-	if start_button:
-		start_button.visible = false
-	disconnect_tutorial_signals()
-	print("Parte 1 del tutorial finalizada. ¡Listo para la parte 2!")
-
-
 func disconnect_tutorial_signals():
+	print("🔴 Desconectando señales...")
+	var nodes = get_tree().get_nodes_in_group("TutorialNodes")
+	for node in nodes:
+		if node.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_TortillaAddButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_TortillaAddButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_CarneButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_CarneButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_CarneAddButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_SalsaButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_GrillButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_GrillButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
+
 	# Desconecta todas las señales que se conectaron manualmente en este tutorial
 	print("Desconectando todas las señales del tutorial...")
 

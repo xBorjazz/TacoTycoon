@@ -91,7 +91,7 @@ func _es_taco_valido(index: int, pedido_cliente: String) -> bool:
 		"Taco-2":
 			contenido_pedido = ["carne", "salsa", "tortilla", "verdura"]
 		"Taco-3":
-			contenido_pedido = ["tortilla"]
+			contenido_pedido = ["tortilla", "verdura"]
 
 	contenido_pedido.sort()
 
@@ -160,8 +160,6 @@ func update_label():
 # Se respeta el límite global de 4 unidades para cada ingrediente.
 # ---------------------------------------
 #
-# ==================== _on_add_ingredient() ====================
-# ✅ Verificar si hay suficientes ingredientes en el inventario antes de agregar
 func _on_add_ingredient():
 	print("➕ Agregando ingrediente:", ingrediente_actual)
 	
@@ -186,6 +184,7 @@ func _on_add_ingredient():
 
 	# 2) Recorremos cuadrantes 1..4 (índices 0..3) en orden
 	for i in range(4):
+		# 🔸 Si es tortilla, solo añadir si no hay tortilla en el cuadrante
 		if ingrediente_actual == "tortilla":
 			if "tortilla" not in cuadrantes[i]:
 				if ingredientes["tortilla"][i] != null:
@@ -193,15 +192,40 @@ func _on_add_ingredient():
 					cuadrantes[i].append("tortilla")
 					count_tortilla += 1
 					Inventory.tortillas_total -= 1
+					print("✅ Tortilla añadida en el cuadrante", i + 1)
 					break
 
 		else:
-			# carne/verdura/salsa => requiere que haya tortilla en ese cuadrante
+			# 🔸 Si ya hay tortilla en el cuadrante
 			if "tortilla" in cuadrantes[i]:
+				# ❌ NO permitir carne encima de cebolla
+				if ingrediente_actual == "carne" and "verdura" in cuadrantes[i]:
+					print("❌ No puedes poner carne encima de un taco que ya tiene cebolla.")
+					continue
+
+				# ✅ Permitir cebolla encima de tortilla o carne
+				if ingrediente_actual == "verdura" and "carne" not in cuadrantes[i]:
+					if ingrediente_actual not in cuadrantes[i]:
+						if ingredientes[ingrediente_actual][i] != null:
+							ingredientes[ingrediente_actual][i].visible = true
+							cuadrantes[i].append(ingrediente_actual)
+							count_verdura += 1
+							Inventory.verdura_total -= 1
+							print("✅ Verdura añadida en el cuadrante", i + 1)
+							break
+
+				# ✅ Si el ingrediente aún no está en el cuadrante, agregarlo (si es válido)
 				if ingrediente_actual not in cuadrantes[i]:
+					# 🔸 **Restricción para SALSA**
+					if ingrediente_actual == "salsa":
+						if not ("tortilla" in cuadrantes[i] and "carne" in cuadrantes[i] and "verdura" in cuadrantes[i]):
+							print("❌ No puedes poner salsa en un taco incompleto. Se necesita tortilla, carne y verdura.")
+							continue  # Si no hay tortilla, carne y verdura → busca el siguiente cuadrante
+
 					if ingredientes[ingrediente_actual][i] != null:
 						ingredientes[ingrediente_actual][i].visible = true
 						cuadrantes[i].append(ingrediente_actual)
+
 						match ingrediente_actual:
 							"carne":
 								count_carne += 1
@@ -212,10 +236,11 @@ func _on_add_ingredient():
 							"salsa":
 								count_salsa += 1
 								Inventory.salsa_total -= 1
+						print("✅", ingrediente_actual.capitalize(), "añadido en el cuadrante", i + 1)
 						break
 
 	update_label()
-	SuppliesUi.update_labels()  # ✅ Actualizar el inventario global
+	SuppliesUi.update_labels()
 
 
 #
@@ -332,7 +357,7 @@ func has_3_distinct_tacos() -> bool:
 	var recetas = {
 		"Taco-1": ["tortilla", "carne"],
 		"Taco-2": ["tortilla", "carne", "verdura", "salsa"],
-		"Taco-3": ["tortilla"]
+		"Taco-3": ["tortilla", "verdura"]
 	}
 
 	# Revisar cada cuadrante para ver si hay tacos completos

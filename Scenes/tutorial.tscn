@@ -5940,9 +5940,27 @@ sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
 
+[node name="Arrow7CarneButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(376, 990)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
 [node name="Arrow7VerduraButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(334, 704)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7VerduraButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(384, 988)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5961,6 +5979,15 @@ flip_h = true
 [node name="Arrow7SalsaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(407, 712)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7SalsaButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(386, 993)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
 sprite_frames = SubResource("SpriteFrames_27577")

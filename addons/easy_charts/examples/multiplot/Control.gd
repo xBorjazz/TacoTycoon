@@ -46,8 +46,8 @@ func _ready():
 	f2 = Function.new(x_init, y2_init, "Pérdidas", {color = Color("#ff6384"), marker = Function.Marker.CROSS})
 	f3 = Function.new(x_init, y3_init, "Ventas", {color = Color.GREEN, marker = Function.Marker.CIRCLE})
 	f4 = Function.new(x_init, y4_init, "Receta Pred.", {color = Color.PURPLE, marker = Function.Marker.SQUARE})
-	f5 = Function.new(x_init, y5_init, "Promedio de Ventas", {color = Color.YELLOW, marker = Function.Marker.NONE, type = Function.Type.LINE})
-	f6 = Function.new(x_init, y6_init, "Dinero Invertido", {color = Color("#FFA500"), marker = Function.Marker.SQUARE, type = Function.Type.AREA, interpolation = Function.Interpolation.STAIR})  # ✅ Color naranja para inversión
+	f5 = Function.new(x_init, y5_init, "Promedio de Ventas", {color = Color.RED, marker = Function.Marker.NONE, type = Function.Type.LINE})
+	f6 = Function.new(x_init, y6_init, "Dinero Invertido", {color = Color.LAWN_GREEN, marker = Function.Marker.SQUARE, type = Function.Type.AREA, interpolation = Function.Interpolation.STAIR})  # ✅ Color naranja para inversión
 
 	chart.plot([f1, f2, f3, f4, f5, f6], cp)
 
@@ -96,14 +96,31 @@ func update_chart():
 	if clientes_totales >= 5:
 		actualizar_promedio()
 
+	# ✅ 🔥 Ajustar la escala del dinero y las demás líneas
+	var min_y = min(f1.__y.min(), f6.__y.min()) - 10
+	var max_y = max(f1.__y.max(), f6.__y.max()) + 20
+
+	chart.set_x_domain(f1.__x.min(), f1.__x.max() + 10) 
+	chart.set_y_domain(min_y, max_y)  
+
 	# ✅ Redibujar la gráfica
 	chart.queue_redraw()
+
 
 # ✅ Calcular y actualizar la línea de tendencia después de 5 ventas
 func actualizar_promedio():
 	if ventas_reales.size() < 2:
 		return
 
+	var x_inicio = ventas_reales[0][0]
+	var x_final = ventas_reales[-1][0]
+
+	# ✅ Declarar valores fuera del bloque para que estén disponibles
+	var escala_x = 1.0
+	var escala_y = 1.0
+	var b = 0.0
+
+	# ✅ Media de X y Y
 	var x_mean = 0.0
 	var y_mean = 0.0
 
@@ -123,18 +140,32 @@ func actualizar_promedio():
 
 	if denominador != 0:
 		var m = numerador / denominador
-		var b = y_mean - m * x_mean
+		b = y_mean - m * x_mean  
 
+		# ✅ Limpiar datos antiguos de f5
 		while f5.__x.size() > 0:
 			f5.remove_point(0)
 
-		var x_inicio = ventas_reales[0][0]
-		var x_final = ventas_reales[-1][0]
+		# ✅ Crear la recta inclinada correctamente
+		var x_range = x_final - x_inicio
+		var y_range = abs(m * x_range)
 
-		if x_inicio != x_final:
-			f5.add_point(x_inicio, m * x_inicio + b)
-			f5.add_point(x_final, m * x_final + b)
+		# ✅ Ajustar escala dinámica
+		escala_x = max(10, x_range * 1.5)  # Evitar que se quede muy corta
+		escala_y = max(5, y_range * 1.5)   # Evitar que sea muy plana
 
+		# ✅ Dibujar la recta con pendiente visible
+		f5.add_point(x_inicio, m * x_inicio + b)
+		f5.add_point(x_final + escala_x, m * (x_final + escala_x) + b + escala_y)
+
+	# ✅ 🔥 Ajuste de escala solo para la línea de tendencia
+	var min_y = min(f1.__y.min(), b - 10)
+	var max_y = max(f1.__y.max(), b + escala_y + 20)
+
+	chart.set_x_domain(x_inicio, x_final + escala_x)
+	chart.set_y_domain(min_y, max_y)  
+
+	# ✅ Redibujar la gráfica
 	chart.queue_redraw()
 
 # ✅ Predicción basada en el promedio de ventas
