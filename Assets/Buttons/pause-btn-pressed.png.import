@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bva2c38nyce62"
-path="res://.godot/imported/icon.png-0929104cc11b721b5e6c10d862aa570c.ctex"
+uid="uid://eyagcxghagsl"
+path="res://.godot/imported/pause-btn-pressed.png-c00979dc20d336e21fe8e5810b1708d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/PGSGP/demo/icon.png"
-dest_files=["res://.godot/imported/icon.png-0929104cc11b721b5e6c10d862aa570c.ctex"]
+source_file="res://Assets/Buttons/pause-btn-pressed.png"
+dest_files=["res://.godot/imported/pause-btn-pressed.png-c00979dc20d336e21fe8e5810b1708d2.ctex"]
 
 [params]
 

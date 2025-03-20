@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 func _on_buy_taco_dog_button_pressed() -> void:
 	if Inventory.player_money >= TACO_DOG_COST:
 		Inventory.player_money -= TACO_DOG_COST
+		Inventory.invested_money += TACO_DOG_COST
 		taco_dog.visible = true  # Hacer visible Taco-Dog
 		tacodog_buy_button.disabled = true  # Deshabilitar el botón para que no se vuelva a comprar
 		#save_purchase() # Funcion para Guardar progreso
@@ -29,6 +30,8 @@ func _on_buy_taco_dog_button_pressed() -> void:
 func _on_buy_soda_machine_button_pressed() -> void:
 	if Inventory.player_money >= SODA_MACHINE_COST:
 		Inventory.player_money -= SODA_MACHINE_COST
+		Inventory.invested_money += SODA_MACHINE_COST 
+		
 		soda_machine.visible = true  # Hacer visible Taco-Dog
 		soda_machine_buy_button.disabled = true  # Deshabilitar el botón para que no se vuelva a comprar
 		#save_purchase() # Funcion para Guardar progreso

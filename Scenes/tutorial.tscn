@@ -1,4 +1,4 @@
-[gd_scene load_steps=435 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=437 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -26,7 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://cv64fr625jf3e" path="res://Scenes/path_2d.tscn" id="22_mf7wt"]
 [ext_resource type="Texture2D" uid="uid://bctyeri1pfh35" path="res://Assets/speedupbtn.png" id="23_cwcbn"]
 [ext_resource type="Texture2D" uid="uid://xb6j6jee3mab" path="res://Assets/speedupbt-pressed2.png" id="24_7dt7l"]
+[ext_resource type="Texture2D" uid="uid://cca5xib3klhvk" path="res://Assets/Buttons/pause-btn.png" id="25_8ig2d"]
 [ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="25_w0f65"]
+[ext_resource type="Texture2D" uid="uid://up4ofnjylqx2" path="res://Assets/Buttons/pause-btn-pressed2.png" id="26_14ssx"]
 [ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="26_d8f2p"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="27_wqgqt"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="28_b0sec"]
@@ -2904,6 +2906,18 @@ scale = Vector2(0.0188604, 0.0175105)
 texture_normal = ExtResource("23_cwcbn")
 texture_pressed = ExtResource("24_7dt7l")
 
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
+visible = false
+layout_mode = 0
+offset_left = 26.646
+offset_top = 28.4336
+offset_right = 703.646
+offset_bottom = 397.434
+scale = Vector2(0.0188604, 0.0175105)
+toggle_mode = true
+texture_normal = ExtResource("25_8ig2d")
+texture_pressed = ExtResource("26_14ssx")
+
 [node name="StartButton" type="TextureButton" parent="CanvasLayer/Gameplay"]
 layout_mode = 0
 offset_left = 31.6564
@@ -3600,6 +3614,7 @@ theme_override_font_sizes/font_size = 90
 text = "+5"
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -4626,7 +4641,6 @@ texture_normal = ExtResource("69_e02ne")
 script = ExtResource("55_mxn3s")
 
 [node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
@@ -5112,6 +5126,7 @@ offset_bottom = 598.295
 scale = Vector2(0.207401, 0.207401)
 texture_normal = ExtResource("56_f7m53")
 texture_pressed = ExtResource("57_ko53r")
+metadata/_edit_use_anchors_ = true
 
 [node name="RemoveButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
 layout_mode = 0
@@ -5831,40 +5846,68 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
-visible = false
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)
 texture = ExtResource("87_ej7dq")
 
-[node name="Arrow" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow1Ingredients" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(357, 857)
 scale = Vector2(1.38935, 1.4458)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow2" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow2TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(218, 931)
 scale = Vector2(0.79562, 0.827947)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow3" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow3Carne" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
-position = Vector2(54, 755)
+position = Vector2(68, 752)
 scale = Vector2(0.702322, 0.730858)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow4" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow4CarneAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(215, 862)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow5" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow4Verdura" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(142, 754)
+rotation = -0.104652
+scale = Vector2(0.748603, 0.779019)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow4VerduraAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(204, 851)
+scale = Vector2(0.897803, 0.934282)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow4Salsa" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(221, 761)
+scale = Vector2(0.777414, 0.809002)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow4SalsaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(215, 862)
+scale = Vector2(0.897803, 0.934282)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+
+[node name="Arrow5Buy" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(152, 994)
 rotation = 0.261791
@@ -5872,7 +5915,7 @@ scale = Vector2(0.677791, 0.705331)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow6" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow6Grill" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(307, 837)
 rotation = 0.261791
@@ -5880,23 +5923,79 @@ scale = Vector2(0.677791, 0.705331)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
-[node name="Arrow7" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow7TortillaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
-position = Vector2(401, 739)
-rotation = 0.261791
-scale = Vector2(0.904877, 0.941643)
+position = Vector2(158, 726)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
+flip_h = true
 
-[node name="Arrow8" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow7CarneButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
-position = Vector2(293, 742)
-rotation = 0.261791
-scale = Vector2(0.904877, 0.941643)
+position = Vector2(239, 715)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
+flip_h = true
 
-[node name="Arrow9" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+[node name="Arrow7CarneButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(376, 990)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7VerduraButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(334, 704)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7VerduraButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(384, 988)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow8TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(379, 986)
+rotation = -0.0221885
+scale = Vector2(0.539274, 0.561185)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7SalsaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(407, 712)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="Arrow7SalsaButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(386, 993)
+rotation = -0.0351943
+scale = Vector2(0.609846, 0.634625)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="ArrowLevels" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 position = Vector2(297, 620)
 rotation = 0.261791
@@ -5911,6 +6010,21 @@ scale = Vector2(0.856224, 0.891013)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
+
+[node name="ArrowGrillTortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(379, 987)
+scale = Vector2(0.549186, 0.5715)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
+flip_h = true
+
+[node name="ArrowSTART" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
+position = Vector2(357, 507)
+scale = Vector2(0.549186, 0.5715)
+sprite_frames = SubResource("SpriteFrames_27577")
+autoplay = "default"
 
 [node name="TutorialNode" type="Node2D" parent="CanvasLayer"]
 position = Vector2(390, 454)
@@ -5962,6 +6076,7 @@ text = "0
 "
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
+[connection signal="pressed" from="CanvasLayer/Gameplay/PauseButton" to="CanvasLayer/Gameplay/DayControl" method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]

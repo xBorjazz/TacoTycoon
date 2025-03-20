@@ -16,9 +16,9 @@ var verdura_large = 60
 var cebollas_small = 10
 var cebollas_medium = 30
 var cebollas_large = 50
-var salsa_small = 1
-var salsa_medium = 1
-var salsa_large = 1
+var salsa_small = 5
+var salsa_medium = 5
+var salsa_large = 5
 
 const MEDIO_KILO = 0.5
 const DineroInicial = 50
@@ -292,7 +292,9 @@ func _on_RestarVerduraLargeButton_pressed() -> void:
 func _on_buy_button_pressed() -> void:
 	if Inventory.player_money >= Inventory.buy_cost:
 		Inventory.player_money -= Inventory.buy_cost
+		Inventory.invested_money += Inventory.buy_cost
 		Inventory.buy_cost = 0  # Reinicia el valor de buy_cost a 0 después de la compra
+		print("DINERO INVERRRRTI1I1I1I1DO:", Inventory.invested_money)
 		SuppliesUi.actualizar_labels_dinero()
 		SuppliesUi.resetear_labels_recursos()
 		SuppliesUi.actualizar_inventario_total() 

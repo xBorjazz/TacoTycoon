@@ -12,7 +12,7 @@ config_version=5
 
 config/name="CuceiTacoTycoonv1"
 run/main_scene="res://Scenes/tutorial.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.3")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -30,7 +30,6 @@ LevelManager="*res://Scripts/LevelManager.gd"
 GradientDescent="*res://Scripts/GradientDescent.gd"
 GraphPlot="*res://Scripts/GraphPlot.gd"
 IngredientsManager="*res://Scripts/IngredientsManager.gd"
-EcUtilities="*res://addons/easy_charts/utilities/scripts/ec_utilities.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 multiplayer="*res://Scripts/MultiplayerManager.gd"
 client="*res://Scripts/Client.gd"

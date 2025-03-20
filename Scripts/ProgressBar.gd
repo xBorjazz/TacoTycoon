@@ -38,7 +38,7 @@ func initialize_progress_bar():
 func update_progress(money_gained: int) -> void:
 	#total_money_earned = 999 #DEBUG: Quitar para volver a la normalidad
 	total_money_earned += money_gained
-	Inventory.player_money += money_gained  # Actualiza el dinero del jugador
+	#Inventory.player_money += money_gained  # Actualiza el dinero del jugador
 
 	# Limitar las ganancias al objetivo
 	if total_money_earned > progress_target:

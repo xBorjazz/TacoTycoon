@@ -24,6 +24,32 @@ func _ready():
 	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
 	if taco_stand_zone:
 		taco_stand_zone.connect("body_entered", Callable(self, "_on_taco_stand_zone_body_entered"))
+		
+	day_manager.connect("day_ended", Callable(self, "_on_day_ended"))
+
+	# NUEVO: escuchar pause_toggled
+	day_manager.connect("pause_toggled", Callable(self, "_on_pause_toggled"))
+
+	if taco_stand_zone:
+		taco_stand_zone.connect("body_entered", Callable(self, "_on_taco_stand_zone_body_entered"))
+
+func _on_pause_toggled(is_paused: bool):
+	if is_paused:
+		# 1. Detener la velocidad y el _process
+		stop_moving()
+		
+		# 2. Detener la animación completamente,
+		if animated_sprite:
+
+			animated_sprite.stop()
+	else:
+		# Reanudar
+		if game_started and not has_bought:
+			speed = 0.2
+			set_process(true)
+			if animated_sprite:
+				# Reproducir la animación de caminar
+				animated_sprite.play("walk_left_down")
 
 func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String):
 	game_started = true
@@ -98,26 +124,38 @@ func buying_anim():
 
 	await get_tree().create_timer(2.0).timeout
 
+	# ✅ Verificamos solo si no ha comprado antes
 	if not has_bought:
 		if GrillManager.verificar_taco(pedido_cliente):
 			print("✅ Taco entregado correctamente")
 			GrillManager.limpiar_taco(pedido_cliente)
 
+			# ✅ Desconectar la señal para evitar que se repita
 			if sale_made.is_connected(_on_sale_made):
 				sale_made.disconnect(_on_sale_made)
 
+			# ✅ Emitimos señal solo una vez
 			sale_made.emit()
+			
+			# ✅ Incrementamos ventas correctas
+			#Inventory.tacos_vendidos += 1
+
+			# ✅ Sumamos el dinero al inventario del jugador
+			Inventory.player_money += Inventory.costo_taco
+			SuppliesUi.actualizar_labels_dinero()
+
 			has_bought = true
 			_resume_movement()
-	
-	#var timer = Timer.new()
-	#timer.wait_time = 2.0
-	#timer.one_shot = true
-	#timer.connect("timeout", Callable(self, "_on_buying_complete"))
-	#add_child(timer)
-	#timer.start()
-	_on_buying_complete()
-			
+		else:
+			# ❌ Si no coincide la receta:
+			print("❌ Taco INCORRECTO. Venta fallida")
+			Inventory.ventas_fallidas += 1
+
+			# ✅ NO sumar dinero si la venta falló
+			SuppliesUi.actualizar_labels_dinero()
+
+			_resume_movement()
+
 func _on_buying_complete() -> void:
 	Inventory.player_money += Inventory.costo_taco
 	print("Dinero del jugador ahora es: ", Inventory.player_money)
@@ -134,15 +172,12 @@ func _on_sale_made(character):
 		has_bought = true
 		_resume_movement()
 
-func verify_sound() -> void:
-	if sound_player:
-		sound_player.play()
 
 func _resume_movement():
 	speed = 0.2
 	is_buying = false
 	if animated_sprite:
-		animated_sprite.play("walk_right")
+		animated_sprite.play("walk_left_down")
 
 func fade_out_anim():
 	speed = 0
@@ -155,3 +190,7 @@ func fade_out_anim():
 func _on_day_ended():
 	stop_moving()
 	visible = false
+	
+func verify_sound() -> void:
+	if sound_player:
+		sound_player.play()

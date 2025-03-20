@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cv64fr625jf3e"]
+[gd_scene load_steps=39 format=3 uid="uid://cv64fr625jf3e"]
 
 [ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="1_6gdot"]
 [ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="2_dwksi"]
@@ -32,14 +32,6 @@ animations = [{
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vbsx"]
 atlas = ExtResource("2_dwksi")
 region = Rect2(0, 180, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ebbsk"]
-atlas = ExtResource("2_dwksi")
-region = Rect2(138, 252, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sma6u"]
-atlas = ExtResource("2_dwksi")
-region = Rect2(161, 252, 23, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2kfx"]
 atlas = ExtResource("2_dwksi")
@@ -136,15 +128,6 @@ animations = [{
 "speed": 1.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ebbsk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sma6u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k2kfx")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k2kfx")
 }, {
