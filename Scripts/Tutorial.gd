@@ -455,7 +455,7 @@ func start_step_6():
 	waiting_for_action = true
 	action_completed = false
 	
-	var t = get_tree().create_timer(1.2)
+	var t = get_tree().create_timer(1.6)
 	await t.timeout
 	
 	# Mostrar flecha 7
