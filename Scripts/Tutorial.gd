@@ -208,6 +208,7 @@ func show_dialogue(index):
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 7:
 			start_step_7()
+			print("PASOOOOO 777777")
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
 		elif step == 8:
 			start_step_8()
@@ -218,6 +219,8 @@ func show_dialogue(index):
 		elif step == 10:
 			start_step_10()
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
+			if continue_button:
+				continue_button.visible = false
 		elif step == 11:
 			start_step_11()
 			print("DEBUG: Avanzando a paso", step)  # <--- IMPRIME EL NUEVO STEP
@@ -451,6 +454,9 @@ func _on_GrillButton_pressed():
 func start_step_6():
 	waiting_for_action = true
 	action_completed = false
+	
+	var t = get_tree().create_timer(1.2)
+	await t.timeout
 	
 	# Mostrar flecha 7
 	if arrow7_tortilla_button_ref:
