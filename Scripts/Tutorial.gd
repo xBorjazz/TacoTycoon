@@ -447,6 +447,7 @@ func _on_GrillButton_pressed():
 	if arrow7_tortilla_button_ref:
 		arrow7_tortilla_button_ref.get_ref().visible = true
 
+var contador_tortilla = 0
 
 # -------------------------------------------------------------------
 # start_step_6 -> Manejo de la siguiente flecha (Arrow7TortillaButton)
@@ -455,12 +456,12 @@ func start_step_6():
 	waiting_for_action = true
 	action_completed = false
 	
-	var t = get_tree().create_timer(1.6)
+	var t = get_tree().create_timer(4.0)
 	await t.timeout
 	
-	# Mostrar flecha 7
-	if arrow7_tortilla_button_ref:
-		arrow7_tortilla_button_ref.get_ref().visible = true
+	## Mostrar flecha 7
+	#if arrow7_tortilla_button_ref:
+		#arrow7_tortilla_button_ref.get_ref().visible = true
 
 	# Conectar el TortillaButton (por si no lo hiciste antes)
 	var tortilla_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
@@ -469,6 +470,12 @@ func start_step_6():
 
 # Al presionar TortillaButton
 func _on_TortillaButton_pressed():
+	# Verificar si el botón ya fue presionado anteriormente (sólo se ejecuta la primera vez)
+	if contador_tortilla > 0:
+		if arrow7_tortilla_button_ref:
+			arrow7_tortilla_button_ref.get_ref().visible = false
+		return  # Si ya se presionó, salimos de la función sin ejecutar nada más
+	contador_tortilla += 1
 	var tortilla_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
 	tortilla_button.disconnect("pressed", Callable(self, "_on_TortillaButton_pressed"))
 	# Ocultar flecha 7
@@ -528,8 +535,8 @@ func start_step_7():
 	
 	
 	# EJEMPLO: Muestra arrow7TortillaButton
-	#if arrow7_tortilla_button_ref:
-		#arrow7_tortilla_button_ref.get_ref().visible = true
+	if arrow7_tortilla_button_ref:
+		arrow7_tortilla_button_ref.get_ref().visible = false
 
 	# Conectar el TortillaButton, etc.
 

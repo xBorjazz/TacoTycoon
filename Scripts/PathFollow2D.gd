@@ -145,7 +145,7 @@ func buying_anim():
 			SuppliesUi.actualizar_labels_dinero()
 
 			has_bought = true
-			_on_buying_complete()
+			_resume_movement()
 		else:
 			# ❌ Si no coincide la receta:
 			print("❌ Taco INCORRECTO. Venta fallida")

@@ -59,6 +59,7 @@ func limpiar_taco(pedido_cliente: String):
 		cuadrantes[idx].clear()
 		# ✅ Incrementar el contador de tacos vendidos en Inventory
 		Inventory.tacos_vendidos += 1
+		GlobalProgressBar.update_progress(25) # 🔥 Actualiza la barra basado en el progreso
 		print("🌮 Taco vendido! Total tacos vendidos:", Inventory.tacos_vendidos)
 		update_label()
 		# ✅ Emitir la señal para actualizar la gráfica
