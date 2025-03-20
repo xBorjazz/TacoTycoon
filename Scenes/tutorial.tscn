@@ -5126,6 +5126,7 @@ offset_bottom = 598.295
 scale = Vector2(0.207401, 0.207401)
 texture_normal = ExtResource("56_f7m53")
 texture_pressed = ExtResource("57_ko53r")
+metadata/_edit_use_anchors_ = true
 
 [node name="RemoveButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel6"]
 layout_mode = 0

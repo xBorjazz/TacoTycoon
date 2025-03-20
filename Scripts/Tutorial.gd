@@ -165,6 +165,11 @@ func show_dialogue(index):
 
 	# ✅ FINALIZAR TUTORIAL SI step = 13
 	if step == 13:
+		# ✅ Conectar botón Verdura otra vez → pero en segunda fase con `verdura3`
+		var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+		if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
+			verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
+		disconnect_tutorial_signals()
 		await get_tree().create_timer(1.5).timeout
 		end_tutorial()
 
@@ -616,6 +621,7 @@ func _on_VerduraButton_pressed2():
 	# ✅ Desconectar el botón anterior
 	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
 	if verdura_button and verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed2")):
+		print("SE DESCONECTO BOTNnnnn verduraAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 		verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed2"))
 
 	# ✅ Conectar botón de suma (AddButton)
@@ -636,6 +642,11 @@ func _on_VerduraAddButton_pressed2():
 	# 🔥 Mostrar la siguiente flecha (Arrow7CarneButton)
 	if arrow7_carne_button_ref:
 		arrow7_carne_button_ref.get_ref().visible = true
+		
+		# ✅ Desconectar el botón anterior
+	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+	if verdura_button and verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed2")):
+		verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed2"))
 
 	# ✅ Desconectar botón anterior
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
@@ -700,19 +711,32 @@ func _on_CarneAddButton_pressed2():
 		if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
 			verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
 
+# Declarar un contador global, inicializado en 0
+var contador_verdura3 = 0
+
 # -------------------------------------------------------------------
 # ✅ FUNCIÓN AL PRESIONAR VERDURA BUTTON (SEGUNDO PASO)
 # -------------------------------------------------------------------
 func _on_VerduraButton_pressed3():
+	# Verificar si el botón ya fue presionado anteriormente (sólo se ejecuta la primera vez)
+	if contador_verdura3 > 0:
+		return  # Si ya se presionó, salimos de la función sin ejecutar nada más
+	contador_verdura3 += 1
+
 	print("✅ Verdura Button (2da fase) presionado")
 
 	# 🔥 Ocultar flecha anterior
 	if arrow7_verdura_button_ref:
 		arrow7_verdura_button_ref.get_ref().visible = false
-	
+
 	# ✅ Mostrar la siguiente flecha (Arrow7VerduraButtonAdd)
 	if arrow7_verdura_button_add_ref:
 		arrow7_verdura_button_add_ref.get_ref().visible = true
+
+	# ✅ Conectar botón Verdura otra vez → pero en segunda fase con `verdura3`
+	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+	if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
+		verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
 
 	# ✅ Conectar botón Add para verdura
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
@@ -737,12 +761,16 @@ func _on_VerduraAddButton_pressed3():
 	# ✅ Ahora mostramos el botón de salsa
 	_show_salsa_button()
 
+# Declarar un contador global para salsa, inicializado en 0
+var contador_salsa = 0
+
 # -------------------------------------------------------------------
 # ✅ Mostrar Salsa Button
 # -------------------------------------------------------------------
 func _show_salsa_button():
+	if contador_salsa > 0:
+		return  # Si ya se presionó, salimos sin ejecutar el resto
 	print("✅ Mostrando Salsa Button")
-
 	# ✅ Mostrar flecha para salsa
 	if arrow7_salsa_button_ref:
 		arrow7_salsa_button_ref.get_ref().visible = true
@@ -756,8 +784,19 @@ func _show_salsa_button():
 # ✅ FUNCIÓN AL PRESIONAR SALSA BUTTON
 # -------------------------------------------------------------------
 func _on_SalsaButton_pressed2():
+	# Verificar si el botón ya fue presionado anteriormente
+	if contador_salsa > 0:
+		return  # Si ya se presionó, salimos sin ejecutar el resto
+	contador_salsa += 1
+
 	print("✅ Salsa Button presionado")
 
+	# ✅ Desconectar botón SalsaButton
+	var salsa_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton")
+	if salsa_button and not salsa_button.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed2")):
+		salsa_button.disconnect("pressed", Callable(self, "_on_SalsaButton_pressed2"))
+
+	# ✅ Ocultar flecha para salsa
 	if arrow7_salsa_button_ref:
 		arrow7_salsa_button_ref.get_ref().visible = false
 	
@@ -783,7 +822,7 @@ func _on_SalsaAddButton_pressed2():
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
 	if add_button and add_button.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed2")):
 		add_button.disconnect("pressed", Callable(self, "_on_SalsaAddButton_pressed2"))
-
+		
 	# ✅ Avanzamos al siguiente paso cuando se detecten los tacos
 	_check_3_tacos()
 
@@ -938,6 +977,8 @@ func hide_speech_bubble_after_delay():
 
 func disconnect_tutorial_signals():
 	print("🔴 Desconectando señales...")
+
+	# ✅ Desconectar señales en el grupo TutorialNodes
 	var nodes = get_tree().get_nodes_in_group("TutorialNodes")
 	for node in nodes:
 		if node.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
@@ -950,8 +991,12 @@ func disconnect_tutorial_signals():
 			node.disconnect("pressed", Callable(self, "_on_CarneAddButton_pressed"))
 		if node.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed")):
 			node.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed"))
 		if node.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed")):
 			node.disconnect("pressed", Callable(self, "_on_SalsaButton_pressed"))
+		if node.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed")):
+			node.disconnect("pressed", Callable(self, "_on_SalsaAddButton_pressed"))
 		if node.is_connected("pressed", Callable(self, "_on_BuyButton_pressed")):
 			node.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
 		if node.is_connected("pressed", Callable(self, "_on_GrillButton_pressed")):
@@ -959,9 +1004,33 @@ func disconnect_tutorial_signals():
 		if node.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
 			node.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
 
-	# Desconecta todas las señales que se conectaron manualmente en este tutorial
-	print("Desconectando todas las señales del tutorial...")
+	# ✅ Desconectar señales dinámicas y persistentes
+	var verdura_button2 = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
+	if verdura_button2 and verdura_button2.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
+		print("🟢 Desconectando VerduraButton3...")
+		verdura_button2.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
 
+	var verdura_add_button2 = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if verdura_add_button2 and verdura_add_button2.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed2")):
+		print("🟢 Desconectando VerduraAddButton2...")
+		verdura_add_button2.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed2"))
+		
+	var verdura_add_button3 = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if verdura_add_button3 and verdura_add_button3.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed3")):
+		print("🟢 Desconectando VerduraAddButton3...")
+		verdura_add_button2.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed3"))
+
+	var salsa_button2 = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/SalsaContainer/SalsaButton")
+	if salsa_button2 and salsa_button2.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed2")):
+		print("🟢 Desconectando SalsaButton2...")
+		salsa_button2.disconnect("pressed", Callable(self, "_on_SalsaButton_pressed2"))
+
+	var salsa_add_button2 = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	if salsa_add_button2 and salsa_add_button2.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed2")):
+		print("🟢 Desconectando SalsaAddButton2...")
+		salsa_add_button2.disconnect("pressed", Callable(self, "_on_SalsaAddButton_pressed2"))
+
+	# ✅ Desconectar manualmente botones persistentes
 	var ing_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
 	if ing_button and ing_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
 		ing_button.disconnect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
@@ -994,11 +1063,12 @@ func disconnect_tutorial_signals():
 	if add_button and add_button.is_connected("pressed", Callable(self, "_on_add_button_pressed")):
 		add_button.disconnect("pressed", Callable(self, "_on_add_button_pressed"))
 
-	# Desconecta el botón Start
+	# ✅ Desconectar botón Start
 	if start_button and start_button.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
 		start_button.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
 
-	print("Todas las señales del tutorial han sido desconectadas.")
+	print("✅ Todas las señales han sido desconectadas correctamente. 🚀")
+
 
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")
