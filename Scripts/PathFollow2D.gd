@@ -137,6 +137,8 @@ func buying_anim():
 			# ✅ Emitimos señal solo una vez
 			sale_made.emit()
 			
+			verify_sound()
+			
 			# ✅ Incrementamos ventas correctas
 			#Inventory.tacos_vendidos += 1
 
