@@ -1,4 +1,4 @@
-[gd_scene load_steps=437 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=438 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -45,12 +45,13 @@
 [ext_resource type="Texture2D" uid="uid://b01ipyik0h40p" path="res://Assets/Maps/Cucei/globo-disabled.png" id="40_3k4hm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="40_h3q5p"]
 [ext_resource type="Texture2D" uid="uid://cp44wnic0j3uk" path="res://Assets/Buttons/arrows/bluefadearrow.png" id="41_g08oj"]
-[ext_resource type="Script" path="res://Scripts/GraphDrawer.gd" id="42_obi1v"]
 [ext_resource type="PackedScene" uid="uid://7v0v5lsl0kqe" path="res://addons/easy_charts/examples/multiplot/Control.tscn" id="43_dap3m"]
 [ext_resource type="Script" path="res://Scripts/CharacterShop.gd" id="44_6a6v5"]
 [ext_resource type="Texture2D" uid="uid://ncluojdeeueo" path="res://Assets/chihuahua-taco-dog.jpeg" id="45_hgn1x"]
 [ext_resource type="Texture2D" uid="uid://bv1bakvcufx4m" path="res://Assets/buybutton.png" id="46_e1r2r"]
+[ext_resource type="Script" path="res://Scripts/GraphManager.gd" id="47_5si35"]
 [ext_resource type="Texture2D" uid="uid://ddktanm4xnhcx" path="res://Assets/librreet.png" id="47_bc2ls"]
+[ext_resource type="Script" path="res://addons/easy_charts/examples/multiplot/regresion.gd" id="47_q6p4e"]
 [ext_resource type="Texture2D" uid="uid://353yfwyrmkno" path="res://Assets/tortilla-pile-sprite-definitve.png" id="48_68yrn"]
 [ext_resource type="Script" path="res://Scripts/Panel5Buttons.gd" id="48_e3scy"]
 [ext_resource type="Texture2D" uid="uid://bqg0tvpkemnd5" path="res://Assets/meat-sprite-definitive-big3.png" id="50_rlj2f"]
@@ -3126,7 +3127,6 @@ texture_normal = ExtResource("40_h3q5p")
 texture_pressed = ExtResource("41_g08oj")
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
@@ -3158,64 +3158,6 @@ size_flags_vertical = 15
 text = "% Ganancias 
 "
 
-[node name="line_chart" type="GridContainer" parent="CanvasLayer/PanelContainer/Panel2"]
-visible = false
-layout_mode = 0
-offset_left = 24.2005
-offset_top = 26.2174
-offset_right = 303.215
-offset_bottom = 164.217
-columns = 3
-script = ExtResource("42_obi1v")
-line_color = Color(1, 0.194376, 0.144153, 1)
-bg_color = Color(0.054902, 0.054902, 0.054902, 1)
-
-[node name="y_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 15
-text = "y"
-
-[node name="y_ticks_container" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-
-[node name="line_container" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="background" type="ColorRect" parent="CanvasLayer/PanelContainer/Panel2/line_chart/line_container"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 1, 1)
-
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-
-[node name="x_ticks_container" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-
-[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-
-[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-
-[node name="x_label" type="Label" parent="CanvasLayer/PanelContainer/Panel2/line_chart"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "x
-"
-vertical_alignment = 1
-
 [node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel2"]
 anchors_preset = 0
 offset_left = -14.8926
@@ -3231,6 +3173,44 @@ offset_top = 18.9228
 offset_right = 620.063
 offset_bottom = 397.483
 scale = Vector2(0.419683, 0.251132)
+
+[node name="Regresion" type="Control" parent="CanvasLayer/PanelContainer/Panel2"]
+anchors_preset = 0
+offset_left = -14.8926
+offset_top = -32.1375
+offset_right = 25.1074
+offset_bottom = 7.86252
+scale = Vector2(1.1756, 2.0559)
+
+[node name="Regresion2" parent="CanvasLayer/PanelContainer/Panel2/Regresion" instance=ExtResource("43_dap3m")]
+layout_mode = 1
+offset_left = 15.0434
+offset_top = 18.9228
+offset_right = 620.063
+offset_bottom = 397.483
+scale = Vector2(0.419683, 0.251132)
+script = ExtResource("47_q6p4e")
+
+[node name="PrediccionButton" type="Button" parent="CanvasLayer/PanelContainer/Panel2"]
+layout_mode = 0
+offset_left = 174.988
+offset_top = 235.957
+offset_right = 342.988
+offset_bottom = 259.957
+scale = Vector2(0.815197, 0.979312)
+text = "Predicción"
+
+[node name="GananciasButton" type="Button" parent="CanvasLayer/PanelContainer/Panel2"]
+layout_mode = 0
+offset_left = 18.6157
+offset_top = 235.957
+offset_right = 186.616
+offset_bottom = 259.957
+scale = Vector2(0.815197, 0.979312)
+text = "Ganancias"
+
+[node name="GraphManager" type="Node" parent="CanvasLayer/PanelContainer/Panel2"]
+script = ExtResource("47_5si35")
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -4641,6 +4621,7 @@ texture_normal = ExtResource("69_e02ne")
 script = ExtResource("55_mxn3s")
 
 [node name="Panel6" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel6"]
@@ -6082,6 +6063,8 @@ text = "0
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/BetasButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_betas_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel2/PrediccionButton" to="CanvasLayer/PanelContainer/Panel2/GraphManager" method="_on_PrediccionButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel2/GananciasButton" to="CanvasLayer/PanelContainer/Panel2/GraphManager" method="_on_GananciasButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyTacoDogButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_taco_dog_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/TortillasButton" method="_on_tortillas_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" to="CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton" method="_on_carne_button_pressed"]
