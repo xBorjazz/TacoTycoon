@@ -59,13 +59,68 @@ func limpiar_taco(pedido_cliente: String):
 		cuadrantes[idx].clear()
 		# ✅ Incrementar el contador de tacos vendidos en Inventory
 		Inventory.tacos_vendidos += 1
+		Inventory.tacos_vendidos_mision += 1
 		GlobalProgressBar.update_progress(25) # 🔥 Actualiza la barra basado en el progreso
 		print("🌮 Taco vendido! Total tacos vendidos:", Inventory.tacos_vendidos)
+		
+		# ✅ Sumar dinero al jugador y a la misión
+		Inventory.dinero_ganado_mision += Inventory.costo_taco
+		Inventory.player_money += Inventory.costo_taco
+		
+		# ✅ Sumar propinas (opcional)
+		if randi() % 3 == 0:
+			Inventory.propinas_recibidas += 1
+		
+		# ✅ Revisar si la misión está completa
+		Inventory.emit_signal("mision_actualizada")
+		verificar_misiones()
+		
 		update_label()
 		# ✅ Emitir la señal para actualizar la gráfica
 		sale_made.emit()
 		_print_cuadrantes_state()  # Opcional: imprimir luego de limpiar
 
+func verificar_misiones():
+	# 🔥 Si completó la misión de tacos vendidos
+	if Inventory.tacos_vendidos_mision >= Inventory.TACOS_OBJETIVO:
+		completar_mision("tacos")
+
+	# 🔥 Si completó la misión de dinero ganado
+	if Inventory.dinero_ganado_mision >= Inventory.DINERO_OBJETIVO:
+		completar_mision("dinero")
+
+	# 🔥 Si completó la misión de reseñas
+	if Inventory.buenas_resenas >= Inventory.RESENAS_OBJETIVO:
+		completar_mision("reseñas")
+
+	# 🔥 Si completó la misión de propinas
+	if Inventory.propinas_recibidas >= Inventory.PROPINAS_OBJETIVO:
+		completar_mision("propinas")
+
+func completar_mision(tipo):
+	match tipo:
+		"tacos":
+			print("✅ ¡Misión de tacos completada!")
+			Inventory.taco_coins += 5
+			Inventory.tacos_vendidos_mision = 0
+		
+		"dinero":
+			print("✅ ¡Misión de dinero completada!")
+			Inventory.taco_coins += 10
+			Inventory.dinero_ganado_mision = 0
+		
+		"reseñas":
+			print("✅ ¡Misión de reseñas completada!")
+			Inventory.taco_coins += 3
+			Inventory.buenas_resenas = 0
+		
+		"propinas":
+			print("✅ ¡Misión de propinas completada!")
+			Inventory.taco_coins += 2
+			Inventory.propinas_recibidas = 0
+
+	# ✅ Actualizar la UI después de completar la misión
+	Inventory.emit_signal("mision_actualizada")
 #
 # ------------------ FUNCIONES DE SOPORTE -------------------
 #

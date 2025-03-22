@@ -1,4 +1,4 @@
-[gd_scene load_steps=438 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=440 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -58,6 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://bxob6vvxy74ck" path="res://Assets/onion.png" id="51_1viyi"]
 [ext_resource type="Texture2D" uid="uid://b34wutfkcuwfq" path="res://Assets/verdura-sprite-new__1.png" id="51_6f7ub"]
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="52_5boi0"]
+[ext_resource type="Texture2D" uid="uid://qql53y5rqhf8" path="res://Assets/Buttons/tick-btn2.png" id="52_ubp8e"]
+[ext_resource type="Script" path="res://Scripts/TasksPanel.gd" id="53_f05st"]
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="53_sxxkg"]
 [ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="54_4keov"]
 [ext_resource type="Script" path="res://Scripts/TextureButtons.gd" id="55_mxn3s"]
@@ -3127,6 +3129,7 @@ texture_normal = ExtResource("40_h3q5p")
 texture_pressed = ExtResource("41_g08oj")
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
@@ -3387,7 +3390,6 @@ scale = Vector2(0.162767, 0.128434)
 texture_normal = ExtResource("46_e1r2r")
 
 [node name="Panel4" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel4"]
@@ -3473,8 +3475,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.825876, 0.825876)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Consigue 5 
-buenas reseñas"
+text = "Invierte
+  $800"
 
 [node name="Label6" type="Label" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 1
@@ -3520,14 +3522,17 @@ offset_top = 97.2582
 offset_right = 45.4081
 offset_bottom = 121.258
 scale = Vector2(2.47773, 2.47773)
+disabled = true
+toggle_mode = false
 
 [node name="CheckBox3" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
 offset_left = 22.3389
 offset_top = 149.693
-offset_right = 46.3389
+offset_right = 66.3389
 offset_bottom = 173.693
 scale = Vector2(2.47773, 2.47773)
+disabled = true
 
 [node name="CheckBox4" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
@@ -3536,6 +3541,8 @@ offset_top = 213.968
 offset_right = 46.3389
 offset_bottom = 237.968
 scale = Vector2(2.47773, 2.47773)
+disabled = true
+toggle_mode = false
 
 [node name="CheckBox5" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
@@ -3544,6 +3551,48 @@ offset_top = 275.706
 offset_right = 46.3389
 offset_bottom = 299.706
 scale = Vector2(2.47773, 2.47773)
+disabled = true
+toggle_mode = false
+
+[node name="TickButton1" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+offset_left = 0.930786
+offset_top = 97.2581
+offset_right = 677.931
+offset_bottom = 466.258
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
+
+[node name="TickButton2" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+offset_left = 0.930787
+offset_top = 151.384
+offset_right = 677.931
+offset_bottom = 520.384
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
+
+[node name="TickButton3" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+offset_left = 0.930787
+offset_top = 214.814
+offset_right = 677.931
+offset_bottom = 583.814
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
+
+[node name="TickButton4" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+offset_left = 0.930787
+offset_top = 276.551
+offset_right = 677.931
+offset_bottom = 645.551
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
 
 [node name="Label9" type="Label" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 1
@@ -3563,14 +3612,14 @@ theme_override_colors/font_color = Color(1, 0.27451, 0.211765, 1)
 text = "1/10"
 vertical_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
+[node name="MoneyProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
 offset_left = 79.1169
 offset_top = 176.756
 offset_right = 190.117
 offset_bottom = 198.756
 
-[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
+[node name="ReviewsProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
 offset_left = 76.0
 offset_top = 254.0
@@ -3592,6 +3641,64 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_conpe")
 theme_override_font_sizes/font_size = 90
 text = "+5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Taco-coins2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(217.804, 188.596)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins2"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "+10"
+metadata/_edit_use_anchors_ = true
+
+[node name="Taco-coins3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(210.358, 230.882)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins3"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "+5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Taco-coins4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(106.11, 333.215)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins4"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "+2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel4"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("53_f05st")
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -6040,7 +6147,6 @@ a Cucei Taco Tycoon"
 autowrap_mode = 3
 
 [node name="Taco-coins" type="Sprite2D" parent="CanvasLayer"]
-visible = false
 position = Vector2(512, 45)
 scale = Vector2(0.178114, 0.178114)
 texture = ExtResource("107_gqn40")

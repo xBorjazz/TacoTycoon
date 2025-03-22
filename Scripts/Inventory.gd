@@ -1,5 +1,21 @@
 extends Node
 
+# ✅ Señal para actualizar misiones
+signal mision_actualizada
+
+# ✅ Objetivos de las misiones
+var TACOS_OBJETIVO = 30
+var DINERO_OBJETIVO = 500
+var RESENAS_OBJETIVO = 5
+var PROPINAS_OBJETIVO = 10
+
+# ✅ Estado actual
+var tacos_vendidos_mision = 0
+var dinero_ganado_mision = 0
+var buenas_resenas = 0
+var propinas_recibidas = 0
+var taco_coins = 0
+
 # Variables para los suministros
 var tortillas_total = 0
 var carne_total = 0
