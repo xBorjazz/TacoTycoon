@@ -8,6 +8,7 @@ var TACOS_OBJETIVO = 30
 var DINERO_OBJETIVO = 500
 var RESENAS_OBJETIVO = 5
 var PROPINAS_OBJETIVO = 10
+var INVESTED_OBJETIVO = 800
 
 # ✅ Estado actual
 var tacos_vendidos_mision = 0
@@ -30,6 +31,7 @@ var buy_cost = 0.0  # Costo acumulado de las compras
 var player_money = 150
 var opponent_money = 150
 var invested_money = 0
+
 
 # Contadores individuales
 var tortillas_normal = 0
