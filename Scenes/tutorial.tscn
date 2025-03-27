@@ -3556,6 +3556,7 @@ toggle_mode = false
 
 [node name="TickButton1" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
 visible = false
+layout_mode = 0
 offset_left = 0.930786
 offset_top = 97.2581
 offset_right = 677.931
@@ -3566,6 +3567,7 @@ texture_normal = ExtResource("52_ubp8e")
 
 [node name="TickButton2" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
 visible = false
+layout_mode = 0
 offset_left = 0.930787
 offset_top = 151.384
 offset_right = 677.931
@@ -3576,6 +3578,7 @@ texture_normal = ExtResource("52_ubp8e")
 
 [node name="TickButton3" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
 visible = false
+layout_mode = 0
 offset_left = 0.930787
 offset_top = 214.814
 offset_right = 677.931
@@ -3586,6 +3589,7 @@ texture_normal = ExtResource("52_ubp8e")
 
 [node name="TickButton4" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
 visible = false
+layout_mode = 0
 offset_left = 0.930787
 offset_top = 276.551
 offset_right = 677.931
@@ -5668,6 +5672,13 @@ stream = ExtResource("74_8yq50")
 volume_db = -9.0
 autoplay = true
 
+[node name="TutorialOverlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(0, 0, 0, 0.447059)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(14.4544, 25.6985)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 374.0
 offset_top = 590.0
@@ -5934,12 +5945,14 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+z_index = 2
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)
 texture = ExtResource("87_ej7dq")
 
 [node name="Arrow1Ingredients" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(357, 857)
 scale = Vector2(1.38935, 1.4458)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5947,6 +5960,7 @@ autoplay = "default"
 
 [node name="Arrow2TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(218, 931)
 scale = Vector2(0.79562, 0.827947)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5954,6 +5968,7 @@ autoplay = "default"
 
 [node name="Arrow3Carne" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(68, 752)
 scale = Vector2(0.702322, 0.730858)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5961,6 +5976,7 @@ autoplay = "default"
 
 [node name="Arrow4CarneAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(215, 862)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5968,6 +5984,7 @@ autoplay = "default"
 
 [node name="Arrow4Verdura" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(142, 754)
 rotation = -0.104652
 scale = Vector2(0.748603, 0.779019)
@@ -5976,6 +5993,7 @@ autoplay = "default"
 
 [node name="Arrow4VerduraAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(204, 851)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5983,6 +6001,7 @@ autoplay = "default"
 
 [node name="Arrow4Salsa" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(221, 761)
 scale = Vector2(0.777414, 0.809002)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5990,6 +6009,7 @@ autoplay = "default"
 
 [node name="Arrow4SalsaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(215, 862)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5997,6 +6017,7 @@ autoplay = "default"
 
 [node name="Arrow5Buy" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(152, 994)
 rotation = 0.261791
 scale = Vector2(0.677791, 0.705331)
@@ -6005,6 +6026,7 @@ autoplay = "default"
 
 [node name="Arrow6Grill" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(307, 837)
 rotation = 0.261791
 scale = Vector2(0.677791, 0.705331)
@@ -6013,6 +6035,7 @@ autoplay = "default"
 
 [node name="Arrow7TortillaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(158, 726)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6022,6 +6045,7 @@ flip_h = true
 
 [node name="Arrow7CarneButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(239, 715)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6031,6 +6055,7 @@ flip_h = true
 
 [node name="Arrow7CarneButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(376, 990)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6040,6 +6065,7 @@ flip_h = true
 
 [node name="Arrow7VerduraButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(334, 704)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6049,6 +6075,7 @@ flip_h = true
 
 [node name="Arrow7VerduraButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(384, 988)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6058,6 +6085,7 @@ flip_h = true
 
 [node name="Arrow8TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(379, 986)
 rotation = -0.0221885
 scale = Vector2(0.539274, 0.561185)
@@ -6067,6 +6095,7 @@ flip_h = true
 
 [node name="Arrow7SalsaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(407, 712)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6076,6 +6105,7 @@ flip_h = true
 
 [node name="Arrow7SalsaButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(386, 993)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -6085,6 +6115,7 @@ flip_h = true
 
 [node name="ArrowLevels" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(297, 620)
 rotation = 0.261791
 scale = Vector2(0.904877, 0.941643)
@@ -6093,6 +6124,7 @@ autoplay = "default"
 
 [node name="ArrowMoney" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(251, 144)
 scale = Vector2(0.856224, 0.891013)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -6101,6 +6133,7 @@ flip_h = true
 
 [node name="ArrowGrillTortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(379, 987)
 scale = Vector2(0.549186, 0.5715)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -6109,6 +6142,7 @@ flip_h = true
 
 [node name="ArrowSTART" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(357, 507)
 scale = Vector2(0.549186, 0.5715)
 sprite_frames = SubResource("SpriteFrames_27577")

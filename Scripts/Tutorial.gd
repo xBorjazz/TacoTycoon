@@ -41,6 +41,7 @@ var add_press_count = 0
 @onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")
 @onready var speed_button = get_node("/root/Node2D/CanvasLayer/Gameplay/SpeedButton")
 @onready var day_control = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
+@onready var tutorial_overlay = get_node("/root/Node2D/CanvasLayer/TutorialOverlay")
 
 # Añadir step 12 al arreglo de diálogos
 var dialogues = [
@@ -196,8 +197,13 @@ func show_dialogue(index):
 		# Conectar el botón "Ingredientes"
 		# Ajusta la ruta a tu botón real
 		var ingredientes_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
+		var ingredientes_panel = get_node("/root//Node2D/CanvasLayer/HBoxContainer3/PanelContainer5")
+		# Spotlight
+		spotlight_on(ingredientes_panel)
+		start_blinking_panel(ingredientes_panel)
 		if ingredientes_button and not ingredientes_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
 			ingredientes_button.connect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
+			
 	else:
 		# Pasos especiales
 		if step == 5:
@@ -264,11 +270,11 @@ func _on_ContinueButton_pressed():
 # FUNCIONES QUE MANEJAN LAS FLECHAS Y BOTONES
 # -------------------------------------------------------------------
 
-# 1) Al presionar Botón Ingredientes
 func _on_IngredientesButton_pressed():
 	var ing_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5/Button5")
 	if ing_button and ing_button.is_connected("pressed", Callable(self, "_on_IngredientesButton_pressed")):
 		ing_button.disconnect("pressed", Callable(self, "_on_IngredientesButton_pressed"))
+
 	# Ocultar Arrow1
 	if arrow1_ingredients_ref:
 		arrow1_ingredients_ref.get_ref().visible = false
@@ -277,14 +283,37 @@ func _on_IngredientesButton_pressed():
 	if arrow2_tortilla_add_ref:
 		arrow2_tortilla_add_ref.get_ref().visible = true
 
+	# ✅ Elevar visualmente Panel5 usando z_index
+	var panel_ingredients = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5")
+	panel_ingredients.z_index = 1
+
 	# Conectar el botón de "TortillaAdd"
 	var tortilla_add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton")
 	if tortilla_add_button and not tortilla_add_button.is_connected("pressed", Callable(self, "_on_TortillaAddButton_pressed")):
 		tortilla_add_button.connect("pressed", Callable(self, "_on_TortillaAddButton_pressed"))
 
+	# 🔼 Subir z_index del botón para que esté por encima del overlay
+	#if tortilla_add_button:
+	tortilla_add_button.z_index = 2
+	start_blinking_texture_button(tortilla_add_button)  # ✨ Activar efecto de parpadeo
+
+	## Ocultar flecha actual
+	#if arrow2_tortilla_add_ref:
+		#arrow2_tortilla_add_ref.get_ref().visible = false
+
+	## Mostrar flecha para el botón de carne
+	#if arrow3_carne_ref:
+		#arrow3_carne_ref.get_ref().visible = true
+
+	## Conectar botón Carne
+	#var carne_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton")
+	#if carne_button and not carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed")):
+		#carne_button.connect("pressed", Callable(self, "_on_CarneButton_pressed"))
+
 # 2) Al presionar Botón TortillaAdd
 func _on_TortillaAddButton_pressed():
 	var tortilla_add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/HBoxContainer2/PlusButton")
+	stop_blinking_texture_button(tortilla_add_button)  # ✨ Activar efecto de parpadeo
 	if tortilla_add_button and tortilla_add_button.is_connected("pressed", Callable(self, "_on_TortillaAddButton_pressed")):
 		tortilla_add_button.disconnect("pressed", Callable(self, "_on_TortillaAddButton_pressed"))
 	if arrow2_tortilla_add_ref:
@@ -313,12 +342,14 @@ func _on_CarneButton_pressed():
 
 	# Conectar botón PlusCarne (HBoxContainer?)
 	var plus_carne = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/PlusButton")
+	start_blinking_texture_button(plus_carne)  # ✨ Activar efecto de parpadeo
 	if plus_carne and not plus_carne.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed")):
 		plus_carne.connect("pressed", Callable(self, "_on_CarneAddButton_pressed"))
 
 # 4) Al presionar Botón CarneAdd
 func _on_CarneAddButton_pressed():
 	var plus_carne = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/CarneSupplies/HBoxContainer/PlusButton")
+	stop_blinking_texture_button(plus_carne)
 	if plus_carne and plus_carne.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed")):
 		plus_carne.disconnect("pressed", Callable(self, "_on_CarneAddButton_pressed"))
 	if arrow4_carne_add_ref:
@@ -351,11 +382,14 @@ func _on_VerduraButton_pressed():
 		arrow4_verdura_ref.get_ref().visible = false
 		
 	var verdura_add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/PlusButton")
+	start_blinking_texture_button(verdura_add_button)
 	if verdura_add_button and not verdura_add_button.is_connected("pressed", Callable(self, "_on_VerduraButtonAdd_pressed")):
 		verdura_add_button.connect("pressed", Callable(self, "_on_VerduraButtonAdd_pressed"))
 	
 func _on_VerduraButtonAdd_pressed():
 	var verdura_add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/VerduraSupplies/HBoxContainer/PlusButton")
+	stop_blinking_texture_button(verdura_add_button)
+
 	verdura_add_button.disconnect("pressed", Callable(self, "_on_VerduraButtonAdd_pressed"))
 
 	if arrow4_verdura_add_ref:
@@ -377,11 +411,13 @@ func _on_SalsaButton_pressed():
 		arrow4_salsa_add_ref.get_ref().visible = true
 		
 	var salsa_button_add = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/PlusButton")
+	start_blinking_texture_button(salsa_button_add)
 	if salsa_button_add and not salsa_button_add.is_connected("pressed", Callable(self, "_on_SalsaButtonAdd_pressed")):
 		salsa_button_add.connect("pressed", Callable(self, "_on_SalsaButtonAdd_pressed"))
 			
 func _on_SalsaButtonAdd_pressed():
 	var salsa_button_add = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/SalsaSupplies/HBoxContainer/PlusButton")
+	stop_blinking_texture_button(salsa_button_add)
 	salsa_button_add.disconnect("pressed", Callable(self, "_on_SalsaButtonAdd_pressed"))
 
 	if arrow4_salsa_add_ref:
@@ -395,19 +431,36 @@ func _on_SalsaButtonAdd_pressed():
 		buy_button.connect("pressed", Callable(self, "_on_BuyButton_pressed"))	
 	
 			
-# 5) Al presionar Botón Buy
 func _on_BuyButton_pressed():
 	var buy_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/BuyButton")
 	buy_button.disconnect("pressed", Callable(self, "_on_BuyButton_pressed"))
-	
+
 	if arrow5_buy_ref:
 		arrow5_buy_ref.get_ref().visible = false
 
-	# Liberar la espera y avanzar
+	# 🔄 Apagar efecto visual
+	var ingredientes_panel = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer5")
+	stop_blinking_panel(ingredientes_panel)
+	spotlight_off(ingredientes_panel)
+
+	## ⬆️ Traer PanelContainer5 visualmente al frente usando layer
+	#var contenedor_canvas := ingredientes_panel.get_parent()
+	#if contenedor_canvas and contenedor_canvas.has_method("set_layer"):
+		#contenedor_canvas.layer = 1  # Mostrar encima de TutorialOverlay
+
+	# ✅ Esperar un momento para evitar glitch visual (opcional)
+	await get_tree().create_timer(0.3).timeout
+
+	## 🔽 Volver a normalidad (TutorialOverlay ya invisible)
+	#if contenedor_canvas:
+		#contenedor_canvas.layer = 0
+
+	# ✅ Continuar con el tutorial
 	waiting_for_action = false
 	action_completed = true
 	step += 1
 	show_dialogue(step)
+
 
 # -------------------------------------------------------------------
 # start_step_5 -> EJEMPLO Arrow6Grill
@@ -423,6 +476,12 @@ func start_step_5():
 	var grill_button = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer6/Button6")
 	if grill_button and not grill_button.is_connected("pressed", Callable(self, "_on_GrillButton_pressed")):
 		grill_button.connect("pressed", Callable(self, "_on_GrillButton_pressed"))
+		
+	var grill_panel = get_node("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer6")
+	
+	# Spotlight
+	start_blinking_panel(grill_panel)
+	spotlight_on(grill_button)
 
 func _on_GrillButton_pressed():
 	var grill_button = get_node_or_null("/root/Node2D/CanvasLayer/HBoxContainer3/PanelContainer6/Button6")
@@ -432,6 +491,14 @@ func _on_GrillButton_pressed():
 		arrow6_grill_ref.get_ref().visible = false
 		
 
+	# ✅ Elevar visualmente Panel5 usando z_index
+	var panel_grill = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6")
+	panel_grill.z_index = 1
+	
+	var tortilla_grill = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer")
+	spotlight_off(panel_grill)
+	
+
 	# AÑADIR estas líneas para avanzar el tutorial
 	waiting_for_action = false
 	action_completed = true
@@ -439,6 +506,8 @@ func _on_GrillButton_pressed():
 	show_dialogue(step)
 	var t = get_tree().create_timer(2.5)
 	await t.timeout
+	spotlight_on(panel_grill)
+	start_blinking_panel(tortilla_grill)
 	# Conectar el TortillaButton
 	var tortilla_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
 	if tortilla_button and not tortilla_button.is_connected("pressed", Callable(self, "_on_TortillaButton_pressed")):
@@ -476,6 +545,11 @@ func _on_TortillaButton_pressed():
 			arrow7_tortilla_button_ref.get_ref().visible = false
 		return  # Si ya se presionó, salimos de la función sin ejecutar nada más
 	contador_tortilla += 1
+	
+	var tortilla_grill = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer")
+	#spotlight_on(ingredientes_panel)
+	stop_blinking_panel(tortilla_grill)
+	
 	var tortilla_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/TortillasContainer/TortillaButton")
 	tortilla_button.disconnect("pressed", Callable(self, "_on_TortillaButton_pressed"))
 	# Ocultar flecha 7
@@ -499,6 +573,8 @@ func _on_TortillaButton_pressed():
 	# Mostrar flecha 8
 	if arrow8_tortilla_add_ref:
 		arrow8_tortilla_add_ref.get_ref().visible = true
+		
+	start_blinking_texture_button(add_button)
 
 func _on_add_button_pressed():
 	# Cada vez que el jugador presiona "AddButton", incrementamos
@@ -506,10 +582,13 @@ func _on_add_button_pressed():
 	print("Tortillas añadidas:", add_press_count)
 
 	if add_press_count >= 4:
+		var add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+		stop_blinking_texture_button(add_button)
+		spotlight_off(add_button)
+
 		# Si llegó a 4, ocultamos flecha 8
 		if arrow8_tortilla_add_ref:
 			arrow8_tortilla_add_ref.get_ref().visible = false
-		var add_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
 		if add_button and add_button.is_connected("pressed", Callable(self, "_on_add_button_pressed")):
 			add_button.disconnect("pressed", Callable(self, "_on_add_button_pressed"))
 
@@ -587,6 +666,11 @@ func start_step_10():
 	var continue_button = continue_button_ref.get_ref()
 	if continue_button:
 		continue_button.visible = false
+		
+	#start_blinking_texture_button(start_button)
+	
+	start_button.z_index = 1
+	spotlight_on(start_button)
 
 	# Solo mostramos Start y arrow_start si aún no se han mostrado
 	if not start_button_shown:
@@ -605,6 +689,11 @@ func start_step_10():
 
 func _on_StartButton_pressed():
 	# Desconecta el botón Start
+	start_button.z_index = 0
+	spotlight_off(start_button)
+	
+	#stop_blinking_texture_button(start_button)
+	
 	if start_button and start_button.is_connected("pressed", Callable(self, "_on_StartButton_pressed")):
 		start_button.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
 	# Al presionar Start, se ocultan arrow_start y el botón Start para no volver a mostrarse
@@ -641,12 +730,19 @@ func _on_VerduraButton_pressed2():
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
 	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed2")):
 		add_button.connect("pressed", Callable(self, "_on_VerduraAddButton_pressed2"))
+		
+	#var verdura_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer")
+	#start_blinking_panel(verdura_container)
 
 # -------------------------------------------------------------------
 # ✅ FUNCIÓN AL PRESIONAR VERDURA ADD BUTTON
 # -------------------------------------------------------------------
 func _on_VerduraAddButton_pressed2():
 	print("✅ Verdura Add Button presionado")
+	
+	var verdura_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer")
+	stop_blinking_panel(verdura_container)
+	
 
 	# 🔥 Ocultar flecha anterior (Arrow7VerduraButtonAdd)
 	if arrow7_verdura_button_add_ref:
@@ -663,6 +759,7 @@ func _on_VerduraAddButton_pressed2():
 
 	# ✅ Desconectar botón anterior
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	stop_blinking_texture_button(add_button)
 	if add_button and add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed2")):
 		add_button.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed2"))
 
@@ -670,12 +767,18 @@ func _on_VerduraAddButton_pressed2():
 	var carne_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneContainer/MeatButton")
 	if carne_button and not carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed2")):
 		carne_button.connect("pressed", Callable(self, "_on_CarneButton_pressed2"))
+		
+	var carne_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneContainer")
+	start_blinking_panel(carne_container)
 
 # -------------------------------------------------------------------
 # ✅ FUNCIÓN AL PRESIONAR CARNE BUTTON
 # -------------------------------------------------------------------
 func _on_CarneButton_pressed2():
 	print("✅ Carne Button presionado")
+	
+	var carne_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/CarneContainer")
+	stop_blinking_panel(carne_container)
 
 	# 🔥 Ocultar flecha anterior (Arrow7CarneButton)
 	if arrow7_carne_button_ref:
@@ -692,6 +795,8 @@ func _on_CarneButton_pressed2():
 
 	# ✅ Conectar botón de AddButton para carne
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	start_blinking_texture_button(add_button)
+
 	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_CarneAddButton_pressed2")):
 		add_button.connect("pressed", Callable(self, "_on_CarneAddButton_pressed2"))
 
@@ -723,6 +828,11 @@ func _on_CarneAddButton_pressed2():
 		var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
 		if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
 			verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
+			
+		var verdura_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer")
+		start_blinking_panel(verdura_container)
+		stop_blinking_texture_button(add_button)
+
 
 # Declarar un contador global, inicializado en 0
 var contador_verdura3 = 0
@@ -737,6 +847,8 @@ func _on_VerduraButton_pressed3():
 	contador_verdura3 += 1
 
 	print("✅ Verdura Button (2da fase) presionado")
+	var verdura_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer")
+	stop_blinking_panel(verdura_container)
 
 	# 🔥 Ocultar flecha anterior
 	if arrow7_verdura_button_ref:
@@ -750,9 +862,11 @@ func _on_VerduraButton_pressed3():
 	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
 	if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed3")):
 		verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed3"))
-
+		
+		
 	# ✅ Conectar botón Add para verdura
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	start_blinking_texture_button(add_button)
 	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed3")):
 		add_button.connect("pressed", Callable(self, "_on_VerduraAddButton_pressed3"))
 
@@ -761,6 +875,9 @@ func _on_VerduraButton_pressed3():
 # -------------------------------------------------------------------
 func _on_VerduraAddButton_pressed3():
 	print("✅ Verdura Add Button (2da fase) presionado")
+	
+	var verdura_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer")
+	stop_blinking_panel(verdura_container)
 
 	# 🔥 Ocultar flecha anterior (Arrow7VerduraButtonAdd)
 	if arrow7_verdura_button_add_ref:
@@ -768,9 +885,11 @@ func _on_VerduraAddButton_pressed3():
 
 	# ✅ Desconectar señal anterior para evitar que reaparezca
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	stop_blinking_texture_button(add_button)
+
 	if add_button and add_button.is_connected("pressed", Callable(self, "_on_VerduraAddButton_pressed3")):
 		add_button.disconnect("pressed", Callable(self, "_on_VerduraAddButton_pressed3"))
-
+				
 	# ✅ Ahora mostramos el botón de salsa
 	_show_salsa_button()
 
@@ -781,6 +900,8 @@ var contador_salsa = 0
 # ✅ Mostrar Salsa Button
 # -------------------------------------------------------------------
 func _show_salsa_button():
+	var salsa_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/SalsaContainer")
+	start_blinking_panel(salsa_container)
 	if contador_salsa > 0:
 		return  # Si ya se presionó, salimos sin ejecutar el resto
 	print("✅ Mostrando Salsa Button")
@@ -797,6 +918,8 @@ func _show_salsa_button():
 # ✅ FUNCIÓN AL PRESIONAR SALSA BUTTON
 # -------------------------------------------------------------------
 func _on_SalsaButton_pressed2():
+	var salsa_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/SalsaContainer")
+	stop_blinking_panel(salsa_container)
 	# Verificar si el botón ya fue presionado anteriormente
 	if contador_salsa > 0:
 		return  # Si ya se presionó, salimos sin ejecutar el resto
@@ -819,6 +942,8 @@ func _on_SalsaButton_pressed2():
 
 	# ✅ Conectar botón AddButton para salsa
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	start_blinking_texture_button(add_button)
+
 	if add_button and not add_button.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed2")):
 		add_button.connect("pressed", Callable(self, "_on_SalsaAddButton_pressed2"))
 
@@ -830,12 +955,17 @@ func _on_SalsaAddButton_pressed2():
 
 	if arrow7_salsa_button_add_ref:
 		arrow7_salsa_button_add_ref.get_ref().visible = false
+		
 
 	# ✅ Desconectar el botón Add para evitar problemas de señales
 	var add_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/AddButton")
+	stop_blinking_texture_button(add_button)
+
 	if add_button and add_button.is_connected("pressed", Callable(self, "_on_SalsaAddButton_pressed2")):
 		add_button.disconnect("pressed", Callable(self, "_on_SalsaAddButton_pressed2"))
 		
+	spotlight_off(add_button)
+	
 	# ✅ Avanzamos al siguiente paso cuando se detecten los tacos
 	_check_3_tacos()
 
@@ -977,6 +1107,9 @@ func start_step_11():
 	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer/VerduraButton")
 	if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed2")):
 		verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed2"))
+		
+	var verdura_container = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel6/VerduraContainer")
+	start_blinking_panel(verdura_container)
 
 	# ✅ Iniciar la verificación de tacos
 	_check_3_tacos()
@@ -1081,6 +1214,131 @@ func disconnect_tutorial_signals():
 		start_button.disconnect("pressed", Callable(self, "_on_StartButton_pressed"))
 
 	print("✅ Todas las señales han sido desconectadas correctamente. 🚀")
+
+func start_blinking_panel(panel: Control):
+	if not panel:
+		return
+
+	var intense_yellow := Color(1.0, 1.0, 0.2)  # Amarillo brillante
+	var style = StyleBoxFlat.new()
+	style.bg_color = intense_yellow
+	
+	# Eliminar bordes visibles
+	style.border_width_left = 0
+	style.border_width_right = 0
+	style.border_width_top = 0
+	style.border_width_bottom = 0
+	style.border_color = Color.TRANSPARENT
+
+	panel.add_theme_stylebox_override("panel", style)
+
+	var tween := create_tween()
+	tween.set_loops()
+	tween.tween_method(func(c): style.bg_color = c, intense_yellow, Color.WHITE, 0.4)
+	tween.tween_method(func(c): style.bg_color = c, Color.WHITE, intense_yellow, 0.4)
+
+	panel.set_meta("tutorial_blink_tween", tween)
+
+func start_blinking_texture_button(button: TextureButton):
+	if not button:
+		return
+
+	var normal = button.texture_normal
+	var pressed = button.texture_pressed
+	if not normal or not pressed:
+		push_error("El botón necesita texture_normal y texture_pressed definidas")
+		return
+
+	# Guardar textura original para restaurarla después
+	button.set_meta("tutorial_original_texture_normal", normal)
+
+	var tween := create_tween()
+	tween.set_loops()
+
+	tween.tween_method(
+		func(show_pressed):
+			if show_pressed:
+				button.texture_normal = pressed
+			else:
+				button.texture_normal = normal,
+		false, true, 0.4
+	)
+
+	tween.tween_method(
+		func(show_pressed):
+			if show_pressed:
+				button.texture_normal = pressed
+			else:
+				button.texture_normal = normal,
+		true, false, 0.4
+	)
+
+	button.set_meta("tutorial_blink_tween", tween)
+	
+	
+func stop_blinking_texture_button(button: TextureButton):
+	if not button:
+		return
+
+	# ✅ Restaurar la textura original si fue guardada
+	if button.has_meta("tutorial_original_texture_normal"):
+		var original_texture = button.get_meta("tutorial_original_texture_normal")
+		button.texture_normal = original_texture
+		button.remove_meta("tutorial_original_texture_normal")
+
+	# ✅ Restaurar z_index si lo habías subido
+	button.z_index = 0
+
+	# ✅ Eliminar tween si existe
+	if button.has_meta("tutorial_blink_tween"):
+		var tween = button.get_meta("tutorial_blink_tween")
+		if tween:
+			tween.kill()
+		button.remove_meta("tutorial_blink_tween")
+
+func stop_blinking_panel(panel: Control):
+	if not panel:
+		return
+
+	var tween = panel.get_meta("tutorial_blink_tween")
+	if tween:
+		tween.kill()
+		panel.remove_meta("tutorial_blink_tween")
+
+	panel.remove_theme_stylebox_override("panel")
+
+
+func spotlight_on(panel: Control):
+	if not tutorial_overlay:
+		return
+	tutorial_overlay.visible = true
+	tutorial_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	# Solo mover si el padre NO es un contenedor que reordena a sus hijos automáticamente
+	var parent = panel.get_parent()
+	if parent and not parent is BoxContainer:
+		parent.move_child(panel, parent.get_child_count() - 1)
+
+	#start_blinking_panel(panel)
+
+
+func spotlight_off(panel: Control):
+	if not tutorial_overlay:
+		return
+	tutorial_overlay.visible = false
+	stop_blinking_panel(panel)
+
+
+
+func stop_blinking(node: Node):
+	if not node:
+		return
+	var tween = node.get_meta("tutorial_blink_tween")
+	if tween:
+		tween.kill()
+		tween.queue_free()
+		node.remove_meta("tutorial_blink_tween")
+	node.modulate = Color.WHITE
 
 
 func restart_ready():
