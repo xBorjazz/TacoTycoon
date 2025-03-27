@@ -1,4 +1,4 @@
-[gd_scene load_steps=440 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=444 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -64,14 +64,18 @@
 [ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="54_4keov"]
 [ext_resource type="Script" path="res://Scripts/TextureButtons.gd" id="55_mxn3s"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="56_f7m53"]
+[ext_resource type="Texture2D" uid="uid://2k8dixj0hypw" path="res://Assets/tortilla-pile-sprite-definitve-pressed.png" id="56_tpenm"]
 [ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="57_ko53r"]
 [ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="58_lxpd4"]
 [ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="59_nb7or"]
+[ext_resource type="Texture2D" uid="uid://djsml3xeig1k4" path="res://Assets/meat-sprite-definitive-big3-pressed.png" id="59_x5k8q"]
 [ext_resource type="Texture2D" uid="uid://dmiphmlrmad0p" path="res://Assets/arrachera.png" id="60_yxvny"]
+[ext_resource type="Texture2D" uid="uid://dyd0qhex82fab" path="res://Assets/verdura-sprite-new__1-pressed.png" id="61_140f5"]
 [ext_resource type="Texture2D" uid="uid://b82w0uhgrr3mw" path="res://Assets/costilla.png" id="61_bff0t"]
 [ext_resource type="Texture2D" uid="uid://dtwxeqbhc5smu" path="res://Assets/cilantromedium.png" id="62_85gd4"]
 [ext_resource type="Texture2D" uid="uid://dgrhl0gscpe7i" path="res://Assets/cilantrolarge.png" id="63_1f1ck"]
 [ext_resource type="Texture2D" uid="uid://dt14js4pegsat" path="res://Assets/singleonion.png" id="64_2ecdo"]
+[ext_resource type="Texture2D" uid="uid://ir51s6oipfjk" path="res://Assets/salsita-pressed.png" id="64_it45n"]
 [ext_resource type="Texture2D" uid="uid://44vr5yyknfm3" path="res://Assets/onionbox.png" id="65_5158k"]
 [ext_resource type="Texture2D" uid="uid://vwjsvscdlaby" path="res://Assets/verdesalsita.png" id="66_6dyvw"]
 [ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="67_6l18i"]
@@ -3742,16 +3746,19 @@ theme_override_constants/separation = 140
 [node name="TortillasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("48_68yrn")
+texture_pressed = ExtResource("56_tpenm")
 script = ExtResource("48_e3scy")
 
 [node name="CarneButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("50_rlj2f")
+texture_pressed = ExtResource("59_x5k8q")
 script = ExtResource("48_e3scy")
 
 [node name="VerduraButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("51_6f7ub")
+texture_pressed = ExtResource("61_140f5")
 script = ExtResource("48_e3scy")
 
 [node name="CebollasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
@@ -3764,6 +3771,7 @@ script = ExtResource("48_e3scy")
 clip_contents = true
 layout_mode = 2
 texture_normal = ExtResource("52_5boi0")
+texture_pressed = ExtResource("64_it45n")
 script = ExtResource("48_e3scy")
 
 [node name="TortillasSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]

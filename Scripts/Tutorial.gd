@@ -325,12 +325,15 @@ func _on_TortillaAddButton_pressed():
 
 	# Conectar botón Carne
 	var carne_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton")
+	start_blinking_texture_button(carne_button)
 	if carne_button and not carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed")):
 		carne_button.connect("pressed", Callable(self, "_on_CarneButton_pressed"))
 
 # 3) Al presionar Botón Carne
 func _on_CarneButton_pressed():
 	var carne_button = get_node_or_null("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/CarneButton")
+	stop_blinking_texture_button(carne_button)
+	
 	if carne_button and carne_button.is_connected("pressed", Callable(self, "_on_CarneButton_pressed")):
 		carne_button.disconnect("pressed", Callable(self, "_on_CarneButton_pressed"))
 	if arrow3_carne_ref:
@@ -360,6 +363,7 @@ func _on_CarneAddButton_pressed():
 		arrow4_verdura_ref.get_ref().visible = true
 		
 	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton")
+	start_blinking_texture_button(verdura_button)
 	if verdura_button and not verdura_button.is_connected("pressed", Callable(self, "_on_VerduraButton_pressed")):
 		verdura_button.connect("pressed", Callable(self, "_on_VerduraButton_pressed"))
 		
@@ -375,6 +379,8 @@ func _on_CarneAddButton_pressed():
 
 func _on_VerduraButton_pressed():
 	var verdura_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/VerduraButton")
+	stop_blinking_texture_button(verdura_button)
+
 	verdura_button.disconnect("pressed", Callable(self, "_on_VerduraButton_pressed"))
 	if arrow4_verdura_add_ref:
 		arrow4_verdura_add_ref.get_ref().visible = true
@@ -398,11 +404,15 @@ func _on_VerduraButtonAdd_pressed():
 		arrow4_salsa_ref.get_ref().visible = true
 		
 	var salsa_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/SalsaButton")
+	start_blinking_texture_button(salsa_button)
+	
 	if salsa_button and not salsa_button.is_connected("pressed", Callable(self, "_on_SalsaButton_pressed")):
 		salsa_button.connect("pressed", Callable(self, "_on_SalsaButton_pressed"))
 	
 func _on_SalsaButton_pressed():
 	var salsa_button = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/HBoxContainer/SalsaButton")
+	stop_blinking_texture_button(salsa_button)
+
 	salsa_button.disconnect("pressed", Callable(self, "_on_SalsaButton_pressed"))
 
 	if arrow4_salsa_ref:
