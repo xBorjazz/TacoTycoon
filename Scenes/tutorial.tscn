@@ -1,4 +1,4 @@
-[gd_scene load_steps=438 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=471 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -25,13 +25,19 @@
 [ext_resource type="Texture2D" uid="uid://cjjk5ladro4dq" path="res://Assets/Money.png" id="21_5h3av"]
 [ext_resource type="PackedScene" uid="uid://cv64fr625jf3e" path="res://Scenes/path_2d.tscn" id="22_mf7wt"]
 [ext_resource type="Texture2D" uid="uid://bctyeri1pfh35" path="res://Assets/speedupbtn.png" id="23_cwcbn"]
+[ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="23_jh3xj"]
 [ext_resource type="Texture2D" uid="uid://xb6j6jee3mab" path="res://Assets/speedupbt-pressed2.png" id="24_7dt7l"]
+[ext_resource type="Texture2D" uid="uid://dscohmx54caqr" path="res://Assets/Buttons/taco-bubble.png" id="24_j45us"]
 [ext_resource type="Texture2D" uid="uid://cca5xib3klhvk" path="res://Assets/Buttons/pause-btn.png" id="25_8ig2d"]
+[ext_resource type="Texture2D" uid="uid://cohu7qdaj2pvq" path="res://Character/business-man-spritesheet-removebg-preview.png" id="25_rsesm"]
 [ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="25_w0f65"]
 [ext_resource type="Texture2D" uid="uid://up4ofnjylqx2" path="res://Assets/Buttons/pause-btn-pressed2.png" id="26_14ssx"]
 [ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="26_d8f2p"]
+[ext_resource type="Texture2D" uid="uid://d3fapwbrpxphq" path="res://Assets/Tacos/client-full-taco.png" id="26_f6iq8"]
+[ext_resource type="Texture2D" uid="uid://4en08jsqgyeg" path="res://Assets/Tacos/client-regular-taco.png" id="27_k5ktc"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="27_wqgqt"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="28_b0sec"]
+[ext_resource type="Texture2D" uid="uid://bawybmdd5sf2w" path="res://Assets/Tacos/client-vegan-taco.png" id="28_fihi7"]
 [ext_resource type="Script" path="res://Scripts/DayManager.gd" id="30_6by1d"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="31_pp8yx"]
 [ext_resource type="Texture2D" uid="uid://diyth22mvcqhx" path="res://Assets/Kenney/PNG/Extra/Double/bar_shadow_round_large.png" id="32_j76n5"]
@@ -58,18 +64,24 @@
 [ext_resource type="Texture2D" uid="uid://bxob6vvxy74ck" path="res://Assets/onion.png" id="51_1viyi"]
 [ext_resource type="Texture2D" uid="uid://b34wutfkcuwfq" path="res://Assets/verdura-sprite-new__1.png" id="51_6f7ub"]
 [ext_resource type="Texture2D" uid="uid://c3kxgjirwkncf" path="res://Assets/salsita.png" id="52_5boi0"]
+[ext_resource type="Texture2D" uid="uid://qql53y5rqhf8" path="res://Assets/Buttons/tick-btn2.png" id="52_ubp8e"]
+[ext_resource type="Script" path="res://Scripts/TasksPanel.gd" id="53_f05st"]
 [ext_resource type="Texture2D" uid="uid://bwqid7wqg77c0" path="res://Assets/minus.png" id="53_sxxkg"]
 [ext_resource type="Texture2D" uid="uid://ccam8n20tws54" path="res://Assets/minuspressed.png" id="54_4keov"]
 [ext_resource type="Script" path="res://Scripts/TextureButtons.gd" id="55_mxn3s"]
 [ext_resource type="Texture2D" uid="uid://dornd5tmffnqi" path="res://Assets/plus.png" id="56_f7m53"]
+[ext_resource type="Texture2D" uid="uid://2k8dixj0hypw" path="res://Assets/tortilla-pile-sprite-definitve-pressed.png" id="56_tpenm"]
 [ext_resource type="Texture2D" uid="uid://covsgxeu43tgq" path="res://Assets/pluspressed.png" id="57_ko53r"]
 [ext_resource type="Texture2D" uid="uid://btj7wnafynqwd" path="res://Assets/SmallTortilla.png" id="58_lxpd4"]
 [ext_resource type="Texture2D" uid="uid://cgw5tqnh0hosq" path="res://Assets/MediumTortilla.png" id="59_nb7or"]
+[ext_resource type="Texture2D" uid="uid://djsml3xeig1k4" path="res://Assets/meat-sprite-definitive-big3-pressed.png" id="59_x5k8q"]
 [ext_resource type="Texture2D" uid="uid://dmiphmlrmad0p" path="res://Assets/arrachera.png" id="60_yxvny"]
+[ext_resource type="Texture2D" uid="uid://dyd0qhex82fab" path="res://Assets/verdura-sprite-new__1-pressed.png" id="61_140f5"]
 [ext_resource type="Texture2D" uid="uid://b82w0uhgrr3mw" path="res://Assets/costilla.png" id="61_bff0t"]
 [ext_resource type="Texture2D" uid="uid://dtwxeqbhc5smu" path="res://Assets/cilantromedium.png" id="62_85gd4"]
 [ext_resource type="Texture2D" uid="uid://dgrhl0gscpe7i" path="res://Assets/cilantrolarge.png" id="63_1f1ck"]
 [ext_resource type="Texture2D" uid="uid://dt14js4pegsat" path="res://Assets/singleonion.png" id="64_2ecdo"]
+[ext_resource type="Texture2D" uid="uid://ir51s6oipfjk" path="res://Assets/salsita-pressed.png" id="64_it45n"]
 [ext_resource type="Texture2D" uid="uid://44vr5yyknfm3" path="res://Assets/onionbox.png" id="65_5158k"]
 [ext_resource type="Texture2D" uid="uid://vwjsvscdlaby" path="res://Assets/verdesalsita.png" id="66_6dyvw"]
 [ext_resource type="Texture2D" uid="uid://dcc5ckyjhhohk" path="res://Assets/redsalsitt.png" id="67_6l18i"]
@@ -2140,6 +2152,209 @@ _data = {
 }
 point_count = 8
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ntxr"]
+atlas = ExtResource("24_j45us")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wavxo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ntxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv24a"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(0, 120, 95, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67lda"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(420, 120, 97, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkccd"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(0, 0, 96, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7fcn"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(174, 0, 82, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj55i"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(92, 0, 85, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xenl"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(338, 0, 82, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8ud8"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(420, 0, 97, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcqv8"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(0, 360, 86, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm3uc"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(87, 360, 81, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4r6a"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(250, 360, 83, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nfe1"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(327, 360, 87, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohaqv"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(163, 360, 88, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndvvc"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(412, 360, 102, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyew6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv24a")
+}],
+"loop": true,
+"name": &"buying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67lda")
+}],
+"loop": true,
+"name": &"fade_out",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkccd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7fcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj55i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xenl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8ud8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7fcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj55i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xenl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8ud8")
+}],
+"loop": true,
+"name": &"walk_left_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcqv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcqv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm3uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm3uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4r6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4r6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nfe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nfe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndvvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndvvc")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5l8e1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2310"]
+atlas = ExtResource("26_f6iq8")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7www7"]
+atlas = ExtResource("27_k5ktc")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noysf"]
+atlas = ExtResource("28_fihi7")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7guv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2310")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2310")
+}],
+"loop": true,
+"name": &"full-order",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7www7")
+}],
+"loop": true,
+"name": &"regular-order",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noysf")
+}],
+"loop": true,
+"name": &"vegan-order",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0g1u"]
 texture = ExtResource("34_3i2tj")
 
@@ -2883,13 +3098,46 @@ curve = SubResource("Curve2D_cets1")
 [node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" index="0"]
 position = Vector2(4.80694, 8.95538)
 
-[node name="Path2D3" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
-visible = false
+[node name="Path2D3" type="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients", "Paths"]]
 position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
-[node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D3" index="0"]
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D3" groups=["PathFollows2D"]]
 position = Vector2(11.8327, 3.07733)
+rotates = false
+loop = false
+script = ExtResource("23_jh3xj")
+
+[node name="CharacterSprite" type="CharacterBody2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D" groups=["CharacterSprites2D"]]
+position = Vector2(-0.190674, -0.460758)
+scale = Vector2(0.0794631, 0.0794631)
+
+[node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["SpritesOrders"]]
+position = Vector2(-17.1252, -26.3119)
+scale = Vector2(0.131706, 0.131706)
+sprite_frames = SubResource("SpriteFrames_wavxo")
+flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
+scale = Vector2(0.369428, 0.369428)
+sprite_frames = SubResource("SpriteFrames_iyew6")
+animation = &"walk_left_down"
+frame = 6
+frame_progress = 0.720963
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["CollisionShapes2D"]]
+position = Vector2(0, 9.02478)
+scale = Vector2(0.398248, 0.534362)
+shape = SubResource("CircleShape2D_5l8e1")
+
+[node name="TacoOrder" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+position = Vector2(-18.63, -28.182)
+scale = Vector2(0.0700637, 0.0700637)
+sprite_frames = SubResource("SpriteFrames_j7guv")
+animation = &"regular-order"
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D" groups=["TimerPaths"]]
+wait_time = 0.2
 
 [node name="SpawnTimer" type="Timer" parent="CanvasLayer/Gameplay"]
 wait_time = 5.0
@@ -3006,6 +3254,8 @@ offset_right = 83.4232
 offset_bottom = 33.0574
 scale = Vector2(0.0608979, 0.0489409)
 script = ExtResource("31_pp8yx")
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/Gameplay"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 40.0
@@ -3127,6 +3377,7 @@ texture_normal = ExtResource("40_h3q5p")
 texture_pressed = ExtResource("41_g08oj")
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel2"]
@@ -3387,7 +3638,6 @@ scale = Vector2(0.162767, 0.128434)
 texture_normal = ExtResource("46_e1r2r")
 
 [node name="Panel4" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel4"]
@@ -3473,8 +3723,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.825876, 0.825876)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Consigue 5 
-buenas reseñas"
+text = "Invierte
+  $800"
 
 [node name="Label6" type="Label" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 1
@@ -3520,14 +3770,17 @@ offset_top = 97.2582
 offset_right = 45.4081
 offset_bottom = 121.258
 scale = Vector2(2.47773, 2.47773)
+disabled = true
+toggle_mode = false
 
 [node name="CheckBox3" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
 offset_left = 22.3389
 offset_top = 149.693
-offset_right = 46.3389
+offset_right = 66.3389
 offset_bottom = 173.693
 scale = Vector2(2.47773, 2.47773)
+disabled = true
 
 [node name="CheckBox4" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
@@ -3536,6 +3789,8 @@ offset_top = 213.968
 offset_right = 46.3389
 offset_bottom = 237.968
 scale = Vector2(2.47773, 2.47773)
+disabled = true
+toggle_mode = false
 
 [node name="CheckBox5" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
@@ -3544,6 +3799,52 @@ offset_top = 275.706
 offset_right = 46.3389
 offset_bottom = 299.706
 scale = Vector2(2.47773, 2.47773)
+disabled = true
+toggle_mode = false
+
+[node name="TickButton1" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+layout_mode = 0
+offset_left = 0.930786
+offset_top = 97.2581
+offset_right = 677.931
+offset_bottom = 466.258
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
+
+[node name="TickButton2" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+layout_mode = 0
+offset_left = 0.930787
+offset_top = 151.384
+offset_right = 677.931
+offset_bottom = 520.384
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
+
+[node name="TickButton3" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+layout_mode = 0
+offset_left = 0.930787
+offset_top = 214.814
+offset_right = 677.931
+offset_bottom = 583.814
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
+
+[node name="TickButton4" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel4"]
+visible = false
+layout_mode = 0
+offset_left = 0.930787
+offset_top = 276.551
+offset_right = 677.931
+offset_bottom = 645.551
+scale = Vector2(0.148501, 0.158101)
+disabled = true
+texture_normal = ExtResource("52_ubp8e")
 
 [node name="Label9" type="Label" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 1
@@ -3563,14 +3864,14 @@ theme_override_colors/font_color = Color(1, 0.27451, 0.211765, 1)
 text = "1/10"
 vertical_alignment = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
+[node name="MoneyProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
 offset_left = 79.1169
 offset_top = 176.756
 offset_right = 190.117
 offset_bottom = 198.756
 
-[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
+[node name="InvestmentProgressBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/Panel4"]
 layout_mode = 0
 offset_left = 76.0
 offset_top = 254.0
@@ -3591,7 +3892,65 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("16_conpe")
 theme_override_font_sizes/font_size = 90
+text = "+15"
+metadata/_edit_use_anchors_ = true
+
+[node name="Taco-coins2" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(217.804, 188.596)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins2"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "+10"
+metadata/_edit_use_anchors_ = true
+
+[node name="Taco-coins3" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(210.358, 230.882)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins3"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
 text = "+5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Taco-coins4" type="Sprite2D" parent="CanvasLayer/PanelContainer/Panel4"]
+position = Vector2(106.11, 333.215)
+scale = Vector2(0.104113, 0.104113)
+texture = ExtResource("107_gqn40")
+
+[node name="Taco-Coins-Label" type="Label" parent="CanvasLayer/PanelContainer/Panel4/Taco-coins4"]
+offset_left = 174.046
+offset_top = -28.0719
+offset_right = 354.046
+offset_bottom = 61.9281
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_conpe")
+theme_override_font_sizes/font_size = 90
+text = "+2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/Panel4"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("53_f05st")
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -3631,16 +3990,19 @@ theme_override_constants/separation = 140
 [node name="TortillasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("48_68yrn")
+texture_pressed = ExtResource("56_tpenm")
 script = ExtResource("48_e3scy")
 
 [node name="CarneButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("50_rlj2f")
+texture_pressed = ExtResource("59_x5k8q")
 script = ExtResource("48_e3scy")
 
 [node name="VerduraButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("51_6f7ub")
+texture_pressed = ExtResource("61_140f5")
 script = ExtResource("48_e3scy")
 
 [node name="CebollasButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel5/HBoxContainer"]
@@ -3653,6 +4015,7 @@ script = ExtResource("48_e3scy")
 clip_contents = true
 layout_mode = 2
 texture_normal = ExtResource("52_5boi0")
+texture_pressed = ExtResource("64_it45n")
 script = ExtResource("48_e3scy")
 
 [node name="TortillasSupplies" type="Panel" parent="CanvasLayer/PanelContainer/Panel5"]
@@ -5561,6 +5924,13 @@ stream = ExtResource("74_8yq50")
 volume_db = -9.0
 autoplay = true
 
+[node name="TutorialOverlay" type="ColorRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(0, 0, 0, 0.447059)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(14.4544, 25.6985)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 374.0
 offset_top = 590.0
@@ -5827,12 +6197,14 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+z_index = 2
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)
 texture = ExtResource("87_ej7dq")
 
 [node name="Arrow1Ingredients" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(357, 857)
 scale = Vector2(1.38935, 1.4458)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5840,6 +6212,7 @@ autoplay = "default"
 
 [node name="Arrow2TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(218, 931)
 scale = Vector2(0.79562, 0.827947)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5847,6 +6220,7 @@ autoplay = "default"
 
 [node name="Arrow3Carne" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(68, 752)
 scale = Vector2(0.702322, 0.730858)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5854,6 +6228,7 @@ autoplay = "default"
 
 [node name="Arrow4CarneAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(215, 862)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5861,6 +6236,7 @@ autoplay = "default"
 
 [node name="Arrow4Verdura" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(142, 754)
 rotation = -0.104652
 scale = Vector2(0.748603, 0.779019)
@@ -5869,6 +6245,7 @@ autoplay = "default"
 
 [node name="Arrow4VerduraAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(204, 851)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5876,6 +6253,7 @@ autoplay = "default"
 
 [node name="Arrow4Salsa" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(221, 761)
 scale = Vector2(0.777414, 0.809002)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5883,6 +6261,7 @@ autoplay = "default"
 
 [node name="Arrow4SalsaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(215, 862)
 scale = Vector2(0.897803, 0.934282)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5890,6 +6269,7 @@ autoplay = "default"
 
 [node name="Arrow5Buy" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(152, 994)
 rotation = 0.261791
 scale = Vector2(0.677791, 0.705331)
@@ -5898,6 +6278,7 @@ autoplay = "default"
 
 [node name="Arrow6Grill" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(307, 837)
 rotation = 0.261791
 scale = Vector2(0.677791, 0.705331)
@@ -5906,6 +6287,7 @@ autoplay = "default"
 
 [node name="Arrow7TortillaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(158, 726)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5915,6 +6297,7 @@ flip_h = true
 
 [node name="Arrow7CarneButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(239, 715)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5924,6 +6307,7 @@ flip_h = true
 
 [node name="Arrow7CarneButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(376, 990)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5933,6 +6317,7 @@ flip_h = true
 
 [node name="Arrow7VerduraButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(334, 704)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5942,6 +6327,7 @@ flip_h = true
 
 [node name="Arrow7VerduraButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(384, 988)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5951,6 +6337,7 @@ flip_h = true
 
 [node name="Arrow8TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(379, 986)
 rotation = -0.0221885
 scale = Vector2(0.539274, 0.561185)
@@ -5960,6 +6347,7 @@ flip_h = true
 
 [node name="Arrow7SalsaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(407, 712)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5969,6 +6357,7 @@ flip_h = true
 
 [node name="Arrow7SalsaButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(386, 993)
 rotation = -0.0351943
 scale = Vector2(0.609846, 0.634625)
@@ -5978,6 +6367,7 @@ flip_h = true
 
 [node name="ArrowLevels" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(297, 620)
 rotation = 0.261791
 scale = Vector2(0.904877, 0.941643)
@@ -5986,6 +6376,7 @@ autoplay = "default"
 
 [node name="ArrowMoney" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(251, 144)
 scale = Vector2(0.856224, 0.891013)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -5994,6 +6385,7 @@ flip_h = true
 
 [node name="ArrowGrillTortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(379, 987)
 scale = Vector2(0.549186, 0.5715)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -6002,6 +6394,7 @@ flip_h = true
 
 [node name="ArrowSTART" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
+z_index = 2
 position = Vector2(357, 507)
 scale = Vector2(0.549186, 0.5715)
 sprite_frames = SubResource("SpriteFrames_27577")
@@ -6040,7 +6433,6 @@ a Cucei Taco Tycoon"
 autowrap_mode = 3
 
 [node name="Taco-coins" type="Sprite2D" parent="CanvasLayer"]
-visible = false
 position = Vector2(512, 45)
 scale = Vector2(0.178114, 0.178114)
 texture = ExtResource("107_gqn40")
@@ -6137,4 +6529,3 @@ text = "0
 
 [editable path="CanvasLayer/Gameplay/Path2D"]
 [editable path="CanvasLayer/Gameplay/Path2D2"]
-[editable path="CanvasLayer/Gameplay/Path2D3"]
