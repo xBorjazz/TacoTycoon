@@ -13,6 +13,7 @@ var collision_shape: CollisionShape2D
 var character_sprite: CharacterBody2D
 var taco_order: AnimatedSprite2D
 var bubble: AnimatedSprite2D
+var client_left = false
 
 signal sale_made
 
@@ -54,21 +55,28 @@ func _on_pause_toggled(is_paused: bool):
 func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String):
 	game_started = true
 	path2d.visible = true
-
 	path_2d = path2d
 	pathfollow = pathfollow2d
-
+	
 	character_sprite = pathfollow.get_child(0)
 	animated_sprite = character_sprite.get_node("AnimatedSprite2D")
-	collision_shape = character_sprite.get_node("CollisionShape2D")
 	bubble = character_sprite.get_node("Bubble") as AnimatedSprite2D
 	taco_order = character_sprite.get_node("TacoOrder") as AnimatedSprite2D
 
+	# Barra
+	var barra = character_sprite.get_node("TextureProgressBar")
+	if barra:
+		# Asegúrate de que esté oculta y sin proceso mientras camina
+		barra.visible = false
+		barra.set_process(false)
+		barra.activo = false
+		barra.pathfollow_node = self
+
 	has_bought = false
+	is_buying = false
 	speed = 0.2
 	progress_ratio = 0.0
 	set_process(true)
-
 	pedido_cliente = pedido
 
 	elegir_taco()
@@ -110,63 +118,79 @@ func _process(delta):
 
 func _on_taco_stand_zone_body_entered(body):
 	if body == character_sprite and not has_bought:
+		# Detener movimiento
 		speed = 0
+
+		# Activar la barra
+		var barra = character_sprite.get_node("TextureProgressBar")
+		if barra and not barra.activo:
+			barra.iniciar_barra()
+
 		buying_anim()
+
+
+func liberar_path():
+	if path_2d:
+		# Se asume que en el node Path2D se usó set_meta("occupied", true)
+		path_2d.set_meta("occupied", false)
+		print("Se libero path")
 
 func buying_anim():
 	if is_buying or has_bought:
 		return
 	is_buying = true
+	client_left = false  # Aseguramos que esté reiniciado
 	speed = 0
 
 	if animated_sprite:
 		animated_sprite.play("buying")
-
-	await get_tree().create_timer(2.0).timeout
-
-	# ✅ Verificamos solo si no ha comprado antes
-	if not has_bought:
+	
+	# Esperamos en bucle hasta que se verifique el pedido o el cliente se retire (client_left)
+	while not has_bought and not client_left:
+		await get_tree().create_timer(0.1).timeout
 		if GrillManager.verificar_taco(pedido_cliente):
-			print("✅ Taco entregado correctamente")
-			GrillManager.limpiar_taco(pedido_cliente)
+			# Se confirma la verificación durante un pequeño intervalo para evitar falsos positivos
+			await get_tree().create_timer(0.1).timeout
+			if GrillManager.verificar_taco(pedido_cliente):
+				break
 
-			# ✅ Desconectar la señal para evitar que se repita
-			if sale_made.is_connected(_on_sale_made):
-				sale_made.disconnect(_on_sale_made)
+	# Si el pedido es correcto y el cliente no se ha retirado, procesamos la venta
+	if not has_bought and not client_left:
+		print("✅ Taco entregado correctamente")
+		GrillManager.limpiar_taco(pedido_cliente)
+		liberar_path()  # Libera el path ocupado
+		if sale_made.is_connected(_on_sale_made):
+			sale_made.disconnect(_on_sale_made)
+		sale_made.emit()
+		verify_sound()
+		Inventory.player_money += Inventory.costo_taco
+		SuppliesUi.actualizar_labels_dinero()
+		has_bought = true
+		_resume_movement()
+	# Si client_left es true, no se hace nada (el cliente se retiró)
 
-			# ✅ Emitimos señal solo una vez
-			sale_made.emit()
-			
-			verify_sound()
-			
-			# ✅ Incrementamos ventas correctas
-			#Inventory.tacos_vendidos += 1
-
-			# ✅ Sumamos el dinero al inventario del jugador
-			Inventory.player_money += Inventory.costo_taco
-			SuppliesUi.actualizar_labels_dinero()
-
-			has_bought = true
-			_resume_movement()
-		else:
-			# ❌ Si no coincide la receta:
-			print("❌ Taco INCORRECTO. Venta fallida")
-			Inventory.ventas_fallidas += 1
-
-			# ✅ NO sumar dinero si la venta falló
-			SuppliesUi.actualizar_labels_dinero()
-
-			_resume_movement()
-
-func _on_buying_complete() -> void:
+func _on_buying_complete():
 	Inventory.player_money += Inventory.costo_taco
 	print("Dinero del jugador ahora es: ", Inventory.player_money)
 	SuppliesUi.actualizar_labels_dinero() 
 	verify_sound()
 	has_bought = true
-	GlobalProgressBar.update_progress(25) #Actualiza 2.5% de avance en el juego
-	#Recipe.aplicar_receta()
+	GlobalProgressBar.update_progress(25)
+	
+	liberar_path()
+
 	_resume_movement()
+	await fade_out_anim()  # <-- Asegúrate que esto está aquí
+	
+func cliente_se_va():
+	client_left = true
+	print("❌ Cliente se fue por esperar demasiado.")
+	Inventory.ventas_fallidas += 1
+	SuppliesUi.actualizar_labels_dinero()
+	liberar_path()
+	await fade_out_anim()  # <-- Aquí también debe estar
+
+
 
 func _on_sale_made(character):
 	if not has_bought:
@@ -188,6 +212,11 @@ func fade_out_anim():
 	await get_tree().create_timer(1.0).timeout
 	visible = false
 	set_process(false)
+
+	# ✅ Liberar path aquí, siempre, al final de la vida del cliente
+	liberar_path()
+
+
 
 func _on_day_ended():
 	stop_moving()

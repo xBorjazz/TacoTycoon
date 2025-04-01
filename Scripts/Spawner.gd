@@ -80,15 +80,20 @@ func _on_sale_made(character):
 # spawn de UN cliente cualquiera
 # -----------------------------------------------------------------------
 func _spawn_single_customer(taco_type: String):
-	var paths = get_tree().get_nodes_in_group("Paths")
-	if paths.is_empty():
-		print("No se encontraron Path2D en el grupo 'Paths'.")
+	var all_paths = get_tree().get_nodes_in_group("Paths")
+	var available_paths = []
+	for path in all_paths:
+		if not path.has_meta("occupied") or path.get_meta("occupied") == false:
+			available_paths.append(path)
+	
+	if available_paths.is_empty():
+		print("No hay paths disponibles (todos ocupados).")
 		return
-
-	# Elegimos un path aleatorio
-	paths.shuffle()  # barajamos
-	var chosen_path = paths[0]  # tomamos el primero
+	
+	available_paths.shuffle()
+	var chosen_path = available_paths[0]
 	_spawn_character_forced(taco_type, chosen_path)
+
 
 # -----------------------------------------------------------------------
 # NUEVA FUNCIÓN: genera EXACTAMENTE un cliente en un path forzado
@@ -109,6 +114,9 @@ func _spawn_character_forced(taco_type: String, chosen_path: Node):
 
 	print("🍽 Generando cliente con pedido:", taco_type, "en path:", chosen_path.name)
 
+	# Marcar el path como ocupado
+	chosen_path.set_meta("occupied", true)
+
 	character.visible = true
 	character.progress_ratio = 0.0
 	character.set_process(true)
@@ -118,6 +126,7 @@ func _spawn_character_forced(taco_type: String, chosen_path: Node):
 
 	if not character.sale_made.is_connected(_on_sale_made):
 		character.sale_made.connect(_on_sale_made.bind(character))
+
 
 # -----------------------------------------------------------------------
 # _spawn_first_day_customers() => genera Taco-1, Taco-2, Taco-3
