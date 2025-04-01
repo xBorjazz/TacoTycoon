@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cv64fr625jf3e"]
+[gd_scene load_steps=40 format=3 uid="uid://cv64fr625jf3e"]
 
 [ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="1_6gdot"]
 [ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="2_dwksi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4en08jsqgyeg" path="res://Assets/Tacos/client-regular-taco.png" id="4_u6pvf"]
 [ext_resource type="Texture2D" uid="uid://bawybmdd5sf2w" path="res://Assets/Tacos/client-vegan-taco.png" id="5_1cft2"]
 [ext_resource type="Texture2D" uid="uid://d3fapwbrpxphq" path="res://Assets/Tacos/client-full-taco.png" id="6_nmdll"]
+[ext_resource type="Texture2D" uid="uid://gsxlnq5xott4" path="res://Assets/Buttons/ClientOrderBar-removebg-preview.png" id="8_dmasu"]
 
 [sub_resource type="Curve2D" id="Curve2D_jjrfh"]
 _data = {
@@ -286,6 +287,14 @@ position = Vector2(-18.63, -28.182)
 scale = Vector2(0.0700637, 0.0700637)
 sprite_frames = SubResource("SpriteFrames_j7guv")
 animation = &"regular-order"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PathFollow2D/CharacterSprite"]
+offset_left = -4.54078
+offset_top = -64.0652
+offset_right = 672.459
+offset_bottom = 304.935
+scale = Vector2(0.183261, 0.193225)
+texture_under = ExtResource("8_dmasu")
 
 [node name="Timer" type="Timer" parent="PathFollow2D" groups=["TimerPaths"]]
 wait_time = 0.2
