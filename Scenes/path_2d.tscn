@@ -13,9 +13,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jjrfh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 18.0849, 5.80278, 0, 0, 0, 0, 17.4776, 12.3314, 0, 0, 0, 0, 9.20289, 10.3577, 0, 0, 0, 0, 5.66294, 12.5112, 0, 0, 0, 0, 0.856003, 13.6307, 0, 0, 0, 0, 0.320885, 17.4936, 0, 0, 0, 0, -13.7992, 18.7842)
+"points": PackedVector2Array(0, 0, 0, 0, 18.0849, 5.80278, 0, 0, 0, 0, 17.4776, 12.3314, 0, 0, 0, 0, 9.20289, 10.3577, 0, 0, 0, 0, 5.66294, 12.5112, 0, 0, 0, 0, -2.48796, 13.3183, 0, 0, 0, 0, -13.7992, 18.7842)
 }
-point_count = 7
+point_count = 6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ntxr"]
 atlas = ExtResource("3_tve1l")

@@ -14,6 +14,7 @@ var character_sprite: CharacterBody2D
 var taco_order: AnimatedSprite2D
 var bubble: AnimatedSprite2D
 var client_left = false
+var clientes_totales = 0
 
 signal sale_made
 
@@ -127,6 +128,8 @@ func _on_taco_stand_zone_body_entered(body):
 			barra.iniciar_barra()
 
 		buying_anim()
+		
+
 
 
 func liberar_path():
@@ -178,6 +181,11 @@ func _on_buying_complete():
 	GlobalProgressBar.update_progress(25)
 	
 	liberar_path()
+	
+	clientes_totales = Inventory.tacos_vendidos + Inventory.ventas_fallidas
+	# 🔄 Cada 10 tacos vendidos, liberar paths
+	if clientes_totales % 5 == 0:
+		Spawner.liberar_todos_los_paths()
 
 	_resume_movement()
 	await fade_out_anim()  # <-- Asegúrate que esto está aquí

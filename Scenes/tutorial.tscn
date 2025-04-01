@@ -1,4 +1,4 @@
-[gd_scene load_steps=511 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=508 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dscohmx54caqr" path="res://Assets/Buttons/taco-bubble.png" id="24_j45us"]
 [ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="25_1obaq"]
 [ext_resource type="Texture2D" uid="uid://cca5xib3klhvk" path="res://Assets/Buttons/pause-btn.png" id="25_8ig2d"]
+[ext_resource type="Texture2D" uid="uid://comt78g04al5u" path="res://Character/funny-sprite-sheet-removebg-preview.png" id="25_alolu"]
 [ext_resource type="Texture2D" uid="uid://cohu7qdaj2pvq" path="res://Character/business-man-spritesheet-removebg-preview.png" id="25_rsesm"]
 [ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="25_w0f65"]
 [ext_resource type="Texture2D" uid="uid://up4ofnjylqx2" path="res://Assets/Buttons/pause-btn-pressed2.png" id="26_14ssx"]
@@ -2147,7 +2148,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_cets1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.3382, 6.18976, 0, 0, 0, 0, -25.3654, 6.49774, 0, 0, 0, 0, -29.9962, 9.53432)
+"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.3382, 6.18976, 0, 0, 0, 0, -25.3654, 6.49774, 0, 0, 0, 0, -22.3288, 3.38524)
 }
 point_count = 6
 
@@ -2166,9 +2167,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vbsx"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(0, 180, 23, 36)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfgdo"]
+atlas = ExtResource("25_alolu")
+region = Rect2(210, 173, 96, 152)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2kfx"]
 atlas = ExtResource("25_1obaq")
@@ -2182,41 +2183,25 @@ region = Rect2(0, 72, 23, 36)
 atlas = ExtResource("14_qdjd5")
 region = Rect2(23, 72, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w6fik"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(0, 252, 23, 36)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsoxa"]
+atlas = ExtResource("25_alolu")
+region = Rect2(214, 14, 96, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e370t"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(23, 252, 23, 36)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwgqu"]
+atlas = ExtResource("25_alolu")
+region = Rect2(3, 14, 118, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ah0eb"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(46, 252, 23, 36)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj5x4"]
+atlas = ExtResource("25_alolu")
+region = Rect2(117, 14, 96, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj7ik"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(69, 252, 23, 36)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt1lv"]
+atlas = ExtResource("25_alolu")
+region = Rect2(311, 14, 96, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qnp2"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(92, 252, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75yen"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(115, 252, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cu5kh"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(138, 252, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ee7p"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(161, 252, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j5562"]
-atlas = ExtResource("25_1obaq")
-region = Rect2(184, 252, 23, 36)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrgjp"]
+atlas = ExtResource("25_alolu")
+region = Rect2(16, 173, 96, 152)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ieks"]
 atlas = ExtResource("25_1obaq")
@@ -2258,7 +2243,7 @@ region = Rect2(184, 36, 23, 36)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vbsx")
+"texture": SubResource("AtlasTexture_hfgdo")
 }],
 "loop": true,
 "name": &"buying",
@@ -2280,31 +2265,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w6fik")
+"texture": SubResource("AtlasTexture_jsoxa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e370t")
+"texture": SubResource("AtlasTexture_hwgqu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ah0eb")
+"texture": SubResource("AtlasTexture_fj5x4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rj7ik")
+"texture": SubResource("AtlasTexture_lt1lv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6qnp2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_75yen")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cu5kh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ee7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j5562")
+"texture": SubResource("AtlasTexture_lrgjp")
 }],
 "loop": true,
 "name": &"walk_left_down",
@@ -3181,7 +3154,7 @@ texture = ExtResource("11_0vjkf")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
 position = Vector2(12.1111, 33.2387)
 scale = Vector2(0.0300442, 0.0403583)
-polygon = PackedVector2Array(-40.4276, 107.219, 20.2148, 122.267, 111.178, 105.338, 159.187, 43.2642, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
+polygon = PackedVector2Array(-40.4276, 107.219, 90.9641, 88.4086, 285.525, 47.0263, 318.373, 0.000915527, 144.025, 0.00012207, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
 
 [node name="Character" type="Sprite2D" parent="CanvasLayer/Gameplay"]
 visible = false
@@ -3355,6 +3328,7 @@ text = "1000"
 visible = false
 
 [node name="Path2D2" type="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients", "Paths"]]
+visible = false
 position = Vector2(35.6898, 23.7578)
 curve = SubResource("Curve2D_cets1")
 
@@ -3376,7 +3350,8 @@ flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
 texture_filter = 1
-scale = Vector2(1.11182, 1.11182)
+position = Vector2(0.0576098, -0.290848)
+scale = Vector2(0.295405, 0.295405)
 sprite_frames = SubResource("SpriteFrames_23xq5")
 animation = &"walk_left_down"
 
@@ -3407,7 +3382,6 @@ script = ExtResource("31_0xsh7")
 wait_time = 0.2
 
 [node name="Path2D3" type="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients", "Paths"]]
-visible = false
 position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
@@ -3428,9 +3402,9 @@ sprite_frames = SubResource("SpriteFrames_45yf5")
 flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
-scale = Vector2(0.391099, 0.391099)
+scale = Vector2(0.408131, 0.408131)
 sprite_frames = SubResource("SpriteFrames_iyew6")
-animation = &"buying"
+animation = &"walk_left_down"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
 offset_left = -4.28853
@@ -6516,7 +6490,6 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
-visible = false
 z_index = 2
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)

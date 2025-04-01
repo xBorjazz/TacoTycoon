@@ -156,3 +156,9 @@ func _spawn_first_day_customers():
 
 		# Retardo de 0.2s entre cada spawn
 		#await get_tree().create_timer(0.2).timeout
+
+func liberar_todos_los_paths():
+	var all_paths = get_tree().get_nodes_in_group("Paths")
+	for path in all_paths:
+		path.set_meta("occupied", false)
+	print("🧹 Todos los paths han sido liberados manualmente.")

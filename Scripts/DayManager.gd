@@ -60,6 +60,7 @@ func _on_start_pressed() -> void:
 
 	speed_button.disabled = false
 	speed_button.visible = true
+	
 
 func _on_timer_tick() -> void:
 	if not paused:  # Solo decrementamos si no está en pausa
@@ -92,6 +93,8 @@ func _on_day_end() -> void:
 	current_day += 1
 
 	emit_signal("stop_movement")
+	
+	Spawner.liberar_todos_los_paths()
 
 func update_day_label() -> void:
 	day_label.text = " %s

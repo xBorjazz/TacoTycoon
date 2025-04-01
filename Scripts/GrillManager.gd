@@ -79,6 +79,8 @@ func limpiar_taco(pedido_cliente: String):
 		# ✅ Emitir la señal para actualizar la gráfica
 		sale_made.emit()
 		_print_cuadrantes_state()  # Opcional: imprimir luego de limpiar
+		
+
 
 func verificar_misiones():
 	# 🔥 Si completó la misión de tacos vendidos
