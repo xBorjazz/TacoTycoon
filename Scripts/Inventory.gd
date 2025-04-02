@@ -14,6 +14,7 @@ var INVESTED_OBJETIVO = 800
 var tacos_vendidos_mision = 0
 var dinero_ganado_mision = 0
 var buenas_resenas = 0
+var total_reseñas = 0
 var propinas_recibidas = 0
 var taco_coins = 0
 
@@ -24,6 +25,7 @@ var verdura_total = 0
 var cebolla_total = 0
 var salsa_total = 0
 var tacos_vendidos = 0
+var tacos_especiales_vendidos = 0
 var ventas_fallidas = 0
 
 var costo_taco = 35
@@ -31,6 +33,9 @@ var buy_cost = 0.0  # Costo acumulado de las compras
 var player_money = 150
 var opponent_money = 150
 var invested_money = 0
+
+var puntaje_acumulado = 0
+
 
 
 # Contadores individuales
@@ -73,6 +78,21 @@ const PRECIOS = {
 	"verdura_medium": 30.00,
 	"verdura_large": 60.00
 }
+
+func _ready():
+	actualizar_promedio_estrellas()
+
+func actualizar_promedio_estrellas():
+	var promedio := 0.0
+	if total_reseñas > 0:
+		promedio = float(puntaje_acumulado) / total_reseñas
+	else:
+		promedio = 5.0
+
+	print("⭐ Nuevo promedio:", promedio)
+	var label = get_node_or_null("/root/Node2D/CanvasLayer/Gameplay/StarRatingLabel")
+	if label:
+		label.text = str("%.1f" % promedio)
 
 # Funciones para SUMAR suministros
 func add_suministro(categoria: String, tipo: String, cantidad: float) -> void:

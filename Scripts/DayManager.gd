@@ -1,7 +1,7 @@
 extends Node
 
 var current_day: int = 1
-@export var day_duration: float = 45.0
+@export var day_duration: float = 60.0
 var remaining_time: float = 0.0
 var is_game_running: bool = false
 var is_fast = false

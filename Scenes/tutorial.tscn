@@ -1,4 +1,4 @@
-[gd_scene load_steps=508 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=520 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -41,19 +41,25 @@
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="27_wqgqt"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="28_b0sec"]
 [ext_resource type="Texture2D" uid="uid://bawybmdd5sf2w" path="res://Assets/Tacos/client-vegan-taco.png" id="28_fihi7"]
-[ext_resource type="Texture2D" uid="uid://gsxlnq5xott4" path="res://Assets/Buttons/ClientOrderBar-removebg-preview.png" id="29_74lpm"]
 [ext_resource type="Script" path="res://Scripts/DayManager.gd" id="30_6by1d"]
-[ext_resource type="Texture2D" uid="uid://j0itt7gslnjh" path="res://Assets/Buttons/ProgressBarValue.png" id="30_7nt76"]
 [ext_resource type="Script" path="res://Scripts/ClientProgressBar.gd" id="31_0xsh7"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="31_pp8yx"]
 [ext_resource type="Texture2D" uid="uid://diyth22mvcqhx" path="res://Assets/Kenney/PNG/Extra/Double/bar_shadow_round_large.png" id="32_j76n5"]
 [ext_resource type="Texture2D" uid="uid://cxpet8w33y78v" path="res://Assets/Kenney/PNG/Blue/Double/bar_round_gloss_large.png" id="33_ekurg"]
+[ext_resource type="Texture2D" uid="uid://chasjtgokeao4" path="res://Assets/Buttons/rating-sprite.png" id="34_1wncc"]
 [ext_resource type="Texture2D" uid="uid://xrjubrw373t4" path="res://Assets/Kenney/Vector/Blue/bar_round_large.svg" id="34_3i2tj"]
+[ext_resource type="Texture2D" uid="uid://qlfi7e8nyrkg" path="res://Assets/Buttons/number1sprite-.png" id="35_gk7ty"]
 [ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="35_vkmbf"]
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="36_amq58"]
+[ext_resource type="Texture2D" uid="uid://dxq7kd6fgkqxt" path="res://Assets/Buttons/number2-sprite.png" id="36_qasno"]
+[ext_resource type="Texture2D" uid="uid://bf37seywtkvjo" path="res://Assets/Buttons/white-circle-progress2.png" id="37_5yp46"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="37_c6l4h"]
+[ext_resource type="Texture2D" uid="uid://d30eohj1lj2m1" path="res://Assets/Buttons/number3-sprite.png" id="37_gbcwe"]
+[ext_resource type="Texture2D" uid="uid://tt1s86hrf40r" path="res://Assets/Buttons/circle-bar-progress.png" id="37_i8gma"]
 [ext_resource type="Texture2D" uid="uid://sw36m1vpxrlf" path="res://Maps/Cucei/betas-disabled.png" id="38_p35ul"]
+[ext_resource type="Texture2D" uid="uid://bouk0gtxwxpkw" path="res://Assets/Buttons/number4-sprite.png" id="38_s8kfs"]
 [ext_resource type="Texture2D" uid="uid://nji50i71v7tu" path="res://Assets/Maps/Cucei/globo.png" id="39_0b5e1"]
+[ext_resource type="Texture2D" uid="uid://bn8m0uhe7bctn" path="res://Assets/Buttons/number5-sprite.png" id="39_5jx6q"]
 [ext_resource type="Texture2D" uid="uid://b01ipyik0h40p" path="res://Assets/Maps/Cucei/globo-disabled.png" id="40_3k4hm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="40_h3q5p"]
 [ext_resource type="Texture2D" uid="uid://cp44wnic0j3uk" path="res://Assets/Buttons/arrows/bluefadearrow.png" id="41_g08oj"]
@@ -2148,9 +2154,9 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_cets1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.3382, 6.18976, 0, 0, 0, 0, -25.3654, 6.49774, 0, 0, 0, 0, -22.3288, 3.38524)
+"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.638, 8.3956, 0, 0, 0, 0, -19.52, 8.3956, 0, 0, 0, 0, -27.5669, 7.40871, 0, 0, 0, 0, -29.5407, 8.62334)
 }
-point_count = 6
+point_count = 7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ntxr"]
 atlas = ExtResource("24_j45us")
@@ -2360,11 +2366,74 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft3d7"]
+atlas = ExtResource("35_gk7ty")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8upy"]
+atlas = ExtResource("36_qasno")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vnel"]
+atlas = ExtResource("37_gbcwe")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt051"]
+atlas = ExtResource("38_s8kfs")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksdax"]
+atlas = ExtResource("39_5jx6q")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ud2ok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft3d7")
+}],
+"loop": true,
+"name": &"n1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8upy")
+}],
+"loop": true,
+"name": &"n2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vnel")
+}],
+"loop": true,
+"name": &"n3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt051")
+}],
+"loop": true,
+"name": &"n4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksdax")
+}],
+"loop": true,
+"name": &"n5",
+"speed": 5.0
+}]
+
 [sub_resource type="Curve2D" id="Curve2D_7shej"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 11.8327, 3.07733, 0, 0, 0, 0, 20.0314, 5.96209, 0, 0, 0, 0, 13.0473, 9.37824, 0, 0, 0, 0, 6.82229, 11.352, 0, 0, 0, 0, 4.54485, 15.2996, 0, 0, 0, 0, 0.0658894, 11.2761, 0, 0, 0, 0, -1.90789, 14.3886, 0, 0, 0, 0, 29.2171, 11.352)
+"points": PackedVector2Array(0, 0, 0, 0, 11.8327, 3.07733, 0, 0, 0, 0, 20.0314, 5.96209, 0, 0, 0, 0, 13.0473, 9.37824, 0, 0, 0, 0, 4.54485, 15.2996, 0, 0, 0, 0, 0.0658894, 11.2761, 0, 0, 0, 0, -1.90789, 14.3886, 0, 0, 0, 0, 29.2171, 11.352)
 }
-point_count = 8
+point_count = 7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvhdk"]
 atlas = ExtResource("24_j45us")
@@ -3154,7 +3223,7 @@ texture = ExtResource("11_0vjkf")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
 position = Vector2(12.1111, 33.2387)
 scale = Vector2(0.0300442, 0.0403583)
-polygon = PackedVector2Array(-40.4276, 107.219, 90.9641, 88.4086, 285.525, 47.0263, 318.373, 0.000915527, 144.025, 0.00012207, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
+polygon = PackedVector2Array(-40.4276, 107.219, -12.6332, 131.672, 42.9556, 110.981, 98.5444, 95.9327, 164.24, 86.5276, 285.525, 47.0263, 318.373, 0.000915527, 144.025, 0.00012207, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
 
 [node name="Character" type="Sprite2D" parent="CanvasLayer/Gameplay"]
 visible = false
@@ -3324,23 +3393,52 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("16_conpe")
 text = "1000"
 
+[node name="StarRating" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = -1.36646
+offset_top = 4.52049
+offset_right = 675.634
+offset_bottom = 515.521
+scale = Vector2(0.0117642, 0.0086907)
+texture = ExtResource("34_1wncc")
+
+[node name="StarRatingLabel" type="Label" parent="CanvasLayer/Gameplay" groups=["SuppliesNodes"]]
+layout_mode = 0
+offset_left = 5.92134
+offset_top = 5.65921
+offset_right = 38.9213
+offset_bottom = 21.6592
+scale = Vector2(0.111522, 0.167519)
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("16_conpe")
+text = "0"
+
 [node name="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
+
+[node name="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D/PathFollow2D/CharacterSprite" index="4"]
+visible = false
+
+[node name="StarSprite" parent="CanvasLayer/Gameplay/Path2D/PathFollow2D/CharacterSprite" index="5"]
 visible = false
 
 [node name="Path2D2" type="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients", "Paths"]]
-visible = false
 position = Vector2(35.6898, 23.7578)
 curve = SubResource("Curve2D_cets1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" groups=["PathFollows2D"]]
-position = Vector2(4.80694, 8.95538)
+position = Vector2(-29.5407, 8.62334)
+scale = Vector2(0.097903, 0.097903)
+progress = 35.0842
 rotates = false
 loop = false
 script = ExtResource("23_jh3xj")
 
 [node name="CharacterSprite" type="CharacterBody2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D" groups=["CharacterSprites2D"]]
 position = Vector2(-0.190674, -0.460758)
-scale = Vector2(0.0794631, 0.0794631)
+scale = Vector2(0.799454, 0.799454)
 
 [node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite" groups=["SpritesOrders"]]
 position = Vector2(-17.1252, -26.3119)
@@ -3366,16 +3464,30 @@ scale = Vector2(0.0700637, 0.0700637)
 sprite_frames = SubResource("SpriteFrames_j7guv")
 animation = &"regular-order"
 
+[node name="StarSprite" type="Sprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
+position = Vector2(-24.7813, -62.3882)
+scale = Vector2(0.0686263, 0.0686263)
+texture = ExtResource("34_1wncc")
+
+[node name="NumberAnimation" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
+position = Vector2(-1.85308, -61.4328)
+scale = Vector2(0.0672971, 0.0672971)
+sprite_frames = SubResource("SpriteFrames_ud2ok")
+animation = &"n5"
+offset = Vector2(-78.39, -11.005)
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
-offset_left = 4.83432
-offset_top = -62.3882
-offset_right = 681.834
-offset_bottom = 306.612
-scale = Vector2(0.183261, 0.193225)
-value = 80.0
-texture_under = ExtResource("29_74lpm")
-texture_progress = ExtResource("30_7nt76")
-texture_progress_offset = Vector2(23.545, -11.735)
+offset_left = -17.1252
+offset_top = -51.4808
+offset_right = 659.875
+offset_bottom = 317.519
+scale = Vector2(0.113893, 0.120086)
+pivot_offset = Vector2(4.005, -2.285)
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("37_i8gma")
+texture_progress = ExtResource("37_5yp46")
+texture_progress_offset = Vector2(5.245, -2.835)
 script = ExtResource("31_0xsh7")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D" groups=["TimerPaths"]]
@@ -3386,7 +3498,8 @@ position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D3" groups=["PathFollows2D"]]
-position = Vector2(11.8327, 3.07733)
+position = Vector2(1.67461, 12.5847)
+progress = 30.6757
 rotates = false
 loop = false
 script = ExtResource("23_jh3xj")
@@ -3406,18 +3519,6 @@ scale = Vector2(0.408131, 0.408131)
 sprite_frames = SubResource("SpriteFrames_iyew6")
 animation = &"walk_left_down"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
-offset_left = -4.28853
-offset_top = -67.763
-offset_right = 672.711
-offset_bottom = 301.237
-scale = Vector2(0.183261, 0.193225)
-value = 80.0
-texture_under = ExtResource("29_74lpm")
-texture_progress = ExtResource("30_7nt76")
-texture_progress_offset = Vector2(23.545, -11.735)
-script = ExtResource("31_0xsh7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["CollisionShapes2D"]]
 position = Vector2(0, 9.02478)
 scale = Vector2(0.398248, 0.534362)
@@ -3428,6 +3529,32 @@ position = Vector2(-18.63, -28.182)
 scale = Vector2(0.0700637, 0.0700637)
 sprite_frames = SubResource("SpriteFrames_qb2aq")
 animation = &"regular-order"
+
+[node name="StarSprite" type="Sprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+position = Vector2(-25.3061, -64.897)
+scale = Vector2(0.0686263, 0.0686263)
+texture = ExtResource("34_1wncc")
+
+[node name="NumberAnimation" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+position = Vector2(2.39888, -63.9416)
+scale = Vector2(0.0672971, 0.0672971)
+sprite_frames = SubResource("SpriteFrames_ud2ok")
+animation = &"n5"
+offset = Vector2(-78.39, -11.005)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+offset_left = -17.1252
+offset_top = -51.4808
+offset_right = 659.875
+offset_bottom = 317.519
+scale = Vector2(0.113893, 0.120086)
+pivot_offset = Vector2(4.005, -2.285)
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("37_i8gma")
+texture_progress = ExtResource("37_5yp46")
+texture_progress_offset = Vector2(5.245, -2.835)
+script = ExtResource("31_0xsh7")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D" groups=["TimerPaths"]]
 wait_time = 0.2
@@ -6490,6 +6617,7 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
 z_index = 2
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)

@@ -117,6 +117,33 @@ func _spawn_character_forced(taco_type: String, chosen_path: Node):
 	# Marcar el path como ocupado
 	chosen_path.set_meta("occupied", true)
 
+	# 🔀 DETERMINAR SI SERÁ CLIENTE ESPECIAL
+	var probabilidad_especial := 0.2  # 20% por ejemplo, ajústalo según dificultad
+	var es_especial := randf() < probabilidad_especial
+
+	# Enviar esa información al cliente
+	character.es_cliente_especial = es_especial
+
+	# 🟡 Activa nodos especiales si aplica
+	if es_especial:
+		var star = character.get_node_or_null("CharacterSprite/StarSprite")
+		var bar_div = character.get_node_or_null("CharacterSprite/BarDivision")
+		var num = character.get_node_or_null("CharacterSprite/NumberAnimation")
+
+		if star: star.visible = true
+		if bar_div: bar_div.visible = true
+		if num:
+			num.visible = true
+			num.play("n5")  # Siempre empieza con 5 estrellas
+
+		#print("🌟 Cliente ESPECIAL generado.")
+		pass
+
+	else:
+		#print("👤 Cliente normal generado.")
+		pass
+
+	# Continuar spawn normal
 	character.visible = true
 	character.progress_ratio = 0.0
 	character.set_process(true)
@@ -126,7 +153,6 @@ func _spawn_character_forced(taco_type: String, chosen_path: Node):
 
 	if not character.sale_made.is_connected(_on_sale_made):
 		character.sale_made.connect(_on_sale_made.bind(character))
-
 
 # -----------------------------------------------------------------------
 # _spawn_first_day_customers() => genera Taco-1, Taco-2, Taco-3

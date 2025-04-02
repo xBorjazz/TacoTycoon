@@ -53,7 +53,7 @@ var dialogues = [
 	"Lo siguiente es preparar nuestros tacos con esos ingredientes.",
 	"En este menú, vamos a realizar la preparación de nuestros tacos.",
 	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",
-	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",
+	"...",
 	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.",
 	"Es hora de iniciar la venta de tacos!",
 	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮+🥩+🥦+🌶\n• Taco-3: 🌮 + 🥦\n",  
