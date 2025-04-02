@@ -54,6 +54,11 @@ func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String):
 	animated_sprite = character_sprite.get_node("AnimatedSprite2D")
 	bubble = character_sprite.get_node("Bubble")
 	taco_order = character_sprite.get_node("TacoOrder")
+	
+	var numero = character_sprite.get_node("NumberAnimation")
+	numero.visible = false
+	var estrella = character_sprite.get_node("StarSprite")
+	estrella.visible = false
 
 	# Reset barra circular
 	var barra = character_sprite.get_node("TextureProgressBar")
@@ -80,17 +85,14 @@ func start_game(path2d: Path2D, pathfollow2d: PathFollow2D, pedido: String):
 	start_moving()
 
 	if es_cliente_especial:
-		var numero = character_sprite.get_node("NumberAnimation")
-
 		if numero:
-			numero.visible = false  # Ocultamos al inicio
+			numero.visible = true
 			numero.stop()
 			numero.frame = 0
-			numero.play("n5")
+			numero.play("n5")  # Solo aquí se inicia como n5
 			current_star_anim = "n5"
-		var estrella = character_sprite.get_node("StarSprite")
-		if estrella:
-			estrella.visible = true  # Ocultar al inicio
+			estrella.visible = true
+
 
 func elegir_taco():
 	if taco_order:
