@@ -1,4 +1,4 @@
-[gd_scene load_steps=520 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=522 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -90,7 +90,9 @@
 [ext_resource type="Texture2D" uid="uid://dmiphmlrmad0p" path="res://Assets/arrachera.png" id="60_yxvny"]
 [ext_resource type="Texture2D" uid="uid://dyd0qhex82fab" path="res://Assets/verdura-sprite-new__1-pressed.png" id="61_140f5"]
 [ext_resource type="Texture2D" uid="uid://b82w0uhgrr3mw" path="res://Assets/costilla.png" id="61_bff0t"]
+[ext_resource type="Texture2D" uid="uid://cnytrrm7hle2g" path="res://Assets/Maps/Cucei/chedraui.png" id="61_tc44n"]
 [ext_resource type="Texture2D" uid="uid://dtwxeqbhc5smu" path="res://Assets/cilantromedium.png" id="62_85gd4"]
+[ext_resource type="Texture2D" uid="uid://d4nvvjdkviiwi" path="res://Assets/Maps/Cucei/chedraui-disabled.png" id="62_iiq2h"]
 [ext_resource type="Texture2D" uid="uid://dgrhl0gscpe7i" path="res://Assets/cilantrolarge.png" id="63_1f1ck"]
 [ext_resource type="Texture2D" uid="uid://dt14js4pegsat" path="res://Assets/singleonion.png" id="64_2ecdo"]
 [ext_resource type="Texture2D" uid="uid://ir51s6oipfjk" path="res://Assets/salsita-pressed.png" id="64_it45n"]
@@ -3105,8 +3107,10 @@ color = Color(0.067, 0.952, 0.057, 0.438)
 
 [node name="Gameplay" type="Panel" parent="CanvasLayer"]
 texture_repeat = 2
+anchors_preset = -1
+anchor_top = -0.008
 offset_left = 9.0
-offset_top = 101.0
+offset_top = 109.192
 offset_right = 51.5
 offset_bottom = 136.0
 scale = Vector2(13.1727, 13.1727)
@@ -3418,6 +3422,9 @@ text = "0"
 
 [node name="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
 
+[node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D" index="0"]
+visible = false
+
 [node name="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D/PathFollow2D/CharacterSprite" index="4"]
 visible = false
 
@@ -3429,6 +3436,7 @@ position = Vector2(35.6898, 23.7578)
 curve = SubResource("Curve2D_cets1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" groups=["PathFollows2D"]]
+visible = false
 position = Vector2(-29.5407, 8.62334)
 scale = Vector2(0.097903, 0.097903)
 progress = 35.0842
@@ -3498,6 +3506,7 @@ position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D3" groups=["PathFollows2D"]]
+visible = false
 position = Vector2(1.67461, 12.5847)
 progress = 30.6757
 rotates = false
@@ -3678,9 +3687,13 @@ script = ExtResource("31_pp8yx")
 [node name="Node2D" type="Node2D" parent="CanvasLayer/Gameplay"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_left = 7.0
+offset_top = -75.0
+offset_right = 47.0
+offset_bottom = -35.0
 scale = Vector2(1.00278, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 18.0
@@ -3745,6 +3758,16 @@ offset_bottom = 40.0
 script = ExtResource("36_amq58")
 metadata/_edit_use_anchors_ = true
 
+[node name="ChedrauiButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+layout_mode = 0
+offset_left = 56.778
+offset_top = 141.236
+offset_right = 1080.78
+offset_bottom = 909.236
+scale = Vector2(0.229954, 0.229954)
+texture_normal = ExtResource("61_tc44n")
+texture_disabled = ExtResource("62_iiq2h")
+
 [node name="MatuteButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
 offset_left = 56.778
@@ -3765,7 +3788,7 @@ scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("2_3nf8g")
 texture_disabled = ExtResource("38_p35ul")
 
-[node name="ChedrauiButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+[node name="GloboButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
 offset_left = 56.778
 offset_top = 141.236
@@ -6827,6 +6850,7 @@ scale = Vector2(0.276463, 0.276463)
 script = ExtResource("89_v0cs5")
 
 [node name="ContinueButton" type="TextureButton" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
 offset_left = 390.0
 offset_top = 454.0
 offset_right = 1067.0
@@ -6873,9 +6897,10 @@ text = "0
 [connection signal="pressed" from="CanvasLayer/Gameplay/PauseButton" to="CanvasLayer/Gameplay/DayControl" method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/BetasButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_betas_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/GloboButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_globo_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel2/PrediccionButton" to="CanvasLayer/PanelContainer/Panel2/GraphManager" method="_on_PrediccionButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel2/GananciasButton" to="CanvasLayer/PanelContainer/Panel2/GraphManager" method="_on_GananciasButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyTacoDogButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_taco_dog_button_pressed"]

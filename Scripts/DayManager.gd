@@ -1,6 +1,6 @@
 extends Node
 
-var current_day: int = 1
+var current_day = Inventory.dia_actual
 @export var day_duration: float = 60.0
 var remaining_time: float = 0.0
 var is_game_running: bool = false
@@ -23,6 +23,9 @@ var paused: bool = false  # Para saber si estamos en pausa
 
 func _ready() -> void:
 	remaining_time = day_duration
+	#Actualizar el día guardado
+	var progreso := GameProgress.cargar()
+	current_day = progreso.dia_actual
 	update_day_label()
 
 	var day_manager = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
@@ -44,6 +47,8 @@ func _ready() -> void:
 
 	# NUEVO: Conectar el botón PAUSE
 	pause_button.connect("pressed", Callable(self, "_on_pause_pressed"))
+	
+
 
 func _on_start_pressed() -> void:
 	remaining_time = day_duration
@@ -79,7 +84,6 @@ func _toggle_speed():
 
 func _on_day_end() -> void:
 	day_timer.stop()
-	update_day_label()
 	is_game_running = false
 
 	emit_signal("day_ended")
@@ -89,10 +93,18 @@ func _on_day_end() -> void:
 
 	speed_button.disabled = true
 	speed_button.visible = false
-
+	
+	
 	current_day += 1
+	Inventory.dia_actual = current_day
+	update_day_label()
 
 	emit_signal("stop_movement")
+	
+	SuppliesUi.guardar_progreso()
+
+	print("✅ Progreso guardado automáticamente al terminar el día.")
+	
 	
 	Spawner.liberar_todos_los_paths()
 

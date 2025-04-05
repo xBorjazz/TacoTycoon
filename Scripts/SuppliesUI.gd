@@ -153,32 +153,68 @@ func resetear_labels_recursos() -> void:
 	# Actualizar los labels con los nuevos valores
 	actualizar_labels()
 
-# Inicializa la interfaz con las cantidades iniciales
+func guardar_progreso() -> void:
+	var progreso := GameProgress.new()
+	progreso.dinero_actual = Inventory.player_money
+	progreso.dia_actual = Inventory.dia_actual
+	progreso.ventas_totales = Inventory.tacos_vendidos
+	progreso.perdidas_totales = Inventory.ventas_fallidas
+	progreso.promedio = Inventory.promedio
+	progreso.buenas_resenas = Inventory.total_reseñas
+	progreso.tutorial_completado = true
+	progreso.tortillas_total = Inventory.tortillas_total
+	progreso.carne_total = Inventory.carne_total
+	progreso.verdura_total = Inventory.verdura_total
+	progreso.salsa_total = Inventory.salsa_total
+	progreso.taco_coins = Inventory.taco_coins
+	progreso.puntaje_acumulado = Inventory.puntaje_acumulado
+	progreso.nivel_actual = LevelManager.current_level
+	progreso.guardar()
+	
+
 func _ready() -> void:
+	var progreso := GameProgress.cargar()
+	if progreso != null:
+		Inventory.player_money = progreso.dinero_actual
+		Inventory.tacos_vendidos = progreso.ventas_totales
+		Inventory.ventas_fallidas = progreso.perdidas_totales
+		Inventory.promedio = progreso.promedio
+		Inventory.total_reseñas = progreso.buenas_resenas
+		Inventory.dia_actual = progreso.dia_actual
+		Inventory.tortillas_total = progreso.tortillas_total
+		Inventory.carne_total = progreso.carne_total
+		Inventory.verdura_total = progreso.verdura_total
+		Inventory.salsa_total = progreso.salsa_total
+		Inventory.taco_coins = progreso.taco_coins		
+		print("📂 Progreso cargado correctamente.")
+	else:
+		print("⚠️ No se encontró archivo de progreso.")
+
+	# Ahora sí, con los datos cargados, actualizamos los labels
 	actualizar_labels()
 	actualizar_labels_dinero()
 	actualizar_inventario_total()
 
 	
-	# Datos de ejemplo (Carne, Salsa, Tortilla) y ganancias reales
-	var data = [
-		[1, 2, 1],
-		[2, 1, 2],
-		[3, 2, 1],
-		[4, 3, 2]
-	]
-	var real_ganancias = [10, 15, 20, 25]
-
-	# Entrenamos el modelo
-	GradientDescent.train(data, real_ganancias, 1000)
-
-	# Obtenemos la lista de pérdidas y la enviamos al script de la gráfica
-	GraphPlot.set_data(gradient_node.loss_values)
-
-	# Ejemplo de predicción usando los ingredientes actuales del jugador
-	var ing = ingredients_manager.get_ingredients()
-	var ganancia_predicha = gradient_node.predict(ing[0], ing[1], ing[2])
-	print("Ganancia predicha con ingredientes actuales:", ganancia_predicha) 
+	## Datos de ejemplo (Carne, Salsa, Tortilla) y ganancias reales
+	#var data = [
+		#[1, 2, 1],
+		#[2, 1, 2],
+		#[3, 2, 1],
+		#[4, 3, 2]
+	#]
+	#var real_ganancias = [10, 15, 20, 25]
+#
+	## Entrenamos el modelo
+	#GradientDescent.train(data, real_ganancias, 1000)
+#
+	## Obtenemos la lista de pérdidas y la enviamos al script de la gráfica
+	#GraphPlot.set_data(gradient_node.loss_values)
+#
+	## Ejemplo de predicción usando los ingredientes actuales del jugador
+	#var ing = ingredients_manager.get_ingredients()
+	#var ganancia_predicha = gradient_node.predict(ing[0], ing[1], ing[2])
+	#print("Ganancia predicha con ingredientes actuales:", ganancia_predicha) 
 	
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")

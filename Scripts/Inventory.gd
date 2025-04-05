@@ -17,6 +17,8 @@ var buenas_resenas = 0
 var total_reseñas = 0
 var propinas_recibidas = 0
 var taco_coins = 0
+var promedio := 0.0
+var dia_actual = 1
 
 # Variables para los suministros
 var tortillas_total = 0
@@ -35,7 +37,6 @@ var opponent_money = 150
 var invested_money = 0
 
 var puntaje_acumulado = 0
-
 
 
 # Contadores individuales
@@ -80,10 +81,12 @@ const PRECIOS = {
 }
 
 func _ready():
+	var progreso := GameProgress.cargar()
+	Inventory.total_reseñas = progreso.buenas_resenas
+	Inventory.puntaje_acumulado = progreso.puntaje_acumulado
 	actualizar_promedio_estrellas()
 
 func actualizar_promedio_estrellas():
-	var promedio := 0.0
 	if total_reseñas > 0:
 		promedio = float(puntaje_acumulado) / total_reseñas
 	else:

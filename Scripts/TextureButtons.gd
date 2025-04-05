@@ -23,6 +23,7 @@ var salsa_large = 5
 const MEDIO_KILO = 0.5
 const DineroInicial = 50
 
+
 # FUNCIONES PARA COMPRAR TortillaES
 func _on_ComprarTortillasButton_pressed() -> void:
 	verify_sound()
