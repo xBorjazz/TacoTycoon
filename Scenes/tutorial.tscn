@@ -1,4 +1,4 @@
-[gd_scene load_steps=471 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=522 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -28,26 +28,38 @@
 [ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="23_jh3xj"]
 [ext_resource type="Texture2D" uid="uid://xb6j6jee3mab" path="res://Assets/speedupbt-pressed2.png" id="24_7dt7l"]
 [ext_resource type="Texture2D" uid="uid://dscohmx54caqr" path="res://Assets/Buttons/taco-bubble.png" id="24_j45us"]
+[ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="25_1obaq"]
 [ext_resource type="Texture2D" uid="uid://cca5xib3klhvk" path="res://Assets/Buttons/pause-btn.png" id="25_8ig2d"]
+[ext_resource type="Texture2D" uid="uid://comt78g04al5u" path="res://Character/funny-sprite-sheet-removebg-preview.png" id="25_alolu"]
 [ext_resource type="Texture2D" uid="uid://cohu7qdaj2pvq" path="res://Character/business-man-spritesheet-removebg-preview.png" id="25_rsesm"]
 [ext_resource type="Texture2D" uid="uid://crvkp4j660rqf" path="res://Assets/startbutton.png" id="25_w0f65"]
 [ext_resource type="Texture2D" uid="uid://up4ofnjylqx2" path="res://Assets/Buttons/pause-btn-pressed2.png" id="26_14ssx"]
 [ext_resource type="Texture2D" uid="uid://cg45ivgw45jus" path="res://Assets/startbuttonpressed.png" id="26_d8f2p"]
 [ext_resource type="Texture2D" uid="uid://d3fapwbrpxphq" path="res://Assets/Tacos/client-full-taco.png" id="26_f6iq8"]
+[ext_resource type="Texture2D" uid="uid://ckvuwcr87pgo0" path="res://Character/business-man-complete-removebg-preview.png" id="26_gewu8"]
 [ext_resource type="Texture2D" uid="uid://4en08jsqgyeg" path="res://Assets/Tacos/client-regular-taco.png" id="27_k5ktc"]
 [ext_resource type="Script" path="res://Scripts/Spawner.gd" id="27_wqgqt"]
 [ext_resource type="Texture2D" uid="uid://cqpqwtakf2e57" path="res://Assets/relojarena.png" id="28_b0sec"]
 [ext_resource type="Texture2D" uid="uid://bawybmdd5sf2w" path="res://Assets/Tacos/client-vegan-taco.png" id="28_fihi7"]
 [ext_resource type="Script" path="res://Scripts/DayManager.gd" id="30_6by1d"]
+[ext_resource type="Script" path="res://Scripts/ClientProgressBar.gd" id="31_0xsh7"]
 [ext_resource type="Script" path="res://Scripts/Recipe.gd" id="31_pp8yx"]
 [ext_resource type="Texture2D" uid="uid://diyth22mvcqhx" path="res://Assets/Kenney/PNG/Extra/Double/bar_shadow_round_large.png" id="32_j76n5"]
 [ext_resource type="Texture2D" uid="uid://cxpet8w33y78v" path="res://Assets/Kenney/PNG/Blue/Double/bar_round_gloss_large.png" id="33_ekurg"]
+[ext_resource type="Texture2D" uid="uid://chasjtgokeao4" path="res://Assets/Buttons/rating-sprite.png" id="34_1wncc"]
 [ext_resource type="Texture2D" uid="uid://xrjubrw373t4" path="res://Assets/Kenney/Vector/Blue/bar_round_large.svg" id="34_3i2tj"]
+[ext_resource type="Texture2D" uid="uid://qlfi7e8nyrkg" path="res://Assets/Buttons/number1sprite-.png" id="35_gk7ty"]
 [ext_resource type="Script" path="res://Scripts/ProgressBar.gd" id="35_vkmbf"]
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="36_amq58"]
+[ext_resource type="Texture2D" uid="uid://dxq7kd6fgkqxt" path="res://Assets/Buttons/number2-sprite.png" id="36_qasno"]
+[ext_resource type="Texture2D" uid="uid://bf37seywtkvjo" path="res://Assets/Buttons/white-circle-progress2.png" id="37_5yp46"]
 [ext_resource type="Texture2D" uid="uid://do874ign2fm12" path="res://Maps/Cucei/matute-disabled.png" id="37_c6l4h"]
+[ext_resource type="Texture2D" uid="uid://d30eohj1lj2m1" path="res://Assets/Buttons/number3-sprite.png" id="37_gbcwe"]
+[ext_resource type="Texture2D" uid="uid://tt1s86hrf40r" path="res://Assets/Buttons/circle-bar-progress.png" id="37_i8gma"]
 [ext_resource type="Texture2D" uid="uid://sw36m1vpxrlf" path="res://Maps/Cucei/betas-disabled.png" id="38_p35ul"]
+[ext_resource type="Texture2D" uid="uid://bouk0gtxwxpkw" path="res://Assets/Buttons/number4-sprite.png" id="38_s8kfs"]
 [ext_resource type="Texture2D" uid="uid://nji50i71v7tu" path="res://Assets/Maps/Cucei/globo.png" id="39_0b5e1"]
+[ext_resource type="Texture2D" uid="uid://bn8m0uhe7bctn" path="res://Assets/Buttons/number5-sprite.png" id="39_5jx6q"]
 [ext_resource type="Texture2D" uid="uid://b01ipyik0h40p" path="res://Assets/Maps/Cucei/globo-disabled.png" id="40_3k4hm"]
 [ext_resource type="Texture2D" uid="uid://c6vlulqxwlk88" path="res://Assets/Buttons/arrows/oranerightarrow.png" id="40_h3q5p"]
 [ext_resource type="Texture2D" uid="uid://cp44wnic0j3uk" path="res://Assets/Buttons/arrows/bluefadearrow.png" id="41_g08oj"]
@@ -78,7 +90,9 @@
 [ext_resource type="Texture2D" uid="uid://dmiphmlrmad0p" path="res://Assets/arrachera.png" id="60_yxvny"]
 [ext_resource type="Texture2D" uid="uid://dyd0qhex82fab" path="res://Assets/verdura-sprite-new__1-pressed.png" id="61_140f5"]
 [ext_resource type="Texture2D" uid="uid://b82w0uhgrr3mw" path="res://Assets/costilla.png" id="61_bff0t"]
+[ext_resource type="Texture2D" uid="uid://cnytrrm7hle2g" path="res://Assets/Maps/Cucei/chedraui.png" id="61_tc44n"]
 [ext_resource type="Texture2D" uid="uid://dtwxeqbhc5smu" path="res://Assets/cilantromedium.png" id="62_85gd4"]
+[ext_resource type="Texture2D" uid="uid://d4nvvjdkviiwi" path="res://Assets/Maps/Cucei/chedraui-disabled.png" id="62_iiq2h"]
 [ext_resource type="Texture2D" uid="uid://dgrhl0gscpe7i" path="res://Assets/cilantrolarge.png" id="63_1f1ck"]
 [ext_resource type="Texture2D" uid="uid://dt14js4pegsat" path="res://Assets/singleonion.png" id="64_2ecdo"]
 [ext_resource type="Texture2D" uid="uid://ir51s6oipfjk" path="res://Assets/salsita-pressed.png" id="64_it45n"]
@@ -2142,15 +2156,9 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_cets1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.3382, 6.18976, 0, 0, 0, 0, -26.8837, 5.96633, 0, 0, 0, 0, -28.4779, 9.38249)
+"points": PackedVector2Array(0, 0, 0, 0, 4.80694, 8.95538, 0, 0, 0, 0, -1.44864, 7.70427, 0, 0, 0, 0, -7.44084, 7.83597, 0, 0, 0, 0, -10.638, 8.3956, 0, 0, 0, 0, -19.52, 8.3956, 0, 0, 0, 0, -27.5669, 7.40871, 0, 0, 0, 0, -29.5407, 8.62334)
 }
-point_count = 6
-
-[sub_resource type="Curve2D" id="Curve2D_7shej"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 11.8327, 3.07733, 0, 0, 0, 0, 20.0314, 5.96209, 0, 0, 0, 0, 13.0473, 9.37824, 0, 0, 0, 0, 6.82229, 11.352, 0, 0, 0, 0, 4.54485, 15.2996, 0, 0, 0, 0, 0.0658894, 11.2761, 0, 0, 0, 0, 0.0658894, 13.4017, 0, 0, 0, 0, 29.2171, 11.352)
-}
-point_count = 8
+point_count = 7
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ntxr"]
 atlas = ExtResource("24_j45us")
@@ -2167,144 +2175,149 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sv24a"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(0, 120, 95, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfgdo"]
+atlas = ExtResource("25_alolu")
+region = Rect2(210, 173, 96, 152)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_67lda"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(420, 120, 97, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2kfx"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(184, 252, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkccd"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(0, 0, 96, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ib7l"]
+atlas = ExtResource("14_qdjd5")
+region = Rect2(0, 72, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7fcn"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(174, 0, 82, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f683"]
+atlas = ExtResource("14_qdjd5")
+region = Rect2(23, 72, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tj55i"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(92, 0, 85, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsoxa"]
+atlas = ExtResource("25_alolu")
+region = Rect2(214, 14, 96, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xenl"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(338, 0, 82, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwgqu"]
+atlas = ExtResource("25_alolu")
+region = Rect2(3, 14, 118, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8ud8"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(420, 0, 97, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj5x4"]
+atlas = ExtResource("25_alolu")
+region = Rect2(117, 14, 96, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pcqv8"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(0, 360, 86, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt1lv"]
+atlas = ExtResource("25_alolu")
+region = Rect2(311, 14, 96, 158)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vm3uc"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(87, 360, 81, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrgjp"]
+atlas = ExtResource("25_alolu")
+region = Rect2(16, 173, 96, 152)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4r6a"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(250, 360, 83, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ieks"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(0, 36, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4nfe1"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(327, 360, 87, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojklv"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(23, 36, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohaqv"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(163, 360, 88, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbke1"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(46, 36, 23, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ndvvc"]
-atlas = ExtResource("25_rsesm")
-region = Rect2(412, 360, 102, 120)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysprs"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(69, 36, 23, 36)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_iyew6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4p7h"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(92, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m888v"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(115, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04gl5"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(138, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgpbd"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(161, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofc72"]
+atlas = ExtResource("25_1obaq")
+region = Rect2(184, 36, 23, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23xq5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sv24a")
+"texture": SubResource("AtlasTexture_hfgdo")
 }],
 "loop": true,
 "name": &"buying",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_67lda")
+"texture": SubResource("AtlasTexture_k2kfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ib7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f683")
 }],
-"loop": true,
+"loop": false,
 "name": &"fade_out",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mkccd")
+"texture": SubResource("AtlasTexture_jsoxa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q7fcn")
+"texture": SubResource("AtlasTexture_hwgqu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tj55i")
+"texture": SubResource("AtlasTexture_fj5x4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6xenl")
+"texture": SubResource("AtlasTexture_lt1lv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w8ud8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q7fcn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tj55i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6xenl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w8ud8")
+"texture": SubResource("AtlasTexture_lrgjp")
 }],
 "loop": true,
 "name": &"walk_left_down",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pcqv8")
+"texture": SubResource("AtlasTexture_3ieks")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pcqv8")
+"texture": SubResource("AtlasTexture_ojklv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vm3uc")
+"texture": SubResource("AtlasTexture_rbke1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vm3uc")
+"texture": SubResource("AtlasTexture_ysprs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p4r6a")
+"texture": SubResource("AtlasTexture_u4p7h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p4r6a")
+"texture": SubResource("AtlasTexture_m888v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4nfe1")
+"texture": SubResource("AtlasTexture_04gl5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4nfe1")
+"texture": SubResource("AtlasTexture_qgpbd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ohaqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohaqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ndvvc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ndvvc")
+"texture": SubResource("AtlasTexture_ofc72")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -2349,6 +2362,301 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_noysf")
+}],
+"loop": true,
+"name": &"vegan-order",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft3d7"]
+atlas = ExtResource("35_gk7ty")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8upy"]
+atlas = ExtResource("36_qasno")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vnel"]
+atlas = ExtResource("37_gbcwe")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt051"]
+atlas = ExtResource("38_s8kfs")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksdax"]
+atlas = ExtResource("39_5jx6q")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ud2ok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft3d7")
+}],
+"loop": true,
+"name": &"n1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8upy")
+}],
+"loop": true,
+"name": &"n2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vnel")
+}],
+"loop": true,
+"name": &"n3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt051")
+}],
+"loop": true,
+"name": &"n4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksdax")
+}],
+"loop": true,
+"name": &"n5",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_7shej"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 11.8327, 3.07733, 0, 0, 0, 0, 20.0314, 5.96209, 0, 0, 0, 0, 13.0473, 9.37824, 0, 0, 0, 0, 4.54485, 15.2996, 0, 0, 0, 0, 0.0658894, 11.2761, 0, 0, 0, 0, -1.90789, 14.3886, 0, 0, 0, 0, 29.2171, 11.352)
+}
+point_count = 7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvhdk"]
+atlas = ExtResource("24_j45us")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45yf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvhdk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0s0f"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(0, 187, 68, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67lda"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(420, 120, 97, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcslb"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(10, 0, 66, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp5v"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(76, 0, 66, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qbka"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(142, 0, 66, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr6um"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(208, 0, 66, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypd47"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(274, 0, 66, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftq1j"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(340, 0, 66, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtbss"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(0, 377, 68, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnbgs"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(204, 377, 68, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqfqh"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(272, 377, 68, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4baph"]
+atlas = ExtResource("26_gewu8")
+region = Rect2(340, 377, 68, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcqv8"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(0, 360, 86, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm3uc"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(87, 360, 81, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4r6a"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(250, 360, 83, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nfe1"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(327, 360, 87, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohaqv"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(163, 360, 88, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndvvc"]
+atlas = ExtResource("25_rsesm")
+region = Rect2(412, 360, 102, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyew6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0s0f")
+}],
+"loop": true,
+"name": &"buying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67lda")
+}],
+"loop": true,
+"name": &"fade_out",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcslb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qbka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr6um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypd47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftq1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtbss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnbgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqfqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4baph")
+}],
+"loop": true,
+"name": &"walk_left_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcqv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcqv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm3uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm3uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4r6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4r6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nfe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nfe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohaqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndvvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndvvc")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4n42h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_six43"]
+atlas = ExtResource("26_f6iq8")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alk1y"]
+atlas = ExtResource("27_k5ktc")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsn5l"]
+atlas = ExtResource("28_fihi7")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qb2aq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_six43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_six43")
+}],
+"loop": true,
+"name": &"full-order",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alk1y")
+}],
+"loop": true,
+"name": &"regular-order",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsn5l")
 }],
 "loop": true,
 "name": &"vegan-order",
@@ -2799,8 +3107,10 @@ color = Color(0.067, 0.952, 0.057, 0.438)
 
 [node name="Gameplay" type="Panel" parent="CanvasLayer"]
 texture_repeat = 2
+anchors_preset = -1
+anchor_top = -0.008
 offset_left = 9.0
-offset_top = 101.0
+offset_top = 109.192
 offset_right = 51.5
 offset_bottom = 136.0
 scale = Vector2(13.1727, 13.1727)
@@ -2917,7 +3227,7 @@ texture = ExtResource("11_0vjkf")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Gameplay/TacoStandZone"]
 position = Vector2(12.1111, 33.2387)
 scale = Vector2(0.0300442, 0.0403583)
-polygon = PackedVector2Array(-25.9059, 107.998, 49.2216, 117.641, 131.391, 116.622, 156.659, 43.2629, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
+polygon = PackedVector2Array(-40.4276, 107.219, -12.6332, 131.672, 42.9556, 110.981, 98.5444, 95.9327, 164.24, 86.5276, 285.525, 47.0263, 318.373, 0.000915527, 144.025, 0.00012207, -20.2144, -50.7877, -145.074, -48.2136, -225.382, -0.00012207, -168.389, 61.7131)
 
 [node name="Character" type="Sprite2D" parent="CanvasLayer/Gameplay"]
 visible = false
@@ -3087,23 +3397,118 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("16_conpe")
 text = "1000"
 
+[node name="StarRating" type="TextureRect" parent="CanvasLayer/Gameplay"]
+layout_mode = 0
+offset_left = -1.36646
+offset_top = 4.52049
+offset_right = 675.634
+offset_bottom = 515.521
+scale = Vector2(0.0117642, 0.0086907)
+texture = ExtResource("34_1wncc")
+
+[node name="StarRatingLabel" type="Label" parent="CanvasLayer/Gameplay" groups=["SuppliesNodes"]]
+layout_mode = 0
+offset_left = 5.92134
+offset_top = 5.65921
+offset_right = 38.9213
+offset_bottom = 21.6592
+scale = Vector2(0.111522, 0.167519)
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("16_conpe")
+text = "0"
+
 [node name="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
+
+[node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D" index="0"]
 visible = false
 
-[node name="Path2D2" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients"] instance=ExtResource("22_mf7wt")]
+[node name="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D/PathFollow2D/CharacterSprite" index="4"]
 visible = false
+
+[node name="StarSprite" parent="CanvasLayer/Gameplay/Path2D/PathFollow2D/CharacterSprite" index="5"]
+visible = false
+
+[node name="Path2D2" type="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients", "Paths"]]
 position = Vector2(35.6898, 23.7578)
 curve = SubResource("Curve2D_cets1")
 
-[node name="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" index="0"]
-position = Vector2(4.80694, 8.95538)
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D2" groups=["PathFollows2D"]]
+visible = false
+position = Vector2(-29.5407, 8.62334)
+scale = Vector2(0.097903, 0.097903)
+progress = 35.0842
+rotates = false
+loop = false
+script = ExtResource("23_jh3xj")
+
+[node name="CharacterSprite" type="CharacterBody2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D" groups=["CharacterSprites2D"]]
+position = Vector2(-0.190674, -0.460758)
+scale = Vector2(0.799454, 0.799454)
+
+[node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite" groups=["SpritesOrders"]]
+position = Vector2(-17.1252, -26.3119)
+scale = Vector2(0.131706, 0.131706)
+sprite_frames = SubResource("SpriteFrames_wavxo")
+flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
+texture_filter = 1
+position = Vector2(0.0576098, -0.290848)
+scale = Vector2(0.295405, 0.295405)
+sprite_frames = SubResource("SpriteFrames_23xq5")
+animation = &"walk_left_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite" groups=["CollisionShapes2D"]]
+position = Vector2(0, 9.02478)
+scale = Vector2(0.398248, 0.534362)
+shape = SubResource("CircleShape2D_5l8e1")
+
+[node name="TacoOrder" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
+position = Vector2(-18.63, -28.182)
+scale = Vector2(0.0700637, 0.0700637)
+sprite_frames = SubResource("SpriteFrames_j7guv")
+animation = &"regular-order"
+
+[node name="StarSprite" type="Sprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
+position = Vector2(-24.7813, -62.3882)
+scale = Vector2(0.0686263, 0.0686263)
+texture = ExtResource("34_1wncc")
+
+[node name="NumberAnimation" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
+position = Vector2(-1.85308, -61.4328)
+scale = Vector2(0.0672971, 0.0672971)
+sprite_frames = SubResource("SpriteFrames_ud2ok")
+animation = &"n5"
+offset = Vector2(-78.39, -11.005)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D/CharacterSprite"]
+offset_left = -17.1252
+offset_top = -51.4808
+offset_right = 659.875
+offset_bottom = 317.519
+scale = Vector2(0.113893, 0.120086)
+pivot_offset = Vector2(4.005, -2.285)
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("37_i8gma")
+texture_progress = ExtResource("37_5yp46")
+texture_progress_offset = Vector2(5.245, -2.835)
+script = ExtResource("31_0xsh7")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Gameplay/Path2D2/PathFollow2D" groups=["TimerPaths"]]
+wait_time = 0.2
 
 [node name="Path2D3" type="Path2D" parent="CanvasLayer/Gameplay" groups=["Clientes", "Clients", "Paths"]]
 position = Vector2(11.8527, 16.7779)
 curve = SubResource("Curve2D_7shej")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Gameplay/Path2D3" groups=["PathFollows2D"]]
-position = Vector2(11.8327, 3.07733)
+visible = false
+position = Vector2(1.67461, 12.5847)
+progress = 30.6757
 rotates = false
 loop = false
 script = ExtResource("23_jh3xj")
@@ -3115,26 +3520,50 @@ scale = Vector2(0.0794631, 0.0794631)
 [node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["SpritesOrders"]]
 position = Vector2(-17.1252, -26.3119)
 scale = Vector2(0.131706, 0.131706)
-sprite_frames = SubResource("SpriteFrames_wavxo")
+sprite_frames = SubResource("SpriteFrames_45yf5")
 flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
-scale = Vector2(0.369428, 0.369428)
+scale = Vector2(0.408131, 0.408131)
 sprite_frames = SubResource("SpriteFrames_iyew6")
 animation = &"walk_left_down"
-frame = 6
-frame_progress = 0.720963
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite" groups=["CollisionShapes2D"]]
 position = Vector2(0, 9.02478)
 scale = Vector2(0.398248, 0.534362)
-shape = SubResource("CircleShape2D_5l8e1")
+shape = SubResource("CircleShape2D_4n42h")
 
 [node name="TacoOrder" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
 position = Vector2(-18.63, -28.182)
 scale = Vector2(0.0700637, 0.0700637)
-sprite_frames = SubResource("SpriteFrames_j7guv")
+sprite_frames = SubResource("SpriteFrames_qb2aq")
 animation = &"regular-order"
+
+[node name="StarSprite" type="Sprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+position = Vector2(-25.3061, -64.897)
+scale = Vector2(0.0686263, 0.0686263)
+texture = ExtResource("34_1wncc")
+
+[node name="NumberAnimation" type="AnimatedSprite2D" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+position = Vector2(2.39888, -63.9416)
+scale = Vector2(0.0672971, 0.0672971)
+sprite_frames = SubResource("SpriteFrames_ud2ok")
+animation = &"n5"
+offset = Vector2(-78.39, -11.005)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D/CharacterSprite"]
+offset_left = -17.1252
+offset_top = -51.4808
+offset_right = 659.875
+offset_bottom = 317.519
+scale = Vector2(0.113893, 0.120086)
+pivot_offset = Vector2(4.005, -2.285)
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("37_i8gma")
+texture_progress = ExtResource("37_5yp46")
+texture_progress_offset = Vector2(5.245, -2.835)
+script = ExtResource("31_0xsh7")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Gameplay/Path2D3/PathFollow2D" groups=["TimerPaths"]]
 wait_time = 0.2
@@ -3258,9 +3687,13 @@ script = ExtResource("31_pp8yx")
 [node name="Node2D" type="Node2D" parent="CanvasLayer/Gameplay"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_left = 7.0
+offset_top = -75.0
+offset_right = 47.0
+offset_bottom = -35.0
 scale = Vector2(1.00278, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 18.0
@@ -3325,6 +3758,16 @@ offset_bottom = 40.0
 script = ExtResource("36_amq58")
 metadata/_edit_use_anchors_ = true
 
+[node name="ChedrauiButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+layout_mode = 0
+offset_left = 56.778
+offset_top = 141.236
+offset_right = 1080.78
+offset_bottom = 909.236
+scale = Vector2(0.229954, 0.229954)
+texture_normal = ExtResource("61_tc44n")
+texture_disabled = ExtResource("62_iiq2h")
+
 [node name="MatuteButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
 offset_left = 56.778
@@ -3345,7 +3788,7 @@ scale = Vector2(0.229954, 0.229954)
 texture_normal = ExtResource("2_3nf8g")
 texture_disabled = ExtResource("38_p35ul")
 
-[node name="ChedrauiButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
+[node name="GloboButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel/LevelSelector"]
 layout_mode = 0
 offset_left = 56.778
 offset_top = 141.236
@@ -3638,6 +4081,7 @@ scale = Vector2(0.162767, 0.128434)
 texture_normal = ExtResource("46_e1r2r")
 
 [node name="Panel4" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/Panel4"]
@@ -3953,7 +4397,6 @@ offset_bottom = 40.0
 script = ExtResource("53_f05st")
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -5933,9 +6376,9 @@ scale = Vector2(14.4544, 25.6985)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 374.0
-offset_top = 590.0
+offset_top = 793.0
 offset_right = 464.0
-offset_bottom = 630.0
+offset_bottom = 833.0
 scale = Vector2(2.3, 2.3)
 theme_override_constants/separation = 5
 
@@ -6065,9 +6508,9 @@ vertical_alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 375.0
-offset_top = 794.0
+offset_top = 589.0
 offset_right = 459.0
-offset_bottom = 834.0
+offset_bottom = 629.0
 scale = Vector2(2.3, 2.3)
 
 [node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/HBoxContainer3"]
@@ -6197,6 +6640,7 @@ stream = ExtResource("86_lp5ko")
 volume_db = -10.0
 
 [node name="TacoTutorial" type="Sprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
 z_index = 2
 position = Vector2(112, 458)
 scale = Vector2(0.462148, 0.480926)
@@ -6205,7 +6649,7 @@ texture = ExtResource("87_ej7dq")
 [node name="Arrow1Ingredients" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(357, 857)
+position = Vector2(345, 694)
 scale = Vector2(1.38935, 1.4458)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
@@ -6213,8 +6657,9 @@ autoplay = "default"
 [node name="Arrow2TortillaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(218, 931)
-scale = Vector2(0.79562, 0.827947)
+position = Vector2(197, 949)
+rotation = -0.151859
+scale = Vector2(1.02892, 1.07073)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
@@ -6222,48 +6667,51 @@ autoplay = "default"
 visible = false
 z_index = 2
 position = Vector2(68, 752)
-scale = Vector2(0.702322, 0.730858)
+scale = Vector2(0.82617, 0.859738)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow4CarneAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(215, 862)
-scale = Vector2(0.897803, 0.934282)
+position = Vector2(198, 882)
+rotation = -0.162885
+scale = Vector2(1.19717, 1.24581)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow4Verdura" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(142, 754)
+position = Vector2(114, 774)
 rotation = -0.104652
-scale = Vector2(0.748603, 0.779019)
+scale = Vector2(1.18976, 1.23811)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow4VerduraAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(204, 851)
-scale = Vector2(0.897803, 0.934282)
+position = Vector2(162, 898)
+rotation = -0.265004
+scale = Vector2(1.44381, 1.50247)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow4Salsa" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(221, 761)
-scale = Vector2(0.777414, 0.809002)
+position = Vector2(184, 778)
+scale = Vector2(1.34491, 1.39955)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow4SalsaAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(215, 862)
-scale = Vector2(0.897803, 0.934282)
+position = Vector2(186, 879)
+rotation = -0.144579
+scale = Vector2(1.2243, 1.27405)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
@@ -6272,25 +6720,25 @@ visible = false
 z_index = 2
 position = Vector2(152, 994)
 rotation = 0.261791
-scale = Vector2(0.677791, 0.705331)
+scale = Vector2(0.631205, 0.656852)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow6Grill" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(307, 837)
+position = Vector2(250, 641)
 rotation = 0.261791
-scale = Vector2(0.677791, 0.705331)
+scale = Vector2(1.27214, 1.32383)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
 [node name="Arrow7TortillaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(158, 726)
+position = Vector2(213, 726)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(1.01016, 1.05121)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6298,9 +6746,9 @@ flip_h = true
 [node name="Arrow7CarneButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(239, 715)
+position = Vector2(291, 729)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(0.992558, 1.03289)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6308,9 +6756,9 @@ flip_h = true
 [node name="Arrow7CarneButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(376, 990)
+position = Vector2(417, 984)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(0.891809, 0.928045)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6318,9 +6766,9 @@ flip_h = true
 [node name="Arrow7VerduraButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(334, 704)
+position = Vector2(389, 740)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(1.07878, 1.12261)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6328,9 +6776,9 @@ flip_h = true
 [node name="Arrow7VerduraButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(384, 988)
+position = Vector2(393, 988)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(0.775519, 0.807029)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6340,7 +6788,7 @@ visible = false
 z_index = 2
 position = Vector2(379, 986)
 rotation = -0.0221885
-scale = Vector2(0.539274, 0.561185)
+scale = Vector2(0.79645, 0.828811)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6348,9 +6796,9 @@ flip_h = true
 [node name="Arrow7SalsaButton" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(407, 712)
+position = Vector2(454, 741)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(1.05295, 1.09573)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6358,9 +6806,9 @@ flip_h = true
 [node name="Arrow7SalsaButtonAdd" type="AnimatedSprite2D" parent="CanvasLayer" groups=["TutorialNodes"]]
 visible = false
 z_index = 2
-position = Vector2(386, 993)
+position = Vector2(399, 985)
 rotation = -0.0351943
-scale = Vector2(0.609846, 0.634625)
+scale = Vector2(0.803127, 0.835759)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 flip_h = true
@@ -6396,7 +6844,7 @@ flip_h = true
 visible = false
 z_index = 2
 position = Vector2(357, 507)
-scale = Vector2(0.549186, 0.5715)
+scale = Vector2(0.866787, 0.902006)
 sprite_frames = SubResource("SpriteFrames_27577")
 autoplay = "default"
 
@@ -6406,6 +6854,7 @@ scale = Vector2(0.276463, 0.276463)
 script = ExtResource("89_v0cs5")
 
 [node name="ContinueButton" type="TextureButton" parent="CanvasLayer" groups=["TutorialNodes"]]
+visible = false
 offset_left = 390.0
 offset_top = 454.0
 offset_right = 1067.0
@@ -6452,9 +6901,10 @@ text = "0
 [connection signal="pressed" from="CanvasLayer/Gameplay/PauseButton" to="CanvasLayer/Gameplay/DayControl" method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/CharacterSpawner" method="_spawn_character"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/StartButton" to="CanvasLayer/Gameplay/DayControl" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/MatuteButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_matute_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/BetasButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_betas_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/ChedrauiButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_chedraui_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/LevelSelector/GloboButton" to="CanvasLayer/PanelContainer/Panel/LevelSelector" method="_on_globo_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel2/PrediccionButton" to="CanvasLayer/PanelContainer/Panel2/GraphManager" method="_on_PrediccionButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel2/GananciasButton" to="CanvasLayer/PanelContainer/Panel2/GraphManager" method="_on_GananciasButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel3/BuyTacoDogButton" to="CanvasLayer/PanelContainer/Panel3" method="_on_buy_taco_dog_button_pressed"]
@@ -6528,4 +6978,3 @@ text = "0
 [connection signal="pressed" from="CanvasLayer/ContinueButton" to="CanvasLayer/TutorialNode" method="_on_ContinueButton_pressed"]
 
 [editable path="CanvasLayer/Gameplay/Path2D"]
-[editable path="CanvasLayer/Gameplay/Path2D2"]

@@ -13,6 +13,7 @@ config_version=5
 config/name="CuceiTacoTycoonv1"
 run/main_scene="res://Scenes/tutorial.tscn"
 config/features=PackedStringArray("4.3")
+boot_splash/image="res://Assets/Buttons/cucei-tycoon-splash.png"
 config/icon="res://icon.svg"
 
 [autoload]

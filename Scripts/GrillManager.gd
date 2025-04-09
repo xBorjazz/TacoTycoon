@@ -79,6 +79,8 @@ func limpiar_taco(pedido_cliente: String):
 		# ✅ Emitir la señal para actualizar la gráfica
 		sale_made.emit()
 		_print_cuadrantes_state()  # Opcional: imprimir luego de limpiar
+		
+
 
 func verificar_misiones():
 	# 🔥 Si completó la misión de tacos vendidos
@@ -155,9 +157,10 @@ func _es_taco_valido(index: int, pedido_cliente: String) -> bool:
 
 # ✅ Imprime el contenido de cada cuadrante (para debug)
 func _print_cuadrantes_state():
-	print("----- Estado actual de 'cuadrantes' -----")
-	for i in range(4):
-		print("  Cuadrante", i+1, ":", cuadrantes[i])
+	#print("----- Estado actual de 'cuadrantes' -----")
+	#for i in range(4):
+		#print("  Cuadrante", i+1, ":", cuadrantes[i])
+	pass
 
 #
 # ------------------ FUNCIONES DE UI / INGREDIENTES --------------
@@ -248,7 +251,7 @@ func _on_add_ingredient():
 					cuadrantes[i].append("tortilla")
 					count_tortilla += 1
 					Inventory.tortillas_total -= 1
-					print("✅ Tortilla añadida en el cuadrante", i + 1)
+					#print("✅ Tortilla añadida en el cuadrante", i + 1)
 					break
 
 		else:
@@ -267,7 +270,7 @@ func _on_add_ingredient():
 							cuadrantes[i].append(ingrediente_actual)
 							count_verdura += 1
 							Inventory.verdura_total -= 1
-							print("✅ Verdura añadida en el cuadrante", i + 1)
+							#print("✅ Verdura añadida en el cuadrante", i + 1)
 							break
 
 				# ✅ Si el ingrediente aún no está en el cuadrante, agregarlo (si es válido)
@@ -292,7 +295,7 @@ func _on_add_ingredient():
 							"salsa":
 								count_salsa += 1
 								Inventory.salsa_total -= 1
-						print("✅", ingrediente_actual.capitalize(), "añadido en el cuadrante", i + 1)
+						#print("✅", ingrediente_actual.capitalize(), "añadido en el cuadrante", i + 1)
 						break
 
 	update_label()

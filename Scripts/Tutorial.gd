@@ -40,6 +40,8 @@ var add_press_count = 0
 # Opcional: Botones Start/Speed
 @onready var start_button = get_node("/root/Node2D/CanvasLayer/Gameplay/StartButton")
 @onready var speed_button = get_node("/root/Node2D/CanvasLayer/Gameplay/SpeedButton")
+@onready var boton_continuar = get_node("/root/Node2D/CanvasLayer/ContinueButton")
+
 @onready var day_control = get_node("/root/Node2D/CanvasLayer/Gameplay/DayControl")
 @onready var tutorial_overlay = get_node("/root/Node2D/CanvasLayer/TutorialOverlay")
 
@@ -53,7 +55,7 @@ var dialogues = [
 	"Lo siguiente es preparar nuestros tacos con esos ingredientes.",
 	"En este menú, vamos a realizar la preparación de nuestros tacos.",
 	"Lo primero que vamos a hacer es llenar de tortillas la parrilla.",
-	"En este punto, nos estamos preparando para atender las órdenes de nuestros clientes.",
+	"...",
 	"Agregaremos ingredientes según las órdenes de los clientes que vayan llegando.",
 	"Es hora de iniciar la venta de tacos!",
 	"Debes preparar:\n• Taco-1: 🌮 + 🥩\n• Taco-2: 🌮+🥩+🥦+🌶\n• Taco-3: 🌮 + 🥦\n",  
@@ -72,28 +74,36 @@ var dialogues2 = [
 static var already_initialized = false
 
 func _ready():
+	var progreso := GameProgress.cargar()
+
+	if progreso.tutorial_completado:
+		print("🎓 Tutorial ya completado. Omitiendo ejecución.")
+		return  # ⛔ No seguimos con el tutorial
+
 	if already_initialized:
 		print("🚫 _ready() ya fue ejecutado antes. Ignorando...")
 		assign_tutorial_nodes()
 		return
-	
+
 	already_initialized = true
 	print("✅ _ready() ejecutado correctamente")
 
 	assign_tutorial_nodes()
 
-	# (Opcional) Ocultar Start/Speed al inicio
+	# Ocultar Start/Speed al inicio
 	if start_button:
 		start_button.visible = false
 	if speed_button:
 		speed_button.visible = false
+		
+	boton_continuar.visible = true
 
 	if speech_bubble_ref and tutorial_text_ref and continue_button_ref:
 		speech_bubble_ref.get_ref().visible = true
 		continue_button_ref.get_ref().disabled = true
 		show_dialogue(0)
 	else:
-		print("ERROR: No se asignaron correctamente los nodos del tutorial")
+		print("❌ ERROR: No se asignaron correctamente los nodos del tutorial")
 
 
 func assign_tutorial_nodes():
@@ -146,6 +156,8 @@ func assign_tutorial_nodes():
 	if arrow_money_ref:             arrow_money_ref.get_ref().visible = false
 	if arrow_grill_tortilla_add_ref: arrow_grill_tortilla_add_ref.get_ref().visible = false
 	if arrow_start_ref: 			arrow_start_ref.get_ref().visible = false
+	
+	
 
 func show_dialogue(index):
 	var tutorial_text = tutorial_text_ref.get_ref()
@@ -160,6 +172,8 @@ func show_dialogue(index):
 	await type_text(text_to_display)
 
 	var continue_button = continue_button_ref.get_ref()
+	
+	
 	
 	#if continue_button:
 		#continue_button.disabled = false
@@ -244,6 +258,9 @@ func show_dialogue(index):
 			print("Ahora se ejecutará hide speech bubble para TERMINAARRR TTUTORIAL")
 			hide_speech_bubble_after_delay()
 			disconnect_tutorial_signals()
+			var progreso := GameProgress.new()
+			progreso.tutorial_completado = true  # ✅ Marcar como completado
+			progreso.guardar()
 			#end_tutorial()
 			print("DEBUG: Avanzando a step 12 => Diálogo final")
 		else:
@@ -1016,6 +1033,7 @@ func _check_3_tacos():
 		# ✅ Después de mostrar dialogues2, avanzamos a step 13 para mostrar el mensaje final
 		step = 13
 		show_dialogue(step)
+		
 
 	else:
 		# Si aún no están completos, volver a verificar en 0.5 s

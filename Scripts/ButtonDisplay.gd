@@ -21,9 +21,7 @@ extends Button
 
 @onready var sound_player = get_node("/root/Node2D/CanvasLayer/ButtonPress_Sound")
 
-func _ready():
-	# Asegurarse de que todos los Paneles estén ocultos inicialmente
-	pass
+
 
 # Función que será llamada cuando un botón sea presionado
 func _on_button_pressed(button_id: int) -> void:

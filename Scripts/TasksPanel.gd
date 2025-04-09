@@ -26,6 +26,7 @@ var invest_completado    = false   # <--- En lugar de resenas_completadas
 var propinas_completadas = false
 
 func _ready():
+	_actualizar_taco_coins()
 	# Conectar la señal "mision_actualizada" (cuando cambian valores en Inventory)
 	Inventory.connect("mision_actualizada", Callable(self, "_actualizar_misiones"))
 

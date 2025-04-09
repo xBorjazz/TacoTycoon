@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cv64fr625jf3e"]
+[gd_scene load_steps=54 format=3 uid="uid://cv64fr625jf3e"]
 
 [ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="1_6gdot"]
 [ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="2_dwksi"]
@@ -7,12 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://4en08jsqgyeg" path="res://Assets/Tacos/client-regular-taco.png" id="4_u6pvf"]
 [ext_resource type="Texture2D" uid="uid://bawybmdd5sf2w" path="res://Assets/Tacos/client-vegan-taco.png" id="5_1cft2"]
 [ext_resource type="Texture2D" uid="uid://d3fapwbrpxphq" path="res://Assets/Tacos/client-full-taco.png" id="6_nmdll"]
+[ext_resource type="Texture2D" uid="uid://tt1s86hrf40r" path="res://Assets/Buttons/circle-bar-progress.png" id="8_nehgr"]
+[ext_resource type="Texture2D" uid="uid://bf37seywtkvjo" path="res://Assets/Buttons/white-circle-progress2.png" id="9_f1uqm"]
+[ext_resource type="Script" path="res://Scripts/ClientProgressBar.gd" id="10_sabxd"]
+[ext_resource type="Texture2D" uid="uid://chasjtgokeao4" path="res://Assets/Buttons/rating-sprite.png" id="11_mo6ge"]
+[ext_resource type="Texture2D" uid="uid://qlfi7e8nyrkg" path="res://Assets/Buttons/number1sprite-.png" id="12_75ycb"]
+[ext_resource type="Texture2D" uid="uid://dxq7kd6fgkqxt" path="res://Assets/Buttons/number2-sprite.png" id="12_tjkye"]
+[ext_resource type="Texture2D" uid="uid://d30eohj1lj2m1" path="res://Assets/Buttons/number3-sprite.png" id="13_eskjl"]
+[ext_resource type="Texture2D" uid="uid://bouk0gtxwxpkw" path="res://Assets/Buttons/number4-sprite.png" id="14_u8bhc"]
+[ext_resource type="Texture2D" uid="uid://bn8m0uhe7bctn" path="res://Assets/Buttons/number5-sprite.png" id="15_xknr4"]
 
 [sub_resource type="Curve2D" id="Curve2D_jjrfh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 18.0849, 5.80278, 0, 0, 0, 0, 17.4776, 12.3314, 0, 0, 0, 0, 9.20289, 10.3577, 0, 0, 0, 0, 5.66294, 12.5112, 0, 0, 0, 0, 0.856003, 13.6307, 0, 0, 0, 0, -7.90183, 15.4086, 0, 0, 0, 0, -17.8986, 19.0878)
+"points": PackedVector2Array(0, 0, 0, 0, 18.0849, 5.80278, 0, 0, 0, 0, 17.4776, 12.3314, 0, 0, 0, 0, 9.20289, 10.3577, 0, 0, 0, 0, 5.66294, 12.5112, 0, 0, 0, 0, -2.48796, 13.3183, 0, 0, 0, 0, -9.4721, 15.5198)
 }
-point_count = 7
+point_count = 6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ntxr"]
 atlas = ExtResource("3_tve1l")
@@ -250,6 +259,69 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft3d7"]
+atlas = ExtResource("12_75ycb")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8upy"]
+atlas = ExtResource("12_tjkye")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vnel"]
+atlas = ExtResource("13_eskjl")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt051"]
+atlas = ExtResource("14_u8bhc")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksdax"]
+atlas = ExtResource("15_xknr4")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54wll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft3d7")
+}],
+"loop": true,
+"name": &"n1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8upy")
+}],
+"loop": true,
+"name": &"n2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vnel")
+}],
+"loop": true,
+"name": &"n3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt051")
+}],
+"loop": true,
+"name": &"n4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksdax")
+}],
+"loop": true,
+"name": &"n5",
+"speed": 5.0
+}]
+
 [node name="Path2D" type="Path2D" groups=["Paths"]]
 position = Vector2(21.4666, 13.7488)
 curve = SubResource("Curve2D_jjrfh")
@@ -286,6 +358,33 @@ position = Vector2(-18.63, -28.182)
 scale = Vector2(0.0700637, 0.0700637)
 sprite_frames = SubResource("SpriteFrames_j7guv")
 animation = &"regular-order"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PathFollow2D/CharacterSprite"]
+offset_left = -17.1252
+offset_top = -51.4808
+offset_right = 659.875
+offset_bottom = 317.519
+scale = Vector2(0.113893, 0.120086)
+pivot_offset = Vector2(4.005, -2.285)
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("8_nehgr")
+texture_progress = ExtResource("9_f1uqm")
+texture_progress_offset = Vector2(5.245, -2.835)
+script = ExtResource("10_sabxd")
+
+[node name="StarSprite" type="Sprite2D" parent="PathFollow2D/CharacterSprite"]
+position = Vector2(-29.7097, -64.0652)
+scale = Vector2(0.069432, 0.069432)
+texture = ExtResource("11_mo6ge")
+offset = Vector2(28.94, 53.34)
+
+[node name="NumberAnimation" type="AnimatedSprite2D" parent="PathFollow2D/CharacterSprite"]
+position = Vector2(-4.5408, -64.0652)
+scale = Vector2(0.0672971, 0.0672971)
+sprite_frames = SubResource("SpriteFrames_54wll")
+animation = &"n5"
+offset = Vector2(-49.935, 71.325)
 
 [node name="Timer" type="Timer" parent="PathFollow2D" groups=["TimerPaths"]]
 wait_time = 0.2

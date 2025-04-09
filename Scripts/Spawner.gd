@@ -80,15 +80,20 @@ func _on_sale_made(character):
 # spawn de UN cliente cualquiera
 # -----------------------------------------------------------------------
 func _spawn_single_customer(taco_type: String):
-	var paths = get_tree().get_nodes_in_group("Paths")
-	if paths.is_empty():
-		print("No se encontraron Path2D en el grupo 'Paths'.")
+	var all_paths = get_tree().get_nodes_in_group("Paths")
+	var available_paths = []
+	for path in all_paths:
+		if not path.has_meta("occupied") or path.get_meta("occupied") == false:
+			available_paths.append(path)
+	
+	if available_paths.is_empty():
+		print("No hay paths disponibles (todos ocupados).")
 		return
-
-	# Elegimos un path aleatorio
-	paths.shuffle()  # barajamos
-	var chosen_path = paths[0]  # tomamos el primero
+	
+	available_paths.shuffle()
+	var chosen_path = available_paths[0]
 	_spawn_character_forced(taco_type, chosen_path)
+
 
 # -----------------------------------------------------------------------
 # NUEVA FUNCIÓN: genera EXACTAMENTE un cliente en un path forzado
@@ -109,6 +114,36 @@ func _spawn_character_forced(taco_type: String, chosen_path: Node):
 
 	print("🍽 Generando cliente con pedido:", taco_type, "en path:", chosen_path.name)
 
+	# Marcar el path como ocupado
+	chosen_path.set_meta("occupied", true)
+
+	# 🔀 DETERMINAR SI SERÁ CLIENTE ESPECIAL
+	var probabilidad_especial := 0.2  # 20% por ejemplo, ajústalo según dificultad
+	var es_especial := randf() < probabilidad_especial
+
+	# Enviar esa información al cliente
+	character.es_cliente_especial = es_especial
+
+	# 🟡 Activa nodos especiales si aplica
+	if es_especial:
+		var star = character.get_node_or_null("CharacterSprite/StarSprite")
+		var bar_div = character.get_node_or_null("CharacterSprite/BarDivision")
+		var num = character.get_node_or_null("CharacterSprite/NumberAnimation")
+
+		if star: star.visible = true
+		if bar_div: bar_div.visible = true
+		if num:
+			num.visible = true
+			num.play("n5")  # Siempre empieza con 5 estrellas
+
+		#print("🌟 Cliente ESPECIAL generado.")
+		pass
+
+	else:
+		#print("👤 Cliente normal generado.")
+		pass
+
+	# Continuar spawn normal
 	character.visible = true
 	character.progress_ratio = 0.0
 	character.set_process(true)
@@ -147,3 +182,9 @@ func _spawn_first_day_customers():
 
 		# Retardo de 0.2s entre cada spawn
 		#await get_tree().create_timer(0.2).timeout
+
+func liberar_todos_los_paths():
+	var all_paths = get_tree().get_nodes_in_group("Paths")
+	for path in all_paths:
+		path.set_meta("occupied", false)
+	print("🧹 Todos los paths han sido liberados manualmente.")
