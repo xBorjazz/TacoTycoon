@@ -37,6 +37,7 @@ client="*res://Scripts/Client.gd"
 MultiplayerButton="*res://Scripts/MultiplayerButton.gd"
 Tutorial="*res://Scripts/Tutorial.gd"
 GrillManager="*res://Scripts/GrillManager.gd"
+Nakama="*res://addons/com.heroiclabs.nakama/Nakama.gd"
 
 [display]
 

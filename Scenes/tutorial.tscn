@@ -1,4 +1,4 @@
-[gd_scene load_steps=522 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=523 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -136,6 +136,7 @@
 [ext_resource type="Texture2D" uid="uid://cxntm58gbvkah" path="res://Assets/Buttons/continue-btn-disabled.png" id="91_yxpb8"]
 [ext_resource type="Texture2D" uid="uid://cslotwa6nj7i3" path="res://Character/globe-text.png" id="92_43w22"]
 [ext_resource type="Texture2D" uid="uid://cpqqyoatjnx15" path="res://Assets/taco-coins.png" id="107_gqn40"]
+[ext_resource type="Script" path="res://Client.gd" id="137_ubocb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -6896,6 +6897,13 @@ theme_override_fonts/font = ExtResource("16_conpe")
 theme_override_font_sizes/font_size = 90
 text = "0
 "
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("137_ubocb")
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/PauseButton" to="CanvasLayer/Gameplay/DayControl" method="_on_pause_pressed"]

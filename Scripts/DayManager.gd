@@ -1,5 +1,12 @@
 extends Node
 
+# Referencia al progreso del juego
+var game_progress: GameProgress
+
+# Variables de Nakama
+var client: NakamaClient
+var session: NakamaSession
+
 var current_day = Inventory.dia_actual
 @export var day_duration: float = 60.0
 var remaining_time: float = 0.0
@@ -22,6 +29,14 @@ signal pause_toggled(paused: bool)  # ← NUEVA SEÑAL
 var paused: bool = false  # Para saber si estamos en pausa
 
 func _ready() -> void:
+	# Inicializar Nakama (asegúrate de que client y session estén configurados)
+	client = Nakama.create_client("defaultkey", "127.0.0.1", 7350, "http")
+	session = await client.authenticate_email_async("test@gmail.com", "password")
+
+	# Cargar el progreso del juego
+	game_progress = GameProgress.cargar()
+	game_progress.inicializar_nakama(client, session)
+	
 	remaining_time = day_duration
 	#Actualizar el día guardado
 	var progreso := GameProgress.cargar()
@@ -66,6 +81,18 @@ func _on_start_pressed() -> void:
 	speed_button.disabled = false
 	speed_button.visible = true
 	
+		# Actualizar los datos en GameProgress
+	game_progress.dia_actual = current_day
+	game_progress.dinero_actual = Inventory.player_money
+	#game_progress.tacos_vendidos = Inventory.tacos_vendidos
+	#game_progress.taco_coins = Inventory.taco_coins
+	# Guardar el progreso en Nakama
+	var save_result = await game_progress.guardar_en_nakama()
+	if save_result == OK:
+		print("✅ Progreso guardado automáticamente al EMPEZAR el día.")
+	else:
+		print("❌ Error al guardar el progreso en Nakama:", save_result)
+	
 
 func _on_timer_tick() -> void:
 	if not paused:  # Solo decrementamos si no está en pausa
@@ -83,29 +110,33 @@ func _toggle_speed():
 	is_fast = !is_fast
 
 func _on_day_end() -> void:
+	# Detener el temporizador y actualizar el estado del juego
 	day_timer.stop()
 	is_game_running = false
 
 	emit_signal("day_ended")
 
+	# Actualizar botones
 	start_button.disabled = false
 	start_button.visible = true
 
 	speed_button.disabled = true
 	speed_button.visible = false
 	
-	
+	# Actualizar el progreso del día
 	current_day += 1
 	Inventory.dia_actual = current_day
 	update_day_label()
+	
+
 
 	emit_signal("stop_movement")
 	
+	
+	# Guardar progreso localmente (opcional)
 	SuppliesUi.guardar_progreso()
 
-	print("✅ Progreso guardado automáticamente al terminar el día.")
-	
-	
+	# Liberar recursos del día
 	Spawner.liberar_todos_los_paths()
 
 func update_day_label() -> void:
