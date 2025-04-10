@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[resource]
+project_id = "cucei-taco-tycoon"
+api_key = "AIzaSyAswlq_ipTWfOlrgYvGg8Ivfm3hnKGvSmI"
+database_url = "https://cucei-taco-tycoon-default-rtdb.firebaseio.com/"
+storage_bucket = "cucei-taco-tycoon.appspot.com"

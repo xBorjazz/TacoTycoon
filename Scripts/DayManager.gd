@@ -22,6 +22,10 @@ signal pause_toggled(paused: bool)  # ← NUEVA SEÑAL
 var paused: bool = false  # Para saber si estamos en pausa
 
 func _ready() -> void:
+	var database = get_node("/root/Node2D/CanvasLayer/FirebaseDatabaseStore")
+	database.put("test_path", {"mensaje": "Prueba de conexión"})
+	print("✅ Prueba de conexión enviada a Firebase.")
+	
 	remaining_time = day_duration
 	#Actualizar el día guardado
 	var progreso := GameProgress.cargar()
@@ -94,19 +98,48 @@ func _on_day_end() -> void:
 	speed_button.disabled = true
 	speed_button.visible = false
 	
-	
+	# Actualizar el progreso del día
 	current_day += 1
 	Inventory.dia_actual = current_day
 	update_day_label()
+
+	# Crear un diccionario con los datos del progreso
+	var progreso = {
+		"dia_actual": current_day,
+		"dinero_actual": Inventory.player_money,
+		"tacos_vendidos": Inventory.tacos_vendidos,
+		"taco_coins": Inventory.taco_coins,
+		"ingredientes": {
+			"tortillas_total": Inventory.tortillas_total,
+			"carne_total": Inventory.carne_total,
+			"verdura_total": Inventory.verdura_total,
+			"salsa_total": Inventory.salsa_total
+		}
+	}
+
+	# Guardar el progreso en Realtime Database
+	var database = get_node("/root/Node2D/CanvasLayer/FirebaseDatabaseStore")
+	database.set_value_async("game_progress/" + str(current_day), progreso)
+	database.connect("value_updated", Callable(self, "_on_progress_saved"))
+	database.connect("error", Callable(self, "_on_database_error"))
+
+	print("Guardando progreso en Firebase...")
+
 
 	emit_signal("stop_movement")
 	
 	SuppliesUi.guardar_progreso()
 
-	print("✅ Progreso guardado automáticamente al terminar el día.")
+	#print("✅ Progreso guardado automáticamente al terminar el día.")
 	
 	
 	Spawner.liberar_todos_los_paths()
+	
+func _on_progress_saved(path: String, value: Variant):
+	print("✅ Progreso guardado en Firebase:", path)
+
+func _on_database_error(error_code: int, message: String):
+	print("❌ Error al guardar progreso en Firebase:", message)
 
 func update_day_label() -> void:
 	day_label.text = " %s

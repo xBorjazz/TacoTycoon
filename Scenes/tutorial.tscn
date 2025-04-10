@@ -1,4 +1,4 @@
-[gd_scene load_steps=522 format=3 uid="uid://dv06vddatc6pn"]
+[gd_scene load_steps=524 format=3 uid="uid://dv06vddatc6pn"]
 
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="1_qnmk2"]
 [ext_resource type="Texture2D" uid="uid://ck6ewqcy42epl" path="res://Maps/Cucei/betas.png" id="2_3nf8g"]
@@ -136,6 +136,8 @@
 [ext_resource type="Texture2D" uid="uid://cxntm58gbvkah" path="res://Assets/Buttons/continue-btn-disabled.png" id="91_yxpb8"]
 [ext_resource type="Texture2D" uid="uid://cslotwa6nj7i3" path="res://Character/globe-text.png" id="92_43w22"]
 [ext_resource type="Texture2D" uid="uid://cpqqyoatjnx15" path="res://Assets/taco-coins.png" id="107_gqn40"]
+[ext_resource type="PackedScene" uid="uid://bvbn4pd682w6k" path="res://Scenes/Authentication.tscn" id="119_jwnhw"]
+[ext_resource type="Script" path="res://addons/godot-firebase/database/database_store.gd" id="138_sxyyr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xew53"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -3701,6 +3703,7 @@ offset_top = 562.0
 offset_right = 343.0
 offset_bottom = 952.0
 scale = Vector2(1.07436, 1.18242)
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
 visible = false
@@ -4397,6 +4400,7 @@ offset_bottom = 40.0
 script = ExtResource("53_f05st")
 
 [node name="Panel5" type="Panel" parent="CanvasLayer/PanelContainer"]
+visible = false
 custom_minimum_size = Vector2(325, 390)
 layout_mode = 2
 
@@ -6223,10 +6227,10 @@ scale = Vector2(0.162767, 0.128434)
 texture_normal = ExtResource("46_e1r2r")
 
 [node name="Panel8" type="Panel" parent="CanvasLayer/PanelContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 12.0
 offset_top = 8.45721
@@ -6271,6 +6275,7 @@ offset_bottom = -356.261
 script = ExtResource("72_c21ot")
 
 [node name="Crear Tabla" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 100.525
 offset_top = 122.63
@@ -6281,6 +6286,7 @@ text = "Crear TABLA
 "
 
 [node name="Insertar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 99.5942
 offset_top = 150.539
@@ -6290,6 +6296,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Insertar Datos"
 
 [node name="Seleccionar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 179.293
@@ -6299,6 +6306,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Seleccionar Datos"
 
 [node name="Actualizar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 206.356
@@ -6308,6 +6316,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Actualizar Datos"
 
 [node name="Borrar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 97.7326
 offset_top = 232.574
@@ -6317,6 +6326,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Borrar Datos"
 
 [node name="Seleccionar Persona" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 81.9092
 offset_top = 259.637
@@ -6327,6 +6337,7 @@ text = "Seleccionar Person.
 "
 
 [node name="Nombre" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 107.04
 offset_top = 301.923
@@ -6335,6 +6346,7 @@ offset_bottom = 335.923
 scale = Vector2(0.433986, 0.649767)
 
 [node name="Puntuacion" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 107.04
 offset_top = 339.135
@@ -6343,6 +6355,7 @@ offset_bottom = 373.135
 scale = Vector2(0.433986, 0.649767)
 
 [node name="WebDataBaseButton" type="TextureButton" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 226.181
 offset_top = 290.929
@@ -6361,6 +6374,10 @@ offset_right = 70.9164
 offset_bottom = 128.635
 scale = Vector2(0.762225, 0.820293)
 script = ExtResource("72_c21ot")
+
+[node name="Authentication" parent="CanvasLayer/PanelContainer/Panel8" instance=ExtResource("119_jwnhw")]
+layout_mode = 1
+script = null
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("74_8yq50")
@@ -6896,6 +6913,9 @@ theme_override_fonts/font = ExtResource("16_conpe")
 theme_override_font_sizes/font_size = 90
 text = "0
 "
+
+[node name="FirebaseDatabaseStore" type="Node" parent="CanvasLayer"]
+script = ExtResource("138_sxyyr")
 
 [connection signal="pressed" from="CanvasLayer/Gameplay/SpeedButton" to="CanvasLayer/Gameplay/DayControl" method="_toggle_speed"]
 [connection signal="pressed" from="CanvasLayer/Gameplay/PauseButton" to="CanvasLayer/Gameplay/DayControl" method="_on_pause_pressed"]
