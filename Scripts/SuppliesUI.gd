@@ -228,13 +228,18 @@ func _on_progreso_guardado(response):
 		print("✅ Progreso guardado correctamente en Supabase para ID:", user_id)
 
 func generar_uuid() -> String:
-	var chars = "abcdef0123456789"
+	var hex = "0123456789abcdef"
 	var uuid = ""
-	for i in range(32):
-		if i in [8, 12, 16, 20]:
+	var sections = [8, 4, 4, 4, 12]
+	
+	for section in sections:
+		for i in range(section):
+			uuid += hex[randi() % hex.length()]
+		if section != 12:
 			uuid += "-"
-		uuid += chars[randi() % chars.length()]
+	
 	return uuid
+
 
 func enviar_progreso_realtime():
 	if Supabase.realtime == null:
