@@ -37,6 +37,7 @@ client="*res://Scripts/Client.gd"
 MultiplayerButton="*res://Scripts/MultiplayerButton.gd"
 Tutorial="*res://Scripts/Tutorial.gd"
 GrillManager="*res://Scripts/GrillManager.gd"
+Supabase="*res://addons/supabase/Supabase/supabase.gd"
 
 [display]
 
@@ -47,7 +48,7 @@ window/handheld/orientation=5
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg")
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/easy_charts/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/supabase/plugin.cfg")
 
 [global_group]
 
