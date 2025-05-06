@@ -1,5 +1,7 @@
 extends Node2D
 
+var user_id: String = ""
+
 # Referencias a los Labels de suministros
 @onready var tortillas_label1 = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0/TortillasLabel")
 @onready var tortillas_label2 = get_node("/root/Node2D/CanvasLayer/PanelContainer/Panel5/TortillasSupplies/VBoxContadores0/TortillasLabel2")
@@ -153,26 +155,132 @@ func resetear_labels_recursos() -> void:
 	# Actualizar los labels con los nuevos valores
 	actualizar_labels()
 
-func guardar_progreso() -> void:
-	var progreso := GameProgress.new()
-	progreso.dinero_actual = Inventory.player_money
-	progreso.dia_actual = Inventory.dia_actual
-	progreso.ventas_totales = Inventory.tacos_vendidos
-	progreso.perdidas_totales = Inventory.ventas_fallidas
-	progreso.promedio = Inventory.promedio
-	progreso.buenas_resenas = Inventory.total_reseñas
-	progreso.tutorial_completado = true
-	progreso.tortillas_total = Inventory.tortillas_total
-	progreso.carne_total = Inventory.carne_total
-	progreso.verdura_total = Inventory.verdura_total
-	progreso.salsa_total = Inventory.salsa_total
-	progreso.taco_coins = Inventory.taco_coins
-	progreso.puntaje_acumulado = Inventory.puntaje_acumulado
-	progreso.nivel_actual = LevelManager.current_level
-	progreso.guardar()
+# Esperar a que Supabase.database esté listo
+func _guardar_progreso_cuando_este_listo() -> void:
+	if Supabase.database != null:
+		guardar_progreso_remoto(user_id)
+	else:
+		print("⏳ Esperando que Supabase.database esté listo...")
+		await get_tree().create_timer(0.2).timeout
+		_guardar_progreso_cuando_este_listo()
+
+func guardar_progreso_realtime():
+	if Supabase.database == null:
+		print("❌ Supabase.database no está listo.")
+		return
+
+	var data := {
+		"id": user_id,
+		"dinero_actual": Inventory.player_money,
+		"dia_actual": Inventory.dia_actual,
+		"ventas_totales": Inventory.tacos_vendidos,
+		"perdidas_totales": Inventory.ventas_fallidas,
+		"promedio": Inventory.promedio,
+		"buenas_resenas": Inventory.total_reseñas,
+		"tutorial_completado": true,
+		"tortillas_total": Inventory.tortillas_total,
+		"carne_total": Inventory.carne_total,
+		"verdura_total": Inventory.verdura_total,
+		"salsa_total": Inventory.salsa_total,
+		"taco_coins": Inventory.taco_coins,
+		"puntaje_acumulado": Inventory.puntaje_acumulado,
+		"nivel_actual": LevelManager.current_level
+	}
+
+	var query := SupabaseQuery.new()
+	query.from("progreso_jugador").update(data).eq("id", user_id)
+
+	Supabase.database.query(query)
+
+
+# Guardar en Supabase
+func guardar_progreso_remoto(user_id: String) -> void:
+	var data := {
+		"id": user_id,
+		"dinero_actual": Inventory.player_money,
+		"dia_actual": Inventory.dia_actual,
+		"ventas_totales": Inventory.tacos_vendidos,
+		"perdidas_totales": Inventory.ventas_fallidas,
+		"promedio": Inventory.promedio,
+		"buenas_resenas": Inventory.total_reseñas,
+		"tutorial_completado": true,
+		"tortillas_total": Inventory.tortillas_total,
+		"carne_total": Inventory.carne_total,
+		"verdura_total": Inventory.verdura_total,
+		"salsa_total": Inventory.salsa_total,
+		"taco_coins": Inventory.taco_coins,
+		"puntaje_acumulado": Inventory.puntaje_acumulado,
+		"nivel_actual": LevelManager.current_level
+	}
+
+	var query := SupabaseQuery.new()
+	query.from("progreso_jugador").insert([data])
+
+	# Escucha la respuesta
+	Supabase.database.connect("selected", Callable(self, "_on_progreso_guardado"))
+	Supabase.database.query(query)
+
+# Respuesta
+func _on_progreso_guardado(response):
+	if response.has("error") and response.error != null:
+		print("❌ Error al guardar progreso:", response.error)
+	else:
+		print("✅ Progreso guardado correctamente en Supabase para ID:", user_id)
+
+func generar_uuid() -> String:
+	var hex = "0123456789abcdef"
+	var uuid = ""
+	var sections = [8, 4, 4, 4, 12]
 	
+	for section in sections:
+		for i in range(section):
+			uuid += hex[randi() % hex.length()]
+		if section != 12:
+			uuid += "-"
+	
+	return uuid
+
+
+func enviar_progreso_realtime():
+	if Supabase.realtime == null:
+		print("⚠️ Supabase Realtime no está listo.")
+		return
+
+	var payload := {
+		"event": "UPDATE",
+		"table": "progreso_jugador",
+		"schema": "public",
+		"data": {
+			"id": user_id,
+			"dinero_actual": Inventory.player_money,
+			"dia_actual": Inventory.dia_actual,
+			"ventas_totales": Inventory.tacos_vendidos,
+			"perdidas_totales": Inventory.ventas_fallidas,
+			"promedio": Inventory.promedio,
+			"buenas_resenas": Inventory.total_reseñas,
+			"tutorial_completado": true,
+			"tortillas_total": Inventory.tortillas_total,
+			"carne_total": Inventory.carne_total,
+			"verdura_total": Inventory.verdura_total,
+			"salsa_total": Inventory.salsa_total,
+			"taco_coins": Inventory.taco_coins,
+			"puntaje_acumulado": Inventory.puntaje_acumulado,
+			"nivel_actual": LevelManager.current_level
+		}
+	}
+
+	Supabase.realtime.send(payload)
 
 func _ready() -> void:
+	randomize()
+	user_id = "9736ec65-08db-4b76-ba45-927069ff9de4"
+	print("🆔 ID generado para testeo:", user_id)
+	#user_id = generar_uuid()
+	#print("🆔 ID generado para testeo:", user_id)
+
+	call_deferred("_guardar_progreso_cuando_este_listo")
+
+	# También puedes cargar el progreso local aquí como ya haces
 	var progreso := GameProgress.cargar()
 	if progreso != null:
 		Inventory.player_money = progreso.dinero_actual
@@ -185,36 +293,14 @@ func _ready() -> void:
 		Inventory.carne_total = progreso.carne_total
 		Inventory.verdura_total = progreso.verdura_total
 		Inventory.salsa_total = progreso.salsa_total
-		Inventory.taco_coins = progreso.taco_coins		
+		Inventory.taco_coins = progreso.taco_coins
 		print("📂 Progreso cargado correctamente.")
 	else:
 		print("⚠️ No se encontró archivo de progreso.")
 
-	# Ahora sí, con los datos cargados, actualizamos los labels
 	actualizar_labels()
 	actualizar_labels_dinero()
 	actualizar_inventario_total()
-
-	
-	## Datos de ejemplo (Carne, Salsa, Tortilla) y ganancias reales
-	#var data = [
-		#[1, 2, 1],
-		#[2, 1, 2],
-		#[3, 2, 1],
-		#[4, 3, 2]
-	#]
-	#var real_ganancias = [10, 15, 20, 25]
-#
-	## Entrenamos el modelo
-	#GradientDescent.train(data, real_ganancias, 1000)
-#
-	## Obtenemos la lista de pérdidas y la enviamos al script de la gráfica
-	#GraphPlot.set_data(gradient_node.loss_values)
-#
-	## Ejemplo de predicción usando los ingredientes actuales del jugador
-	#var ing = ingredients_manager.get_ingredients()
-	#var ganancia_predicha = gradient_node.predict(ing[0], ing[1], ing[2])
-	#print("Ganancia predicha con ingredientes actuales:", ganancia_predicha) 
 	
 func restart_ready():
 	print("Reejecutando _ready() con call_deferred()")

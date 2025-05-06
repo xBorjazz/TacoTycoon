@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 
 func _on_buy_taco_dog_button_pressed() -> void:
 	if Inventory.player_money >= TACO_DOG_COST:
+		Inventory.taco_dog_unlocked = true
 		Inventory.player_money -= TACO_DOG_COST
 		Inventory.invested_money += TACO_DOG_COST
 		taco_dog.visible = true  # Hacer visible Taco-Dog
@@ -29,6 +30,7 @@ func _on_buy_taco_dog_button_pressed() -> void:
 
 func _on_buy_soda_machine_button_pressed() -> void:
 	if Inventory.player_money >= SODA_MACHINE_COST:
+		Inventory.soda_machine_unlocked = true
 		Inventory.player_money -= SODA_MACHINE_COST
 		Inventory.invested_money += SODA_MACHINE_COST 
 		

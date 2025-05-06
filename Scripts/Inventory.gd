@@ -19,6 +19,9 @@ var propinas_recibidas = 0
 var taco_coins = 0
 var promedio := 0.0
 var dia_actual = 1
+var soda_machine_unlocked : bool = false
+var taco_dog_unlocked : bool = false
+
 
 # Variables para los suministros
 var tortillas_total = 0

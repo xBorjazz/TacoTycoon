@@ -66,6 +66,9 @@ func _on_start_pressed() -> void:
 	speed_button.disabled = false
 	speed_button.visible = true
 	
+	SuppliesUi.guardar_progreso_realtime()
+
+	
 
 func _on_timer_tick() -> void:
 	if not paused:  # Solo decrementamos si no está en pausa
@@ -101,7 +104,7 @@ func _on_day_end() -> void:
 
 	emit_signal("stop_movement")
 	
-	SuppliesUi.guardar_progreso()
+	SuppliesUi._guardar_progreso_cuando_este_listo()
 
 	print("✅ Progreso guardado automáticamente al terminar el día.")
 	
