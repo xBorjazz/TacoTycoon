@@ -274,7 +274,10 @@ func enviar_progreso_realtime():
 func _ready() -> void:
 	randomize()
 	user_id = "9736ec65-08db-4b76-ba45-927069ff9de4"
+	print("🆔 ID generado para testeo:", user_id)
+	#user_id = generar_uuid()
 	#print("🆔 ID generado para testeo:", user_id)
+
 	call_deferred("_guardar_progreso_cuando_este_listo")
 
 	# También puedes cargar el progreso local aquí como ya haces
