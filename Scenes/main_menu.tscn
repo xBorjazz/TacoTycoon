@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dthkpu80jkm7c"]
+[gd_scene load_steps=77 format=3 uid="uid://dthkpu80jkm7c"]
 
 [ext_resource type="Texture2D" uid="uid://co48ohwuheccx" path="res://Maps/rainmap.png" id="1_3t4s4"]
 [ext_resource type="Texture2D" uid="uid://b7yg68li3w42" path="res://Maps/Cucei/chedraui.png" id="2_b34qg"]
@@ -13,10 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://b7iwt12a4aac0" path="res://Assets/start-game2.png" id="11_kltp6"]
 [ext_resource type="Texture2D" uid="uid://bpxvygafujuaf" path="res://Assets/options-btn.png" id="12_44awt"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="12_nh7ka"]
+[ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="12_uyq2m"]
+[ext_resource type="Texture2D" uid="uid://dscohmx54caqr" path="res://Assets/Buttons/taco-bubble.png" id="13_na2s6"]
 [ext_resource type="Texture2D" uid="uid://l3sdq4tc2dhg" path="res://Assets/Buttons/tutorial-btn.png" id="13_ns56d"]
+[ext_resource type="Texture2D" uid="uid://comt78g04al5u" path="res://Character/funny-sprite-sheet-removebg-preview.png" id="14_53i2q"]
 [ext_resource type="Texture2D" uid="uid://i6na68o0rx0t" path="res://Assets/multiplayer-btn.png" id="14_60tpk"]
 [ext_resource type="AudioStream" uid="uid://1m4tbdxml6ev" path="res://Resources/Sounds/SoundTrack/PixelDreams.mp3" id="14_a257s"]
+[ext_resource type="Texture2D" uid="uid://cryv2entvvax5" path="res://Character/8Direction_TopDown_Character Sprites_ByBossNelNel/SpriteSheet.png" id="15_7ctue"]
 [ext_resource type="Script" path="res://Scripts/MultiplayerButton.gd" id="15_omcny"]
+[ext_resource type="Texture2D" uid="uid://d3fapwbrpxphq" path="res://Assets/Tacos/client-full-taco.png" id="16_t3mj2"]
+[ext_resource type="Texture2D" uid="uid://4en08jsqgyeg" path="res://Assets/Tacos/client-regular-taco.png" id="17_eeb31"]
+[ext_resource type="Texture2D" uid="uid://bawybmdd5sf2w" path="res://Assets/Tacos/client-vegan-taco.png" id="18_lnkn2"]
+[ext_resource type="Texture2D" uid="uid://chasjtgokeao4" path="res://Assets/Buttons/rating-sprite.png" id="19_3ahqo"]
+[ext_resource type="Texture2D" uid="uid://qlfi7e8nyrkg" path="res://Assets/Buttons/number1sprite-.png" id="20_x6h24"]
+[ext_resource type="Texture2D" uid="uid://dxq7kd6fgkqxt" path="res://Assets/Buttons/number2-sprite.png" id="21_bi6ma"]
+[ext_resource type="Texture2D" uid="uid://d30eohj1lj2m1" path="res://Assets/Buttons/number3-sprite.png" id="22_bsfm6"]
+[ext_resource type="Texture2D" uid="uid://bouk0gtxwxpkw" path="res://Assets/Buttons/number4-sprite.png" id="23_lirc4"]
+[ext_resource type="Texture2D" uid="uid://bn8m0uhe7bctn" path="res://Assets/Buttons/number5-sprite.png" id="24_qfa4o"]
+[ext_resource type="Texture2D" uid="uid://tt1s86hrf40r" path="res://Assets/Buttons/circle-bar-progress.png" id="25_gtsom"]
+[ext_resource type="Texture2D" uid="uid://bf37seywtkvjo" path="res://Assets/Buttons/white-circle-progress2.png" id="26_hakye"]
+[ext_resource type="Script" path="res://Scripts/ClientProgressBar.gd" id="27_kfb0n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pfa3"]
 bg_color = Color(0.113725, 0.176471, 0.113725, 1)
@@ -269,6 +285,277 @@ _data = {
 "walk_right_up": SubResource("Animation_4pdfg")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ntxr"]
+atlas = ExtResource("13_na2s6")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ccat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ntxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfgdo"]
+atlas = ExtResource("14_53i2q")
+region = Rect2(210, 173, 96, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2kfx"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(184, 252, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ib7l"]
+atlas = ExtResource("10_pb6hy")
+region = Rect2(0, 72, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f683"]
+atlas = ExtResource("10_pb6hy")
+region = Rect2(23, 72, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsoxa"]
+atlas = ExtResource("14_53i2q")
+region = Rect2(214, 14, 96, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwgqu"]
+atlas = ExtResource("14_53i2q")
+region = Rect2(3, 14, 118, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj5x4"]
+atlas = ExtResource("14_53i2q")
+region = Rect2(117, 14, 96, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt1lv"]
+atlas = ExtResource("14_53i2q")
+region = Rect2(311, 14, 96, 158)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrgjp"]
+atlas = ExtResource("14_53i2q")
+region = Rect2(16, 173, 96, 152)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ieks"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(0, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojklv"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(23, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbke1"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(46, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysprs"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(69, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4p7h"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(92, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m888v"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(115, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04gl5"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(138, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgpbd"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(161, 36, 23, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofc72"]
+atlas = ExtResource("15_7ctue")
+region = Rect2(184, 36, 23, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70e04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfgdo")
+}],
+"loop": true,
+"name": &"buying",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2kfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ib7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f683")
+}],
+"loop": false,
+"name": &"fade_out",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsoxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwgqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj5x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt1lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrgjp")
+}],
+"loop": true,
+"name": &"walk_left_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ieks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojklv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbke1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysprs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4p7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m888v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04gl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgpbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofc72")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpgb3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2310"]
+atlas = ExtResource("16_t3mj2")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7www7"]
+atlas = ExtResource("17_eeb31")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noysf"]
+atlas = ExtResource("18_lnkn2")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2t3b1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2310")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2310")
+}],
+"loop": true,
+"name": &"full-order",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7www7")
+}],
+"loop": true,
+"name": &"regular-order",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noysf")
+}],
+"loop": true,
+"name": &"vegan-order",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft3d7"]
+atlas = ExtResource("20_x6h24")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8upy"]
+atlas = ExtResource("21_bi6ma")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vnel"]
+atlas = ExtResource("22_bsfm6")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt051"]
+atlas = ExtResource("23_lirc4")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksdax"]
+atlas = ExtResource("24_qfa4o")
+region = Rect2(0, 0, 677, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgxq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft3d7")
+}],
+"loop": true,
+"name": &"n1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8upy")
+}],
+"loop": true,
+"name": &"n2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vnel")
+}],
+"loop": true,
+"name": &"n3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt051")
+}],
+"loop": true,
+"name": &"n4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksdax")
+}],
+"loop": true,
+"name": &"n5",
+"speed": 5.0
+}]
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("12_nh7ka")
 
@@ -333,14 +620,15 @@ texture = ExtResource("4_k5gv6")
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MenuScreen1"]
 layout_mode = 0
 offset_left = 21.3032
-offset_top = 0.703681
+offset_top = 4.46326
 offset_right = 920.303
-offset_bottom = 497.704
+offset_bottom = 501.464
+rotation = -0.282218
 scale = Vector2(0.0261525, 0.0229047)
 texture = ExtResource("6_xah3f")
 
 [node name="Taco-logobg" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
-position = Vector2(19.346, 12.8314)
+position = Vector2(19.9487, 12.892)
 scale = Vector2(0.0250741, 0.0201983)
 texture = ExtResource("6_r6wjt")
 
@@ -350,11 +638,12 @@ scale = Vector2(0.0291897, 0.0235136)
 texture = ExtResource("7_60gds")
 
 [node name="Cucei-logoblue" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
-position = Vector2(14.2272, 7.13138)
+position = Vector2(16.41, 7.13138)
 scale = Vector2(0.0283095, 0.0228046)
 texture = ExtResource("8_gt4mx")
 
 [node name="Character2" type="Sprite2D" parent="CanvasLayer/MenuScreen1"]
+visible = false
 texture_filter = 1
 position = Vector2(36.4337, 14.8324)
 scale = Vector2(0.400662, 0.282974)
@@ -373,6 +662,77 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_jqjf3")
 }
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/MenuScreen1" groups=["PathFollows2D"]]
+position = Vector2(33.3474, 15.3175)
+scale = Vector2(0.466033, 0.37541)
+progress = 35.0842
+rotates = false
+loop = false
+script = ExtResource("12_uyq2m")
+
+[node name="CharacterSprite" type="CharacterBody2D" parent="CanvasLayer/MenuScreen1/PathFollow2D" groups=["CharacterSprites2D"]]
+position = Vector2(-0.190674, -0.460758)
+scale = Vector2(0.799454, 0.799454)
+
+[node name="Bubble" type="AnimatedSprite2D" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite" groups=["SpritesOrders"]]
+visible = false
+position = Vector2(-17.1252, -26.3119)
+scale = Vector2(0.131706, 0.131706)
+sprite_frames = SubResource("SpriteFrames_8ccat")
+flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite" groups=["AnimatedSprites2D"]]
+texture_filter = 1
+position = Vector2(6.09781, 1.58656)
+scale = Vector2(0.235426, 0.235426)
+sprite_frames = SubResource("SpriteFrames_70e04")
+animation = &"walk_left_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite" groups=["CollisionShapes2D"]]
+visible = false
+position = Vector2(0, 9.02478)
+scale = Vector2(0.398248, 0.534362)
+shape = SubResource("CircleShape2D_gpgb3")
+
+[node name="TacoOrder" type="AnimatedSprite2D" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite"]
+visible = false
+position = Vector2(-18.63, -28.182)
+scale = Vector2(0.0700637, 0.0700637)
+sprite_frames = SubResource("SpriteFrames_2t3b1")
+animation = &"regular-order"
+
+[node name="StarSprite" type="Sprite2D" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite"]
+visible = false
+position = Vector2(-24.7813, -62.3882)
+scale = Vector2(0.0686263, 0.0686263)
+texture = ExtResource("19_3ahqo")
+
+[node name="NumberAnimation" type="AnimatedSprite2D" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite"]
+visible = false
+position = Vector2(-1.85308, -61.4328)
+scale = Vector2(0.0672971, 0.0672971)
+sprite_frames = SubResource("SpriteFrames_jgxq6")
+animation = &"n5"
+offset = Vector2(-78.39, -11.005)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/MenuScreen1/PathFollow2D/CharacterSprite"]
+visible = false
+offset_left = -17.1252
+offset_top = -51.4808
+offset_right = 659.875
+offset_bottom = 317.519
+scale = Vector2(0.113893, 0.120086)
+pivot_offset = Vector2(4.005, -2.285)
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("25_gtsom")
+texture_progress = ExtResource("26_hakye")
+texture_progress_offset = Vector2(5.245, -2.835)
+script = ExtResource("27_kfb0n")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/MenuScreen1/PathFollow2D" groups=["TimerPaths"]]
+wait_time = 0.2
 
 [node name="MenuScreen2" type="Panel" parent="CanvasLayer"]
 texture_repeat = 2

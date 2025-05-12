@@ -6258,7 +6258,7 @@ Ingresa tu información:
   Nombre:                Ranking  
 
 
-  Score:                     
+                      
                          Online"
 
 [node name="SQLControl" type="Control" parent="CanvasLayer/PanelContainer/Panel8"]
@@ -6271,6 +6271,7 @@ offset_bottom = -356.261
 script = ExtResource("72_c21ot")
 
 [node name="Crear Tabla" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 100.525
 offset_top = 122.63
@@ -6282,14 +6283,15 @@ text = "Crear TABLA
 
 [node name="Insertar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
 layout_mode = 0
-offset_left = 99.5942
-offset_top = 150.539
-offset_right = 331.594
-offset_bottom = 174.539
+offset_left = 104.248
+offset_top = 333.215
+offset_right = 336.248
+offset_bottom = 357.215
 scale = Vector2(0.492474, 0.649767)
-text = "Insertar Datos"
+text = "Confirmar"
 
 [node name="Seleccionar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 179.293
@@ -6299,6 +6301,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Seleccionar Datos"
 
 [node name="Actualizar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 92.1479
 offset_top = 206.356
@@ -6308,6 +6311,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Actualizar Datos"
 
 [node name="Borrar Datos" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 97.7326
 offset_top = 232.574
@@ -6317,6 +6321,7 @@ scale = Vector2(0.492474, 0.649767)
 text = "Borrar Datos"
 
 [node name="Seleccionar Persona" type="Button" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 81.9092
 offset_top = 259.637
@@ -6335,6 +6340,7 @@ offset_bottom = 335.923
 scale = Vector2(0.433986, 0.649767)
 
 [node name="Puntuacion" type="TextEdit" parent="CanvasLayer/PanelContainer/Panel8"]
+visible = false
 layout_mode = 0
 offset_left = 107.04
 offset_top = 339.135
@@ -6352,14 +6358,14 @@ scale = Vector2(0.198331, 0.198331)
 texture_normal = ExtResource("73_nrsre")
 
 [node name="RankingTree" type="Tree" parent="CanvasLayer/PanelContainer/Panel8"]
-visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 0
-offset_left = 54.9164
-offset_top = 111.635
-offset_right = 70.9164
-offset_bottom = 128.635
-scale = Vector2(0.762225, 0.820293)
+offset_left = -12.1002
+offset_top = -309.535
+offset_right = 3.89978
+offset_bottom = -284.535
+scale = Vector2(0.756188, 0.813796)
+column_titles_visible = true
 script = ExtResource("72_c21ot")
 
 [node name="BackGround_Music" type="AudioStreamPlayer" parent="CanvasLayer"]

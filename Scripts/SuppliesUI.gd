@@ -156,13 +156,31 @@ func resetear_labels_recursos() -> void:
 	actualizar_labels()
 
 # Esperar a que Supabase.database esté listo
-func _guardar_progreso_cuando_este_listo() -> void:
-	if Supabase.database != null:
-		guardar_progreso_remoto(user_id)
-	else:
-		print("⏳ Esperando que Supabase.database esté listo...")
-		await get_tree().create_timer(0.2).timeout
-		_guardar_progreso_cuando_este_listo()
+func _guardar_progreso_cuando_este_listo(user_id) -> void:
+	var data := {
+		"id": user_id,
+		"dinero_actual": Inventory.player_money,
+		"dia_actual": Inventory.dia_actual,
+		"ventas_totales": Inventory.tacos_vendidos,
+		"perdidas_totales": Inventory.ventas_fallidas,
+		"promedio": Inventory.promedio,
+		"buenas_resenas": Inventory.total_reseñas,
+		"tutorial_completado": true,
+		"tortillas_total": Inventory.tortillas_total,
+		"carne_total": Inventory.carne_total,
+		"verdura_total": Inventory.verdura_total,
+		"salsa_total": Inventory.salsa_total,
+		"taco_coins": Inventory.taco_coins,
+		"puntaje_acumulado": Inventory.puntaje_acumulado,
+		"nivel_actual": LevelManager.current_level
+	}
+
+	var query := SupabaseQuery.new()
+	query.from("progreso_jugador").insert([data])
+
+	# Escucha la respuesta
+	Supabase.database.connect("selected", Callable(self, "_on_progreso_guardado"))
+	Supabase.database.query(query)
 
 func guardar_progreso_realtime():
 	if Supabase.database == null:
@@ -273,12 +291,12 @@ func enviar_progreso_realtime():
 
 func _ready() -> void:
 	randomize()
-	user_id = "9736ec65-08db-4b76-ba45-927069ff9de4"
-	print("🆔 ID generado para testeo:", user_id)
+	#user_id = "9736ec65-08db-4b76-ba45-927069ff9de4"
+	#print("🆔 ID generado para testeo:", user_id)
 	#user_id = generar_uuid()
 	#print("🆔 ID generado para testeo:", user_id)
 
-	call_deferred("_guardar_progreso_cuando_este_listo")
+	#call_deferred("_guardar_progreso_cuando_este_listo")
 
 	# También puedes cargar el progreso local aquí como ya haces
 	var progreso := GameProgress.cargar()

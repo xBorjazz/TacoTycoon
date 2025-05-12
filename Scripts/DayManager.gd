@@ -104,7 +104,7 @@ func _on_day_end() -> void:
 
 	emit_signal("stop_movement")
 	
-	SuppliesUi._guardar_progreso_cuando_este_listo()
+	#SuppliesUi._guardar_progreso_cuando_este_listo()
 
 	print("✅ Progreso guardado automáticamente al terminar el día.")
 	
