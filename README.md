@@ -9,7 +9,8 @@ Gameplay Preview
 
 The UI of Cucei Taco Tycoon is crafted for clarity and accessibility, allowing players to quickly navigate the game without confusion. Inspired by the dual-screen mechanics of Nintendo DS games, the HUD places every critical gameplay element within reach, giving players the ability to manage inventory, track customer satisfaction, and control daily operations all from one screen.
 
-![CuceiTacoTycoon](https://github.com/user-attachments/assets/3c9ebfdf-43ad-4d41-ae74-f3a79abbb612)
+![image](https://github.com/user-attachments/assets/bb41e8fa-d29e-4343-abee-fa0b1c14a8fa)
+
 
 Class Diagram
 
